@@ -29,6 +29,7 @@ namespace ProjectManager
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MemberSignUpForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupInfoBox = new System.Windows.Forms.GroupBox();
             this.projectManagerLabel = new System.Windows.Forms.Label();
@@ -329,6 +330,7 @@ namespace ProjectManager
             this.Controls.Add(this.projMemberSignUpBtn);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MemberSignUpForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
