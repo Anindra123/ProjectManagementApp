@@ -37,13 +37,13 @@ namespace ProjectManager
             if (en == true)
             {
                 enterGroupNameTextBox.Enabled = false;
-                groupSearchBtn.Enabled = false;
+                groupConfirmBtn.Enabled = false;
                 groupInfoBox.Enabled = false;
             }
             else
             {
                 enterGroupNameTextBox.Enabled = true;
-                groupSearchBtn.Enabled = true;
+                groupConfirmBtn.Enabled = true;
                 groupInfoBox.Enabled = true;
 
             }

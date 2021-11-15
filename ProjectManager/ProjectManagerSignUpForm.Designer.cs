@@ -47,18 +47,23 @@ namespace ProjectManager
             this.label3 = new System.Windows.Forms.Label();
             this.proMEmailTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.proMFullNameTextBox = new System.Windows.Forms.TextBox();
+            this.proMFirstNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.proMSignUp = new System.Windows.Forms.Button();
             this.proMCancel = new System.Windows.Forms.Button();
             this.proMCreateNewProj = new System.Windows.Forms.Button();
             this.goBackHomePageBtn = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.proMLastNameTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.proMLastNameTextBox);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.proMCurrentProjListBox);
+            this.groupBox1.Controls.Add(this.proMCreateNewProj);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.proMPasswordTextBox);
             this.groupBox1.Controls.Add(this.proMNoMembersRadio);
@@ -74,7 +79,7 @@ namespace ProjectManager
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.proMEmailTextBox);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.proMFullNameTextBox);
+            this.groupBox1.Controls.Add(this.proMFirstNameTextBox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
@@ -82,7 +87,7 @@ namespace ProjectManager
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(884, 588);
+            this.groupBox1.Size = new System.Drawing.Size(822, 644);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Project Manager Info";
@@ -91,7 +96,7 @@ namespace ProjectManager
             // 
             this.proMCurrentProjListBox.FormattingEnabled = true;
             this.proMCurrentProjListBox.ItemHeight = 23;
-            this.proMCurrentProjListBox.Location = new System.Drawing.Point(88, 500);
+            this.proMCurrentProjListBox.Location = new System.Drawing.Point(33, 544);
             this.proMCurrentProjListBox.Margin = new System.Windows.Forms.Padding(4);
             this.proMCurrentProjListBox.Name = "proMCurrentProjListBox";
             this.proMCurrentProjListBox.Size = new System.Drawing.Size(509, 73);
@@ -101,7 +106,7 @@ namespace ProjectManager
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(84, 477);
+            this.label8.Location = new System.Drawing.Point(29, 519);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(117, 19);
@@ -110,7 +115,7 @@ namespace ProjectManager
             // 
             // proMPasswordTextBox
             // 
-            this.proMPasswordTextBox.Location = new System.Drawing.Point(276, 147);
+            this.proMPasswordTextBox.Location = new System.Drawing.Point(221, 155);
             this.proMPasswordTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.proMPasswordTextBox.Name = "proMPasswordTextBox";
             this.proMPasswordTextBox.PasswordChar = '*';
@@ -120,7 +125,7 @@ namespace ProjectManager
             // proMNoMembersRadio
             // 
             this.proMNoMembersRadio.AutoSize = true;
-            this.proMNoMembersRadio.Location = new System.Drawing.Point(396, 252);
+            this.proMNoMembersRadio.Location = new System.Drawing.Point(341, 284);
             this.proMNoMembersRadio.Margin = new System.Windows.Forms.Padding(4);
             this.proMNoMembersRadio.Name = "proMNoMembersRadio";
             this.proMNoMembersRadio.Size = new System.Drawing.Size(54, 27);
@@ -132,7 +137,7 @@ namespace ProjectManager
             // proMYesMembersRadio
             // 
             this.proMYesMembersRadio.AutoSize = true;
-            this.proMYesMembersRadio.Location = new System.Drawing.Point(299, 252);
+            this.proMYesMembersRadio.Location = new System.Drawing.Point(244, 284);
             this.proMYesMembersRadio.Margin = new System.Windows.Forms.Padding(4);
             this.proMYesMembersRadio.Name = "proMYesMembersRadio";
             this.proMYesMembersRadio.Size = new System.Drawing.Size(55, 27);
@@ -144,7 +149,7 @@ namespace ProjectManager
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(84, 252);
+            this.label7.Location = new System.Drawing.Point(29, 284);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(188, 23);
@@ -155,7 +160,7 @@ namespace ProjectManager
             // 
             this.proMSearchMemBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.proMSearchMemBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.proMSearchMemBtn.Location = new System.Drawing.Point(640, 279);
+            this.proMSearchMemBtn.Location = new System.Drawing.Point(585, 320);
             this.proMSearchMemBtn.Margin = new System.Windows.Forms.Padding(4);
             this.proMSearchMemBtn.Name = "proMSearchMemBtn";
             this.proMSearchMemBtn.Size = new System.Drawing.Size(148, 48);
@@ -167,7 +172,7 @@ namespace ProjectManager
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(84, 345);
+            this.label6.Location = new System.Drawing.Point(29, 374);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(126, 19);
@@ -178,7 +183,7 @@ namespace ProjectManager
             // 
             this.proMCurrentMemListBox.FormattingEnabled = true;
             this.proMCurrentMemListBox.ItemHeight = 23;
-            this.proMCurrentMemListBox.Location = new System.Drawing.Point(88, 368);
+            this.proMCurrentMemListBox.Location = new System.Drawing.Point(33, 409);
             this.proMCurrentMemListBox.Margin = new System.Windows.Forms.Padding(4);
             this.proMCurrentMemListBox.Name = "proMCurrentMemListBox";
             this.proMCurrentMemListBox.Size = new System.Drawing.Size(509, 96);
@@ -186,7 +191,7 @@ namespace ProjectManager
             // 
             // proMSearchMemTextBox
             // 
-            this.proMSearchMemTextBox.Location = new System.Drawing.Point(276, 297);
+            this.proMSearchMemTextBox.Location = new System.Drawing.Point(221, 329);
             this.proMSearchMemTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.proMSearchMemTextBox.Name = "proMSearchMemTextBox";
             this.proMSearchMemTextBox.Size = new System.Drawing.Size(321, 30);
@@ -195,7 +200,7 @@ namespace ProjectManager
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(84, 300);
+            this.label5.Location = new System.Drawing.Point(29, 332);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(137, 23);
@@ -204,7 +209,7 @@ namespace ProjectManager
             // 
             // proMGroupNameTextBox
             // 
-            this.proMGroupNameTextBox.Location = new System.Drawing.Point(276, 197);
+            this.proMGroupNameTextBox.Location = new System.Drawing.Point(221, 233);
             this.proMGroupNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.proMGroupNameTextBox.Name = "proMGroupNameTextBox";
             this.proMGroupNameTextBox.Size = new System.Drawing.Size(321, 30);
@@ -213,7 +218,7 @@ namespace ProjectManager
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(84, 201);
+            this.label4.Location = new System.Drawing.Point(30, 240);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 23);
@@ -223,7 +228,7 @@ namespace ProjectManager
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(84, 147);
+            this.label3.Location = new System.Drawing.Point(29, 162);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 23);
@@ -232,7 +237,7 @@ namespace ProjectManager
             // 
             // proMEmailTextBox
             // 
-            this.proMEmailTextBox.Location = new System.Drawing.Point(276, 94);
+            this.proMEmailTextBox.Location = new System.Drawing.Point(221, 117);
             this.proMEmailTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.proMEmailTextBox.Name = "proMEmailTextBox";
             this.proMEmailTextBox.Size = new System.Drawing.Size(321, 30);
@@ -241,36 +246,36 @@ namespace ProjectManager
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(84, 98);
+            this.label2.Location = new System.Drawing.Point(30, 124);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "Email";
             // 
-            // proMFullNameTextBox
+            // proMFirstNameTextBox
             // 
-            this.proMFullNameTextBox.Location = new System.Drawing.Point(276, 41);
-            this.proMFullNameTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.proMFullNameTextBox.Name = "proMFullNameTextBox";
-            this.proMFullNameTextBox.Size = new System.Drawing.Size(321, 30);
-            this.proMFullNameTextBox.TabIndex = 1;
+            this.proMFirstNameTextBox.Location = new System.Drawing.Point(221, 41);
+            this.proMFirstNameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.proMFirstNameTextBox.Name = "proMFirstNameTextBox";
+            this.proMFirstNameTextBox.Size = new System.Drawing.Size(321, 30);
+            this.proMFirstNameTextBox.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(84, 45);
+            this.label1.Location = new System.Drawing.Point(29, 45);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 23);
+            this.label1.Size = new System.Drawing.Size(92, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Full Name";
+            this.label1.Text = "First Name";
             // 
             // proMSignUp
             // 
             this.proMSignUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.proMSignUp.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.proMSignUp.Location = new System.Drawing.Point(57, 610);
+            this.proMSignUp.Location = new System.Drawing.Point(103, 666);
             this.proMSignUp.Margin = new System.Windows.Forms.Padding(4);
             this.proMSignUp.Name = "proMSignUp";
             this.proMSignUp.Size = new System.Drawing.Size(133, 54);
@@ -283,7 +288,7 @@ namespace ProjectManager
             // 
             this.proMCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.proMCancel.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.proMCancel.Location = new System.Drawing.Point(722, 610);
+            this.proMCancel.Location = new System.Drawing.Point(604, 666);
             this.proMCancel.Margin = new System.Windows.Forms.Padding(4);
             this.proMCancel.Name = "proMCancel";
             this.proMCancel.Size = new System.Drawing.Size(124, 54);
@@ -296,7 +301,7 @@ namespace ProjectManager
             // 
             this.proMCreateNewProj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.proMCreateNewProj.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.proMCreateNewProj.Location = new System.Drawing.Point(264, 610);
+            this.proMCreateNewProj.Location = new System.Drawing.Point(585, 554);
             this.proMCreateNewProj.Margin = new System.Windows.Forms.Padding(4);
             this.proMCreateNewProj.Name = "proMCreateNewProj";
             this.proMCreateNewProj.Size = new System.Drawing.Size(165, 54);
@@ -310,7 +315,7 @@ namespace ProjectManager
             this.goBackHomePageBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.goBackHomePageBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goBackHomePageBtn.ForeColor = System.Drawing.Color.White;
-            this.goBackHomePageBtn.Location = new System.Drawing.Point(508, 610);
+            this.goBackHomePageBtn.Location = new System.Drawing.Point(360, 666);
             this.goBackHomePageBtn.Name = "goBackHomePageBtn";
             this.goBackHomePageBtn.Size = new System.Drawing.Size(132, 54);
             this.goBackHomePageBtn.TabIndex = 4;
@@ -318,14 +323,31 @@ namespace ProjectManager
             this.goBackHomePageBtn.UseVisualStyleBackColor = false;
             this.goBackHomePageBtn.Click += new System.EventHandler(this.goBackHomePageBtn_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(30, 87);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(91, 23);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Last Name";
+            // 
+            // proMLastNameTextBox
+            // 
+            this.proMLastNameTextBox.Location = new System.Drawing.Point(221, 79);
+            this.proMLastNameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.proMLastNameTextBox.Name = "proMLastNameTextBox";
+            this.proMLastNameTextBox.Size = new System.Drawing.Size(321, 30);
+            this.proMLastNameTextBox.TabIndex = 22;
+            // 
             // ProjectManagerSignUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(915, 690);
+            this.ClientSize = new System.Drawing.Size(854, 747);
             this.Controls.Add(this.goBackHomePageBtn);
-            this.Controls.Add(this.proMCreateNewProj);
             this.Controls.Add(this.proMCancel);
             this.Controls.Add(this.proMSignUp);
             this.Controls.Add(this.groupBox1);
@@ -350,7 +372,7 @@ namespace ProjectManager
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox proMEmailTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox proMFullNameTextBox;
+        private System.Windows.Forms.TextBox proMFirstNameTextBox;
         private System.Windows.Forms.ListBox proMCurrentMemListBox;
         private System.Windows.Forms.TextBox proMSearchMemTextBox;
         private System.Windows.Forms.Label label5;
@@ -369,6 +391,8 @@ namespace ProjectManager
         private System.Windows.Forms.Button goBackHomePageBtn;
         private System.Windows.Forms.ListBox proMCurrentProjListBox;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox proMLastNameTextBox;
+        private System.Windows.Forms.Label label9;
     }
 }
 
