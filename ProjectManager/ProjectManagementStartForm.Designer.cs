@@ -1,7 +1,7 @@
 ﻿
 namespace ProjectManager
 {
-    partial class ProjectManagerStartForm
+    partial class ProjectManagementStartForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace ProjectManager
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectManagerStartForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectManagementStartForm));
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.continueAsAdminBtn = new System.Windows.Forms.Button();
@@ -42,18 +42,18 @@ namespace ProjectManager
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(175, 63);
+            this.label1.Location = new System.Drawing.Point(188, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(395, 38);
+            this.label1.Size = new System.Drawing.Size(394, 32);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Project Manager App Ver 1.0";
+            this.label1.Text = "Project Management App Ver 1.0";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(123, 63);
+            this.pictureBox1.Location = new System.Drawing.Point(152, 71);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -111,7 +111,7 @@ namespace ProjectManager
             this.aboutBtn.Text = "About";
             this.aboutBtn.UseVisualStyleBackColor = false;
             // 
-            // ProjectManagerStartForm
+            // ProjectManagementStartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -127,7 +127,7 @@ namespace ProjectManager
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "ProjectManagerStartForm";
+            this.Name = "ProjectManagementStartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -31,6 +31,8 @@ namespace ProjectManager
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MemberSignUpForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.projMLastNameTextBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupInfoBox = new System.Windows.Forms.GroupBox();
             this.projectManagerLabel = new System.Windows.Forms.Label();
             this.projNameLabel = new System.Windows.Forms.Label();
@@ -52,18 +54,16 @@ namespace ProjectManager
             this.projMemberSignUpBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.goBackHomePageBtn = new System.Windows.Forms.Button();
-            this.groupListComboBox = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.projMLastNameTextBox = new System.Windows.Forms.TextBox();
+            this.enterGroupNameTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupInfoBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.enterGroupNameTextBox);
             this.groupBox1.Controls.Add(this.projMLastNameTextBox);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.groupListComboBox);
             this.groupBox1.Controls.Add(this.groupInfoBox);
             this.groupBox1.Controls.Add(this.groupConfirmBtn);
             this.groupBox1.Controls.Add(this.label5);
@@ -83,6 +83,22 @@ namespace ProjectManager
             this.groupBox1.Size = new System.Drawing.Size(691, 611);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // projMLastNameTextBox
+            // 
+            this.projMLastNameTextBox.Location = new System.Drawing.Point(270, 82);
+            this.projMLastNameTextBox.Name = "projMLastNameTextBox";
+            this.projMLastNameTextBox.Size = new System.Drawing.Size(392, 30);
+            this.projMLastNameTextBox.TabIndex = 15;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(22, 89);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(91, 23);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Last Name";
             // 
             // groupInfoBox
             // 
@@ -295,29 +311,12 @@ namespace ProjectManager
             this.goBackHomePageBtn.UseVisualStyleBackColor = false;
             this.goBackHomePageBtn.Click += new System.EventHandler(this.goBackHomePageBtn_Click);
             // 
-            // groupListComboBox
+            // enterGroupNameTextBox
             // 
-            this.groupListComboBox.FormattingEnabled = true;
-            this.groupListComboBox.Location = new System.Drawing.Point(205, 307);
-            this.groupListComboBox.Name = "groupListComboBox";
-            this.groupListComboBox.Size = new System.Drawing.Size(348, 31);
-            this.groupListComboBox.TabIndex = 13;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(22, 89);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 23);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Last Name";
-            // 
-            // projMLastNameTextBox
-            // 
-            this.projMLastNameTextBox.Location = new System.Drawing.Point(270, 82);
-            this.projMLastNameTextBox.Name = "projMLastNameTextBox";
-            this.projMLastNameTextBox.Size = new System.Drawing.Size(392, 30);
-            this.projMLastNameTextBox.TabIndex = 15;
+            this.enterGroupNameTextBox.Location = new System.Drawing.Point(193, 307);
+            this.enterGroupNameTextBox.Name = "enterGroupNameTextBox";
+            this.enterGroupNameTextBox.Size = new System.Drawing.Size(360, 30);
+            this.enterGroupNameTextBox.TabIndex = 16;
             // 
             // MemberSignUpForm
             // 
@@ -368,8 +367,8 @@ namespace ProjectManager
         private System.Windows.Forms.Button projMemberSignUpBtn;
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button goBackHomePageBtn;
-        private System.Windows.Forms.ComboBox groupListComboBox;
         private System.Windows.Forms.TextBox projMLastNameTextBox;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox enterGroupNameTextBox;
     }
 }

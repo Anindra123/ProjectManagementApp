@@ -20,7 +20,7 @@ namespace ProjectManager
         void ShowPreviousMenu()
         {
             //Goes to the previous control
-            var form = (ProjectManagerStartForm)Tag;
+            var form = (ProjectManagementStartForm)Tag;
             form.Show();
         }
         void ShowNewMenu(Form obj)

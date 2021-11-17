@@ -21,7 +21,7 @@ namespace ProjectManager
         }
         void ShowPreviousMenu()
         {
-            var form = (ProjectManagerStartForm)Tag;
+            var form = (ProjectManagementStartForm)Tag;
             form.Show();
         }
         private void Admin_LogIn_button1_Click(object sender, EventArgs e)
