@@ -48,10 +48,9 @@ namespace ProjectManager
             this.assignedTasksListBox = new System.Windows.Forms.ListBox();
             this.updateTaskInfoBtn = new System.Windows.Forms.Button();
             this.viewGroupInfoBtn = new System.Windows.Forms.Button();
-            this.contactManagerBtn = new System.Windows.Forms.Button();
             this.joinProjectGroupBtn = new System.Windows.Forms.Button();
-            this.checkMessagesBtn = new System.Windows.Forms.Button();
             this.logOutBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.TaskInfo.SuspendLayout();
             this.SuspendLayout();
@@ -236,7 +235,7 @@ namespace ProjectManager
             this.updateTaskInfoBtn.Name = "updateTaskInfoBtn";
             this.updateTaskInfoBtn.Size = new System.Drawing.Size(174, 57);
             this.updateTaskInfoBtn.TabIndex = 6;
-            this.updateTaskInfoBtn.Text = "Update Task Info";
+            this.updateTaskInfoBtn.Text = "Update Task Status";
             this.updateTaskInfoBtn.UseVisualStyleBackColor = false;
             // 
             // viewGroupInfoBtn
@@ -251,41 +250,17 @@ namespace ProjectManager
             this.viewGroupInfoBtn.Text = "View Group Info";
             this.viewGroupInfoBtn.UseVisualStyleBackColor = false;
             // 
-            // contactManagerBtn
-            // 
-            this.contactManagerBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.contactManagerBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactManagerBtn.ForeColor = System.Drawing.Color.White;
-            this.contactManagerBtn.Location = new System.Drawing.Point(920, 272);
-            this.contactManagerBtn.Name = "contactManagerBtn";
-            this.contactManagerBtn.Size = new System.Drawing.Size(174, 57);
-            this.contactManagerBtn.TabIndex = 8;
-            this.contactManagerBtn.Text = "Contact Manager";
-            this.contactManagerBtn.UseVisualStyleBackColor = false;
-            // 
             // joinProjectGroupBtn
             // 
             this.joinProjectGroupBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.joinProjectGroupBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.joinProjectGroupBtn.ForeColor = System.Drawing.Color.White;
-            this.joinProjectGroupBtn.Location = new System.Drawing.Point(920, 346);
+            this.joinProjectGroupBtn.Location = new System.Drawing.Point(920, 274);
             this.joinProjectGroupBtn.Name = "joinProjectGroupBtn";
             this.joinProjectGroupBtn.Size = new System.Drawing.Size(174, 57);
             this.joinProjectGroupBtn.TabIndex = 9;
             this.joinProjectGroupBtn.Text = "Join Project Group";
             this.joinProjectGroupBtn.UseVisualStyleBackColor = false;
-            // 
-            // checkMessagesBtn
-            // 
-            this.checkMessagesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.checkMessagesBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkMessagesBtn.ForeColor = System.Drawing.Color.White;
-            this.checkMessagesBtn.Location = new System.Drawing.Point(920, 426);
-            this.checkMessagesBtn.Name = "checkMessagesBtn";
-            this.checkMessagesBtn.Size = new System.Drawing.Size(174, 57);
-            this.checkMessagesBtn.TabIndex = 10;
-            this.checkMessagesBtn.Text = "Check Messages";
-            this.checkMessagesBtn.UseVisualStyleBackColor = false;
             // 
             // logOutBtn
             // 
@@ -300,16 +275,27 @@ namespace ProjectManager
             this.logOutBtn.UseVisualStyleBackColor = false;
             this.logOutBtn.Click += new System.EventHandler(this.logOutBtn_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(920, 346);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(174, 57);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "View Task Details";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // ProjectMemberMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1132, 709);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.logOutBtn);
-            this.Controls.Add(this.checkMessagesBtn);
             this.Controls.Add(this.joinProjectGroupBtn);
-            this.Controls.Add(this.contactManagerBtn);
             this.Controls.Add(this.viewGroupInfoBtn);
             this.Controls.Add(this.updateTaskInfoBtn);
             this.Controls.Add(this.TaskInfo);
@@ -320,7 +306,7 @@ namespace ProjectManager
             this.MaximizeBox = false;
             this.Name = "ProjectMemberMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Project Member Menu";
+            this.Text = "Project Member Dashboard";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.TaskInfo.ResumeLayout(false);
@@ -350,9 +336,8 @@ namespace ProjectManager
         private System.Windows.Forms.ListBox assignedTasksListBox;
         private System.Windows.Forms.Button updateTaskInfoBtn;
         private System.Windows.Forms.Button viewGroupInfoBtn;
-        private System.Windows.Forms.Button contactManagerBtn;
         private System.Windows.Forms.Button joinProjectGroupBtn;
-        private System.Windows.Forms.Button checkMessagesBtn;
         private System.Windows.Forms.Button logOutBtn;
+        private System.Windows.Forms.Button button1;
     }
 }

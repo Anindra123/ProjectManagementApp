@@ -101,11 +101,11 @@
     <Compile Include="ProjectManagerSignUpForm.designer.cs">
       <DependentUpon>ProjectManagerSignUpForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProjectManagerStartForm.cs">
+    <Compile Include="ProjectManagementStartForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProjectManagerStartForm.Designer.cs">
-      <DependentUpon>ProjectManagerStartForm.cs</DependentUpon>
+    <Compile Include="ProjectManagementStartForm.Designer.cs">
+      <DependentUpon>ProjectManagementStartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProjectMemberMenu.cs">
       <SubType>Form</SubType>
@@ -147,8 +147,8 @@
     <EmbeddedResource Include="ProjectManagerSignUpForm.resx">
       <DependentUpon>ProjectManagerSignUpForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProjectManagerStartForm.resx">
-      <DependentUpon>ProjectManagerStartForm.cs</DependentUpon>
+    <EmbeddedResource Include="ProjectManagementStartForm.resx">
+      <DependentUpon>ProjectManagementStartForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectMemberMenu.resx">
       <DependentUpon>ProjectMemberMenu.cs</DependentUpon>

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjectManager
 {
-    public partial class ProjectManagerStartForm : Form
+    public partial class ProjectManagementStartForm : Form
     {
-        public ProjectManagerStartForm()
+        public ProjectManagementStartForm()
         {
             InitializeComponent();
         }

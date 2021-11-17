@@ -26,7 +26,7 @@ namespace ProjectManager
             //Close the current form and the form before it
             //And show homepage
             var form1 = (ContinueAsProjectMemberForm)Tag;
-            var form2 = (ProjectManagerStartForm)form1.Tag;
+            var form2 = (ProjectManagementStartForm)form1.Tag;
             form1.Close();
             form2.Show();
 
@@ -94,7 +94,7 @@ namespace ProjectManager
                    && !String.IsNullOrWhiteSpace(projGroupNameLabel.Text)
                    && !projectManagerLabel.Text.Equals("none")
                    && !String.IsNullOrWhiteSpace(projectManagerLabel.Text)
-                   && (workPositionComboBox.SelectedIndex > 0))
+                   )
                    || memberOfGroupNoRadioBtn.Checked == true)
             {
                 return true;

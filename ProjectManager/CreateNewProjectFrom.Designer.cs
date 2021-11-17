@@ -69,9 +69,9 @@ namespace ProjectManager
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(15, 14);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(884, 703);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -82,7 +82,7 @@ namespace ProjectManager
             this.proMRemoveFeature.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.proMRemoveFeature.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.proMRemoveFeature.Location = new System.Drawing.Point(636, 599);
-            this.proMRemoveFeature.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proMRemoveFeature.Margin = new System.Windows.Forms.Padding(4);
             this.proMRemoveFeature.Name = "proMRemoveFeature";
             this.proMRemoveFeature.Size = new System.Drawing.Size(151, 49);
             this.proMRemoveFeature.TabIndex = 15;
@@ -94,7 +94,7 @@ namespace ProjectManager
             this.proMAddNewFeatures.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.proMAddNewFeatures.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.proMAddNewFeatures.Location = new System.Drawing.Point(636, 505);
-            this.proMAddNewFeatures.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proMAddNewFeatures.Margin = new System.Windows.Forms.Padding(4);
             this.proMAddNewFeatures.Name = "proMAddNewFeatures";
             this.proMAddNewFeatures.Size = new System.Drawing.Size(151, 47);
             this.proMAddNewFeatures.TabIndex = 14;
@@ -117,7 +117,7 @@ namespace ProjectManager
             this.proMCurrentFeatures.FormattingEnabled = true;
             this.proMCurrentFeatures.ItemHeight = 23;
             this.proMCurrentFeatures.Location = new System.Drawing.Point(50, 489);
-            this.proMCurrentFeatures.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proMCurrentFeatures.Margin = new System.Windows.Forms.Padding(4);
             this.proMCurrentFeatures.Name = "proMCurrentFeatures";
             this.proMCurrentFeatures.Size = new System.Drawing.Size(516, 188);
             this.proMCurrentFeatures.TabIndex = 12;
@@ -125,7 +125,7 @@ namespace ProjectManager
             // proMEstBudget
             // 
             this.proMEstBudget.Location = new System.Drawing.Point(264, 404);
-            this.proMEstBudget.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proMEstBudget.Margin = new System.Windows.Forms.Padding(4);
             this.proMEstBudget.Name = "proMEstBudget";
             this.proMEstBudget.Size = new System.Drawing.Size(302, 30);
             this.proMEstBudget.TabIndex = 11;
@@ -154,7 +154,7 @@ namespace ProjectManager
             // 
             this.proMEndDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.proMEndDatePicker.Location = new System.Drawing.Point(264, 347);
-            this.proMEndDatePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proMEndDatePicker.Margin = new System.Windows.Forms.Padding(4);
             this.proMEndDatePicker.Name = "proMEndDatePicker";
             this.proMEndDatePicker.Size = new System.Drawing.Size(265, 30);
             this.proMEndDatePicker.TabIndex = 8;
@@ -173,7 +173,7 @@ namespace ProjectManager
             // 
             this.proMStartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.proMStartDatePicker.Location = new System.Drawing.Point(264, 294);
-            this.proMStartDatePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proMStartDatePicker.Margin = new System.Windows.Forms.Padding(4);
             this.proMStartDatePicker.Name = "proMStartDatePicker";
             this.proMStartDatePicker.Size = new System.Drawing.Size(265, 30);
             this.proMStartDatePicker.TabIndex = 6;
@@ -193,7 +193,7 @@ namespace ProjectManager
             this.proMProjDescListBox.FormattingEnabled = true;
             this.proMProjDescListBox.ItemHeight = 23;
             this.proMProjDescListBox.Location = new System.Drawing.Point(49, 168);
-            this.proMProjDescListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proMProjDescListBox.Margin = new System.Windows.Forms.Padding(4);
             this.proMProjDescListBox.Name = "proMProjDescListBox";
             this.proMProjDescListBox.Size = new System.Drawing.Size(509, 96);
             this.proMProjDescListBox.TabIndex = 4;
@@ -201,7 +201,7 @@ namespace ProjectManager
             // proMProjTitleTextBox
             // 
             this.proMProjTitleTextBox.Location = new System.Drawing.Point(237, 65);
-            this.proMProjTitleTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proMProjTitleTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.proMProjTitleTextBox.Name = "proMProjTitleTextBox";
             this.proMProjTitleTextBox.Size = new System.Drawing.Size(321, 30);
             this.proMProjTitleTextBox.TabIndex = 3;
@@ -221,7 +221,7 @@ namespace ProjectManager
             this.proM2Confirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.proM2Confirm.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.proM2Confirm.Location = new System.Drawing.Point(142, 725);
-            this.proM2Confirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proM2Confirm.Margin = new System.Windows.Forms.Padding(4);
             this.proM2Confirm.Name = "proM2Confirm";
             this.proM2Confirm.Size = new System.Drawing.Size(151, 60);
             this.proM2Confirm.TabIndex = 17;
@@ -233,7 +233,7 @@ namespace ProjectManager
             this.proM2Cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.proM2Cancel.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.proM2Cancel.Location = new System.Drawing.Point(610, 725);
-            this.proM2Cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proM2Cancel.Margin = new System.Windows.Forms.Padding(4);
             this.proM2Cancel.Name = "proM2Cancel";
             this.proM2Cancel.Size = new System.Drawing.Size(151, 60);
             this.proM2Cancel.TabIndex = 18;
@@ -253,11 +253,11 @@ namespace ProjectManager
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "CreateNewProjectFrom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form5";
+            this.Text = "Create new project";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
