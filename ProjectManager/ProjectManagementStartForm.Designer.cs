@@ -46,7 +46,7 @@ namespace ProjectManager
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(188, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(394, 32);
+            this.label1.Size = new System.Drawing.Size(307, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Project Management App Ver 1.0";
             // 
@@ -113,7 +113,7 @@ namespace ProjectManager
             // 
             // ProjectManagementStartForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(682, 453);
@@ -130,6 +130,7 @@ namespace ProjectManager
             this.Name = "ProjectManagementStartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome";
+            this.Load += new System.EventHandler(this.ProjectManagementStartForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
