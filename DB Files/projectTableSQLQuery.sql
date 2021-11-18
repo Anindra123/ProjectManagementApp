@@ -10,11 +10,10 @@ Project_StartDate date not null,
 Project_EndDate date not null,
 PStatus_ID int foreign key references ProjectStatus_TBL(PStatus_ID)
 )
-insert into Project_Status 
+insert into ProjectStatus_TBL
 (PStatus_Name) values ('C')
-insert into Project_Status 
+insert into ProjectStatus_TBL 
 (PStatus_Name) values ('NC')
-
 
 
  
