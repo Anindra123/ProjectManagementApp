@@ -69,5 +69,15 @@ namespace ProjectManager
             ShowPreviousForm();
             this.Close();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void proMFirstNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
