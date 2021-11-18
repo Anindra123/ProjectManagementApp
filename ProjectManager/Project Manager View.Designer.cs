@@ -48,7 +48,6 @@ namespace ProjectManager
             this.viewProjectInfoBtn = new System.Windows.Forms.Button();
             this.viewProjectProgressBtn = new System.Windows.Forms.Button();
             this.updateGroupMembersBtn = new System.Windows.Forms.Button();
-            this.viewQueryInboxBtn = new System.Windows.Forms.Button();
             this.mainGroupbox.SuspendLayout();
             this.currentFeatureList2Groupbox.SuspendLayout();
             this.currentFeatureListGroupbox1.SuspendLayout();
@@ -274,25 +273,12 @@ namespace ProjectManager
             this.updateGroupMembersBtn.Text = "Update Group Members";
             this.updateGroupMembersBtn.UseVisualStyleBackColor = false;
             // 
-            // viewQueryInboxBtn
-            // 
-            this.viewQueryInboxBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.viewQueryInboxBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewQueryInboxBtn.ForeColor = System.Drawing.Color.White;
-            this.viewQueryInboxBtn.Location = new System.Drawing.Point(965, 379);
-            this.viewQueryInboxBtn.Name = "viewQueryInboxBtn";
-            this.viewQueryInboxBtn.Size = new System.Drawing.Size(153, 59);
-            this.viewQueryInboxBtn.TabIndex = 7;
-            this.viewQueryInboxBtn.Text = "View Query Inbox";
-            this.viewQueryInboxBtn.UseVisualStyleBackColor = false;
-            // 
             // ProjectManagerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1150, 654);
-            this.Controls.Add(this.viewQueryInboxBtn);
             this.Controls.Add(this.updateGroupMembersBtn);
             this.Controls.Add(this.viewProjectProgressBtn);
             this.Controls.Add(this.viewProjectInfoBtn);
@@ -306,7 +292,7 @@ namespace ProjectManager
             this.MaximizeBox = false;
             this.Name = "ProjectManagerView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Project Manager View";
+            this.Text = "Project Manager Dashboard";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.mainGroupbox.ResumeLayout(false);
             this.mainGroupbox.PerformLayout();
@@ -336,6 +322,5 @@ namespace ProjectManager
         private System.Windows.Forms.Button viewProjectInfoBtn;
         private System.Windows.Forms.Button viewProjectProgressBtn;
         private System.Windows.Forms.Button updateGroupMembersBtn;
-        private System.Windows.Forms.Button viewQueryInboxBtn;
     }
 }
