@@ -76,6 +76,8 @@
     <Compile Include="CreateNewProjectFrom.designer.cs">
       <DependentUpon>CreateNewProjectFrom.cs</DependentUpon>
     </Compile>
+    <Compile Include="DBAcess.cs" />
+    <Compile Include="DBConnection.cs" />
     <Compile Include="MemberSignUpForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +91,9 @@
     <Compile Include="Project Manager View.designer.cs">
       <DependentUpon>Project Manager View.cs</DependentUpon>
     </Compile>
+    <Compile Include="Project.cs" />
+    <Compile Include="ProjectGroup.cs" />
+    <Compile Include="ProjectManager.cs" />
     <Compile Include="ProjectManagerSignIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +112,7 @@
     <Compile Include="ProjectManagementStartForm.Designer.cs">
       <DependentUpon>ProjectManagementStartForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProjectMember.cs" />
     <Compile Include="ProjectMemberMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,8 @@
       <DependentUpon>ProjectMemberSignIn.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Task.cs" />
+    <Compile Include="User.cs" />
     <EmbeddedResource Include="Add New Feature.resx">
       <DependentUpon>Add New Feature.cs</DependentUpon>
     </EmbeddedResource>
