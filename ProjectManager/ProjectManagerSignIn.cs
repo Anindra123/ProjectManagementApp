@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using System.Data.SqlClient;
 
 namespace ProjectManager
 {
     public partial class ProjectManagerSignIn : Form
     {
+        string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
         public ProjectManagerSignIn()
         {
             InitializeComponent();
@@ -44,9 +47,42 @@ namespace ProjectManager
         // validate manager password and name/mail
         private void projMSignInBtn_Click(object sender, EventArgs e)
         {
-            ProjectManagerView managerView = new
-                ProjectManagerView();
-            ShowNewMenu(managerView);
+            if (string.IsNullOrEmpty(projMEmailTextBox.Text) || string.IsNullOrEmpty(projMPasswordTextBox.Text) )
+            {
+                MessageBox.Show("Fill up all the fields");
+            }else if (! Regex.IsMatch(projMEmailTextBox.Text, pattern))
+            {
+                MessageBox.Show("Invalid Email Format");
+            }
+            else
+            {
+                
+                bool ret = DBAcess.SignIn(projMEmailTextBox.Text.Trim(), projMPasswordTextBox.Text.Trim());
+
+                if(ret == true)
+                {
+                    
+                        ProjectManagerView managerView = new ProjectManagerView();
+                        ShowNewMenu(managerView);
+                }
+                else
+                {
+                    MessageBox.Show("User not found");
+                }
+
+
+            }
+           
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ProjectManagerSignIn_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

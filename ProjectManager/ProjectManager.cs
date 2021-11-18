@@ -9,5 +9,7 @@ namespace ProjectManager
     class ProjectManager : User
     {
         public int PManager_ID { get; set; }
+        
+
     }
 }
