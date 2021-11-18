@@ -71,5 +71,10 @@ namespace ProjectManager
 
             }
         }
+
+        private void ProjectMemberSignIn_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

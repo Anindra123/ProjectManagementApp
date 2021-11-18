@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectManager
 {
-    class User
+    abstract class User
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
