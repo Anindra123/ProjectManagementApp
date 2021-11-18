@@ -46,8 +46,8 @@ namespace ProjectManager
             this.viewProjectBacklogBtn = new System.Windows.Forms.Button();
             this.logOutBtn = new System.Windows.Forms.Button();
             this.viewProjectInfoBtn = new System.Windows.Forms.Button();
-            this.viewProjectProgressBtn = new System.Windows.Forms.Button();
             this.updateGroupMembersBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.mainGroupbox.SuspendLayout();
             this.currentFeatureList2Groupbox.SuspendLayout();
             this.currentFeatureListGroupbox1.SuspendLayout();
@@ -217,7 +217,7 @@ namespace ProjectManager
             this.viewProjectBacklogBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.viewProjectBacklogBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewProjectBacklogBtn.ForeColor = System.Drawing.Color.White;
-            this.viewProjectBacklogBtn.Location = new System.Drawing.Point(965, 304);
+            this.viewProjectBacklogBtn.Location = new System.Drawing.Point(965, 262);
             this.viewProjectBacklogBtn.Name = "viewProjectBacklogBtn";
             this.viewProjectBacklogBtn.Size = new System.Drawing.Size(153, 69);
             this.viewProjectBacklogBtn.TabIndex = 6;
@@ -242,24 +242,12 @@ namespace ProjectManager
             this.viewProjectInfoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.viewProjectInfoBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewProjectInfoBtn.ForeColor = System.Drawing.Color.White;
-            this.viewProjectInfoBtn.Location = new System.Drawing.Point(965, 229);
+            this.viewProjectInfoBtn.Location = new System.Drawing.Point(965, 175);
             this.viewProjectInfoBtn.Name = "viewProjectInfoBtn";
             this.viewProjectInfoBtn.Size = new System.Drawing.Size(153, 69);
             this.viewProjectInfoBtn.TabIndex = 8;
             this.viewProjectInfoBtn.Text = "View Project Info";
             this.viewProjectInfoBtn.UseVisualStyleBackColor = false;
-            // 
-            // viewProjectProgressBtn
-            // 
-            this.viewProjectProgressBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.viewProjectProgressBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewProjectProgressBtn.ForeColor = System.Drawing.Color.White;
-            this.viewProjectProgressBtn.Location = new System.Drawing.Point(965, 154);
-            this.viewProjectProgressBtn.Name = "viewProjectProgressBtn";
-            this.viewProjectProgressBtn.Size = new System.Drawing.Size(153, 69);
-            this.viewProjectProgressBtn.TabIndex = 9;
-            this.viewProjectProgressBtn.Text = "View Project Progress";
-            this.viewProjectProgressBtn.UseVisualStyleBackColor = false;
             // 
             // updateGroupMembersBtn
             // 
@@ -270,8 +258,20 @@ namespace ProjectManager
             this.updateGroupMembersBtn.Name = "updateGroupMembersBtn";
             this.updateGroupMembersBtn.Size = new System.Drawing.Size(153, 70);
             this.updateGroupMembersBtn.TabIndex = 10;
-            this.updateGroupMembersBtn.Text = "Update Group Members";
+            this.updateGroupMembersBtn.Text = "Update Group Info";
             this.updateGroupMembersBtn.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(965, 352);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(153, 69);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Update Project Info";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // ProjectManagerView
             // 
@@ -279,8 +279,8 @@ namespace ProjectManager
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1150, 654);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.updateGroupMembersBtn);
-            this.Controls.Add(this.viewProjectProgressBtn);
             this.Controls.Add(this.viewProjectInfoBtn);
             this.Controls.Add(this.logOutBtn);
             this.Controls.Add(this.viewProjectBacklogBtn);
@@ -320,7 +320,7 @@ namespace ProjectManager
         private System.Windows.Forms.Button viewProjectBacklogBtn;
         private System.Windows.Forms.Button logOutBtn;
         private System.Windows.Forms.Button viewProjectInfoBtn;
-        private System.Windows.Forms.Button viewProjectProgressBtn;
         private System.Windows.Forms.Button updateGroupMembersBtn;
+        private System.Windows.Forms.Button button1;
     }
 }

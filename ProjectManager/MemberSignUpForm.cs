@@ -14,7 +14,7 @@ namespace ProjectManager
     public partial class MemberSignUpForm : Form
     {
         //defined a regular expression for mail validation
-        Regex re = new Regex(@"^([\w-\.]+)" + "@" + @"((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+        string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
         public MemberSignUpForm()
         {
             InitializeComponent();
@@ -110,19 +110,23 @@ namespace ProjectManager
                 )
             {
                 //Email validation
-                if (re.IsMatch(projectMemberEmailTextBox.Text.Trim()))
+                if (Regex.IsMatch(projectMemberEmailTextBox.Text.Trim(), pattern))
                 {
                     //Validate the group info feild
                     if (validateGroupInfoForm())
                     {
-                        DialogResult result = MessageBox.Show("Sign Up Sucessful", "Sucess",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        if (result == DialogResult.OK)
+
+                        bool val = DBAcess.SignUPProjectMember(
+                            projMemFirstNameTextBox.Text.Trim(),
+                            projMLastNameTextBox.Text.Trim(),
+                            projectMemberEmailTextBox.Text.Trim(),
+                            projMemberPasswordTextBox.Text.Trim()
+                            );
+                        if (val == true)
                         {
-                            //[TO DO] - Save the sign up info in a database 
-                            //or text file
-                            ShowPreviousMenu();
-                            this.Close();
+
+                            DialogResult result = MessageBox.Show("Sign Up Sucessful", "Sucess",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     else
