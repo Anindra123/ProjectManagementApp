@@ -123,6 +123,7 @@ namespace ProjectManager
             this.groupBox1.Size = new System.Drawing.Size(536, 374);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // pictureBox1
             // 

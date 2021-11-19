@@ -30,11 +30,15 @@ namespace ProjectManager
             {
                 text1 = Admin_name_email_TextBox1.Text;
                 text2 = Admin_password_masked_textBox1.Text;
+                Form2 f2 = new Form2();
+                f2.Show();
+                this.Hide();
             }
             else
             {
                 MessageBox.Show("Text fields cannot be empty");
             }
+
         }
 
         private void Admin_cancel_button2_Click(object sender, EventArgs e)
@@ -46,6 +50,11 @@ namespace ProjectManager
         private void AdminLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             ShowPreviousMenu();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
