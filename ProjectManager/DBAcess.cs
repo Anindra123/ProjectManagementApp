@@ -11,10 +11,9 @@ namespace ProjectManager
 {
     class DBAcess
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
+
+
         private static DataTable dt = new DataTable();
 
         private static void FillTable(string query)
@@ -60,8 +59,8 @@ namespace ProjectManager
             }
             return member;
         }
->>>>>>> BivasBranch
-=======
+
+
         public static bool SignIn(string email,string pass)
         {
             bool ret = false;
@@ -91,6 +90,6 @@ namespace ProjectManager
         }
 
        
->>>>>>> 9053fe2c3dd831ecc573ab6a5668650589655502
+
     }
 }
