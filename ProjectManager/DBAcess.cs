@@ -58,7 +58,7 @@ namespace ProjectManager
             return member;
         }
 
-        public static bool SignIn(string email,string pass)
+        public static bool ProjectManagerSignIn(string email,string pass)
         {
             bool ret = false;
             SqlConnection sqlConn = new SqlConnection(DBConnection.GetConnString());
@@ -84,6 +84,12 @@ namespace ProjectManager
             return ret;
             
             
+        }
+
+        public static bool ProjectManagerSignUp(string firstName, string lastName, string email, string password)
+        {
+            
+            return false;
         }
 
        

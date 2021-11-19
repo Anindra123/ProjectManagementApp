@@ -66,8 +66,19 @@ namespace ProjectManager
         // save the sign up info in a database or textbox
         private void proMSignUp_Click(object sender, EventArgs e)
         {
-            ShowPreviousForm();
-            this.Close();
+            /* ShowPreviousForm();
+             this.Close(); */
+            bool ret = DBAcess.ProjectManagerSignUp(
+                proMFirstNameTextBox.Text,
+                proMLastNameTextBox.Text,
+                proMEmailTextBox.Text,
+                proMPasswordTextBox.Text
+            );
+
+            if(ret != true)
+            {
+                MessageBox.Show("Failed to Sign up");
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -76,6 +87,16 @@ namespace ProjectManager
         }
 
         private void proMFirstNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ProjectManagerSignUpForm_Load(object sender, EventArgs e)
         {
 
         }
