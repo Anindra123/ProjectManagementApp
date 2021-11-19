@@ -12,6 +12,7 @@ namespace ProjectManager
     class DBAcess
     {
 
+
         private static DataTable dt = new DataTable();
 
         private static void FillTable(string query)
@@ -58,7 +59,9 @@ namespace ProjectManager
             return member;
         }
 
+
         public static bool SignIn(string email, string pass)
+
         {
             bool ret = false;
             SqlConnection sqlConn = new SqlConnection(DBConnection.GetConnString());
@@ -85,6 +88,7 @@ namespace ProjectManager
 
 
         }
+
 
 
     }
