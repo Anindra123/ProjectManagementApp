@@ -27,9 +27,9 @@ namespace ProjectManager
         public static bool SignUPProjectMember(string firstName, string LastName,
             string email, string password)
         {
-            string query = $"insert into PMember_TBL (PMember_FirstName,PMember_LastName" +
-                $",PMember_Password,PMember_Email) values ('{firstName}','{LastName}','{email}'," +
-                $"'{password}');";
+            string query = $"insert into PMember_TBL " +
+            $"(PMember_FirstName, PMember_LastName, PMember_Email, PMember_Password) " +
+                $"values('{firstName}', '{LastName}', '{email}', '{password}')";
             using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
             {
                 SqlCommand cmd = new SqlCommand(query, conn);
