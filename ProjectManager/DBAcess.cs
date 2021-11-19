@@ -13,7 +13,6 @@ namespace ProjectManager
     {
 
 
-
         private static DataTable dt = new DataTable();
 
         private static void FillTable(string query)
@@ -61,13 +60,14 @@ namespace ProjectManager
         }
 
 
-        public static bool SignIn(string email,string pass)
+        public static bool SignIn(string email, string pass)
+
         {
             bool ret = false;
             SqlConnection sqlConn = new SqlConnection(DBConnection.GetConnString());
             ProjectManager pM = new ProjectManager();
             sqlConn.Open();
-            string query = $"SELECT * FROM  PManager_TBL WHERE PManager_Email ='{email}' AND PManager_Password = '{pass}'"; 
+            string query = $"SELECT * FROM  PManager_TBL WHERE PManager_Email ='{email}' AND PManager_Password = '{pass}'";
             SqlDataAdapter sda = new SqlDataAdapter(query, sqlConn);
             DataTable dtbl = new DataTable();
 
@@ -85,11 +85,11 @@ namespace ProjectManager
 
             sqlConn.Close();
             return ret;
-            
-            
+
+
         }
 
-       
+
 
     }
 }

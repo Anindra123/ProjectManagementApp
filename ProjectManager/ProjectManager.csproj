@@ -78,6 +78,7 @@
     </Compile>
     <Compile Include="DBAcess.cs" />
     <Compile Include="DBConnection.cs" />
+<<<<<<< HEAD
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +114,31 @@
     </Compile>
     <Compile Include="Form6.Designer.cs">
       <DependentUpon>Form6.cs</DependentUpon>
+=======
+    <Compile Include="AssignTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssignTask.Designer.cs">
+      <DependentUpon>AssignTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewProjectInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewProjectInfo.Designer.cs">
+      <DependentUpon>ViewProjectInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateProjectInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateProjectInfo.Designer.cs">
+      <DependentUpon>UpdateProjectInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateGroupInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateGroupInfo.Designer.cs">
+      <DependentUpon>UpdateGroupInfo.cs</DependentUpon>
+>>>>>>> a4fe0ab028e893961c46a6d89671c8bde9ccc013
     </Compile>
     <Compile Include="MemberSignUpForm.cs">
       <SubType>Form</SubType>
@@ -179,6 +205,7 @@
     <EmbeddedResource Include="CreateNewProjectFrom.resx">
       <DependentUpon>CreateNewProjectFrom.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +223,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form6.resx">
       <DependentUpon>Form6.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="AssignTask.resx">
+      <DependentUpon>AssignTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewProjectInfo.resx">
+      <DependentUpon>ViewProjectInfo.cs</DependentUpon>
+>>>>>>> a4fe0ab028e893961c46a6d89671c8bde9ccc013
     </EmbeddedResource>
     <EmbeddedResource Include="MemberSignUpForm.resx">
       <DependentUpon>MemberSignUpForm.cs</DependentUpon>
@@ -227,6 +261,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UpdateGroupInfo.resx">
+      <DependentUpon>UpdateGroupInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateProjectInfo.resx">
+      <DependentUpon>UpdateProjectInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
