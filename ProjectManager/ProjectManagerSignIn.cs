@@ -47,23 +47,24 @@ namespace ProjectManager
         // validate manager password and name/mail
         private void projMSignInBtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(projMEmailTextBox.Text) || string.IsNullOrEmpty(projMPasswordTextBox.Text) )
+            if (string.IsNullOrEmpty(projMEmailTextBox.Text) || string.IsNullOrEmpty(projMPasswordTextBox.Text))
             {
                 MessageBox.Show("Fill up all the fields");
-            }else if (! Regex.IsMatch(projMEmailTextBox.Text, pattern))
+            }
+            else if (!Regex.IsMatch(projMEmailTextBox.Text, pattern))
             {
                 MessageBox.Show("Invalid Email Format");
             }
             else
             {
-                
-                bool ret = DBAcess.SignIn(projMEmailTextBox.Text.Trim(), projMPasswordTextBox.Text.Trim());
 
-                if(ret == true)
+                bool ret = ProjectManager.SignIn(projMEmailTextBox.Text.Trim(), projMPasswordTextBox.Text.Trim());
+
+                if (ret == true)
                 {
-                    
-                        ProjectManagerView managerView = new ProjectManagerView();
-                        ShowNewMenu(managerView);
+
+                    ProjectManagerView managerView = new ProjectManagerView();
+                    ShowNewMenu(managerView);
                 }
                 else
                 {
@@ -72,7 +73,7 @@ namespace ProjectManager
 
 
             }
-           
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
