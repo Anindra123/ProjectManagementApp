@@ -10,37 +10,37 @@ using System.Windows.Forms;
 
 namespace ProjectManager
 {
-    public partial class Form2 : Form
+    public partial class AdminDashBoard : Form
     {
-        public Form2()
+        public AdminDashBoard()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form3 f3 = new Form3();
+            AddProjectMemberForm f3 = new AddProjectMemberForm();
             f3.Show();
             this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form4 f4 = new Form4();
+            RemoveProjectMemberForm f4 = new RemoveProjectMemberForm();
             f4.Show();
             this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form5 f5 = new Form5();
+            UpdateProjectMemberInfoForm f5 = new UpdateProjectMemberInfoForm();
             f5.Show();
             this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Form6 f6 = new Form6();
+            ViewProjectMemberInfoForm f6 = new ViewProjectMemberInfoForm();
             f6.Show();
             this.Hide();
         }

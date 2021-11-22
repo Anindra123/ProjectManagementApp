@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace ProjectManager
 {
-    public partial class Form3 : Form
+    public partial class ViewProjectMemberInfoForm : Form
     {
-        public Form3()
+        public ViewProjectMemberInfoForm()
         {
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
         {
 
         }

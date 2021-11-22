@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace ProjectManager
 {
-    public partial class Form4 : Form
+    public partial class AdminOptions : Form
     {
-        public Form4()
+        public AdminOptions()
         {
             InitializeComponent();
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace ProjectManager
 {
-    public partial class Form1 : Form
+    public partial class UpdateProjectMemberInfoForm : Form
     {
-        public Form1()
+        public UpdateProjectMemberInfoForm()
         {
             InitializeComponent();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
