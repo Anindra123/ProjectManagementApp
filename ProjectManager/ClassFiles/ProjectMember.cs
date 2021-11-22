@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectManager
+namespace ProjectManager.ClassFiles
 {
     class ProjectMember : User
     {
@@ -25,7 +25,7 @@ namespace ProjectManager
                 sda.Fill(dt);
             }
         }
-        public static bool SignUPProjectMember(string firstName, string LastName,
+        public bool SignUPProjectMember(string firstName, string LastName,
         string email, string password)
         {
             string query = $"insert into PMember_TBL " +

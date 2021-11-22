@@ -6,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectManager
+namespace ProjectManager.ClassFiles
 {
     class ProjectManager : User
     {
         public int PManager_ID { get; set; }
-        public static bool SignIn(string email, string pass)
+        public bool SignIn(string email, string pass)
 
         {
             bool ret = false;

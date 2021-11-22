@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectManager.ClassFiles;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace ProjectManager
     {
         //defined a regular expression for mail validation
         string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+        ProjectMember projectMember = new ProjectMember();
         public MemberSignUpForm()
         {
             InitializeComponent();
@@ -116,7 +118,7 @@ namespace ProjectManager
                     if (validateGroupInfoForm())
                     {
 
-                        bool val = DBAcess.SignUPProjectMember(
+                        bool val = projectMember.SignUPProjectMember(
                             projMemFirstNameTextBox.Text.Trim(),
                             projMLastNameTextBox.Text.Trim(),
                             projectMemberEmailTextBox.Text.Trim(),
