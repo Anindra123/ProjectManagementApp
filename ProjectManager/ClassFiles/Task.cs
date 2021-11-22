@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectManager
+namespace ProjectManager.ClassFiles
 {
     class Task
     {

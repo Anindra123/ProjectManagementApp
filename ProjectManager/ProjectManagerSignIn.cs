@@ -14,6 +14,7 @@ namespace ProjectManager
 {
     public partial class ProjectManagerSignIn : Form
     {
+        ProjectManager.ClassFiles.ProjectManager pm = new ProjectManager.ClassFiles.ProjectManager();
         string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
         public ProjectManagerSignIn()
         {
@@ -58,7 +59,7 @@ namespace ProjectManager
             else
             {
 
-                bool ret = ProjectManager.SignIn(projMEmailTextBox.Text.Trim(), projMPasswordTextBox.Text.Trim());
+                bool ret = pm.SignIn(projMEmailTextBox.Text.Trim(), projMPasswordTextBox.Text.Trim());
 
                 if (ret == true)
                 {
