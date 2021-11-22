@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProjectManager
+namespace ProjectManagement
 {
     public partial class ContinueAsProjectManagerForm : Form
     {

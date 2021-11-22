@@ -1,4 +1,4 @@
-﻿using ProjectManager.ClassFiles;
+﻿using ProjectManagement.ClassFiles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProjectManager
+namespace ProjectManagement
 {
     public partial class MemberSignUpForm : Form
     {

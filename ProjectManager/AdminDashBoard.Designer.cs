@@ -1,5 +1,5 @@
 ﻿
-namespace ProjectManager
+namespace ProjectManagement
 {
     partial class AdminDashBoard
     {
