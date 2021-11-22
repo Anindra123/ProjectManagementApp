@@ -8,9 +8,19 @@ using System.Threading.Tasks;
 
 namespace ProjectManagement.ClassFiles
 {
-    class ProjectManager : User
+    public class ProjectManager : User
     {
+        DataTable dt = new DataTable();
         public int PManager_ID { get; set; }
+        public void FillData(string query)
+        {
+            dt.Clear();
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlDataAdapter sda = new SqlDataAdapter(query, conn);
+                sda.Fill(dt);
+            }
+        }
         public bool SignIn(string email, string pass)
 
         {
@@ -38,6 +48,19 @@ namespace ProjectManagement.ClassFiles
             return ret;
 
 
+        }
+        public void GetProjectManagerTitleForMember(int id)
+        {
+            string query = $"select pm.* from ManageProject_TBL as mp " +
+                $", PManager_TBL as pm where mp.Project_ID = '{id}' and pm.PManager_ID = " +
+                $" mp.PManager_ID";
+            FillData(query);
+            if (dt.Rows.Count == 1)
+            {
+                FirstName = dt.Rows[0]["PManager_FirstName"].ToString();
+                LastName = dt.Rows[0]["PManager_LastName"].ToString();
+
+            }
         }
 
     }

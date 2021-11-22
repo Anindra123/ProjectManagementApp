@@ -18,9 +18,9 @@ exec sp_rename '[PMember_TBL].[PMemeber_LastName]', 'PMember_LastName','COLUMN'
 select * from PMember_TBL
 
 create table PMemberGroupInfo_TBL(
-PMember_ID INT identity(1,1) constraint pgid_pk primary key,
+PMember_ID INT constraint pgid_pk primary key,
 PMember_FirstName varchar(100) not null,
-PMemeber_LastName varchar(100) not null,
+PMember_LastName varchar(100) not null,
 PMember_Password nvarchar(8) not null,
 PMember_Email varchar(50) not null,
 PGroup_ID int foreign key references PGroup_TBL(PGroup_ID)
