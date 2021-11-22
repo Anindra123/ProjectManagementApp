@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F2B73BD8-1FC8-48DE-A569-6C1EB01C9449}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ProjectManager</RootNamespace>
-    <AssemblyName>ProjectManager</AssemblyName>
+    <RootNamespace>ProjectManagement</RootNamespace>
+    <AssemblyName>ProjectManagement</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -255,6 +255,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UpdateGroupInfo.resx">
       <DependentUpon>UpdateGroupInfo.cs</DependentUpon>
