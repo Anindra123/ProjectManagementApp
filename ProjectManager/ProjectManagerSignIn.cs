@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Data.SqlClient;
+using ProjectManagement.ClassFiles;
 
 namespace ProjectManagement
 {
     public partial class ProjectManagerSignIn : Form
     {
-        ProjectManagement.ClassFiles.ProjectManager pm = new ProjectManagement.ClassFiles.ProjectManager();
+        ProjectManager pm = new ProjectManager();
         string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
         public ProjectManagerSignIn()
         {

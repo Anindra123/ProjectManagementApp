@@ -17,6 +17,9 @@ namespace ProjectManagement
         //defined a regular expression for mail validation
         string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
         ProjectMember projectMember = new ProjectMember();
+        ProjectGroup projectGroup = new ProjectGroup();
+        ProjectManager projectManager = new ProjectManager();
+        Project project = new Project();
         public MemberSignUpForm()
         {
             InitializeComponent();
@@ -124,6 +127,13 @@ namespace ProjectManagement
                             projectMemberEmailTextBox.Text.Trim(),
                             projMemberPasswordTextBox.Text.Trim()
                             );
+
+                        //MessageBox.Show($"{projectMember.GetMemberID()}");
+                        if (memberOfGroupYesRadioBtn.Checked == true)
+                        {
+                            projectMember.SaveGroupInfo(projectGroup.PGroup_ID);
+                            projectMember.SaveProjectInfo(project.Project_ID);
+                        }
                         if (val == true)
                         {
 
@@ -158,6 +168,21 @@ namespace ProjectManagement
         private void memberOfGroupNoRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             ValidateMemberOfGroup();
+        }
+
+        private void groupConfirmBtn_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(enterGroupNameTextBox.Text))
+            {
+                if (projectGroup.SearchGroup(enterGroupNameTextBox.Text.Trim()))
+                {
+                    projGroupNameLabel.Text = projectGroup.PGroup_Name;
+                    project.GetProjectTitleForMember(projectGroup.Project_ID);
+                    projNameLabel.Text = project.Project_Title;
+                    projectManager.GetProjectManagerTitleForMember(project.Project_ID);
+                    projectManagerLabel.Text = $"{projectManager.FirstName} {projectManager.LastName}";
+                }
+            }
         }
     }
 }
