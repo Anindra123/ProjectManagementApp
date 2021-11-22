@@ -30,7 +30,7 @@ namespace ProjectManager
             {
                 text1 = Admin_name_email_TextBox1.Text;
                 text2 = Admin_password_masked_textBox1.Text;
-                Form2 f2 = new Form2();
+                AdminDashBoard f2 = new AdminDashBoard();
                 f2.Show();
                 this.Hide();
             }
