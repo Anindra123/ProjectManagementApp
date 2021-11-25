@@ -74,7 +74,7 @@ namespace ProjectManager
             sda.Fill(dtbl);
             if (dtbl.Rows.Count == 1)
             {
-                pM.PManager_ID = Convert.ToInt32(dtbl.Rows[0]["PMananger_ID"].ToString());
+                pM.PManager_ID = Convert.ToInt32(dtbl.Rows[0]["PManager_ID"].ToString());
                 pM.FirstName = (string)dtbl.Rows[0]["PManager_FirstName"];
                 pM.LastName = (string)dtbl.Rows[0]["PManager_LastName"];
                 pM.Email = (string)dtbl.Rows[0]["PManager_Email"];
@@ -88,8 +88,6 @@ namespace ProjectManager
 
 
         }
-
-
 
     }
 }
