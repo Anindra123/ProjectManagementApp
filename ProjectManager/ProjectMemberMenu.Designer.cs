@@ -1,5 +1,5 @@
 ﻿
-namespace ProjectManager
+namespace ProjectManagement
 {
     partial class ProjectMemberMenu
     {
@@ -307,6 +307,7 @@ namespace ProjectManager
             this.Name = "ProjectMemberMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Project Member Dashboard";
+            this.Load += new System.EventHandler(this.ProjectMemberMenu_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.TaskInfo.ResumeLayout(false);

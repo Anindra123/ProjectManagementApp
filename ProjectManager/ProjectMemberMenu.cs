@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectManagement.ClassFiles;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,10 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProjectManager
+namespace ProjectManagement
 {
     public partial class ProjectMemberMenu : Form
     {
+        static ProjectMember projectMember;
+        public static void SetMember(ProjectMember pm)
+        {
+            projectMember = pm;
+        }
+
         public ProjectMemberMenu()
         {
             InitializeComponent();
@@ -32,6 +39,11 @@ namespace ProjectManager
         private void logOutBtn_Click(object sender, EventArgs e)
         {
             GotoContinuePage();
+        }
+
+        private void ProjectMemberMenu_Load(object sender, EventArgs e)
+        {
+            displayMemberTitleLabel.Text = $"Hello {projectMember.FirstName} {projectMember.LastName}";
         }
     }
 }

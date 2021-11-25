@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectManagement.ClassFiles;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,12 +10,16 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProjectManager
+namespace ProjectManagement
 {
     public partial class MemberSignUpForm : Form
     {
         //defined a regular expression for mail validation
         string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+        ProjectMember projectMember = new ProjectMember();
+        ProjectGroup projectGroup = new ProjectGroup();
+        ProjectManager projectManager = new ProjectManager();
+        Project project = new Project();
         public MemberSignUpForm()
         {
             InitializeComponent();
@@ -116,12 +121,19 @@ namespace ProjectManager
                     if (validateGroupInfoForm())
                     {
 
-                        bool val = DBAcess.SignUPProjectMember(
+                        bool val = projectMember.SignUPProjectMember(
                             projMemFirstNameTextBox.Text.Trim(),
                             projMLastNameTextBox.Text.Trim(),
                             projectMemberEmailTextBox.Text.Trim(),
                             projMemberPasswordTextBox.Text.Trim()
                             );
+
+                        //MessageBox.Show($"{projectMember.GetMemberID()}");
+                        if (memberOfGroupYesRadioBtn.Checked == true)
+                        {
+                            projectMember.SaveGroupInfo(projectGroup.PGroup_ID);
+                            projectMember.SaveProjectInfo(project.Project_ID);
+                        }
                         if (val == true)
                         {
 
@@ -156,6 +168,21 @@ namespace ProjectManager
         private void memberOfGroupNoRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             ValidateMemberOfGroup();
+        }
+
+        private void groupConfirmBtn_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(enterGroupNameTextBox.Text))
+            {
+                if (projectGroup.SearchGroup(enterGroupNameTextBox.Text.Trim()))
+                {
+                    projGroupNameLabel.Text = projectGroup.PGroup_Name;
+                    project.GetProjectTitleForMember(projectGroup.Project_ID);
+                    projNameLabel.Text = project.Project_Title;
+                    projectManager.GetProjectManagerTitleForMember(project.Project_ID);
+                    projectManagerLabel.Text = $"{projectManager.FirstName} {projectManager.LastName}";
+                }
+            }
         }
     }
 }

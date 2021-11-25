@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Data.SqlClient;
+using ProjectManagement.ClassFiles;
 
-namespace ProjectManager
+namespace ProjectManagement
 {
     public partial class ProjectManagerSignIn : Form
     {
+        ProjectManager pm = new ProjectManager();
         string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
         public ProjectManagerSignIn()
         {
@@ -47,23 +49,24 @@ namespace ProjectManager
         // validate manager password and name/mail
         private void projMSignInBtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(projMEmailTextBox.Text) || string.IsNullOrEmpty(projMPasswordTextBox.Text) )
+            if (string.IsNullOrEmpty(projMEmailTextBox.Text) || string.IsNullOrEmpty(projMPasswordTextBox.Text))
             {
                 MessageBox.Show("Fill up all the fields");
-            }else if (! Regex.IsMatch(projMEmailTextBox.Text, pattern))
+            }
+            else if (!Regex.IsMatch(projMEmailTextBox.Text, pattern))
             {
                 MessageBox.Show("Invalid Email Format");
             }
             else
             {
-                
-                bool ret = DBAcess.SignIn(projMEmailTextBox.Text.Trim(), projMPasswordTextBox.Text.Trim());
 
-                if(ret == true)
+                bool ret = pm.SignIn(projMEmailTextBox.Text.Trim(), projMPasswordTextBox.Text.Trim());
+
+                if (ret == true)
                 {
-                    
-                        ProjectManagerView managerView = new ProjectManagerView();
-                        ShowNewMenu(managerView);
+
+                    ProjectManagerView managerView = new ProjectManagerView();
+                    ShowNewMenu(managerView);
                 }
                 else
                 {
@@ -72,7 +75,7 @@ namespace ProjectManager
 
 
             }
-           
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

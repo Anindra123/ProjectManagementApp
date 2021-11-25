@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectManagement.ClassFiles;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,10 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProjectManager
+namespace ProjectManagement
 {
     public partial class ProjectMemberSignIn : Form
     {
+        ProjectMember projectMember = new ProjectMember();
         public ProjectMemberSignIn()
         {
             InitializeComponent();
@@ -46,20 +48,36 @@ namespace ProjectManager
             if (!String.IsNullOrWhiteSpace(projMemberNameOREmailTextBox.Text)
                 && !String.IsNullOrWhiteSpace(projMemberPasswordTextBox.Text))
             {
-                DialogResult result = MessageBox.Show(
+                if (projectMember.SignInProjectMember(projMemberNameOREmailTextBox.Text.Trim(),
+                    projMemberPasswordTextBox.Text.Trim()
+                    ))
+                {
+                    DialogResult result = MessageBox.Show(
                     "Logged in sucessfully",
                     "Sucess",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                     );
-                if (result == DialogResult.OK)
+                    if (result == DialogResult.OK)
+                    {
+                        ProjectMemberMenu.SetMember(projectMember);
+                        ProjectMemberMenu memberMenu =
+                            new ProjectMemberMenu();
+
+                        ShowNewMenu(memberMenu);
+                    }
+                }
+                else
                 {
-                    //[TO DO] - validate the member name/email and password
-                    ProjectMemberMenu memberMenu =
-                        new ProjectMemberMenu();
-                    ShowNewMenu(memberMenu);
+                    MessageBox.Show(
+                   "Invalid Email or password. Please try again.",
+                   "Alert",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Warning
+                   );
                 }
             }
+
             else
             {
                 MessageBox.Show(

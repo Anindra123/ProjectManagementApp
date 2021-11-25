@@ -1,5 +1,5 @@
 ﻿
-namespace ProjectManager
+namespace ProjectManagement
 {
     partial class MemberSignUpForm
     {
@@ -31,6 +31,7 @@ namespace ProjectManager
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MemberSignUpForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.enterGroupNameTextBox = new System.Windows.Forms.TextBox();
             this.projMLastNameTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupInfoBox = new System.Windows.Forms.GroupBox();
@@ -54,7 +55,6 @@ namespace ProjectManager
             this.projMemberSignUpBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.goBackHomePageBtn = new System.Windows.Forms.Button();
-            this.enterGroupNameTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupInfoBox.SuspendLayout();
             this.SuspendLayout();
@@ -83,6 +83,13 @@ namespace ProjectManager
             this.groupBox1.Size = new System.Drawing.Size(691, 611);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // enterGroupNameTextBox
+            // 
+            this.enterGroupNameTextBox.Location = new System.Drawing.Point(193, 307);
+            this.enterGroupNameTextBox.Name = "enterGroupNameTextBox";
+            this.enterGroupNameTextBox.Size = new System.Drawing.Size(360, 30);
+            this.enterGroupNameTextBox.TabIndex = 16;
             // 
             // projMLastNameTextBox
             // 
@@ -181,6 +188,7 @@ namespace ProjectManager
             this.groupConfirmBtn.TabIndex = 11;
             this.groupConfirmBtn.Text = "Confirm";
             this.groupConfirmBtn.UseVisualStyleBackColor = false;
+            this.groupConfirmBtn.Click += new System.EventHandler(this.groupConfirmBtn_Click);
             // 
             // label5
             // 
@@ -310,13 +318,6 @@ namespace ProjectManager
             this.goBackHomePageBtn.Text = "Back To Home";
             this.goBackHomePageBtn.UseVisualStyleBackColor = false;
             this.goBackHomePageBtn.Click += new System.EventHandler(this.goBackHomePageBtn_Click);
-            // 
-            // enterGroupNameTextBox
-            // 
-            this.enterGroupNameTextBox.Location = new System.Drawing.Point(193, 307);
-            this.enterGroupNameTextBox.Name = "enterGroupNameTextBox";
-            this.enterGroupNameTextBox.Size = new System.Drawing.Size(360, 30);
-            this.enterGroupNameTextBox.TabIndex = 16;
             // 
             // MemberSignUpForm
             // 
