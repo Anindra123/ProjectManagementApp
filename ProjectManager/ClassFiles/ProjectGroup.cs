@@ -19,6 +19,8 @@ namespace ProjectManagement.ClassFiles
         public void FillData(string query)
         {
             dt.Clear();
+            dt.Columns.Clear();
+            dt.Rows.Clear();
             using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
             {
                 SqlDataAdapter sda = new SqlDataAdapter(query, conn);
@@ -54,6 +56,18 @@ namespace ProjectManagement.ClassFiles
                 MembersCount = Convert.ToInt32(dt.Rows[0]["PGroup_MembersCount"].ToString());
 
             }
+
+        }
+        public DataTable FillMemberList()
+        {
+            string query = $"select concat(PMember_FirstName,' ',PMember_LastName) as Name, PMember_Email as Email from " +
+                $"PMemberGroupInfo_TBL where PGroup_ID = '{this.PGroup_ID}'";
+            FillData(query);
+            if (dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            return null;
 
         }
 
