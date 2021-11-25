@@ -42,7 +42,9 @@ namespace ProjectManagement
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+
+            this.button1.ForeColor = System.Drawing.Color.White;
+
             this.button1.Location = new System.Drawing.Point(667, 23);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(180, 70);
@@ -55,7 +57,9 @@ namespace ProjectManagement
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+
+            this.button2.ForeColor = System.Drawing.Color.White;
+
             this.button2.Location = new System.Drawing.Point(667, 118);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(180, 70);
@@ -68,7 +72,9 @@ namespace ProjectManagement
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+
+            this.button3.ForeColor = System.Drawing.Color.White;
+
             this.button3.Location = new System.Drawing.Point(667, 217);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(180, 70);
@@ -81,7 +87,9 @@ namespace ProjectManagement
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+
+            this.button4.ForeColor = System.Drawing.Color.White;
+
             this.button4.Location = new System.Drawing.Point(667, 309);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(180, 70);
@@ -94,8 +102,10 @@ namespace ProjectManagement
             // 
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(678, 498);
+
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(696, 552);
+
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(138, 69);
             this.button5.TabIndex = 4;

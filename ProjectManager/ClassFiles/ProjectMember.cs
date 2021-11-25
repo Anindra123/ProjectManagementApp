@@ -104,5 +104,18 @@ namespace ProjectManagement.ClassFiles
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public bool CheckifGroupMember(int pm_id)
+        {
+            string query = $"select * from PMemberGroupInfo_TBL where " +
+                $"PMember_ID = '{pm_id}';";
+            FillTable(query);
+            if (dt.Rows.Count == 1)
+            {
+                return true;
+            }
+            return false;
+
+        }
     }
 }
