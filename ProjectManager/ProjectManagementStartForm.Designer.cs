@@ -46,7 +46,7 @@ namespace ProjectManagement
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(188, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(307, 25);
+            this.label1.Size = new System.Drawing.Size(394, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Project Management App Ver 1.0";
             // 
@@ -69,7 +69,7 @@ namespace ProjectManagement
             this.continueAsAdminBtn.Name = "continueAsAdminBtn";
             this.continueAsAdminBtn.Size = new System.Drawing.Size(285, 54);
             this.continueAsAdminBtn.TabIndex = 2;
-            this.continueAsAdminBtn.Text = "Continue As Admin";
+            this.continueAsAdminBtn.Text = "Admin Login";
             this.continueAsAdminBtn.UseVisualStyleBackColor = false;
             this.continueAsAdminBtn.Click += new System.EventHandler(this.continueAsAdminBtn_Click);
             // 
@@ -82,7 +82,7 @@ namespace ProjectManagement
             this.continueAsProjectMemberBtn.Name = "continueAsProjectMemberBtn";
             this.continueAsProjectMemberBtn.Size = new System.Drawing.Size(285, 54);
             this.continueAsProjectMemberBtn.TabIndex = 3;
-            this.continueAsProjectMemberBtn.Text = "Continue As Project Member";
+            this.continueAsProjectMemberBtn.Text = "Project Member Login";
             this.continueAsProjectMemberBtn.UseVisualStyleBackColor = false;
             this.continueAsProjectMemberBtn.Click += new System.EventHandler(this.continueAsProjectMemberBtn_Click);
             // 
@@ -95,7 +95,7 @@ namespace ProjectManagement
             this.continueAsProjectManagerBtn.Name = "continueAsProjectManagerBtn";
             this.continueAsProjectManagerBtn.Size = new System.Drawing.Size(285, 54);
             this.continueAsProjectManagerBtn.TabIndex = 4;
-            this.continueAsProjectManagerBtn.Text = "Continue As Project Manager";
+            this.continueAsProjectManagerBtn.Text = "Project Manager Login";
             this.continueAsProjectManagerBtn.UseVisualStyleBackColor = false;
             this.continueAsProjectManagerBtn.Click += new System.EventHandler(this.continueAsProjectManagerBtn_Click);
             // 
@@ -113,7 +113,7 @@ namespace ProjectManagement
             // 
             // ProjectManagementStartForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(682, 453);

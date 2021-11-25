@@ -45,5 +45,17 @@ namespace ProjectManagement
         {
             displayMemberTitleLabel.Text = $"Hello {projectMember.FirstName} {projectMember.LastName}";
         }
+
+        private void viewGroupInfoBtn_Click(object sender, EventArgs e)
+        {
+            ViewProjectInfo projectInfo = new ViewProjectInfo();
+            projectInfo.Show();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

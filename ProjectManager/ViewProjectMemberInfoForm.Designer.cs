@@ -47,6 +47,7 @@ namespace ProjectManagement
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.goBackBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +63,7 @@ namespace ProjectManagement
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.goBackBtn);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label13);
@@ -231,7 +233,19 @@ namespace ProjectManagement
             this.button1.Text = "Show Info";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // Form6
+            // goBackBtn
+            // 
+            this.goBackBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.goBackBtn.ForeColor = System.Drawing.Color.White;
+            this.goBackBtn.Location = new System.Drawing.Point(773, 294);
+            this.goBackBtn.Name = "goBackBtn";
+            this.goBackBtn.Size = new System.Drawing.Size(91, 38);
+            this.goBackBtn.TabIndex = 14;
+            this.goBackBtn.Text = "Go Back";
+            this.goBackBtn.UseVisualStyleBackColor = false;
+            this.goBackBtn.Click += new System.EventHandler(this.goBackBtn_Click);
+            // 
+            // ViewProjectMemberInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -244,7 +258,7 @@ namespace ProjectManagement
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "Form6";
+            this.Name = "ViewProjectMemberInfoForm";
             this.Text = "Form6";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -273,5 +287,6 @@ namespace ProjectManagement
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button goBackBtn;
     }
 }

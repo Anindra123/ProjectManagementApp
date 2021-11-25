@@ -26,5 +26,20 @@ namespace ProjectManagement
         {
 
         }
+        void ShowPreviousMenu()
+        {
+            var form = (AdminDashBoard)Tag;
+            form.Show();
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ShowPreviousMenu();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

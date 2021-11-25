@@ -79,6 +79,7 @@ namespace ProjectManagement
             this.button4.TabIndex = 5;
             this.button4.Text = "Cancel";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -249,7 +250,7 @@ namespace ProjectManagement
             this.label1.TabIndex = 0;
             this.label1.Text = "Search Project Member :";
             // 
-            // Form5
+            // UpdateProjectMemberInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -260,7 +261,7 @@ namespace ProjectManagement
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
-            this.Name = "Form5";
+            this.Name = "UpdateProjectMemberInfoForm";
             this.Text = "Form5";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

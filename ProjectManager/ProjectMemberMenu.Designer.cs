@@ -249,6 +249,7 @@ namespace ProjectManagement
             this.viewGroupInfoBtn.TabIndex = 7;
             this.viewGroupInfoBtn.Text = "View Group Info";
             this.viewGroupInfoBtn.UseVisualStyleBackColor = false;
+            this.viewGroupInfoBtn.Click += new System.EventHandler(this.viewGroupInfoBtn_Click);
             // 
             // joinProjectGroupBtn
             // 
@@ -286,6 +287,7 @@ namespace ProjectManagement
             this.button1.TabIndex = 12;
             this.button1.Text = "View Task Details";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ProjectMemberMenu
             // 
