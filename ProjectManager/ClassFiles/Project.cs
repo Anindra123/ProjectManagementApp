@@ -41,6 +41,23 @@ namespace ProjectManagement.ClassFiles
             }
 
         }
+        public void GetProjectInfo(int pmember_id)
+        {
+            string query = $"select p_t.* from PMemberProjectInfo_TBL as pmp_t " +
+                $", Project_TBL as p_t where pmp_t.PMember_ID = '{pmember_id}' and p_t.Project_ID = " +
+                $" pmp_t.Project_ID";
+            FillData(query);
+            if (dt.Rows.Count == 1)
+            {
+                Project_ID = Convert.ToInt32(dt.Rows[0]["Project_ID"].ToString());
+                Project_Title = dt.Rows[0]["Project_Title"].ToString();
+                Project_Desc = dt.Rows[0]["Project_Desc"].ToString();
+                Project_StartDate = Convert.ToDateTime(dt.Rows[0]["Project_StartDate"].ToString());
+                Project_EndDate = Convert.ToDateTime(dt.Rows[0]["Project_EndDate"].ToString());
+                Project_Completed = Convert.ToInt32(dt.Rows[0]["PStatus_ID"].ToString());
+
+            }
+        }
 
     }
 }

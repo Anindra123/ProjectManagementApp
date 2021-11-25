@@ -16,16 +16,20 @@ namespace ProjectManagement.ClassFiles
         public string PGroup_Name { get; set; }
         public int Project_ID { get; set; }
         public int PManager_ID { get; set; }
-
+        public void FillData(string query)
+        {
+            dt.Clear();
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlDataAdapter sda = new SqlDataAdapter(query, conn);
+                sda.Fill(dt);
+            }
+        }
         public bool SearchGroup(string name)
         {
             string query = $"select * from GroupContainsProject_TBL where " +
                 $"PGroup_Name = '{name}'";
-            using (SqlConnection cnn = new SqlConnection(DBConnection.GetConnString()))
-            {
-                SqlDataAdapter sda = new SqlDataAdapter(query, cnn);
-                sda.Fill(dt);
-            }
+            FillData(query);
             if (dt.Rows.Count == 1)
             {
                 MembersCount = Convert.ToInt32(dt.Rows[0]["PGroup_MembersCount"].ToString());
@@ -37,8 +41,19 @@ namespace ProjectManagement.ClassFiles
             return false;
         }
 
-        public void GetPManagerTitleForMember(int id)
+        public void GetPGroupInfo(int pmember_id)
         {
+            string query = $"select pg.* from PMemberGroupInfo_TBL as pmg," +
+                $"PGroup_TBL as pg where " +
+                $"pmg.PMember_ID = '{pmember_id}' and pg.PGroup_ID = pmg.PGroup_ID";
+            FillData(query);
+            if (dt.Rows.Count == 1)
+            {
+                PGroup_ID = Convert.ToInt32(dt.Rows[0]["PGroup_ID"].ToString());
+                PGroup_Name = dt.Rows[0]["PGroup_Name"].ToString();
+                MembersCount = Convert.ToInt32(dt.Rows[0]["PGroup_MembersCount"].ToString());
+
+            }
 
         }
 

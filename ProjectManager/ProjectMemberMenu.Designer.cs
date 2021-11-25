@@ -87,7 +87,7 @@ namespace ProjectManagement
             // projectLeaderNameLabel
             // 
             this.projectLeaderNameLabel.AutoSize = true;
-            this.projectLeaderNameLabel.Location = new System.Drawing.Point(157, 129);
+            this.projectLeaderNameLabel.Location = new System.Drawing.Point(181, 129);
             this.projectLeaderNameLabel.Name = "projectLeaderNameLabel";
             this.projectLeaderNameLabel.Size = new System.Drawing.Size(45, 20);
             this.projectLeaderNameLabel.TabIndex = 6;
@@ -105,7 +105,7 @@ namespace ProjectManagement
             // projectGroupNameLabel
             // 
             this.projectGroupNameLabel.AutoSize = true;
-            this.projectGroupNameLabel.Location = new System.Drawing.Point(201, 69);
+            this.projectGroupNameLabel.Location = new System.Drawing.Point(210, 69);
             this.projectGroupNameLabel.Name = "projectGroupNameLabel";
             this.projectGroupNameLabel.Size = new System.Drawing.Size(45, 20);
             this.projectGroupNameLabel.TabIndex = 4;
@@ -125,9 +125,9 @@ namespace ProjectManagement
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(22, 129);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 20);
+            this.label3.Size = new System.Drawing.Size(142, 20);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Project Leader :";
+            this.label3.Text = "Project Manager :";
             // 
             // label2
             // 
