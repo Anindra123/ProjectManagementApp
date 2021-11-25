@@ -89,14 +89,14 @@ namespace ProjectManagement
             this.enterGroupNameTextBox.Location = new System.Drawing.Point(193, 307);
             this.enterGroupNameTextBox.Name = "enterGroupNameTextBox";
             this.enterGroupNameTextBox.Size = new System.Drawing.Size(360, 30);
-            this.enterGroupNameTextBox.TabIndex = 16;
+            this.enterGroupNameTextBox.TabIndex = 4;
             // 
             // projMLastNameTextBox
             // 
             this.projMLastNameTextBox.Location = new System.Drawing.Point(270, 82);
             this.projMLastNameTextBox.Name = "projMLastNameTextBox";
             this.projMLastNameTextBox.Size = new System.Drawing.Size(392, 30);
-            this.projMLastNameTextBox.TabIndex = 15;
+            this.projMLastNameTextBox.TabIndex = 1;
             // 
             // label8
             // 
@@ -237,21 +237,22 @@ namespace ProjectManagement
             this.projectMemberEmailTextBox.Location = new System.Drawing.Point(270, 178);
             this.projectMemberEmailTextBox.Name = "projectMemberEmailTextBox";
             this.projectMemberEmailTextBox.Size = new System.Drawing.Size(392, 30);
-            this.projectMemberEmailTextBox.TabIndex = 5;
+            this.projectMemberEmailTextBox.TabIndex = 3;
             // 
             // projMemberPasswordTextBox
             // 
             this.projMemberPasswordTextBox.Location = new System.Drawing.Point(270, 132);
             this.projMemberPasswordTextBox.Name = "projMemberPasswordTextBox";
+            this.projMemberPasswordTextBox.PasswordChar = '*';
             this.projMemberPasswordTextBox.Size = new System.Drawing.Size(392, 30);
-            this.projMemberPasswordTextBox.TabIndex = 4;
+            this.projMemberPasswordTextBox.TabIndex = 2;
             // 
             // projMemFirstNameTextBox
             // 
             this.projMemFirstNameTextBox.Location = new System.Drawing.Point(270, 29);
             this.projMemFirstNameTextBox.Name = "projMemFirstNameTextBox";
             this.projMemFirstNameTextBox.Size = new System.Drawing.Size(392, 30);
-            this.projMemFirstNameTextBox.TabIndex = 3;
+            this.projMemFirstNameTextBox.TabIndex = 0;
             // 
             // label3
             // 

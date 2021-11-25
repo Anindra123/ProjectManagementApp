@@ -62,6 +62,22 @@ namespace ProjectManagement.ClassFiles
 
             }
         }
+        public void GetProjectManagerInfo(int proj_id)
+        {
+            string query = $"select pm.* from ManageProject_TBL as mp," +
+                $"PManager_TBL as pm where mp.Project_ID = {proj_id} " +
+                $"and pm.PManager_ID = mp.PManager_ID";
+            FillData(query);
+            if (dt.Rows.Count == 1)
+            {
+                PManager_ID = Convert.ToInt32(dt.Rows[0]["PManager_ID"].ToString());
+                FirstName = dt.Rows[0]["PManager_FirstName"].ToString();
+                LastName = dt.Rows[0]["PManager_LastName"].ToString();
+                Email = dt.Rows[0]["PManager_Email"].ToString();
+                password = dt.Rows[0]["PManager_Password"].ToString();
+            }
+
+        }
 
     }
 }
