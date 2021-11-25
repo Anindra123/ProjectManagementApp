@@ -50,7 +50,6 @@ namespace ProjectManagement
             this.viewGroupInfoBtn = new System.Windows.Forms.Button();
             this.joinProjectGroupBtn = new System.Windows.Forms.Button();
             this.logOutBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.TaskInfo.SuspendLayout();
             this.SuspendLayout();
@@ -249,6 +248,7 @@ namespace ProjectManagement
             this.viewGroupInfoBtn.TabIndex = 7;
             this.viewGroupInfoBtn.Text = "View Group Info";
             this.viewGroupInfoBtn.UseVisualStyleBackColor = false;
+            this.viewGroupInfoBtn.Click += new System.EventHandler(this.viewGroupInfoBtn_Click);
             // 
             // joinProjectGroupBtn
             // 
@@ -275,25 +275,12 @@ namespace ProjectManagement
             this.logOutBtn.UseVisualStyleBackColor = false;
             this.logOutBtn.Click += new System.EventHandler(this.logOutBtn_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(920, 346);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 57);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "View Task Details";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // ProjectMemberMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1132, 709);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.logOutBtn);
             this.Controls.Add(this.joinProjectGroupBtn);
             this.Controls.Add(this.viewGroupInfoBtn);
@@ -339,6 +326,5 @@ namespace ProjectManagement
         private System.Windows.Forms.Button viewGroupInfoBtn;
         private System.Windows.Forms.Button joinProjectGroupBtn;
         private System.Windows.Forms.Button logOutBtn;
-        private System.Windows.Forms.Button button1;
     }
 }

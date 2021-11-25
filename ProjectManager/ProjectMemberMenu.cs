@@ -19,18 +19,25 @@ namespace ProjectManagement
         ProjectGroup projGroup = new ProjectGroup();
         ProjectManager projectManager = new ProjectManager();
 
-
+        void ShowNewMenu(Form obj)
+        {
+            //Give control to the nextform
+            obj.Tag = this;
+            obj.Show(this);
+            this.Hide();
+        }
         public static void SetMember(ProjectMember pm)
         {
             projectMember = pm;
         }
-        private void Setlabels(string groupName, string firstName, string LastName,
+        private void SetDashboardlabels(string groupName, string firstName, string LastName,
             string title)
         {
             projectGroupNameLabel.Text = $"{groupName}";
             projectLeaderNameLabel.Text = $"{firstName} {LastName}";
             projectTitleLabel.Text = $"{title}";
         }
+
         public ProjectMemberMenu()
         {
             InitializeComponent();
@@ -65,12 +72,20 @@ namespace ProjectManagement
             if (projectMember.CheckifGroupMember(projectMember.PMemberID))
             {
                 AssignObjectsValues();
-                Setlabels(projGroup.PGroup_Name, projectManager.FirstName, projectManager.LastName, project.Project_Title);
+                SetDashboardlabels(projGroup.PGroup_Name, projectManager.FirstName, projectManager.LastName, project.Project_Title);
             }
             else
             {
-                Setlabels("none", "none", "", "none");
+                SetDashboardlabels("none", "none", "", "none");
             }
+        }
+
+        private void viewGroupInfoBtn_Click(object sender, EventArgs e)
+        {
+
+            ViewGroupInfo viewGroup = new ViewGroupInfo(projectManager, projGroup);
+            ShowNewMenu(viewGroup);
+
         }
     }
 }

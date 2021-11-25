@@ -131,6 +131,12 @@
     <Compile Include="UpdateProjectMemberInfoForm.Designer.cs">
       <DependentUpon>UpdateProjectMemberInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewGroupInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewGroupInfo.Designer.cs">
+      <DependentUpon>ViewGroupInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewProjectMemberInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateProjectMemberInfoForm.resx">
       <DependentUpon>UpdateProjectMemberInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewGroupInfo.resx">
+      <DependentUpon>ViewGroupInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewProjectMemberInfoForm.resx">
       <DependentUpon>ViewProjectMemberInfoForm.cs</DependentUpon>
