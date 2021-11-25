@@ -61,6 +61,7 @@ namespace ProjectManagement
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox1.Location = new System.Drawing.Point(21, 5);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
@@ -249,7 +250,7 @@ namespace ProjectManagement
             this.label1.TabIndex = 0;
             this.label1.Text = "Search Project Member :";
             // 
-            // Form5
+            // UpdateProjectMemberInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -260,7 +261,7 @@ namespace ProjectManagement
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
-            this.Name = "Form5";
+            this.Name = "UpdateProjectMemberInfoForm";
             this.Text = "Form5";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
