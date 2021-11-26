@@ -60,10 +60,10 @@ namespace ProjectManagement
                     );
                     if (result == DialogResult.OK)
                     {
-                        ProjectMemberMenu.SetMember(projectMember);
+
                         ProjectMemberMenu memberMenu =
                             new ProjectMemberMenu();
-
+                        memberMenu.SetMember(projectMember);
                         ShowNewMenu(memberMenu);
                     }
                 }

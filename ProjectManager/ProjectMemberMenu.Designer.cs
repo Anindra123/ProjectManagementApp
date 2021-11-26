@@ -50,6 +50,7 @@ namespace ProjectManagement
             this.joinProjectGroupBtn = new System.Windows.Forms.Button();
             this.logOutBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.updateProjMemberInfo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.TaskInfo.SuspendLayout();
             this.SuspendLayout();
@@ -252,12 +253,13 @@ namespace ProjectManagement
             this.joinProjectGroupBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.joinProjectGroupBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.joinProjectGroupBtn.ForeColor = System.Drawing.Color.White;
-            this.joinProjectGroupBtn.Location = new System.Drawing.Point(995, 199);
+            this.joinProjectGroupBtn.Location = new System.Drawing.Point(995, 198);
             this.joinProjectGroupBtn.Name = "joinProjectGroupBtn";
             this.joinProjectGroupBtn.Size = new System.Drawing.Size(154, 57);
             this.joinProjectGroupBtn.TabIndex = 9;
-            this.joinProjectGroupBtn.Text = "Update Your Group";
+            this.joinProjectGroupBtn.Text = "Join new Group";
             this.joinProjectGroupBtn.UseVisualStyleBackColor = false;
+            this.joinProjectGroupBtn.Click += new System.EventHandler(this.joinProjectGroupBtn_Click);
             // 
             // logOutBtn
             // 
@@ -284,12 +286,26 @@ namespace ProjectManagement
             this.button1.Text = "View Project Info";
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // updateProjMemberInfo
+            // 
+            this.updateProjMemberInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.updateProjMemberInfo.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateProjMemberInfo.ForeColor = System.Drawing.Color.White;
+            this.updateProjMemberInfo.Location = new System.Drawing.Point(995, 346);
+            this.updateProjMemberInfo.Name = "updateProjMemberInfo";
+            this.updateProjMemberInfo.Size = new System.Drawing.Size(154, 57);
+            this.updateProjMemberInfo.TabIndex = 13;
+            this.updateProjMemberInfo.Text = "Update your info";
+            this.updateProjMemberInfo.UseVisualStyleBackColor = false;
+            this.updateProjMemberInfo.Click += new System.EventHandler(this.updateProjMemberInfo_Click);
+            // 
             // ProjectMemberMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1173, 709);
+            this.Controls.Add(this.updateProjMemberInfo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.logOutBtn);
             this.Controls.Add(this.joinProjectGroupBtn);
@@ -336,5 +352,6 @@ namespace ProjectManagement
         private System.Windows.Forms.Button joinProjectGroupBtn;
         private System.Windows.Forms.Button logOutBtn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button updateProjMemberInfo;
     }
 }
