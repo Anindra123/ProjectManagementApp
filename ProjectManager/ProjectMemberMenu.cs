@@ -87,5 +87,15 @@ namespace ProjectManagement
             ShowNewMenu(viewGroup);
 
         }
+
+        private void updateTaskInfoBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void joinProjectGroupBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

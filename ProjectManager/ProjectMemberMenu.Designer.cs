@@ -236,6 +236,7 @@ namespace ProjectManagement
             this.updateTaskInfoBtn.TabIndex = 6;
             this.updateTaskInfoBtn.Text = "Update Task Status";
             this.updateTaskInfoBtn.UseVisualStyleBackColor = false;
+            this.updateTaskInfoBtn.Click += new System.EventHandler(this.updateTaskInfoBtn_Click);
             // 
             // viewGroupInfoBtn
             // 
@@ -261,6 +262,7 @@ namespace ProjectManagement
             this.joinProjectGroupBtn.TabIndex = 9;
             this.joinProjectGroupBtn.Text = "Join Project Group";
             this.joinProjectGroupBtn.UseVisualStyleBackColor = false;
+            this.joinProjectGroupBtn.Click += new System.EventHandler(this.joinProjectGroupBtn_Click);
             // 
             // logOutBtn
             // 

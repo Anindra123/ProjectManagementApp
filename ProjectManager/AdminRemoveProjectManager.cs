@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjectManagement
 {
-    public partial class ViewProjectManagerInfoForm : Form
+    public partial class AdminRemoveProjectManager : Form
     {
-        public ViewProjectManagerInfoForm()
+        public AdminRemoveProjectManager()
         {
             InitializeComponent();
         }
@@ -38,6 +38,13 @@ namespace ProjectManagement
             {
                 errorProvider1.Clear();
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var form = (AdminDashBoardManager)Tag;
+            form.Show();
+            this.Close();
         }
     }
 }
