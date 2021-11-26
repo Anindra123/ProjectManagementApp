@@ -29,6 +29,7 @@ namespace ProjectManagement
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -47,7 +48,9 @@ namespace ProjectManagement
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -222,6 +225,7 @@ namespace ProjectManagement
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(488, 28);
             this.comboBox1.TabIndex = 2;
+            this.comboBox1.Leave += new System.EventHandler(this.comboBox1_Leave);
             // 
             // button1
             // 
@@ -233,6 +237,10 @@ namespace ProjectManagement
             this.button1.TabIndex = 3;
             this.button1.Text = "Show Info";
             this.button1.UseVisualStyleBackColor = false;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // ViewProjectMemberInfoForm
             // 
@@ -251,6 +259,7 @@ namespace ProjectManagement
             this.Text = "Form6";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,5 +285,6 @@ namespace ProjectManagement
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

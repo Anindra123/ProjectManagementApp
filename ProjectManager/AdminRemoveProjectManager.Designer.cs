@@ -1,7 +1,7 @@
 ﻿
 namespace ProjectManagement
 {
-    partial class Form2
+    partial class ViewProjectManagerInfoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,16 +33,16 @@ namespace ProjectManagement
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,23 +95,50 @@ namespace ProjectManagement
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Project Manager Info";
             // 
-            // label2
+            // label9
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(35, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 19);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Project Manager Name :";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(154, 217);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(42, 19);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "none";
             // 
-            // label3
+            // label8
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 106);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(169, 19);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Project Manager Email :";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(160, 163);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(42, 19);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "none";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(214, 106);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(42, 19);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "none";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(214, 49);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 19);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "none";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(35, 217);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(103, 19);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Group Name :";
             // 
             // label4
             // 
@@ -122,14 +149,23 @@ namespace ProjectManagement
             this.label4.TabIndex = 2;
             this.label4.Text = "Project Name :";
             // 
-            // label5
+            // label3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(35, 217);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 19);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Group Name :";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(35, 106);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(169, 19);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Project Manager Email :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(35, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(173, 19);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Project Manager Name :";
             // 
             // button2
             // 
@@ -156,43 +192,7 @@ namespace ProjectManagement
             this.button3.Text = "Cancel";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(214, 49);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 19);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "none";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(214, 106);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 19);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "none";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(160, 163);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 19);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "none";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(154, 217);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(42, 19);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "none";
-            // 
-            // Form2
+            // ViewProjectManagerInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -206,8 +206,9 @@ namespace ProjectManagement
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "Form2";
-            this.Text = "View Project Manager Info Form";
+            this.Name = "ViewProjectManagerInfoForm";
+            this.Text = "Remove Project Manager Info Form";
+            this.Load += new System.EventHandler(this.ViewProjectManagerInfoForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

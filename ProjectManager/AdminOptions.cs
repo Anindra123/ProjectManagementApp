@@ -16,5 +16,19 @@ namespace ProjectManagement
         {
             InitializeComponent();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AdminDashBoard a1 = new AdminDashBoard();
+            a1.Show();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AdminDashBoardManager m1 = new AdminDashBoardManager();
+            m1.Show();
+            this.Close();
+        }
     }
 }
