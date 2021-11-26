@@ -41,15 +41,15 @@ namespace ProjectManagement
             this.label1 = new System.Windows.Forms.Label();
             this.TaskInfo = new System.Windows.Forms.GroupBox();
             this.removeTaskCompletedBtn = new System.Windows.Forms.Button();
-            this.taskCompletedBtn = new System.Windows.Forms.Button();
+            this.viewTaskdetailBtn = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.completedTasksListBox = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.assignedTasksListBox = new System.Windows.Forms.ListBox();
-            this.updateTaskInfoBtn = new System.Windows.Forms.Button();
             this.viewGroupInfoBtn = new System.Windows.Forms.Button();
             this.joinProjectGroupBtn = new System.Windows.Forms.Button();
             this.logOutBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.TaskInfo.SuspendLayout();
             this.SuspendLayout();
@@ -78,7 +78,7 @@ namespace ProjectManagement
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(41, 87);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(830, 169);
+            this.groupBox1.Size = new System.Drawing.Size(891, 169);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Project Info";
@@ -151,7 +151,7 @@ namespace ProjectManagement
             // TaskInfo
             // 
             this.TaskInfo.Controls.Add(this.removeTaskCompletedBtn);
-            this.TaskInfo.Controls.Add(this.taskCompletedBtn);
+            this.TaskInfo.Controls.Add(this.viewTaskdetailBtn);
             this.TaskInfo.Controls.Add(this.label6);
             this.TaskInfo.Controls.Add(this.completedTasksListBox);
             this.TaskInfo.Controls.Add(this.label5);
@@ -160,7 +160,7 @@ namespace ProjectManagement
             this.TaskInfo.ForeColor = System.Drawing.Color.White;
             this.TaskInfo.Location = new System.Drawing.Point(41, 286);
             this.TaskInfo.Name = "TaskInfo";
-            this.TaskInfo.Size = new System.Drawing.Size(830, 384);
+            this.TaskInfo.Size = new System.Drawing.Size(907, 384);
             this.TaskInfo.TabIndex = 2;
             this.TaskInfo.TabStop = false;
             this.TaskInfo.Text = "TaskInfo";
@@ -170,29 +170,32 @@ namespace ProjectManagement
             this.removeTaskCompletedBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.removeTaskCompletedBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeTaskCompletedBtn.ForeColor = System.Drawing.Color.White;
-            this.removeTaskCompletedBtn.Location = new System.Drawing.Point(511, 295);
+            this.removeTaskCompletedBtn.Location = new System.Drawing.Point(580, 289);
             this.removeTaskCompletedBtn.Name = "removeTaskCompletedBtn";
             this.removeTaskCompletedBtn.Size = new System.Drawing.Size(193, 63);
             this.removeTaskCompletedBtn.TabIndex = 5;
             this.removeTaskCompletedBtn.Text = "Remove Task Completed";
             this.removeTaskCompletedBtn.UseVisualStyleBackColor = false;
+            this.removeTaskCompletedBtn.Click += new System.EventHandler(this.removeTaskCompletedBtn_Click);
             // 
-            // taskCompletedBtn
+            // viewTaskdetailBtn
             // 
-            this.taskCompletedBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.taskCompletedBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.taskCompletedBtn.ForeColor = System.Drawing.Color.White;
-            this.taskCompletedBtn.Location = new System.Drawing.Point(110, 301);
-            this.taskCompletedBtn.Name = "taskCompletedBtn";
-            this.taskCompletedBtn.Size = new System.Drawing.Size(174, 57);
-            this.taskCompletedBtn.TabIndex = 4;
-            this.taskCompletedBtn.Text = "Task Completed";
-            this.taskCompletedBtn.UseVisualStyleBackColor = false;
+            this.viewTaskdetailBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.viewTaskdetailBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.viewTaskdetailBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewTaskdetailBtn.ForeColor = System.Drawing.Color.White;
+            this.viewTaskdetailBtn.Location = new System.Drawing.Point(92, 295);
+            this.viewTaskdetailBtn.Name = "viewTaskdetailBtn";
+            this.viewTaskdetailBtn.Size = new System.Drawing.Size(174, 57);
+            this.viewTaskdetailBtn.TabIndex = 4;
+            this.viewTaskdetailBtn.Text = "View Task Details";
+            this.viewTaskdetailBtn.UseVisualStyleBackColor = false;
+            this.viewTaskdetailBtn.Click += new System.EventHandler(this.viewTaskdetailBtn_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(432, 31);
+            this.label6.Location = new System.Drawing.Point(467, 34);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(137, 23);
             this.label6.TabIndex = 3;
@@ -202,10 +205,11 @@ namespace ProjectManagement
             // 
             this.completedTasksListBox.FormattingEnabled = true;
             this.completedTasksListBox.ItemHeight = 23;
-            this.completedTasksListBox.Location = new System.Drawing.Point(435, 60);
+            this.completedTasksListBox.Location = new System.Drawing.Point(471, 60);
             this.completedTasksListBox.Name = "completedTasksListBox";
-            this.completedTasksListBox.Size = new System.Drawing.Size(369, 211);
+            this.completedTasksListBox.Size = new System.Drawing.Size(420, 211);
             this.completedTasksListBox.TabIndex = 2;
+            this.completedTasksListBox.SelectedIndexChanged += new System.EventHandler(this.completedTasksListBox_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -218,33 +222,26 @@ namespace ProjectManagement
             // 
             // assignedTasksListBox
             // 
+            this.assignedTasksListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.assignedTasksListBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.assignedTasksListBox.ForeColor = System.Drawing.Color.Black;
             this.assignedTasksListBox.FormattingEnabled = true;
             this.assignedTasksListBox.ItemHeight = 23;
             this.assignedTasksListBox.Location = new System.Drawing.Point(25, 60);
             this.assignedTasksListBox.Name = "assignedTasksListBox";
-            this.assignedTasksListBox.Size = new System.Drawing.Size(369, 211);
+            this.assignedTasksListBox.Size = new System.Drawing.Size(410, 209);
             this.assignedTasksListBox.TabIndex = 0;
-            // 
-            // updateTaskInfoBtn
-            // 
-            this.updateTaskInfoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.updateTaskInfoBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateTaskInfoBtn.ForeColor = System.Drawing.Color.White;
-            this.updateTaskInfoBtn.Location = new System.Drawing.Point(920, 119);
-            this.updateTaskInfoBtn.Name = "updateTaskInfoBtn";
-            this.updateTaskInfoBtn.Size = new System.Drawing.Size(174, 57);
-            this.updateTaskInfoBtn.TabIndex = 6;
-            this.updateTaskInfoBtn.Text = "Update Task Status";
-            this.updateTaskInfoBtn.UseVisualStyleBackColor = false;
+            this.assignedTasksListBox.Click += new System.EventHandler(this.assignedTasksListBox_Click);
+            this.assignedTasksListBox.SelectedIndexChanged += new System.EventHandler(this.assignedTasksListBox_SelectedIndexChanged);
             // 
             // viewGroupInfoBtn
             // 
             this.viewGroupInfoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.viewGroupInfoBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewGroupInfoBtn.ForeColor = System.Drawing.Color.White;
-            this.viewGroupInfoBtn.Location = new System.Drawing.Point(920, 198);
+            this.viewGroupInfoBtn.Location = new System.Drawing.Point(995, 117);
             this.viewGroupInfoBtn.Name = "viewGroupInfoBtn";
-            this.viewGroupInfoBtn.Size = new System.Drawing.Size(174, 57);
+            this.viewGroupInfoBtn.Size = new System.Drawing.Size(154, 57);
             this.viewGroupInfoBtn.TabIndex = 7;
             this.viewGroupInfoBtn.Text = "View Group Info";
             this.viewGroupInfoBtn.UseVisualStyleBackColor = false;
@@ -255,11 +252,11 @@ namespace ProjectManagement
             this.joinProjectGroupBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.joinProjectGroupBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.joinProjectGroupBtn.ForeColor = System.Drawing.Color.White;
-            this.joinProjectGroupBtn.Location = new System.Drawing.Point(920, 274);
+            this.joinProjectGroupBtn.Location = new System.Drawing.Point(995, 199);
             this.joinProjectGroupBtn.Name = "joinProjectGroupBtn";
-            this.joinProjectGroupBtn.Size = new System.Drawing.Size(174, 57);
+            this.joinProjectGroupBtn.Size = new System.Drawing.Size(154, 57);
             this.joinProjectGroupBtn.TabIndex = 9;
-            this.joinProjectGroupBtn.Text = "Join Project Group";
+            this.joinProjectGroupBtn.Text = "Update Your Group";
             this.joinProjectGroupBtn.UseVisualStyleBackColor = false;
             // 
             // logOutBtn
@@ -267,7 +264,7 @@ namespace ProjectManagement
             this.logOutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.logOutBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logOutBtn.ForeColor = System.Drawing.Color.White;
-            this.logOutBtn.Location = new System.Drawing.Point(941, 627);
+            this.logOutBtn.Location = new System.Drawing.Point(1014, 631);
             this.logOutBtn.Name = "logOutBtn";
             this.logOutBtn.Size = new System.Drawing.Size(135, 57);
             this.logOutBtn.TabIndex = 11;
@@ -275,16 +272,28 @@ namespace ProjectManagement
             this.logOutBtn.UseVisualStyleBackColor = false;
             this.logOutBtn.Click += new System.EventHandler(this.logOutBtn_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(995, 272);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(154, 57);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "View Project Info";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // ProjectMemberMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1132, 709);
+            this.ClientSize = new System.Drawing.Size(1173, 709);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.logOutBtn);
             this.Controls.Add(this.joinProjectGroupBtn);
             this.Controls.Add(this.viewGroupInfoBtn);
-            this.Controls.Add(this.updateTaskInfoBtn);
             this.Controls.Add(this.TaskInfo);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.displayMemberTitleLabel);
@@ -295,6 +304,7 @@ namespace ProjectManagement
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Project Member Dashboard";
             this.Load += new System.EventHandler(this.ProjectMemberMenu_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ProjectMemberMenu_MouseClick);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.TaskInfo.ResumeLayout(false);
@@ -317,14 +327,14 @@ namespace ProjectManagement
         private System.Windows.Forms.Label projectGroupNameLabel;
         private System.Windows.Forms.GroupBox TaskInfo;
         private System.Windows.Forms.Button removeTaskCompletedBtn;
-        private System.Windows.Forms.Button taskCompletedBtn;
+        private System.Windows.Forms.Button viewTaskdetailBtn;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox completedTasksListBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox assignedTasksListBox;
-        private System.Windows.Forms.Button updateTaskInfoBtn;
         private System.Windows.Forms.Button viewGroupInfoBtn;
         private System.Windows.Forms.Button joinProjectGroupBtn;
         private System.Windows.Forms.Button logOutBtn;
+        private System.Windows.Forms.Button button1;
     }
 }
