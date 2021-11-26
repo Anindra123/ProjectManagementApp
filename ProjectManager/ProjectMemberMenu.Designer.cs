@@ -209,6 +209,7 @@ namespace ProjectManagement
             this.completedTasksListBox.Name = "completedTasksListBox";
             this.completedTasksListBox.Size = new System.Drawing.Size(420, 211);
             this.completedTasksListBox.TabIndex = 2;
+            this.completedTasksListBox.SelectedIndexChanged += new System.EventHandler(this.completedTasksListBox_SelectedIndexChanged);
             // 
             // label5
             // 

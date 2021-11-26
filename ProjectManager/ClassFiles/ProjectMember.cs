@@ -163,5 +163,22 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
+
+        public void RemoveTaskComplete(int task_id)
+        {
+
+            ProjectTask task = tasks.Find(x => x.Task_ID == task_id);
+            string query = $"update PerformTask_TBL " +
+                $"set Task_Attached = null,Task_Comment = null," +
+                $"Task_Completed = 1" +
+                $" where task_id = '{task_id}';";
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+        }
     }
 }

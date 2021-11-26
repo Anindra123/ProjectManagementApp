@@ -46,10 +46,7 @@ namespace ProjectManagement
             InitializeComponent();
 
         }
-        private void UpdateListBox(List<ProjectTask> li, ListBox obj)
-        {
 
-        }
         void GotoContinuePage()
         {
             //Goes to project manager continue form
@@ -79,13 +76,15 @@ namespace ProjectManagement
         {
             compTask = new ProjectMember();
             compTask.tasks.AddRange(projectMember.tasks.FindAll(x => x.Task_Completed == 2));
-            UpdateListBox(compTask.tasks, completedTasksListBox);
             completedTasksListBox.DataSource = null;
+            completedTasksListBox.ValueMember = "Task_ID";
             completedTasksListBox.DisplayMember = "Task_Title";
             completedTasksListBox.DataSource = compTask.tasks;
+            completedTasksListBox.SelectedIndex = -1;
             assignedTask = new ProjectMember();
             assignedTask.tasks.AddRange(projectMember.tasks.FindAll(x => x.Task_Completed == 1));
             assignedTasksListBox.DataSource = null;
+            assignedTasksListBox.ValueMember = "Task_ID";
             assignedTasksListBox.DisplayMember = "Task_Title";
             assignedTasksListBox.DataSource = assignedTask.tasks;
             assignedTasksListBox.SelectedIndex = -1;
@@ -175,7 +174,28 @@ namespace ProjectManagement
 
         private void removeTaskCompletedBtn_Click(object sender, EventArgs e)
         {
+            if (completedTasksListBox.SelectedItem != null)
+            {
+                int val = (int)completedTasksListBox.SelectedValue;
+                ProjectTask pTask = projectMember.tasks.Find(r => r.Task_ID == val);
+                pTask.Task_Completed = 1;
+                pTask.Task_Comment = null;
+                pTask.Task_Attached = null;
+                projectMember.RemoveTaskComplete(pTask.Task_ID);
+                FilterTaskList();
+            }
+        }
 
+        private void completedTasksListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (completedTasksListBox.SelectedIndex == -1)
+            {
+                removeTaskCompletedBtn.Enabled = false;
+            }
+            else
+            {
+                removeTaskCompletedBtn.Enabled = true;
+            }
         }
     }
 }
