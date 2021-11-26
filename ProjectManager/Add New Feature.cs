@@ -26,5 +26,45 @@ namespace ProjectManagement
         {
 
         }
+
+        private void createBtn_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(titleTextBox.Text))
+            {
+
+                MessageBox.Show("Text fields Cannot Be Empty", "Alert",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (assignToComboBox.Items.Count < 1 && assignSelectionYesRadioBtn.Checked)
+            {
+                MessageBox.Show("Must select a member", "Alert",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void assignSelectionNoRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void assignSelectionYesRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (assignSelectionYesRadioBtn.Checked)
+            {
+                assignToComboBox.Enabled = true;
+
+               
+            }
+            else
+            {
+                assignToComboBox.Enabled = false;
+            }
+            
+        }
     }
 }

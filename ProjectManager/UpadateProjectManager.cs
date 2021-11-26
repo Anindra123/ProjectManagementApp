@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace ProjectManagement
 {
-    public partial class UpdateProjectMemberInfoForm : Form
+    public partial class UpadateProjectManager : Form
     {
-        public UpdateProjectMemberInfoForm()
+        public UpadateProjectManager()
         {
             InitializeComponent();
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void textBox1_Leave(object sender, EventArgs e)
@@ -27,7 +22,7 @@ namespace ProjectManagement
             if (string.IsNullOrEmpty(textBox1.Text) == true)
             {
                 textBox1.Focus();
-                errorProvider1.SetError(this.textBox1, "Field cannot be empty");
+                errorProvider1.SetError(this.textBox1, "Please Fillup the field");
             }
             else
             {
@@ -79,11 +74,6 @@ namespace ProjectManagement
             }
         }
 
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox5_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBox5.Text) == true)
@@ -97,7 +87,7 @@ namespace ProjectManagement
             }
         }
 
-        private void UpdateProjectMemberInfoForm_Load(object sender, EventArgs e)
+        private void UpdateProjectManagerInfoForm_Load(object sender, EventArgs e)
         {
 
         }

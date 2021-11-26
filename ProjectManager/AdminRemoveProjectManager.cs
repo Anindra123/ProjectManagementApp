@@ -10,29 +10,29 @@ using System.Windows.Forms;
 
 namespace ProjectManagement
 {
-    public partial class ViewProjectMemberInfoForm : Form
+    public partial class ViewProjectManagerInfoForm : Form
     {
-        public ViewProjectMemberInfoForm()
+        public ViewProjectManagerInfoForm()
         {
             InitializeComponent();
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label14_Click(object sender, EventArgs e)
+        private void ViewProjectManagerInfoForm_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBox1_Leave(object sender, EventArgs e)
+        private void textBox1_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(comboBox1.Text) == true)
+            if(string.IsNullOrEmpty(textBox1.Text) == true)
             {
-                comboBox1.Focus();
-                errorProvider1.SetError(this.comboBox1, "Select a option");
+                textBox1.Focus();
+                errorProvider1.SetError(this.textBox1, "Field cannot be empty");
             }
             else
             {
