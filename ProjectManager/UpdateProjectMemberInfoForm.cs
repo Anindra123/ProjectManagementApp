@@ -96,5 +96,10 @@ namespace ProjectManagement
                 errorProvider5.Clear();
             }
         }
+
+        private void UpdateProjectMemberInfoForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
