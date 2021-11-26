@@ -28,5 +28,28 @@ namespace ProjectManagement
             this.Close();
             form1.Show();
         }
+
+        private void proMProjTitleTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void proM2Confirm_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Project Name Required", "Alert",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void proMProjTitleTextBox_Leave(object sender, EventArgs e)
+        {
+
+           
+
+        }
+
+        private void CreateNewProjectFrom_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
