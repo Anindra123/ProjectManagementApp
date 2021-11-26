@@ -51,5 +51,10 @@ namespace ProjectManagement
             a1.Show();
             this.Hide();
         }
+
+        private void AdminDashBoard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

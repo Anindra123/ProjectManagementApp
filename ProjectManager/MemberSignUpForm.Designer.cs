@@ -91,19 +91,23 @@ namespace ProjectManagement
             this.enterGroupNameTextBox.Location = new System.Drawing.Point(145, 249);
             this.enterGroupNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.enterGroupNameTextBox.Name = "enterGroupNameTextBox";
+
             this.enterGroupNameTextBox.Size = new System.Drawing.Size(271, 26);
             this.enterGroupNameTextBox.TabIndex = 16;
-            // 
-            // projMLastNameTextBox
-            // 
+
+            this.enterGroupNameTextBox.Size = new System.Drawing.Size(360, 30);
+            this.enterGroupNameTextBox.TabIndex = 4;
+
             this.projMLastNameTextBox.Location = new System.Drawing.Point(202, 67);
             this.projMLastNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.projMLastNameTextBox.Name = "projMLastNameTextBox";
+
             this.projMLastNameTextBox.Size = new System.Drawing.Size(295, 26);
             this.projMLastNameTextBox.TabIndex = 15;
-            // 
-            // label8
-            // 
+
+            this.projMLastNameTextBox.Size = new System.Drawing.Size(392, 30);
+            this.projMLastNameTextBox.TabIndex = 1;
+
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(16, 72);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -255,28 +259,34 @@ namespace ProjectManagement
             this.projectMemberEmailTextBox.Location = new System.Drawing.Point(202, 145);
             this.projectMemberEmailTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.projectMemberEmailTextBox.Name = "projectMemberEmailTextBox";
+
             this.projectMemberEmailTextBox.Size = new System.Drawing.Size(295, 26);
             this.projectMemberEmailTextBox.TabIndex = 5;
-            // 
-            // projMemberPasswordTextBox
-            // 
+            this.projectMemberEmailTextBox.Size = new System.Drawing.Size(392, 30);
+            this.projectMemberEmailTextBox.TabIndex = 3;
+
             this.projMemberPasswordTextBox.Location = new System.Drawing.Point(202, 107);
             this.projMemberPasswordTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.projMemberPasswordTextBox.Name = "projMemberPasswordTextBox";
+
             this.projMemberPasswordTextBox.Size = new System.Drawing.Size(295, 26);
             this.projMemberPasswordTextBox.TabIndex = 4;
-            // 
-            // projMemFirstNameTextBox
-            // 
+
+            this.projMemberPasswordTextBox.PasswordChar = '*';
+            this.projMemberPasswordTextBox.Size = new System.Drawing.Size(392, 30);
+            this.projMemberPasswordTextBox.TabIndex = 2;
+
             this.projMemFirstNameTextBox.Location = new System.Drawing.Point(202, 24);
             this.projMemFirstNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.projMemFirstNameTextBox.Name = "projMemFirstNameTextBox";
+
             this.projMemFirstNameTextBox.Size = new System.Drawing.Size(295, 26);
             this.projMemFirstNameTextBox.TabIndex = 3;
             this.projMemFirstNameTextBox.TextChanged += new System.EventHandler(this.projMemFirstNameTextBox_TextChanged);
-            // 
-            // label3
-            // 
+
+            this.projMemFirstNameTextBox.Size = new System.Drawing.Size(392, 30);
+            this.projMemFirstNameTextBox.TabIndex = 0;
+
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(17, 150);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);

@@ -11,12 +11,31 @@ using System.Windows.Forms;
 
 namespace ProjectManagement
 {
+    public delegate void SetProjectAndGroup(int id);
     public partial class ProjectMemberMenu : Form
     {
         static ProjectMember projectMember;
+        Project project = new Project();
+        ProjectGroup projGroup = new ProjectGroup();
+        ProjectManager projectManager = new ProjectManager();
+
+        void ShowNewMenu(Form obj)
+        {
+            //Give control to the nextform
+            obj.Tag = this;
+            obj.Show(this);
+            this.Hide();
+        }
         public static void SetMember(ProjectMember pm)
         {
             projectMember = pm;
+        }
+        private void SetDashboardlabels(string groupName, string firstName, string LastName,
+            string title)
+        {
+            projectGroupNameLabel.Text = $"{groupName}";
+            projectLeaderNameLabel.Text = $"{firstName} {LastName}";
+            projectTitleLabel.Text = $"{title}";
         }
 
         public ProjectMemberMenu()
@@ -40,10 +59,33 @@ namespace ProjectManagement
         {
             GotoContinuePage();
         }
-
+        private void AssignObjectsValues()
+        {
+            SetProjectAndGroup setProjectAndGroup = project.GetProjectInfo;
+            setProjectAndGroup += projGroup.GetPGroupInfo;
+            setProjectAndGroup(projectMember.PMemberID);
+            projectManager.GetProjectManagerInfo(project.Project_ID);
+        }
         private void ProjectMemberMenu_Load(object sender, EventArgs e)
         {
-            displayMemberTitleLabel.Text = $"Hello {projectMember.FirstName} {projectMember.LastName}";
+            displayMemberTitleLabel.Text = $"Hello, {projectMember.FirstName} {projectMember.LastName}";
+            if (projectMember.CheckifGroupMember(projectMember.PMemberID))
+            {
+                AssignObjectsValues();
+                SetDashboardlabels(projGroup.PGroup_Name, projectManager.FirstName, projectManager.LastName, project.Project_Title);
+            }
+            else
+            {
+                SetDashboardlabels("none", "none", "", "none");
+            }
+        }
+
+        private void viewGroupInfoBtn_Click(object sender, EventArgs e)
+        {
+
+            ViewGroupInfo viewGroup = new ViewGroupInfo(projectManager, projGroup);
+            ShowNewMenu(viewGroup);
+
         }
     }
 }
