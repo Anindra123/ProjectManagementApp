@@ -301,6 +301,7 @@ namespace ProjectManagement
             this.MaximizeBox = false;
             this.Name = "UpdateProjectMemberInfoForm";
             this.Text = "Form5";
+            this.Load += new System.EventHandler(this.UpdateProjectMemberInfoForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

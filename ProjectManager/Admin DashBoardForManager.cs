@@ -29,7 +29,7 @@ namespace ProjectManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            RemoveProjectMan a2 = new AdminRemoveProjectManager();
+            
         }
     }
 }
