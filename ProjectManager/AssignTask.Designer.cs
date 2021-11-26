@@ -76,6 +76,7 @@ namespace ProjectManagement
             this.AssignTaskBtn.TabIndex = 3;
             this.AssignTaskBtn.Text = "Assign Task";
             this.AssignTaskBtn.UseVisualStyleBackColor = false;
+            this.AssignTaskBtn.Click += new System.EventHandler(this.AssignTaskBtn_Click);
             // 
             // SBtn
             // 
@@ -84,8 +85,9 @@ namespace ProjectManagement
             this.SBtn.Name = "SBtn";
             this.SBtn.Size = new System.Drawing.Size(146, 58);
             this.SBtn.TabIndex = 4;
-            this.SBtn.Text = "S";
+            this.SBtn.Text = "Cancel";
             this.SBtn.UseVisualStyleBackColor = false;
+            this.SBtn.Click += new System.EventHandler(this.SBtn_Click);
             // 
             // comboBox1
             // 

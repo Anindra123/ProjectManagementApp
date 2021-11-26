@@ -31,6 +31,7 @@ namespace ProjectManagement
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNewFeature));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.featureDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.createBtn = new System.Windows.Forms.Button();
             this.statusPendingRadioBtn = new System.Windows.Forms.RadioButton();
@@ -44,7 +45,6 @@ namespace ProjectManagement
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.titleLabel = new System.Windows.Forms.Label();
-            this.featureDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,6 +72,14 @@ namespace ProjectManagement
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // featureDescriptionTextBox
+            // 
+            this.featureDescriptionTextBox.Location = new System.Drawing.Point(42, 131);
+            this.featureDescriptionTextBox.Multiline = true;
+            this.featureDescriptionTextBox.Name = "featureDescriptionTextBox";
+            this.featureDescriptionTextBox.Size = new System.Drawing.Size(523, 73);
+            this.featureDescriptionTextBox.TabIndex = 15;
+            // 
             // cancelBtn
             // 
             this.cancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -82,6 +90,7 @@ namespace ProjectManagement
             this.cancelBtn.TabIndex = 14;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = false;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // createBtn
             // 
@@ -93,6 +102,7 @@ namespace ProjectManagement
             this.createBtn.TabIndex = 13;
             this.createBtn.Text = "Create";
             this.createBtn.UseVisualStyleBackColor = false;
+            this.createBtn.Click += new System.EventHandler(this.createBtn_Click);
             // 
             // statusPendingRadioBtn
             // 
@@ -197,14 +207,6 @@ namespace ProjectManagement
             this.titleLabel.Size = new System.Drawing.Size(42, 23);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Title";
-            // 
-            // featureDescriptionTextBox
-            // 
-            this.featureDescriptionTextBox.Location = new System.Drawing.Point(42, 131);
-            this.featureDescriptionTextBox.Multiline = true;
-            this.featureDescriptionTextBox.Name = "featureDescriptionTextBox";
-            this.featureDescriptionTextBox.Size = new System.Drawing.Size(523, 73);
-            this.featureDescriptionTextBox.TabIndex = 15;
             // 
             // AddNewFeature
             // 

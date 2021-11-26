@@ -160,6 +160,7 @@ namespace ProjectManagement
             this.MaximizeBox = false;
             this.Name = "AddProjectMemberForm";
             this.Text = "Form3";
+            this.Load += new System.EventHandler(this.AddProjectMemberForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

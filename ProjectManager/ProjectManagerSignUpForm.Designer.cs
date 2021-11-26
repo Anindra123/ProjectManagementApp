@@ -31,6 +31,13 @@ namespace ProjectManagement
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectManagerSignUpForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.proMprojEndDateLabel = new System.Windows.Forms.Label();
+            this.proMprojStartDateLabel = new System.Windows.Forms.Label();
+            this.proMprojTitleLabel = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.proMLastNameTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.proMCreateNewProj = new System.Windows.Forms.Button();
@@ -53,13 +60,6 @@ namespace ProjectManagement
             this.proMSignUp = new System.Windows.Forms.Button();
             this.proMCancel = new System.Windows.Forms.Button();
             this.goBackHomePageBtn = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.proMprojTitleLabel = new System.Windows.Forms.Label();
-            this.proMprojStartDateLabel = new System.Windows.Forms.Label();
-            this.proMprojEndDateLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -96,6 +96,76 @@ namespace ProjectManagement
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Project Manager Info";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.proMprojEndDateLabel);
+            this.groupBox2.Controls.Add(this.proMprojStartDateLabel);
+            this.groupBox2.Controls.Add(this.proMprojTitleLabel);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(34, 460);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(526, 160);
+            this.groupBox2.TabIndex = 23;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Project Info";
+            // 
+            // proMprojEndDateLabel
+            // 
+            this.proMprojEndDateLabel.AutoSize = true;
+            this.proMprojEndDateLabel.Location = new System.Drawing.Point(179, 109);
+            this.proMprojEndDateLabel.Name = "proMprojEndDateLabel";
+            this.proMprojEndDateLabel.Size = new System.Drawing.Size(49, 23);
+            this.proMprojEndDateLabel.TabIndex = 5;
+            this.proMprojEndDateLabel.Text = "none";
+            // 
+            // proMprojStartDateLabel
+            // 
+            this.proMprojStartDateLabel.AutoSize = true;
+            this.proMprojStartDateLabel.Location = new System.Drawing.Point(179, 75);
+            this.proMprojStartDateLabel.Name = "proMprojStartDateLabel";
+            this.proMprojStartDateLabel.Size = new System.Drawing.Size(49, 23);
+            this.proMprojStartDateLabel.TabIndex = 4;
+            this.proMprojStartDateLabel.Text = "none";
+            // 
+            // proMprojTitleLabel
+            // 
+            this.proMprojTitleLabel.AutoSize = true;
+            this.proMprojTitleLabel.Location = new System.Drawing.Point(151, 40);
+            this.proMprojTitleLabel.Name = "proMprojTitleLabel";
+            this.proMprojTitleLabel.Size = new System.Drawing.Size(49, 23);
+            this.proMprojTitleLabel.TabIndex = 3;
+            this.proMprojTitleLabel.Text = "none";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(20, 109);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(147, 23);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Project End Date :";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(20, 75);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(153, 23);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Project Start Date :";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(20, 40);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(109, 23);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Project Title :";
             // 
             // proMLastNameTextBox
             // 
@@ -182,6 +252,7 @@ namespace ProjectManagement
             this.proMSearchMemBtn.TabIndex = 14;
             this.proMSearchMemBtn.Text = "Add Member";
             this.proMSearchMemBtn.UseVisualStyleBackColor = false;
+            this.proMSearchMemBtn.Click += new System.EventHandler(this.proMSearchMemBtn_Click);
             // 
             // label6
             // 
@@ -324,76 +395,6 @@ namespace ProjectManagement
             this.goBackHomePageBtn.Text = "Back To Home";
             this.goBackHomePageBtn.UseVisualStyleBackColor = false;
             this.goBackHomePageBtn.Click += new System.EventHandler(this.goBackHomePageBtn_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.proMprojEndDateLabel);
-            this.groupBox2.Controls.Add(this.proMprojStartDateLabel);
-            this.groupBox2.Controls.Add(this.proMprojTitleLabel);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(34, 460);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(526, 160);
-            this.groupBox2.TabIndex = 23;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Project Info";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(20, 40);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(109, 23);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Project Title :";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(20, 75);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(153, 23);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Project Start Date :";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(20, 109);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(147, 23);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Project End Date :";
-            // 
-            // proMprojTitleLabel
-            // 
-            this.proMprojTitleLabel.AutoSize = true;
-            this.proMprojTitleLabel.Location = new System.Drawing.Point(151, 40);
-            this.proMprojTitleLabel.Name = "proMprojTitleLabel";
-            this.proMprojTitleLabel.Size = new System.Drawing.Size(49, 23);
-            this.proMprojTitleLabel.TabIndex = 3;
-            this.proMprojTitleLabel.Text = "none";
-            // 
-            // proMprojStartDateLabel
-            // 
-            this.proMprojStartDateLabel.AutoSize = true;
-            this.proMprojStartDateLabel.Location = new System.Drawing.Point(179, 75);
-            this.proMprojStartDateLabel.Name = "proMprojStartDateLabel";
-            this.proMprojStartDateLabel.Size = new System.Drawing.Size(49, 23);
-            this.proMprojStartDateLabel.TabIndex = 4;
-            this.proMprojStartDateLabel.Text = "none";
-            // 
-            // proMprojEndDateLabel
-            // 
-            this.proMprojEndDateLabel.AutoSize = true;
-            this.proMprojEndDateLabel.Location = new System.Drawing.Point(179, 109);
-            this.proMprojEndDateLabel.Name = "proMprojEndDateLabel";
-            this.proMprojEndDateLabel.Size = new System.Drawing.Size(49, 23);
-            this.proMprojEndDateLabel.TabIndex = 5;
-            this.proMprojEndDateLabel.Text = "none";
             // 
             // ProjectManagerSignUpForm
             // 

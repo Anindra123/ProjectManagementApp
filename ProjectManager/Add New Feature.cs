@@ -17,6 +17,14 @@ namespace ProjectManagement
             InitializeComponent();
         }
 
+        void ShowPreviousMenu()
+        {
+            //Goes to the previous control
+            var form = (ProjectManagerView)Tag;
+            form.Show();
+
+        }
+
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -25,6 +33,17 @@ namespace ProjectManagement
         private void AddNewFeature_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void createBtn_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            ShowPreviousMenu();
+            this.Close();
         }
     }
 }

@@ -33,5 +33,10 @@ namespace ProjectManagement
             ShowPreviousMenu();
             this.Close();
         }
+
+        private void AddProjectMemberForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

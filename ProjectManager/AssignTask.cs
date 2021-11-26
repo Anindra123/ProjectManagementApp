@@ -16,5 +16,24 @@ namespace ProjectManagement
         {
             InitializeComponent();
         }
+
+        void ShowPreviousMenu()
+        {
+            //Goes to the previous control
+            var form = (ProjectManagerView)Tag;
+            form.Show();
+
+        }
+
+        private void SBtn_Click(object sender, EventArgs e)
+        {
+            ShowPreviousMenu();
+            this.Close();
+        }
+
+        private void AssignTaskBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

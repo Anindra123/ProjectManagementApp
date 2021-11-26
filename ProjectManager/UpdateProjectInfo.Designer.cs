@@ -96,6 +96,7 @@ namespace ProjectManagement
             this.GoBackBtn.TabIndex = 5;
             this.GoBackBtn.Text = "Go Back";
             this.GoBackBtn.UseVisualStyleBackColor = false;
+            this.GoBackBtn.Click += new System.EventHandler(this.GoBackBtn_Click);
             // 
             // textBox1
             // 
