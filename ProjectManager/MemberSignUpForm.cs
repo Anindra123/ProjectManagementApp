@@ -109,9 +109,9 @@ namespace ProjectManagement
         private void projMemberSignUpBtn_Click(object sender, EventArgs e)
         {
             //Check the main fields
-            if (!String.IsNullOrWhiteSpace(projMemberPasswordTextBox.Text)
-                && !String.IsNullOrWhiteSpace(projMemberPasswordTextBox.Text)
-                && !String.IsNullOrWhiteSpace(projectMemberEmailTextBox.Text)
+            if (!string.IsNullOrWhiteSpace(projMemberPasswordTextBox.Text)
+                && !string.IsNullOrWhiteSpace(projMemberPasswordTextBox.Text)
+                && !string.IsNullOrWhiteSpace(projectMemberEmailTextBox.Text)
                 )
             {
                 //Email validation
@@ -155,7 +155,7 @@ namespace ProjectManagement
             }
             else
             {
-                MessageBox.Show("Text feilds Cannot Be Empty", "Alert",
+                MessageBox.Show("Text fields Cannot Be Empty", "Alert",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
@@ -183,6 +183,11 @@ namespace ProjectManagement
                     projectManagerLabel.Text = $"{projectManager.FirstName} {projectManager.LastName}";
                 }
             }
+        }
+
+        private void projMemFirstNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
