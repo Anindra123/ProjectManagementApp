@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace ProjectManagement
 {
-    public partial class Form3 : Form
+    public partial class ViewProjectManagerInfoForm : Form
     {
-        public Form3()
+        public ViewProjectManagerInfoForm()
         {
             InitializeComponent();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ViewProjectManagerInfoForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

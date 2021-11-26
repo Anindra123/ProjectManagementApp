@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace ProjectManagement
 {
-    public partial class ViewProjectMemberInfoForm : Form
+    public partial class ViewProjectManagerInfo : Form
     {
-        public ViewProjectMemberInfoForm()
+        public ViewProjectManagerInfo()
         {
             InitializeComponent();
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void comboBox1_Leave(object sender, EventArgs e)
@@ -32,7 +22,7 @@ namespace ProjectManagement
             if (string.IsNullOrEmpty(comboBox1.Text) == true)
             {
                 comboBox1.Focus();
-                errorProvider1.SetError(this.comboBox1, "Select a option");
+                errorProvider1.SetError(this.comboBox1, "Field cannot be empty");
             }
             else
             {
