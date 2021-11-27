@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjectManagement.ClassFiles
 {
+    public delegate bool UpdateGroupAndProject(int p_id);
     public class ProjectMember : User
     {
         public int PMemberID { get; set; }
@@ -180,5 +181,89 @@ namespace ProjectManagement.ClassFiles
             }
 
         }
+
+        public bool UpdateMemberInfo()
+        {
+            int rowEffected = 0;
+            string query = $"update PMember_TBL " +
+                $" set PMember_FirstName = '{this.FirstName}',PMember_LastName = '{this.LastName}'" +
+                $",PMember_Email = '{this.Email}',PMember_Password = '{this.password}' " +
+                $"where PMember_ID = {this.PMemberID}";
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                rowEffected = cmd.ExecuteNonQuery();
+            }
+            if (rowEffected == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateMemberGroupInfoTable(int pm_id)
+        {
+            int rowEffected = 0;
+            string query = $"delete from PMemberGroupInfo_TBL where " +
+                $"PMember_ID = {pm_id}";
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                rowEffected = cmd.ExecuteNonQuery();
+            }
+            if (rowEffected == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateMemberProjInfoTable(int pm_id)
+        {
+            int rowEffected = 0;
+            string query = $"delete from PMemberProjectInfo_TBL where " +
+                $"PMember_ID = {pm_id}";
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                rowEffected = cmd.ExecuteNonQuery();
+            }
+            if (rowEffected == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool UpdateMemberAssignedTask(int p_id)
+        {
+            int rowsEffected = 0;
+            string query = $"delete ptt from PerformTask_TBL ptt Inner join Task_TBL tt on ptt.Task_ID = tt.Task_ID where tt.Project_ID = {p_id}";
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                rowsEffected = cmd.ExecuteNonQuery();
+            }
+            if (rowsEffected > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+
     }
 }

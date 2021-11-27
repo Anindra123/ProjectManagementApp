@@ -96,10 +96,10 @@ namespace ProjectManagement
             // 
             // projMLastNameTextBox
             // 
-            this.projMLastNameTextBox.Location = new System.Drawing.Point(269, 82);
+            this.projMLastNameTextBox.Location = new System.Drawing.Point(231, 82);
             this.projMLastNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.projMLastNameTextBox.Name = "projMLastNameTextBox";
-            this.projMLastNameTextBox.Size = new System.Drawing.Size(521, 30);
+            this.projMLastNameTextBox.Size = new System.Drawing.Size(415, 30);
             this.projMLastNameTextBox.TabIndex = 1;
             // 
             // label8
@@ -209,7 +209,7 @@ namespace ProjectManagement
             // memberOfGroupNoRadioBtn
             // 
             this.memberOfGroupNoRadioBtn.AutoSize = true;
-            this.memberOfGroupNoRadioBtn.Location = new System.Drawing.Point(499, 238);
+            this.memberOfGroupNoRadioBtn.Location = new System.Drawing.Point(499, 251);
             this.memberOfGroupNoRadioBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.memberOfGroupNoRadioBtn.Name = "memberOfGroupNoRadioBtn";
             this.memberOfGroupNoRadioBtn.Size = new System.Drawing.Size(54, 27);
@@ -222,7 +222,7 @@ namespace ProjectManagement
             // memberOfGroupYesRadioBtn
             // 
             this.memberOfGroupYesRadioBtn.AutoSize = true;
-            this.memberOfGroupYesRadioBtn.Location = new System.Drawing.Point(355, 238);
+            this.memberOfGroupYesRadioBtn.Location = new System.Drawing.Point(355, 251);
             this.memberOfGroupYesRadioBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.memberOfGroupYesRadioBtn.Name = "memberOfGroupYesRadioBtn";
             this.memberOfGroupYesRadioBtn.Size = new System.Drawing.Size(55, 27);
@@ -235,7 +235,7 @@ namespace ProjectManagement
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 240);
+            this.label4.Location = new System.Drawing.Point(23, 253);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(301, 23);
             this.label4.TabIndex = 6;
@@ -243,27 +243,27 @@ namespace ProjectManagement
             // 
             // projectMemberEmailTextBox
             // 
-            this.projectMemberEmailTextBox.Location = new System.Drawing.Point(269, 178);
+            this.projectMemberEmailTextBox.Location = new System.Drawing.Point(231, 185);
             this.projectMemberEmailTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.projectMemberEmailTextBox.Name = "projectMemberEmailTextBox";
-            this.projectMemberEmailTextBox.Size = new System.Drawing.Size(521, 30);
+            this.projectMemberEmailTextBox.Size = new System.Drawing.Size(415, 30);
             this.projectMemberEmailTextBox.TabIndex = 3;
             // 
             // projMemberPasswordTextBox
             // 
-            this.projMemberPasswordTextBox.Location = new System.Drawing.Point(269, 132);
+            this.projMemberPasswordTextBox.Location = new System.Drawing.Point(231, 132);
             this.projMemberPasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.projMemberPasswordTextBox.Name = "projMemberPasswordTextBox";
             this.projMemberPasswordTextBox.PasswordChar = '*';
-            this.projMemberPasswordTextBox.Size = new System.Drawing.Size(521, 30);
+            this.projMemberPasswordTextBox.Size = new System.Drawing.Size(415, 30);
             this.projMemberPasswordTextBox.TabIndex = 2;
             // 
             // projMemFirstNameTextBox
             // 
-            this.projMemFirstNameTextBox.Location = new System.Drawing.Point(269, 30);
+            this.projMemFirstNameTextBox.Location = new System.Drawing.Point(231, 33);
             this.projMemFirstNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.projMemFirstNameTextBox.Name = "projMemFirstNameTextBox";
-            this.projMemFirstNameTextBox.Size = new System.Drawing.Size(521, 30);
+            this.projMemFirstNameTextBox.Size = new System.Drawing.Size(415, 30);
             this.projMemFirstNameTextBox.TabIndex = 0;
             this.projMemFirstNameTextBox.TextChanged += new System.EventHandler(this.projMemFirstNameTextBox_TextChanged);
             // 
@@ -299,7 +299,7 @@ namespace ProjectManagement
             this.projMemberSignUpBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.projMemberSignUpBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.projMemberSignUpBtn.ForeColor = System.Drawing.Color.White;
-            this.projMemberSignUpBtn.Location = new System.Drawing.Point(49, 630);
+            this.projMemberSignUpBtn.Location = new System.Drawing.Point(50, 641);
             this.projMemberSignUpBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.projMemberSignUpBtn.Name = "projMemberSignUpBtn";
             this.projMemberSignUpBtn.Size = new System.Drawing.Size(132, 54);
@@ -313,7 +313,7 @@ namespace ProjectManagement
             this.cancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cancelBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtn.ForeColor = System.Drawing.Color.White;
-            this.cancelBtn.Location = new System.Drawing.Point(543, 630);
+            this.cancelBtn.Location = new System.Drawing.Point(544, 641);
             this.cancelBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(132, 54);
@@ -327,7 +327,7 @@ namespace ProjectManagement
             this.goBackHomePageBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.goBackHomePageBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goBackHomePageBtn.ForeColor = System.Drawing.Color.White;
-            this.goBackHomePageBtn.Location = new System.Drawing.Point(291, 630);
+            this.goBackHomePageBtn.Location = new System.Drawing.Point(291, 641);
             this.goBackHomePageBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.goBackHomePageBtn.Name = "goBackHomePageBtn";
             this.goBackHomePageBtn.Size = new System.Drawing.Size(132, 54);

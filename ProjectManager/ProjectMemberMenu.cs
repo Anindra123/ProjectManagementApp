@@ -1,4 +1,4 @@
-﻿using ProjectManagement.ClassFiles;
+using ProjectManagement.ClassFiles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,13 +14,13 @@ namespace ProjectManagement
     public delegate void SetProjectAndGroup(int id);
     public partial class ProjectMemberMenu : Form
     {
-        static ProjectMember projectMember;
+        ProjectMember projectMember;
         ProjectMember compTask;
         ProjectMember assignedTask;
         Project project = new Project();
         ProjectGroup projGroup = new ProjectGroup();
         ProjectManager projectManager = new ProjectManager();
-        ProjectTask pTask = new ProjectTask();
+
 
         void ShowNewMenu(Form obj)
         {
@@ -29,16 +29,44 @@ namespace ProjectManagement
             obj.Show(this);
             this.Hide();
         }
-        public static void SetMember(ProjectMember pm)
+        public void SetMember(ProjectMember pm)
         {
             projectMember = pm;
         }
-        private void SetDashboardlabels(string groupName, string firstName, string LastName,
+
+        public void SetDashboardlabels(string groupName, string firstName, string LastName,
             string title)
         {
             projectGroupNameLabel.Text = $"{groupName}";
             projectLeaderNameLabel.Text = $"{firstName} {LastName}";
             projectTitleLabel.Text = $"{title}";
+        }
+        public void InitializeDashBoard()
+        {
+            projectMember.tasks.Clear();
+            assignedTasksListBox.DataSource = projectMember.tasks;
+            completedTasksListBox.DataSource = projectMember.tasks;
+            assignedTasksListBox.SelectedIndex = -1;
+            completedTasksListBox.SelectedIndex = -1;
+            removeTaskCompletedBtn.Enabled = false;
+            viewTaskdetailBtn.Enabled = false;
+            displayMemberTitleLabel.Text = $"Hello, {projectMember.FirstName} {projectMember.LastName}";
+            if (projectMember.CheckifGroupMember(projectMember.PMemberID))
+            {
+                AssignObjectsValues();
+                SetDashboardlabels(projGroup.PGroup_Name, projectManager.FirstName, projectManager.LastName, project.Project_Title);
+
+            }
+            else
+            {
+                SetDashboardlabels("none", "none", "", "none");
+            }
+            List<ProjectTask> pMemberTask = projectMember.GetTaskList(projectMember.PMemberID);
+            if (projectMember.tasks.Count >= 1)
+            {
+                FilterTaskList();
+            }
+
         }
 
         public ProjectMemberMenu()
@@ -92,23 +120,7 @@ namespace ProjectManagement
         }
         private void ProjectMemberMenu_Load(object sender, EventArgs e)
         {
-            displayMemberTitleLabel.Text = $"Hello, {projectMember.FirstName} {projectMember.LastName}";
-            if (projectMember.CheckifGroupMember(projectMember.PMemberID))
-            {
-                AssignObjectsValues();
-                SetDashboardlabels(projGroup.PGroup_Name, projectManager.FirstName, projectManager.LastName, project.Project_Title);
-            }
-            else
-            {
-                SetDashboardlabels("none", "none", "", "none");
-            }
-            List<ProjectTask> pMemberTask = projectMember.GetTaskList(projectMember.PMemberID);
-            if (pMemberTask.Count > 1)
-            {
-                FilterTaskList();
-                assignedTasksListBox.SelectedIndex = -1;
-
-            }
+            InitializeDashBoard();
         }
 
         private void viewGroupInfoBtn_Click(object sender, EventArgs e)
@@ -198,8 +210,31 @@ namespace ProjectManagement
             }
         }
 
+
+        private void updateProjMemberInfo_Click(object sender, EventArgs e)
+        {
+            UpdateMemberInfo updateMember = new UpdateMemberInfo(projectMember,
+                projGroup, projectManager, project);
+            ShowNewMenu(updateMember);
+
+        }
+
         private void joinProjectGroupBtn_Click(object sender, EventArgs e)
         {
+            if (projGroup.PGroup_Name != null)
+            {
+                JoinNewGroup joinG = new JoinNewGroup(
+                projectMember, project, projGroup, projectManager
+                );
+                ShowNewMenu(joinG);
+            }
+            else
+            {
+                JoinNewGroup joinG = new JoinNewGroup(
+                                projectMember, null, null, null
+                                );
+                ShowNewMenu(joinG);
+            }
 
         }
     }

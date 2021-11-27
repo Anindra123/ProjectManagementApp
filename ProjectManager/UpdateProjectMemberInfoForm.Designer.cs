@@ -118,7 +118,7 @@ namespace ProjectManagement
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(57, 78);
+            this.groupBox2.Location = new System.Drawing.Point(57, 81);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(712, 311);
             this.groupBox2.TabIndex = 3;
