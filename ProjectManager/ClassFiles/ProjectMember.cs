@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ProjectManagement.ClassFiles
@@ -11,6 +12,7 @@ namespace ProjectManagement.ClassFiles
     public delegate bool UpdateGroupAndProject(int p_id);
     public class ProjectMember : User
     {
+        string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
         public int PMemberID { get; set; }
         public int PGroupID { get; set; }
         public int Project_ID { get; set; }
@@ -18,6 +20,15 @@ namespace ProjectManagement.ClassFiles
 
         private static DataTable dt = new DataTable();
 
+        public bool VerifyMail(string mail)
+        {
+            if (Regex.IsMatch(mail, pattern))
+            {
+                return true;
+            }
+            return false;
+
+        }
         private void FillTable(string query)
         {
             dt.Clear();
@@ -25,6 +36,27 @@ namespace ProjectManagement.ClassFiles
             {
                 SqlDataAdapter sda = new SqlDataAdapter(query, conn);
                 sda.Fill(dt);
+            }
+        }
+
+        public bool GetMemberPass(string mail)
+        {
+            string query = $"select PMember_Password from PMember_TBL where" +
+                $" PMember_Email = '{mail}'";
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                password = (string)cmd.ExecuteScalar();
+
+            }
+            if (!string.IsNullOrWhiteSpace(password))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
         public int GetMemberID()

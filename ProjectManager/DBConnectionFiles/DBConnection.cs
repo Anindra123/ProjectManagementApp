@@ -9,6 +9,7 @@ namespace ProjectManagement
     class DBConnection
     {
 
+
         static string connectionString = @"";
 
         // Remove before pushing --- Shahed

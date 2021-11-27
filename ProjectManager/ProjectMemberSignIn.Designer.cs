@@ -38,12 +38,14 @@ namespace ProjectManagement
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.forgotPasswordLinkLabl = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.forgotPasswordLinkLabl);
             this.groupBox1.Controls.Add(this.cancelBtn);
             this.groupBox1.Controls.Add(this.signInAsProjectMemberBtn);
             this.groupBox1.Controls.Add(this.projMemberNameOREmailTextBox);
@@ -57,7 +59,7 @@ namespace ProjectManagement
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(535, 374);
+            this.groupBox1.Size = new System.Drawing.Size(537, 408);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -66,7 +68,7 @@ namespace ProjectManagement
             this.cancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cancelBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtn.ForeColor = System.Drawing.Color.White;
-            this.cancelBtn.Location = new System.Drawing.Point(345, 286);
+            this.cancelBtn.Location = new System.Drawing.Point(355, 327);
             this.cancelBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(119, 58);
@@ -80,7 +82,7 @@ namespace ProjectManagement
             this.signInAsProjectMemberBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.signInAsProjectMemberBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signInAsProjectMemberBtn.ForeColor = System.Drawing.Color.White;
-            this.signInAsProjectMemberBtn.Location = new System.Drawing.Point(53, 286);
+            this.signInAsProjectMemberBtn.Location = new System.Drawing.Point(44, 327);
             this.signInAsProjectMemberBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.signInAsProjectMemberBtn.Name = "signInAsProjectMemberBtn";
             this.signInAsProjectMemberBtn.Size = new System.Drawing.Size(199, 58);
@@ -135,12 +137,24 @@ namespace ProjectManagement
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // forgotPasswordLinkLabl
+            // 
+            this.forgotPasswordLinkLabl.AutoSize = true;
+            this.forgotPasswordLinkLabl.LinkColor = System.Drawing.Color.White;
+            this.forgotPasswordLinkLabl.Location = new System.Drawing.Point(19, 270);
+            this.forgotPasswordLinkLabl.Name = "forgotPasswordLinkLabl";
+            this.forgotPasswordLinkLabl.Size = new System.Drawing.Size(148, 23);
+            this.forgotPasswordLinkLabl.TabIndex = 7;
+            this.forgotPasswordLinkLabl.TabStop = true;
+            this.forgotPasswordLinkLabl.Text = "Forgot Password ?";
+            this.forgotPasswordLinkLabl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.forgotPasswordLinkLabl_LinkClicked);
+            // 
             // ProjectMemberSignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(560, 398);
+            this.ClientSize = new System.Drawing.Size(562, 431);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -168,5 +182,6 @@ namespace ProjectManagement
         private System.Windows.Forms.TextBox projMemberNameOREmailTextBox;
         private System.Windows.Forms.MaskedTextBox projMemberPasswordTextBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.LinkLabel forgotPasswordLinkLabl;
     }
 }
