@@ -232,20 +232,6 @@ namespace ProjectManagement
             this.assignedTasksListBox.Size = new System.Drawing.Size(410, 209);
             this.assignedTasksListBox.TabIndex = 0;
 
-            // 
-            // updateTaskInfoBtn
-            // 
-            this.updateTaskInfoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.updateTaskInfoBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateTaskInfoBtn.ForeColor = System.Drawing.Color.White;
-            this.updateTaskInfoBtn.Location = new System.Drawing.Point(920, 119);
-            this.updateTaskInfoBtn.Name = "updateTaskInfoBtn";
-            this.updateTaskInfoBtn.Size = new System.Drawing.Size(174, 57);
-            this.updateTaskInfoBtn.TabIndex = 6;
-            this.updateTaskInfoBtn.Text = "Update Task Status";
-            this.updateTaskInfoBtn.UseVisualStyleBackColor = false;
-            this.updateTaskInfoBtn.Click += new System.EventHandler(this.updateTaskInfoBtn_Click);
-
             this.assignedTasksListBox.Click += new System.EventHandler(this.assignedTasksListBox_Click);
             this.assignedTasksListBox.SelectedIndexChanged += new System.EventHandler(this.assignedTasksListBox_SelectedIndexChanged);
 
