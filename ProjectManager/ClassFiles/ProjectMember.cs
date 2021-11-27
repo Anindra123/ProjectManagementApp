@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 
 namespace ProjectManagement.ClassFiles
 {
+    public delegate bool UpdateGroupAndProject(int p_id);
     public class ProjectMember : User
     {
         public int PMemberID { get; set; }
         public int PGroupID { get; set; }
         public int Project_ID { get; set; }
+        public List<ProjectTask> tasks { get; set; } = new List<ProjectTask>();
 
         private static DataTable dt = new DataTable();
 
@@ -104,5 +106,164 @@ namespace ProjectManagement.ClassFiles
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public bool CheckifGroupMember(int pm_id)
+        {
+            string query = $"select * from PMemberGroupInfo_TBL where " +
+                $"PMember_ID = '{pm_id}';";
+            FillTable(query);
+            if (dt.Rows.Count == 1)
+            {
+                return true;
+            }
+            return false;
+
+        }
+
+        public List<ProjectTask> GetTaskList(int pm_id)
+        {
+            ProjectTask task = new ProjectTask();
+            DataTable dt = task.CheckAssingedToMember(pm_id);
+            if (dt != null)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    task = new ProjectTask();
+                    task.Task_ID = Convert.ToInt32(dr["Task_ID"].ToString());
+                    task.Task_Title = dr["Task_title"].ToString();
+                    task.Task_Desc = dr["Task_Desc"].ToString();
+                    task.Task_Completed = Convert.ToInt32(dr["Task_Completed"].ToString());
+
+                    task.Task_Comment = dr["Task_Comment"].ToString();
+                    tasks.Add(task);
+
+                }
+
+            }
+
+            return tasks;
+
+        }
+        public bool UpdateTask(int task_id)
+        {
+            int rowsaffected = 0;
+            ProjectTask task = tasks.Find(x => x.Task_ID == task_id);
+            string query = $"update PerformTask_TBL " +
+                $"set Task_Attached = convert(varbinary(max),'{task.Task_Attached}'),Task_Comment = '{task.Task_Comment}'," +
+                $"Task_Completed = {task.Task_Completed}" +
+                $" where task_id = '{task_id}';";
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                rowsaffected = cmd.ExecuteNonQuery();
+            }
+            if (rowsaffected == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void RemoveTaskComplete(int task_id)
+        {
+
+            ProjectTask task = tasks.Find(x => x.Task_ID == task_id);
+            string query = $"update PerformTask_TBL " +
+                $"set Task_Attached = null,Task_Comment = null," +
+                $"Task_Completed = 1" +
+                $" where task_id = '{task_id}';";
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+        }
+
+        public bool UpdateMemberInfo()
+        {
+            int rowEffected = 0;
+            string query = $"update PMember_TBL " +
+                $" set PMember_FirstName = '{this.FirstName}',PMember_LastName = '{this.LastName}'" +
+                $",PMember_Email = '{this.Email}',PMember_Password = '{this.password}' " +
+                $"where PMember_ID = {this.PMemberID}";
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                rowEffected = cmd.ExecuteNonQuery();
+            }
+            if (rowEffected == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateMemberGroupInfoTable(int pm_id)
+        {
+            int rowEffected = 0;
+            string query = $"delete from PMemberGroupInfo_TBL where " +
+                $"PMember_ID = {pm_id}";
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                rowEffected = cmd.ExecuteNonQuery();
+            }
+            if (rowEffected == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateMemberProjInfoTable(int pm_id)
+        {
+            int rowEffected = 0;
+            string query = $"delete from PMemberProjectInfo_TBL where " +
+                $"PMember_ID = {pm_id}";
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                rowEffected = cmd.ExecuteNonQuery();
+            }
+            if (rowEffected == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool UpdateMemberAssignedTask(int p_id)
+        {
+            int rowsEffected = 0;
+            string query = $"delete ptt from PerformTask_TBL ptt Inner join Task_TBL tt on ptt.Task_ID = tt.Task_ID where tt.Project_ID = {p_id}";
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                rowsEffected = cmd.ExecuteNonQuery();
+            }
+            if (rowsEffected > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+
     }
 }

@@ -26,5 +26,25 @@ namespace ProjectManagement
         {
 
         }
+
+        private void comboBox1_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBox1.Text) == true)
+            {
+                comboBox1.Focus();
+                errorProvider1.SetError(this.comboBox1, "Select a option");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var form = (AdminDashBoard)Tag;
+            form.Show();
+            this.Close();
+        }
     }
 }

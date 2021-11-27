@@ -84,7 +84,7 @@ namespace ProjectManagement
             this.SBtn.Name = "SBtn";
             this.SBtn.Size = new System.Drawing.Size(146, 58);
             this.SBtn.TabIndex = 4;
-            this.SBtn.Text = "S";
+            this.SBtn.Text = "Cancel";
             this.SBtn.UseVisualStyleBackColor = false;
             // 
             // comboBox1

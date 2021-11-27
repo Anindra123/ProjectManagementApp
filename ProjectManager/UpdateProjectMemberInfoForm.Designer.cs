@@ -29,6 +29,7 @@ namespace ProjectManagement
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -49,8 +50,18 @@ namespace ProjectManagement
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -61,6 +72,7 @@ namespace ProjectManagement
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox1.Location = new System.Drawing.Point(21, 5);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
@@ -79,6 +91,7 @@ namespace ProjectManagement
             this.button4.TabIndex = 5;
             this.button4.Text = "Cancel";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -105,7 +118,7 @@ namespace ProjectManagement
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(57, 78);
+            this.groupBox2.Location = new System.Drawing.Point(57, 81);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(712, 311);
             this.groupBox2.TabIndex = 3;
@@ -122,6 +135,7 @@ namespace ProjectManagement
             this.button2.TabIndex = 12;
             this.button2.Text = "Reassign Group and Project";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label9
             // 
@@ -165,6 +179,8 @@ namespace ProjectManagement
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(463, 27);
             this.textBox5.TabIndex = 7;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.textBox5.Leave += new System.EventHandler(this.textBox5_Leave);
             // 
             // textBox4
             // 
@@ -172,6 +188,7 @@ namespace ProjectManagement
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(463, 27);
             this.textBox4.TabIndex = 6;
+            this.textBox4.Leave += new System.EventHandler(this.textBox4_Leave);
             // 
             // textBox3
             // 
@@ -179,6 +196,7 @@ namespace ProjectManagement
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(463, 27);
             this.textBox3.TabIndex = 5;
+            this.textBox3.Leave += new System.EventHandler(this.textBox3_Leave);
             // 
             // textBox2
             // 
@@ -186,6 +204,8 @@ namespace ProjectManagement
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(463, 27);
             this.textBox2.TabIndex = 4;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
             // label5
             // 
@@ -239,6 +259,7 @@ namespace ProjectManagement
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(387, 27);
             this.textBox1.TabIndex = 1;
+            this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // label1
             // 
@@ -249,7 +270,27 @@ namespace ProjectManagement
             this.label1.TabIndex = 0;
             this.label1.Text = "Search Project Member :";
             // 
-            // Form5
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
+            // errorProvider3
+            // 
+            this.errorProvider3.ContainerControl = this;
+            // 
+            // errorProvider4
+            // 
+            this.errorProvider4.ContainerControl = this;
+            // 
+            // errorProvider5
+            // 
+            this.errorProvider5.ContainerControl = this;
+            // 
+            // UpdateProjectMemberInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -260,12 +301,18 @@ namespace ProjectManagement
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
-            this.Name = "Form5";
+            this.Name = "UpdateProjectMemberInfoForm";
             this.Text = "Form5";
+            this.Load += new System.EventHandler(this.UpdateProjectMemberInfoForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -291,5 +338,10 @@ namespace ProjectManagement
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.ErrorProvider errorProvider3;
+        private System.Windows.Forms.ErrorProvider errorProvider4;
+        private System.Windows.Forms.ErrorProvider errorProvider5;
     }
 }

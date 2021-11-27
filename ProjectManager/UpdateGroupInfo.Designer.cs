@@ -108,6 +108,7 @@ namespace ProjectManagement
             this.GoBackBtn.TabIndex = 5;
             this.GoBackBtn.Text = "Go Back";
             this.GoBackBtn.UseVisualStyleBackColor = false;
+            this.GoBackBtn.Click += new System.EventHandler(this.GoBackBtn_Click);
             // 
             // AddMemberBtn
             // 
@@ -120,6 +121,7 @@ namespace ProjectManagement
             this.AddMemberBtn.TabIndex = 6;
             this.AddMemberBtn.Text = "Add Member";
             this.AddMemberBtn.UseVisualStyleBackColor = false;
+            this.AddMemberBtn.Click += new System.EventHandler(this.AddMemberBtn_Click);
             // 
             // RemoveMemberBtn
             // 
@@ -132,6 +134,7 @@ namespace ProjectManagement
             this.RemoveMemberBtn.TabIndex = 7;
             this.RemoveMemberBtn.Text = "Remove Member";
             this.RemoveMemberBtn.UseVisualStyleBackColor = false;
+            this.RemoveMemberBtn.Click += new System.EventHandler(this.RemoveMemberBtn_Click);
             // 
             // textBox1
             // 

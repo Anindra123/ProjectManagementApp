@@ -109,9 +109,10 @@ namespace ProjectManagement
         private void projMemberSignUpBtn_Click(object sender, EventArgs e)
         {
             //Check the main fields
-            if (!string.IsNullOrWhiteSpace(projMemberPasswordTextBox.Text)
-                && !string.IsNullOrWhiteSpace(projMemberPasswordTextBox.Text)
-                && !string.IsNullOrWhiteSpace(projectMemberEmailTextBox.Text)
+            if (!string.IsNullOrWhiteSpace(projMemFirstNameTextBox.Text.Trim())
+                && !string.IsNullOrWhiteSpace(projMLastNameTextBox.Text.Trim())
+                && !string.IsNullOrWhiteSpace(projMemberPasswordTextBox.Text.Trim())
+                && !string.IsNullOrWhiteSpace(projectMemberEmailTextBox.Text.Trim())
                 )
             {
                 //Email validation

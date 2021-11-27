@@ -26,5 +26,30 @@ namespace ProjectManagement
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(textBox1.Text)==true)
+            {
+                textBox1.Focus();
+                errorProvider1.SetError(this.textBox1, "Field cannot be empty");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var form = (AdminDashBoard)Tag;
+            form.Show();
+            this.Close();
+        }
     }
 }
