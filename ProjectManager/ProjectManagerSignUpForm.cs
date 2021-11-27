@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using ProjectManagement.ClassFiles;
 
 namespace ProjectManagement
 {
@@ -97,6 +98,27 @@ namespace ProjectManagement
             else
             {
                 // Aninda will query
+                ProjectManager pM = new ProjectManager();
+                bool ret = pM.SignUp(firstName, lastName, email, password, groupName);
+
+                
+                
+                if(ret == true)
+                {
+                    MessageBox.Show("User Successfully Signed Up", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    proMFirstNameTextBox.Text = "";
+                    proMLastNameTextBox.Text = "";
+                    proMEmailTextBox.Text = "";
+                    proMPasswordTextBox.Text = "";
+                    proMGroupNameTextBox.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Use a different email, this email already exists", "Alert",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 
             }
 
@@ -138,6 +160,11 @@ namespace ProjectManagement
         }
 
         private void ProjectManagerSignUpForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter_1(object sender, EventArgs e)
         {
 
         }
