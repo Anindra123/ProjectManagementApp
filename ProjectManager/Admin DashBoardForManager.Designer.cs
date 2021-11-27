@@ -42,7 +42,7 @@ namespace ProjectManagement
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Location = new System.Drawing.Point(633, 42);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 45);
+            this.button1.Size = new System.Drawing.Size(125, 53);
             this.button1.TabIndex = 0;
             this.button1.Text = "Remove Manager";
             this.button1.UseVisualStyleBackColor = false;
@@ -59,6 +59,7 @@ namespace ProjectManagement
             this.button2.TabIndex = 1;
             this.button2.Text = "Update Manager Info";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 

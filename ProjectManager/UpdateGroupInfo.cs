@@ -16,5 +16,22 @@ namespace ProjectManagement
         {
             InitializeComponent();
         }
+
+        private void GoBackBtn_Click(object sender, EventArgs e)
+        {
+            var form = (ProjectManagerView)Tag;
+            form.Show();
+            this.Close();
+        }
+
+        private void AddMemberBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RemoveMemberBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

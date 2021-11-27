@@ -91,5 +91,12 @@ namespace ProjectManagement
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var form = (AdminDashBoardManager)Tag;
+            form.Show();
+            this.Close();
+        }
     }
 }

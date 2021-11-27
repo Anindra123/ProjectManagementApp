@@ -71,6 +71,7 @@ namespace ProjectManagement
         private void ViewGroupInfo_FormClosed(object sender, FormClosedEventArgs e)
         {
             ShowPreviousMenu();
+            this.Close();
         }
     }
 }
