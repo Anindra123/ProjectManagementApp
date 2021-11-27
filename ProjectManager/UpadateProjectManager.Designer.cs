@@ -85,6 +85,7 @@ namespace ProjectManagement
             this.button3.TabIndex = 8;
             this.button3.Text = "Cancel";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -229,7 +230,7 @@ namespace ProjectManagement
             // 
             this.errorProvider5.ContainerControl = this;
             // 
-            // UpdateProjectManagerInfoForm
+            // UpadateProjectManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -238,7 +239,7 @@ namespace ProjectManagement
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "UpdateProjectManagerInfoForm";
+            this.Name = "UpadateProjectManager";
             this.Text = "Update Project Manager";
             this.Load += new System.EventHandler(this.UpdateProjectManagerInfoForm_Load);
             this.groupBox1.ResumeLayout(false);

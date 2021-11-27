@@ -1,4 +1,4 @@
-﻿using ProjectManagement.ClassFiles;
+using ProjectManagement.ClassFiles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -210,6 +210,7 @@ namespace ProjectManagement
             }
         }
 
+
         private void updateProjMemberInfo_Click(object sender, EventArgs e)
         {
             UpdateMemberInfo updateMember = new UpdateMemberInfo(projectMember,
@@ -234,6 +235,7 @@ namespace ProjectManagement
                                 );
                 ShowNewMenu(joinG);
             }
+
         }
     }
 }

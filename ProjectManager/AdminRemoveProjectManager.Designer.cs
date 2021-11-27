@@ -1,7 +1,7 @@
 ﻿
 namespace ProjectManagement
 {
-    partial class ViewProjectManagerInfoForm
+    partial class AdminRemoveProjectManager
     {
         /// <summary>
         /// Required designer variable.
@@ -195,12 +195,13 @@ namespace ProjectManagement
             this.button3.TabIndex = 4;
             this.button3.Text = "Cancel";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // ViewProjectManagerInfoForm
+            // AdminRemoveProjectManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -214,7 +215,7 @@ namespace ProjectManagement
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "ViewProjectManagerInfoForm";
+            this.Name = "AdminRemoveProjectManager";
             this.Text = "Remove Project Manager Info Form";
             this.Load += new System.EventHandler(this.ViewProjectManagerInfoForm_Load);
             this.groupBox1.ResumeLayout(false);

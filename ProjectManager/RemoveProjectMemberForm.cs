@@ -44,5 +44,12 @@ namespace ProjectManagement
                 errorProvider1.Clear();
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var form = (AdminDashBoard)Tag;
+            form.Show();
+            this.Close();
+        }
     }
 }

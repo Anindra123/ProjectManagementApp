@@ -54,5 +54,33 @@ namespace ProjectManagement
             GotoContinuePage();
             this.Close();
         }
+
+        private void addNewFeatureBtn_Click(object sender, EventArgs e)
+        {
+            AddNewFeature aDF1 = new AddNewFeature();
+            aDF1.Show();
+            this.Hide();
+        }
+
+        private void updateGroupMembersBtn_Click(object sender, EventArgs e)
+        {
+            UpdateGroupInfo uGI1 = new UpdateGroupInfo();
+            uGI1.Show();
+            this.Hide();
+        }
+
+        private void viewProjectInfoBtn_Click(object sender, EventArgs e)
+        {
+            ViewProjectInfo vPI1 = new ViewProjectInfo();
+            vPI1.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UpdateProjectInfo uPI1 = new UpdateProjectInfo();
+            uPI1.Show();
+            this.Hide();
+        }
     }
 }

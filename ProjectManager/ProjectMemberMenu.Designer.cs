@@ -232,8 +232,10 @@ namespace ProjectManagement
             this.assignedTasksListBox.Name = "assignedTasksListBox";
             this.assignedTasksListBox.Size = new System.Drawing.Size(410, 209);
             this.assignedTasksListBox.TabIndex = 0;
+
             this.assignedTasksListBox.Click += new System.EventHandler(this.assignedTasksListBox_Click);
             this.assignedTasksListBox.SelectedIndexChanged += new System.EventHandler(this.assignedTasksListBox_SelectedIndexChanged);
+
             // 
             // viewGroupInfoBtn
             // 

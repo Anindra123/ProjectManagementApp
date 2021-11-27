@@ -30,22 +30,24 @@ namespace ProjectManagement
         private void InitializeComponent()
         {
             this.ProjectInfoGroupBox = new System.Windows.Forms.GroupBox();
+            this.BudgetDisplayBox = new System.Windows.Forms.Label();
+            this.EndDateDisplayBox = new System.Windows.Forms.Label();
+            this.StartDateDisplayBox = new System.Windows.Forms.Label();
+            this.ProjectNameDisplayBox = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.ProjectDescriptionDisplayBox = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.ProjectNameDisplayBox = new System.Windows.Forms.Label();
-            this.StartDateDisplayBox = new System.Windows.Forms.Label();
-            this.EndDateDisplayBox = new System.Windows.Forms.Label();
-            this.BudgetDisplayBox = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.ProjectInfoGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // ProjectInfoGroupBox
             // 
             this.ProjectInfoGroupBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.ProjectInfoGroupBox.Controls.Add(this.button1);
             this.ProjectInfoGroupBox.Controls.Add(this.BudgetDisplayBox);
             this.ProjectInfoGroupBox.Controls.Add(this.EndDateDisplayBox);
             this.ProjectInfoGroupBox.Controls.Add(this.StartDateDisplayBox);
@@ -63,6 +65,69 @@ namespace ProjectManagement
             this.ProjectInfoGroupBox.TabIndex = 0;
             this.ProjectInfoGroupBox.TabStop = false;
             this.ProjectInfoGroupBox.Text = "Project Info";
+            // 
+            // BudgetDisplayBox
+            // 
+            this.BudgetDisplayBox.AutoSize = true;
+            this.BudgetDisplayBox.Location = new System.Drawing.Point(207, 473);
+            this.BudgetDisplayBox.Name = "BudgetDisplayBox";
+            this.BudgetDisplayBox.Size = new System.Drawing.Size(57, 20);
+            this.BudgetDisplayBox.TabIndex = 9;
+            this.BudgetDisplayBox.Text = "Budget";
+            // 
+            // EndDateDisplayBox
+            // 
+            this.EndDateDisplayBox.AutoSize = true;
+            this.EndDateDisplayBox.Location = new System.Drawing.Point(166, 420);
+            this.EndDateDisplayBox.Name = "EndDateDisplayBox";
+            this.EndDateDisplayBox.Size = new System.Drawing.Size(70, 20);
+            this.EndDateDisplayBox.TabIndex = 8;
+            this.EndDateDisplayBox.Text = "End Date";
+            // 
+            // StartDateDisplayBox
+            // 
+            this.StartDateDisplayBox.AutoSize = true;
+            this.StartDateDisplayBox.Location = new System.Drawing.Point(166, 365);
+            this.StartDateDisplayBox.Name = "StartDateDisplayBox";
+            this.StartDateDisplayBox.Size = new System.Drawing.Size(76, 20);
+            this.StartDateDisplayBox.TabIndex = 7;
+            this.StartDateDisplayBox.Text = "Start Date";
+            // 
+            // ProjectNameDisplayBox
+            // 
+            this.ProjectNameDisplayBox.AutoSize = true;
+            this.ProjectNameDisplayBox.Location = new System.Drawing.Point(166, 62);
+            this.ProjectNameDisplayBox.Name = "ProjectNameDisplayBox";
+            this.ProjectNameDisplayBox.Size = new System.Drawing.Size(99, 20);
+            this.ProjectNameDisplayBox.TabIndex = 6;
+            this.ProjectNameDisplayBox.Text = "Project Name";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(36, 473);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(134, 20);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Estimated Budget :";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(36, 420);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 20);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "End Date :";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(36, 365);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 20);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Start Date :";
             // 
             // ProjectDescriptionDisplayBox
             // 
@@ -91,68 +156,16 @@ namespace ProjectManagement
             this.label1.TabIndex = 0;
             this.label1.Text = "Project Name :";
             // 
-            // label4
+            // button1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(36, 365);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Start Date :";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(36, 420);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 20);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "End Date :";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(36, 473);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(134, 20);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Estimated Budget :";
-            // 
-            // ProjectNameDisplayBox
-            // 
-            this.ProjectNameDisplayBox.AutoSize = true;
-            this.ProjectNameDisplayBox.Location = new System.Drawing.Point(166, 62);
-            this.ProjectNameDisplayBox.Name = "ProjectNameDisplayBox";
-            this.ProjectNameDisplayBox.Size = new System.Drawing.Size(99, 20);
-            this.ProjectNameDisplayBox.TabIndex = 6;
-            this.ProjectNameDisplayBox.Text = "Project Name";
-            // 
-            // StartDateDisplayBox
-            // 
-            this.StartDateDisplayBox.AutoSize = true;
-            this.StartDateDisplayBox.Location = new System.Drawing.Point(166, 365);
-            this.StartDateDisplayBox.Name = "StartDateDisplayBox";
-            this.StartDateDisplayBox.Size = new System.Drawing.Size(76, 20);
-            this.StartDateDisplayBox.TabIndex = 7;
-            this.StartDateDisplayBox.Text = "Start Date";
-            // 
-            // EndDateDisplayBox
-            // 
-            this.EndDateDisplayBox.AutoSize = true;
-            this.EndDateDisplayBox.Location = new System.Drawing.Point(166, 420);
-            this.EndDateDisplayBox.Name = "EndDateDisplayBox";
-            this.EndDateDisplayBox.Size = new System.Drawing.Size(70, 20);
-            this.EndDateDisplayBox.TabIndex = 8;
-            this.EndDateDisplayBox.Text = "End Date";
-            // 
-            // BudgetDisplayBox
-            // 
-            this.BudgetDisplayBox.AutoSize = true;
-            this.BudgetDisplayBox.Location = new System.Drawing.Point(207, 473);
-            this.BudgetDisplayBox.Name = "BudgetDisplayBox";
-            this.BudgetDisplayBox.Size = new System.Drawing.Size(57, 20);
-            this.BudgetDisplayBox.TabIndex = 9;
-            this.BudgetDisplayBox.Text = "Budget";
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.Location = new System.Drawing.Point(709, 443);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(108, 53);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Go Back";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ViewProjectInfo
             // 
@@ -185,5 +198,6 @@ namespace ProjectManagement
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -91,6 +91,7 @@ namespace ProjectManagement
             this.button4.TabIndex = 5;
             this.button4.Text = "Cancel";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -134,6 +135,7 @@ namespace ProjectManagement
             this.button2.TabIndex = 12;
             this.button2.Text = "Reassign Group and Project";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label9
             // 
