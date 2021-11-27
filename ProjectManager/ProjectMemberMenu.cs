@@ -15,9 +15,12 @@ namespace ProjectManagement
     public partial class ProjectMemberMenu : Form
     {
         static ProjectMember projectMember;
+        ProjectMember compTask;
+        ProjectMember assignedTask;
         Project project = new Project();
         ProjectGroup projGroup = new ProjectGroup();
         ProjectManager projectManager = new ProjectManager();
+        ProjectTask pTask = new ProjectTask();
 
         void ShowNewMenu(Form obj)
         {
@@ -41,7 +44,9 @@ namespace ProjectManagement
         public ProjectMemberMenu()
         {
             InitializeComponent();
+
         }
+
         void GotoContinuePage()
         {
             //Goes to project manager continue form
@@ -65,6 +70,25 @@ namespace ProjectManagement
             setProjectAndGroup += projGroup.GetPGroupInfo;
             setProjectAndGroup(projectMember.PMemberID);
             projectManager.GetProjectManagerInfo(project.Project_ID);
+
+        }
+        public void FilterTaskList()
+        {
+            compTask = new ProjectMember();
+            compTask.tasks.AddRange(projectMember.tasks.FindAll(x => x.Task_Completed == 2));
+            completedTasksListBox.DataSource = null;
+            completedTasksListBox.ValueMember = "Task_ID";
+            completedTasksListBox.DisplayMember = "Task_Title";
+            completedTasksListBox.DataSource = compTask.tasks;
+            completedTasksListBox.SelectedIndex = -1;
+            assignedTask = new ProjectMember();
+            assignedTask.tasks.AddRange(projectMember.tasks.FindAll(x => x.Task_Completed == 1));
+            assignedTasksListBox.DataSource = null;
+            assignedTasksListBox.ValueMember = "Task_ID";
+            assignedTasksListBox.DisplayMember = "Task_Title";
+            assignedTasksListBox.DataSource = assignedTask.tasks;
+            assignedTasksListBox.SelectedIndex = -1;
+
         }
         private void ProjectMemberMenu_Load(object sender, EventArgs e)
         {
@@ -78,14 +102,100 @@ namespace ProjectManagement
             {
                 SetDashboardlabels("none", "none", "", "none");
             }
+            List<ProjectTask> pMemberTask = projectMember.GetTaskList(projectMember.PMemberID);
+            if (pMemberTask.Count > 1)
+            {
+                FilterTaskList();
+                assignedTasksListBox.SelectedIndex = -1;
+
+            }
         }
 
         private void viewGroupInfoBtn_Click(object sender, EventArgs e)
         {
+            if (projGroup.PGroup_Name != null)
+            {
+                ViewGroupInfo viewGroup = new ViewGroupInfo(projectManager, projGroup);
+                ShowNewMenu(viewGroup);
+            }
+            else
+            {
+                ViewGroupInfo viewGroup = new ViewGroupInfo(null, null);
+                ShowNewMenu(viewGroup);
+            }
 
-            ViewGroupInfo viewGroup = new ViewGroupInfo(projectManager, projGroup);
-            ShowNewMenu(viewGroup);
 
+        }
+
+        private void assignedTasksListBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void ProjectMemberMenu_MouseClick(object sender, MouseEventArgs e)
+        {
+        }
+
+        private void assignedTasksListBox_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+
+
+        private void viewTaskdetailBtn_Click(object sender, EventArgs e)
+        {
+
+            SubmitTaskForm submitTask = new SubmitTaskForm((ProjectTask)assignedTasksListBox.SelectedItem,
+                projectMember, this);
+            submitTask.Show();
+
+        }
+
+        private void taskCompBtn_Click(object sender, EventArgs e)
+        {
+            FilterTaskList();
+
+        }
+
+        private void assignedTasksListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (assignedTasksListBox.SelectedIndex == -1)
+            {
+                viewTaskdetailBtn.Enabled = false;
+            }
+            else
+            {
+                viewTaskdetailBtn.Enabled = true;
+            }
+
+        }
+
+        private void removeTaskCompletedBtn_Click(object sender, EventArgs e)
+        {
+            if (completedTasksListBox.SelectedItem != null)
+            {
+                int val = (int)completedTasksListBox.SelectedValue;
+                ProjectTask pTask = projectMember.tasks.Find(r => r.Task_ID == val);
+                pTask.Task_Completed = 1;
+                pTask.Task_Comment = null;
+                pTask.Task_Attached = null;
+                projectMember.RemoveTaskComplete(pTask.Task_ID);
+                FilterTaskList();
+            }
+        }
+
+        private void completedTasksListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (completedTasksListBox.SelectedIndex == -1)
+            {
+                removeTaskCompletedBtn.Enabled = false;
+            }
+            else
+            {
+                removeTaskCompletedBtn.Enabled = true;
+            }
         }
 
         private void updateTaskInfoBtn_Click(object sender, EventArgs e)
