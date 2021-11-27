@@ -107,6 +107,12 @@
     <Compile Include="AdminRemoveProjectManager.Designer.cs">
       <DependentUpon>AdminRemoveProjectManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="ForgotPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgotPasswordForm.Designer.cs">
+      <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="JoinNewGroup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminRemoveProjectManager.resx">
       <DependentUpon>AdminRemoveProjectManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForgotPasswordForm.resx">
+      <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JoinNewGroup.resx">
       <DependentUpon>JoinNewGroup.cs</DependentUpon>

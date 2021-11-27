@@ -131,7 +131,9 @@ namespace ProjectManagement
                         {
                             memberOfGroup = false;
                             SetGroupInfolabels();
+                            newMembersList.Update();
                             newMembersList.Refresh();
+                            currentMembersList.Update();
                             currentMembersList.Refresh();
                         }
                     }
