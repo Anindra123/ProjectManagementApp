@@ -49,7 +49,9 @@ namespace ProjectManagement
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
-
+            var form = (ProjectManagerView)Tag;
+            form.Show();
+            this.Close();
         }
 
         private void assignSelectionYesRadioBtn_CheckedChanged(object sender, EventArgs e)
