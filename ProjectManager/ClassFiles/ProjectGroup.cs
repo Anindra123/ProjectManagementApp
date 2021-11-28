@@ -60,8 +60,9 @@ namespace ProjectManagement.ClassFiles
         }
         public DataTable FillMemberList()
         {
-            string query = $"select concat(PMember_FirstName,' ',PMember_LastName) as Name, PMember_Email as Email from " +
-                $"PMemberGroupInfo_TBL where PGroup_ID = '{this.PGroup_ID}'";
+            string query = $"select concat(pm.PMember_FirstName,' ',pm.PMember_LastName) as Name, pm.PMember_Email as Email from " +
+                $"PMember_TBL as pm,PMemberGroupInfo_TBL as pmg where pmg.PGroup_ID = '{this.PGroup_ID}' " +
+                $"and pmg.PMember_ID = pm.PMember_ID";
             FillData(query);
             if (dt.Rows.Count > 0)
             {

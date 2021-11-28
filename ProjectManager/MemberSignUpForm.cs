@@ -54,6 +54,23 @@ namespace ProjectManagement
             }
 
         }
+        void ResetGroupFeilds()
+        {
+            enterGroupNameTextBox.Text = null;
+            projGroupNameLabel.Text = "none";
+            projNameLabel.Text = "none";
+            projectManagerLabel.Text = "none";
+        }
+        void ResetSignUpFeilds()
+        {
+            projectMemberEmailTextBox.Text = null;
+            projMemFirstNameTextBox.Text = null;
+            projMLastNameTextBox.Text = null;
+            projMemberPasswordTextBox.Text = null;
+            memberOfGroupNoRadioBtn.Checked = true;
+            ResetGroupFeilds();
+
+        }
         void ValidateMemberOfGroup()
         {
             //Checks which radio button has been clicked
@@ -106,6 +123,15 @@ namespace ProjectManagement
             }
             return false;
         }
+        bool validateMatchingMailAndPass()
+        {
+            if (!projectMember.CheckDuplicateMailAndPass(projectMemberEmailTextBox.Text.Trim(),
+                projMemberPasswordTextBox.Text.Trim()))
+            {
+                return true;
+            }
+            return false;
+        }
         private void projMemberSignUpBtn_Click(object sender, EventArgs e)
         {
             //Check the main fields
@@ -118,34 +144,54 @@ namespace ProjectManagement
                 //Email validation
                 if (Regex.IsMatch(projectMemberEmailTextBox.Text.Trim(), pattern))
                 {
-                    //Validate the group info feild
-                    if (validateGroupInfoForm())
+                    if (projMemberPasswordTextBox.Text.Trim().Length <= 8)
                     {
-
-                        bool val = projectMember.SignUPProjectMember(
-                            projMemFirstNameTextBox.Text.Trim(),
-                            projMLastNameTextBox.Text.Trim(),
-                            projectMemberEmailTextBox.Text.Trim(),
-                            projMemberPasswordTextBox.Text.Trim()
-                            );
-
-                        //MessageBox.Show($"{projectMember.GetMemberID()}");
-                        if (memberOfGroupYesRadioBtn.Checked == true)
+                        //Validate the group info feild
+                        if (validateGroupInfoForm())
                         {
-                            projectMember.SaveGroupInfo(projectGroup.PGroup_ID);
-                            projectMember.SaveProjectInfo(project.Project_ID);
+
+                            if (validateMatchingMailAndPass())
+                            {
+                                bool val = projectMember.SignUPProjectMember(
+                                projMemFirstNameTextBox.Text.Trim(),
+                                projMLastNameTextBox.Text.Trim(),
+                                projectMemberEmailTextBox.Text.Trim(),
+                                projMemberPasswordTextBox.Text.Trim()
+                                );
+
+
+                                if (memberOfGroupYesRadioBtn.Checked == true)
+                                {
+                                    projectMember.SaveGroupInfo(projectGroup.PGroup_ID);
+                                    projectMember.SaveProjectInfo(project.Project_ID);
+                                }
+                                if (val == true)
+                                {
+
+                                    DialogResult result = MessageBox.Show("Sign Up Sucessful", "Sucess",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    if (result == DialogResult.OK)
+                                    {
+                                        ResetSignUpFeilds();
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("An Entry with same name/email or password already exist. Try something different", "Alert",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                         }
-                        if (val == true)
+                        else
                         {
-
-                            DialogResult result = MessageBox.Show("Sign Up Sucessful", "Sucess",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Not enough information given", "Alert",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Not enough information given", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Password can be 8 characters long", "Error",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
@@ -169,6 +215,7 @@ namespace ProjectManagement
         private void memberOfGroupNoRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             ValidateMemberOfGroup();
+            ResetGroupFeilds();
         }
 
         private void groupConfirmBtn_Click(object sender, EventArgs e)
@@ -177,12 +224,27 @@ namespace ProjectManagement
             {
                 if (projectGroup.SearchGroup(enterGroupNameTextBox.Text.Trim()))
                 {
-                    projGroupNameLabel.Text = projectGroup.PGroup_Name;
-                    project.GetProjectTitleForMember(projectGroup.Project_ID);
-                    projNameLabel.Text = project.Project_Title;
-                    projectManager.GetProjectManagerTitleForMember(project.Project_ID);
-                    projectManagerLabel.Text = $"{projectManager.FirstName} {projectManager.LastName}";
+                    DialogResult result = MessageBox.Show($"Found {projectGroup.PGroup_Name}", "Sucess",
+                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (result == DialogResult.OK)
+                    {
+                        projGroupNameLabel.Text = projectGroup.PGroup_Name;
+                        project.GetProjectTitleForMember(projectGroup.Project_ID);
+                        projNameLabel.Text = project.Project_Title;
+                        projectManager.GetProjectManagerTitleForMember(project.Project_ID);
+                        projectManagerLabel.Text = $"{projectManager.FirstName} {projectManager.LastName}";
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("Group not found or Invalid Group Name", "Alert",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Entered Invalid Email", "Alert",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

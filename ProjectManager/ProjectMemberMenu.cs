@@ -41,6 +41,12 @@ namespace ProjectManagement
             projectLeaderNameLabel.Text = $"{firstName} {LastName}";
             projectTitleLabel.Text = $"{title}";
         }
+        public void IntializeGroup(ProjectGroup pg, Project p, ProjectManager pm)
+        {
+            projGroup = pg;
+            project = p;
+            projectManager = pm;
+        }
         public void InitializeDashBoard()
         {
             projectMember.tasks.Clear();
@@ -60,6 +66,9 @@ namespace ProjectManagement
             else
             {
                 SetDashboardlabels("none", "none", "", "none");
+                projGroup = null;
+                projectManager = null;
+                project = null;
             }
             List<ProjectTask> pMemberTask = projectMember.GetTaskList(projectMember.PMemberID);
             if (projectMember.tasks.Count >= 1)
@@ -125,7 +134,8 @@ namespace ProjectManagement
 
         private void viewGroupInfoBtn_Click(object sender, EventArgs e)
         {
-            if (projGroup.PGroup_Name != null)
+
+            if (projGroup != null)
             {
                 ViewGroupInfo viewGroup = new ViewGroupInfo(projectManager, projGroup);
                 ShowNewMenu(viewGroup);
@@ -221,7 +231,7 @@ namespace ProjectManagement
 
         private void joinProjectGroupBtn_Click(object sender, EventArgs e)
         {
-            if (projGroup.PGroup_Name != null)
+            if (projGroup != null)
             {
                 JoinNewGroup joinG = new JoinNewGroup(
                 projectMember, project, projGroup, projectManager
@@ -236,6 +246,13 @@ namespace ProjectManagement
                 ShowNewMenu(joinG);
             }
 
+        }
+
+        private void viewProjectInfoBtn_Click(object sender, EventArgs e)
+        {
+            ViewMemberProjectInfo viewProjectInfo = new ViewMemberProjectInfo(project, projectMember, projectManager);
+            ShowNewMenu(viewProjectInfo);
+            this.Hide();
         }
     }
 }

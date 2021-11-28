@@ -38,6 +38,7 @@ namespace ProjectManagement
         {
             //Goes to the previous control
             var form = (ProjectMemberMenu)Tag;
+            form.IntializeGroup(pG, project, pMang);
             form.InitializeDashBoard();
             form.Show();
 
@@ -61,19 +62,24 @@ namespace ProjectManagement
                     pM.password = projMemberPasswordTextBox.Text.Trim();
                     if (pM.UpdateMemberInfo())
                     {
-                        if (leaveGroup == true)
-                        {
-                            UpdateGroupAndProject updateGroupAndProject = pM.UpdateMemberGroupInfoTable;
-                            updateGroupAndProject += pM.UpdateMemberProjInfoTable;
-                            if (updateGroupAndProject(pM.PMemberID) && pM.UpdateMemberAssignedTask(project.Project_ID))
-                            {
-                                MessageBox.Show("Updated Sucessfully", "Sucess",
-                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
 
-                        }
                         MessageBox.Show("Updated Sucessfully", "Sucess",
                  MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    else if (leaveGroup == true && pM.UpdateMemberInfo())
+                    {
+
+                        if (pM.DeleteMemberGroupInfoTable(pM.PMemberID)
+                            && pM.DeleteMemberProjInfoTable(pM.PMemberID)
+                            && pM.DeleteMemberAssignedTask(project.Project_ID))
+                        {
+                            MessageBox.Show("Updated Sucessfully", "Sucess",
+             MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            pG = null;
+                            pMang = null;
+                            project = null;
+                        }
 
                     }
                     else

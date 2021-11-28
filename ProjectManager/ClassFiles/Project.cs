@@ -18,7 +18,7 @@ namespace ProjectManagement.ClassFiles
         public DateTime Project_EndDate { get; set; }
         public int Project_Completed { get; set; }
         public int PManager_ID { get; set; }
-
+        public double Project_Budget { get; set; }
         public void FillData(string query)
         {
             dt.Clear();
