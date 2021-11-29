@@ -18,6 +18,7 @@ namespace ProjectManagement
         ProjectGroup pG;
         ProjectManager pManag;
         bool memberOfGroup = false;
+        int currentProjID = 0;
         public JoinNewGroup()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace ProjectManagement
         {
             //Goes to the previous control
             var form = (ProjectMemberMenu)Tag;
+            form.IntializeGroup(pG, proj, pManag);
             form.InitializeDashBoard();
             form.Show();
         }
@@ -52,19 +54,23 @@ namespace ProjectManagement
             if (proj != null && pG != null && pManag != null)
             {
                 memberOfGroup = true;
+                currentProjID = proj.Project_ID;
                 SetGroupInfolabels();
                 if (pG.FillMemberList() != null)
                 {
-                    currentMembersList.DataSource = pG.FillMemberList();
+                    currentMembersList.DataSource = pG.FillMemberList().Copy();
                     currentMembersList.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 }
             }
             else
             {
+                memberOfGroup = false;
                 pG = new ProjectGroup();
                 proj = new Project();
                 pManag = new ProjectManager();
-                SetGroupInfolabels();
+                groupNameLabl.Text = "none";
+                projNameLabl.Text = "none";
+                projMangerLabl.Text = "none";
             }
         }
 
@@ -82,36 +88,67 @@ namespace ProjectManagement
 
                     DialogResult result = MessageBox.Show($"Found {pG.PGroup_Name}", "Found",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (result == DialogResult.OK)
+                    if (result == DialogResult.OK || result == DialogResult.None)
                     {
+
                         nGrpNameLabl.Text = pG.PGroup_Name;
                         proj.GetProjectTitleForMember(pG.PGroup_ID);
                         pManag.GetProjectManagerInfo(proj.Project_ID);
                         nProjManagLabl.Text = $"{pManag.FirstName} {pManag.LastName}";
                         nProjNameLabl.Text = proj.Project_Title;
+                        newMembersList.DataSource = pG.FillMemberList().Copy();
+                        newMembersList.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
                     }
                 }
                 else
                 {
+                    SetGroupInfolabels();
+                    newMembersList.DataSource = null;
                     MessageBox.Show("Group Not found. Try Again", "Alert",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
+                SetGroupInfolabels();
+                newMembersList.DataSource = null;
                 MessageBox.Show("Invalid Group Name", "Alert",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private bool newGroupFieldValidation()
         {
-            if (string.IsNullOrWhiteSpace(nGrpNameLabl.Text.Trim())
-                && string.IsNullOrWhiteSpace(nProjManagLabl.Text.Trim())
-                && string.IsNullOrWhiteSpace(nProjNameLabl.Text.Trim()))
+            if ((string.IsNullOrWhiteSpace(nGrpNameLabl.Text.Trim())
+                || nGrpNameLabl.Text == "none")
+                && (string.IsNullOrWhiteSpace(nProjManagLabl.Text.Trim())
+                || nGrpNameLabl.Text == "none")
+                && (string.IsNullOrWhiteSpace(nProjNameLabl.Text.Trim())
+                || nGrpNameLabl.Text == "none")
+                )
             {
                 return false;
             }
             return true;
+        }
+        private void JoinedGroup()
+        {
+            DialogResult r = MessageBox.Show("Joined Group Sucessfully", "Sucess",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (r == DialogResult.OK)
+            {
+                memberOfGroup = true;
+                currentProjID = pG.Project_ID;
+                SetGroupInfolabels();
+                newMembersList.DataSource = pG.FillMemberList().Copy();
+                newMembersList.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                newMembersList.Update();
+                newMembersList.Refresh();
+                currentMembersList.DataSource = pG.FillMemberList().Copy();
+                currentMembersList.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                currentMembersList.Update();
+                currentMembersList.Refresh();
+            }
         }
         private void joinGroupBtn_Click(object sender, EventArgs e)
         {
@@ -125,17 +162,28 @@ namespace ProjectManagement
                     {
                         pM.SaveProjectInfo(proj.Project_ID);
                         pM.SaveGroupInfo(pG.PGroup_ID);
-                        DialogResult r = MessageBox.Show("Joined Group Sucessfully", "Sucess",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        if (r == DialogResult.OK)
+                        JoinedGroup();
+                    }
+                }
+                else
+                {
+                    if (!pM.CheckifGroupMember(pM.PMemberID, pG.PGroup_ID))
+                    {
+                        DialogResult dr = MessageBox.Show("Confirm Group Change ?", "Confirm",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dr == DialogResult.Yes)
                         {
-                            memberOfGroup = false;
-                            SetGroupInfolabels();
-                            newMembersList.Update();
-                            newMembersList.Refresh();
-                            currentMembersList.Update();
-                            currentMembersList.Refresh();
+                            pM.DeleteMemberAssignedTask(currentProjID);
+                            pM.UpdateMemberGroupInfoTable(pM.PMemberID, pG.PGroup_ID);
+                            pM.UpdateProjectGroupInfoTable(pM.PMemberID, pG.Project_ID);
+                            JoinedGroup();
+
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Already Member of the group", "Alert",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }

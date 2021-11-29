@@ -11,6 +11,18 @@ namespace ProjectManagement.ClassFiles
 {
     public class ProjectTask
     {
+
+        public int Task_ID { get; set; }
+        public string Task_Title { get; set; }
+        public string Task_Desc { get; set; }
+        public int Task_Completed { get; set; }
+        public DateTime Task_CompleteDate { get; set; }
+        public string Task_Comment { get; set; }
+        public byte[] Task_Attached { get; set; }
+        public int PManager_ID { get; set; }
+        public int Project_ID { get; set; }
+        public int PMember_ID { get; set; }
+
         DataTable dt = new DataTable();
         public void FillData(string query)
         {
@@ -23,17 +35,6 @@ namespace ProjectManagement.ClassFiles
                 sda.Fill(dt);
             }
         }
-        public int Task_ID { get; set; }
-        public string Task_Title { get; set; }
-        public string Task_Desc { get; set; }
-        public int Task_Completed { get; set; }
-        public DateTime Task_CompleteDate { get; set; }
-        public string Task_Comment { get; set; }
-        public byte[] Task_Attached { get; set; }
-        public int PManager_ID { get; set; }
-        public int Project_ID { get; set; }
-        public int PMember_ID { get; set; }
-
         public DataTable CheckAssingedToMember(int pm_id)
         {
 
@@ -56,16 +57,24 @@ namespace ProjectManagement.ClassFiles
                 cmnd.Connection.Open();
                 s = (string)cmnd.ExecuteScalar();
             }
-            if (s == "P")
+            if (s == "Pending")
             {
                 return false;
             }
             return true;
         }
 
-        public void FillAssignedTaskList(int pm_id)
+        public DataTable FillAssignedTaskList(int pm_id)
         {
-
+            string query = $"select pt.Task_Title as Title,pt.Task_Desc as Description,ts.StatusName as Status from " +
+                $"PerformTask_TBL as pt,TaskStatus_TBL as ts where " +
+                $"pt.PMember_ID = '{pm_id}' and ts.StatusID = pt.Task_Completed;";
+            FillData(query);
+            if (dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            return null;
         }
 
     }

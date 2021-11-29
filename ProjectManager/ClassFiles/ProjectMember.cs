@@ -29,6 +29,17 @@ namespace ProjectManagement.ClassFiles
             return false;
 
         }
+        public bool CheckDuplicateMailAndPass(string mail, string pass)
+        {
+            string query = $"select * from PMember_TBL where " +
+                $"PMember_Email = '{mail}' or PMember_Password = '{pass}';";
+            FillTable(query);
+            if (dt.Rows.Count == 1)
+            {
+                return true;
+            }
+            return false;
+        }
         private void FillTable(string query)
         {
             dt.Clear();
@@ -151,6 +162,17 @@ namespace ProjectManagement.ClassFiles
             return false;
 
         }
+        public bool CheckifGroupMember(int pm_id, int group_id)
+        {
+            string query = $"select * from PMemberGroupInfo_TBL where " +
+                $"PMember_ID = '{pm_id}' and PGroup_ID = '{group_id}';";
+            FillTable(query);
+            if (dt.Rows.Count == 1)
+            {
+                return true;
+            }
+            return false;
+        }
 
         public List<ProjectTask> GetTaskList(int pm_id)
         {
@@ -237,7 +259,7 @@ namespace ProjectManagement.ClassFiles
             }
         }
 
-        public bool UpdateMemberGroupInfoTable(int pm_id)
+        public bool DeleteMemberGroupInfoTable(int pm_id)
         {
             int rowEffected = 0;
             string query = $"delete from PMemberGroupInfo_TBL where " +
@@ -258,7 +280,7 @@ namespace ProjectManagement.ClassFiles
             }
         }
 
-        public bool UpdateMemberProjInfoTable(int pm_id)
+        public bool DeleteMemberProjInfoTable(int pm_id)
         {
             int rowEffected = 0;
             string query = $"delete from PMemberProjectInfo_TBL where " +
@@ -278,7 +300,7 @@ namespace ProjectManagement.ClassFiles
                 return false;
             }
         }
-        public bool UpdateMemberAssignedTask(int p_id)
+        public bool DeleteMemberAssignedTask(int p_id)
         {
             int rowsEffected = 0;
             string query = $"delete ptt from PerformTask_TBL ptt Inner join Task_TBL tt on ptt.Task_ID = tt.Task_ID where tt.Project_ID = {p_id}";
@@ -295,7 +317,46 @@ namespace ProjectManagement.ClassFiles
             return false;
         }
 
+        public bool UpdateMemberGroupInfoTable(int pm_id, int g_id)
+        {
+            int rowEffected = 0;
+            string query = $"update PMemberGroupInfo_TBL" +
+                $" set PGroup_ID = '{g_id}' where " +
+                $"PMember_ID = '{pm_id}'";
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                rowEffected = cmd.ExecuteNonQuery();
+            }
+            if (rowEffected == 1)
+            {
+                return true;
+            }
 
+            return false;
+
+        }
+        public bool UpdateProjectGroupInfoTable(int pm_id, int p_id)
+        {
+            int rowEffected = 0;
+            string query = $"update PMemberProjectInfo_TBL" +
+                $" set Project_ID = '{p_id}' where " +
+                $"PMember_ID = '{pm_id}'";
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                rowEffected = cmd.ExecuteNonQuery();
+            }
+            if (rowEffected == 1)
+            {
+                return true;
+            }
+
+            return false;
+
+        }
 
     }
 }
