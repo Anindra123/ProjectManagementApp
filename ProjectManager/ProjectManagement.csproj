@@ -52,6 +52,7 @@
     <Compile Include="Add New Feature.designer.cs">
       <DependentUpon>Add New Feature.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClassFiles\Validations.cs" />
     <Compile Include="ContinueAsProjectManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,11 +96,11 @@
     <Compile Include="ViewMemberProjectInfo.Designer.cs">
       <DependentUpon>ViewMemberProjectInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpadateProjectManager.cs">
+    <Compile Include="UpdateProjectManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpadateProjectManager.Designer.cs">
-      <DependentUpon>UpadateProjectManager.cs</DependentUpon>
+    <Compile Include="UpdateProjectManager.Designer.cs">
+      <DependentUpon>UpdateProjectManager.cs</DependentUpon>
     </Compile>
     <Compile Include="SubmitTaskForm.cs">
       <SubType>Form</SubType>
@@ -211,8 +212,8 @@
     <EmbeddedResource Include="ViewMemberProjectInfo.resx">
       <DependentUpon>ViewMemberProjectInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpadateProjectManager.resx">
-      <DependentUpon>UpadateProjectManager.cs</DependentUpon>
+    <EmbeddedResource Include="UpdateProjectManager.resx">
+      <DependentUpon>UpdateProjectManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubmitTaskForm.resx">
       <DependentUpon>SubmitTaskForm.cs</DependentUpon>

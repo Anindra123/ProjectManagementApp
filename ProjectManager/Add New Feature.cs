@@ -49,7 +49,7 @@ namespace ProjectManagement
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
-            var form = (ProjectManagerView)Tag;
+            var form = (updatePManagerInfo)Tag;
             form.Show();
             this.Close();
         }

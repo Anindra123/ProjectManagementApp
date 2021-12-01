@@ -14,7 +14,8 @@ namespace ProjectManagement
 {
     public partial class ProjectManagerSignUpForm : Form
     {
-        
+
+        ProjectManager pM = new ProjectManager();
         public ProjectManagerSignUpForm()
         {
             InitializeComponent();
@@ -35,6 +36,13 @@ namespace ProjectManagement
             form2.Show();
 
         }
+        void ResetSignUpFeilds()
+        {
+            proMFirstNameTextBox.Text = "";
+            proMLastNameTextBox.Text = "";
+            proMEmailTextBox.Text = "";
+            proMPasswordTextBox.Text = "";
+        }
         private void proMCancel_Click(object sender, EventArgs e)
         {
             ShowPreviousForm();
@@ -44,7 +52,7 @@ namespace ProjectManagement
         private void proMCreateNewProj_Click(object sender, EventArgs e)
         {
             //Give control to the nextform
-            
+
 
         }
 
@@ -66,53 +74,57 @@ namespace ProjectManagement
         // save the sign up info in a database or textbox
         private void proMSignUp_Click(object sender, EventArgs e)
         {
-            string firstName = proMFirstNameTextBox.Text;
-            string lastName = proMLastNameTextBox.Text;
-            string email = proMEmailTextBox.Text;
-            string password = proMPasswordTextBox.Text;
-            
+            string firstName = proMFirstNameTextBox.Text.Trim();
+            string lastName = proMLastNameTextBox.Text.Trim();
+            string email = proMEmailTextBox.Text.Trim();
+            string password = proMPasswordTextBox.Text.Trim();
+
             string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
 
             if (string.IsNullOrEmpty(firstName) ||
                 string.IsNullOrEmpty(lastName) ||
                 string.IsNullOrEmpty(email) ||
-                string.IsNullOrEmpty(password) 
+                string.IsNullOrEmpty(password)
                 )
             {
 
                 MessageBox.Show("Text Fields Cannot be empty", "Alert",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            } else if (!Regex.IsMatch(email, pattern))
+            }
+            else if (!Regex.IsMatch(email, pattern))
             {
                 MessageBox.Show("Invalid Email", "Alert",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if (pM.CheckDuplicateMailAndPass(email, password))
+            {
+                MessageBox.Show("An Entry with same name/email/password already exist. Try something different", "Alert",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ResetSignUpFeilds();
+            }
             else
             {
-                // Aninda will query
-                ProjectManager pM = new ProjectManager();
+
                 bool ret = pM.SignUp(firstName, lastName, email, password);
 
-                
-       
-                if(ret == true)
+
+
+                if (ret == true)
                 {
                     MessageBox.Show("User Successfully Signed Up", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ResetSignUpFeilds();
 
-                    proMFirstNameTextBox.Text = "";
-                    proMLastNameTextBox.Text = "";
-                    proMEmailTextBox.Text = "";
-                    proMPasswordTextBox.Text = "";
-                   
+
                 }
                 else
                 {
-                    MessageBox.Show("Use a different email, this email already exists", "Alert",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Error in Sign Up", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
+
+
             }
 
         }
@@ -129,13 +141,13 @@ namespace ProjectManagement
 
         private void proMYesMembersRadio_CheckedChanged(object sender, EventArgs e)
         {
-            
-            
+
+
         }
 
         private void proMSearchMemBtn_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void ProjectManagerSignUpForm_Load(object sender, EventArgs e)

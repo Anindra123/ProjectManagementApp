@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectManagement.ClassFiles;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,17 @@ using System.Windows.Forms;
 
 namespace ProjectManagement
 {
-    public partial class ProjectManagerView : System.Windows.Forms.Form
+    public partial class updatePManagerInfo : System.Windows.Forms.Form
     {
-        public ProjectManagerView()
+        ProjectManager pM;
+        public updatePManagerInfo()
         {
             InitializeComponent();
+        }
+        public updatePManagerInfo(ProjectManager pM)
+        {
+            InitializeComponent();
+            this.pM = pM;
         }
         void GotoContinuePage()
         {
@@ -24,12 +31,32 @@ namespace ProjectManagement
             form1.Close();
             form2.Show();
         }
-        private void groupBox3_Enter(object sender, EventArgs e)
+        void ShowNewMenu(Form obj)
         {
-
+            //Give control to the nextform
+            obj.Tag = this;
+            obj.Show(this);
+            this.Hide();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        public void IntializeForm()
+        {
+            groupAndProjectView.DataSource = null;
+            if (pM != null)
+            {
+                pM.GetProjectManager();
+                welcomeFullNameLabel.Text = $"Welcome, {pM.FirstName} {pM.LastName}";
+                if (pM.ProjectGroups.Count > 0 && pM.Projects.Count > 0)
+                {
+                    groupAndProjectView.DataSource = pM.ViewProjectGroupInfo().Copy();
+                }
+                else
+                {
+                    groupAndProjectView.DataSource = null;
+                }
+            }
+        }
+        private void groupBox3_Enter(object sender, EventArgs e)
         {
 
         }
@@ -58,29 +85,41 @@ namespace ProjectManagement
         private void addNewFeatureBtn_Click(object sender, EventArgs e)
         {
             AddNewFeature aDF1 = new AddNewFeature();
-            aDF1.Show();
-            this.Hide();
+            ShowNewMenu(aDF1);
         }
 
         private void updateGroupMembersBtn_Click(object sender, EventArgs e)
         {
             UpdateGroupInfo uGI1 = new UpdateGroupInfo();
-            uGI1.Show();
-            this.Hide();
+            ShowNewMenu(uGI1);
         }
 
         private void viewProjectInfoBtn_Click(object sender, EventArgs e)
         {
             ViewProjectInfo vPI1 = new ViewProjectInfo();
-            vPI1.Show();
-            this.Hide();
+            ShowNewMenu(vPI1);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             UpdateProjectInfo uPI1 = new UpdateProjectInfo();
-            uPI1.Show();
-            this.Hide();
+            ShowNewMenu(uPI1);
+        }
+
+        private void updatePManagerInfoBtn_Click(object sender, EventArgs e)
+        {
+            UpdateProjectManager uManager = new UpdateProjectManager(pM);
+            ShowNewMenu(uManager);
+        }
+
+        private void updatePManagerInfo_Load(object sender, EventArgs e)
+        {
+            IntializeForm();
+        }
+
+        private void createNewGroupBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

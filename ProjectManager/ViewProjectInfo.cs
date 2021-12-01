@@ -19,7 +19,7 @@ namespace ProjectManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var form = (ProjectManagerView)Tag;
+            var form = (updatePManagerInfo)Tag;
             form.Show();
             this.Close();
         }

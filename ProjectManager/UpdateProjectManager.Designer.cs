@@ -1,7 +1,7 @@
 ﻿
 namespace ProjectManagement
 {
-    partial class UpadateProjectManager
+    partial class UpdateProjectManager
     {
         /// <summary>
         /// Required designer variable.
@@ -29,16 +29,16 @@ namespace ProjectManagement
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpadateProjectManager));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateProjectManager));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.managerPasswordTxt = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cancelBtn = new System.Windows.Forms.Button();
             this.managerEmailTxt = new System.Windows.Forms.TextBox();
+            this.updateBtn = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.lastNameManagerText = new System.Windows.Forms.TextBox();
             this.firstNameManagerTxt = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -48,9 +48,9 @@ namespace ProjectManagement
             // 
             this.groupBox1.Controls.Add(this.managerPasswordTxt);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.cancelBtn);
             this.groupBox1.Controls.Add(this.managerEmailTxt);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.updateBtn);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.lastNameManagerText);
             this.groupBox1.Controls.Add(this.firstNameManagerTxt);
@@ -65,61 +65,13 @@ namespace ProjectManagement
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Update Project Manager Info";
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(405, 327);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(141, 56);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Cancel";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(75, 327);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 56);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // managerPasswordTxt
             // 
             this.managerPasswordTxt.Location = new System.Drawing.Point(145, 230);
             this.managerPasswordTxt.Name = "managerPasswordTxt";
+            this.managerPasswordTxt.PasswordChar = '*';
             this.managerPasswordTxt.Size = new System.Drawing.Size(456, 30);
             this.managerPasswordTxt.TabIndex = 7;
-            this.managerPasswordTxt.Leave += new System.EventHandler(this.textBox5_Leave);
-            // 
-            // managerEmailTxt
-            // 
-            this.managerEmailTxt.Location = new System.Drawing.Point(145, 173);
-            this.managerEmailTxt.Name = "managerEmailTxt";
-            this.managerEmailTxt.Size = new System.Drawing.Size(456, 30);
-            this.managerEmailTxt.TabIndex = 6;
-            this.managerEmailTxt.Leave += new System.EventHandler(this.textBox4_Leave);
-            // 
-            // lastNameManagerText
-            // 
-            this.lastNameManagerText.Location = new System.Drawing.Point(145, 117);
-            this.lastNameManagerText.Name = "lastNameManagerText";
-            this.lastNameManagerText.Size = new System.Drawing.Size(456, 30);
-            this.lastNameManagerText.TabIndex = 5;
-            this.lastNameManagerText.Leave += new System.EventHandler(this.textBox3_Leave);
-            // 
-            // firstNameManagerTxt
-            // 
-            this.firstNameManagerTxt.Location = new System.Drawing.Point(145, 64);
-            this.firstNameManagerTxt.Name = "firstNameManagerTxt";
-            this.firstNameManagerTxt.Size = new System.Drawing.Size(456, 30);
-            this.firstNameManagerTxt.TabIndex = 4;
-            this.firstNameManagerTxt.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            this.firstNameManagerTxt.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
             // label5
             // 
@@ -130,6 +82,37 @@ namespace ProjectManagement
             this.label5.TabIndex = 3;
             this.label5.Text = "Password :";
             // 
+            // cancelBtn
+            // 
+            this.cancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.cancelBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelBtn.Location = new System.Drawing.Point(405, 327);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(141, 56);
+            this.cancelBtn.TabIndex = 8;
+            this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.UseVisualStyleBackColor = false;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
+            // managerEmailTxt
+            // 
+            this.managerEmailTxt.Location = new System.Drawing.Point(145, 173);
+            this.managerEmailTxt.Name = "managerEmailTxt";
+            this.managerEmailTxt.Size = new System.Drawing.Size(456, 30);
+            this.managerEmailTxt.TabIndex = 6;
+            // 
+            // updateBtn
+            // 
+            this.updateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.updateBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateBtn.Location = new System.Drawing.Point(75, 327);
+            this.updateBtn.Name = "updateBtn";
+            this.updateBtn.Size = new System.Drawing.Size(142, 56);
+            this.updateBtn.TabIndex = 4;
+            this.updateBtn.Text = "Update";
+            this.updateBtn.UseVisualStyleBackColor = false;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -138,6 +121,21 @@ namespace ProjectManagement
             this.label4.Size = new System.Drawing.Size(60, 23);
             this.label4.TabIndex = 2;
             this.label4.Text = "Email :";
+            // 
+            // lastNameManagerText
+            // 
+            this.lastNameManagerText.Location = new System.Drawing.Point(145, 117);
+            this.lastNameManagerText.Name = "lastNameManagerText";
+            this.lastNameManagerText.Size = new System.Drawing.Size(456, 30);
+            this.lastNameManagerText.TabIndex = 5;
+            // 
+            // firstNameManagerTxt
+            // 
+            this.firstNameManagerTxt.Location = new System.Drawing.Point(145, 64);
+            this.firstNameManagerTxt.Name = "firstNameManagerTxt";
+            this.firstNameManagerTxt.Size = new System.Drawing.Size(456, 30);
+            this.firstNameManagerTxt.TabIndex = 4;
+            this.firstNameManagerTxt.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label3
             // 
@@ -157,7 +155,7 @@ namespace ProjectManagement
             this.label2.TabIndex = 0;
             this.label2.Text = "First Name :";
             // 
-            // UpadateProjectManager
+            // UpdateProjectManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -167,10 +165,11 @@ namespace ProjectManagement
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "UpadateProjectManager";
+            this.Name = "UpdateProjectManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Project Manager";
-            this.Load += new System.EventHandler(this.UpdateProjectManagerInfoForm_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UpdateProjectManager_FormClosed);
+            this.Load += new System.EventHandler(this.UpdateProjectManager_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -180,8 +179,8 @@ namespace ProjectManagement
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.Button updateBtn;
         private System.Windows.Forms.TextBox managerPasswordTxt;
         private System.Windows.Forms.TextBox managerEmailTxt;
         private System.Windows.Forms.TextBox lastNameManagerText;

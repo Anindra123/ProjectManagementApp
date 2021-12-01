@@ -53,24 +53,23 @@ namespace ProjectManagement
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(10, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(13, 12);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(401, 304);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(535, 374);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // Cancel
             // 
             this.Cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.Cancel.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cancel.ForeColor = System.Drawing.Color.White;
-            this.Cancel.Location = new System.Drawing.Point(259, 232);
-            this.Cancel.Margin = new System.Windows.Forms.Padding(2);
+            this.Cancel.Location = new System.Drawing.Point(345, 286);
+            this.Cancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(89, 47);
+            this.Cancel.Size = new System.Drawing.Size(119, 58);
             this.Cancel.TabIndex = 6;
             this.Cancel.Text = "Cancel";
             this.Cancel.UseVisualStyleBackColor = false;
@@ -81,10 +80,10 @@ namespace ProjectManagement
             this.projMSignInBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.projMSignInBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.projMSignInBtn.ForeColor = System.Drawing.Color.White;
-            this.projMSignInBtn.Location = new System.Drawing.Point(40, 232);
-            this.projMSignInBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.projMSignInBtn.Location = new System.Drawing.Point(53, 286);
+            this.projMSignInBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.projMSignInBtn.Name = "projMSignInBtn";
-            this.projMSignInBtn.Size = new System.Drawing.Size(149, 47);
+            this.projMSignInBtn.Size = new System.Drawing.Size(199, 58);
             this.projMSignInBtn.TabIndex = 5;
             this.projMSignInBtn.Text = "Sign In as Project Manager";
             this.projMSignInBtn.UseVisualStyleBackColor = false;
@@ -92,67 +91,65 @@ namespace ProjectManagement
             // 
             // projMEmailTextBox
             // 
-            this.projMEmailTextBox.Location = new System.Drawing.Point(152, 134);
-            this.projMEmailTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.projMEmailTextBox.Location = new System.Drawing.Point(203, 165);
+            this.projMEmailTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.projMEmailTextBox.Name = "projMEmailTextBox";
-            this.projMEmailTextBox.Size = new System.Drawing.Size(218, 26);
+            this.projMEmailTextBox.Size = new System.Drawing.Size(289, 30);
             this.projMEmailTextBox.TabIndex = 4;
             // 
             // projMPasswordTextBox
             // 
-            this.projMPasswordTextBox.Location = new System.Drawing.Point(152, 175);
-            this.projMPasswordTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.projMPasswordTextBox.Location = new System.Drawing.Point(203, 215);
+            this.projMPasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.projMPasswordTextBox.Name = "projMPasswordTextBox";
-            this.projMPasswordTextBox.Size = new System.Drawing.Size(218, 26);
+            this.projMPasswordTextBox.PasswordChar = '*';
+            this.projMPasswordTextBox.Size = new System.Drawing.Size(289, 30);
             this.projMPasswordTextBox.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 180);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(19, 222);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 19);
+            this.label2.Size = new System.Drawing.Size(80, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "Password";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 140);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(19, 172);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 19);
+            this.label1.Size = new System.Drawing.Size(56, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "Email ";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(166, 24);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(216, 27);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(75, 81);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // ProjectManagerSignIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(420, 323);
+            this.ClientSize = new System.Drawing.Size(560, 398);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "ProjectManagerSignIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Project Manager Sign In";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProjectManagerSignIn_FormClosed);
-            this.Load += new System.EventHandler(this.ProjectManagerSignIn_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
