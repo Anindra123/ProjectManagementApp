@@ -32,7 +32,6 @@ namespace ProjectManagement
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectManagementStartForm));
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.continueAsAdminBtn = new System.Windows.Forms.Button();
             this.continueAsProjectMemberBtn = new System.Windows.Forms.Button();
             this.continueAsProjectManagerBtn = new System.Windows.Forms.Button();
             this.aboutBtn = new System.Windows.Forms.Button();
@@ -46,7 +45,7 @@ namespace ProjectManagement
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(188, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(307, 25);
+            this.label1.Size = new System.Drawing.Size(394, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Project Management App Ver 1.0";
             // 
@@ -60,25 +59,12 @@ namespace ProjectManagement
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // continueAsAdminBtn
-            // 
-            this.continueAsAdminBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.continueAsAdminBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.continueAsAdminBtn.ForeColor = System.Drawing.Color.White;
-            this.continueAsAdminBtn.Location = new System.Drawing.Point(182, 139);
-            this.continueAsAdminBtn.Name = "continueAsAdminBtn";
-            this.continueAsAdminBtn.Size = new System.Drawing.Size(285, 54);
-            this.continueAsAdminBtn.TabIndex = 2;
-            this.continueAsAdminBtn.Text = "Continue As Admin";
-            this.continueAsAdminBtn.UseVisualStyleBackColor = false;
-            this.continueAsAdminBtn.Click += new System.EventHandler(this.continueAsAdminBtn_Click);
-            // 
             // continueAsProjectMemberBtn
             // 
             this.continueAsProjectMemberBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.continueAsProjectMemberBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.continueAsProjectMemberBtn.ForeColor = System.Drawing.Color.White;
-            this.continueAsProjectMemberBtn.Location = new System.Drawing.Point(182, 199);
+            this.continueAsProjectMemberBtn.Location = new System.Drawing.Point(178, 157);
             this.continueAsProjectMemberBtn.Name = "continueAsProjectMemberBtn";
             this.continueAsProjectMemberBtn.Size = new System.Drawing.Size(285, 54);
             this.continueAsProjectMemberBtn.TabIndex = 3;
@@ -91,7 +77,7 @@ namespace ProjectManagement
             this.continueAsProjectManagerBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.continueAsProjectManagerBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.continueAsProjectManagerBtn.ForeColor = System.Drawing.Color.White;
-            this.continueAsProjectManagerBtn.Location = new System.Drawing.Point(182, 259);
+            this.continueAsProjectManagerBtn.Location = new System.Drawing.Point(178, 217);
             this.continueAsProjectManagerBtn.Name = "continueAsProjectManagerBtn";
             this.continueAsProjectManagerBtn.Size = new System.Drawing.Size(285, 54);
             this.continueAsProjectManagerBtn.TabIndex = 4;
@@ -104,7 +90,7 @@ namespace ProjectManagement
             this.aboutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.aboutBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aboutBtn.ForeColor = System.Drawing.Color.White;
-            this.aboutBtn.Location = new System.Drawing.Point(182, 319);
+            this.aboutBtn.Location = new System.Drawing.Point(178, 277);
             this.aboutBtn.Name = "aboutBtn";
             this.aboutBtn.Size = new System.Drawing.Size(285, 54);
             this.aboutBtn.TabIndex = 5;
@@ -113,14 +99,13 @@ namespace ProjectManagement
             // 
             // ProjectManagementStartForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(682, 453);
             this.Controls.Add(this.aboutBtn);
             this.Controls.Add(this.continueAsProjectManagerBtn);
             this.Controls.Add(this.continueAsProjectMemberBtn);
-            this.Controls.Add(this.continueAsAdminBtn);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -141,7 +126,6 @@ namespace ProjectManagement
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button continueAsAdminBtn;
         private System.Windows.Forms.Button continueAsProjectMemberBtn;
         private System.Windows.Forms.Button continueAsProjectManagerBtn;
         private System.Windows.Forms.Button aboutBtn;

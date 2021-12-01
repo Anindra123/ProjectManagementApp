@@ -36,11 +36,11 @@ namespace ProjectManagement.ClassFiles
             if (dtbl.Rows.Count == 1)
             {
 
-                 pM.PManager_ID = Convert.ToInt32(dtbl.Rows[0]["PManager_ID"].ToString());
-                 pM.FirstName = (string)dtbl.Rows[0]["PManager_FirstName"];
-                 pM.LastName = (string)dtbl.Rows[0]["PManager_LastName"];
-                 pM.Email = (string)dtbl.Rows[0]["PManager_Email"];
-                 pM.password = (string)dtbl.Rows[0]["PManager_Password"]; 
+                pM.PManager_ID = Convert.ToInt32(dtbl.Rows[0]["PManager_ID"].ToString());
+                pM.FirstName = (string)dtbl.Rows[0]["PManager_FirstName"];
+                pM.LastName = (string)dtbl.Rows[0]["PManager_LastName"];
+                pM.Email = (string)dtbl.Rows[0]["PManager_Email"];
+                pM.password = (string)dtbl.Rows[0]["PManager_Password"];
 
 
 
@@ -53,33 +53,20 @@ namespace ProjectManagement.ClassFiles
 
         }
 
-        public bool SignUp(string firstName, string lastName, string email, string password, string groupName)
+        public bool SignUp(string firstName, string lastName, string email, string password)
         {
             bool ret = false;
-            SqlConnection conn = new SqlConnection(DBConnection.GetConnString());
-
-            conn.Open();
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"SELECT * FROM  PManager_TBL WHERE PManager_Email ='{email}'";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            sda.Fill(dt);
-
-            if(!(dt.Rows.Count >0))
-            {
-                cmd.CommandText = $"INSERT INTO PManager_TBL (PManager_FirstName, PManager_LastName, PManager_Email, PManager_Password)" +
+            string query = $"INSERT INTO PManager_TBL (PManager_FirstName, PManager_LastName, PManager_Email, PManager_Password)" +
                     $"  VALUES ('{firstName}','{lastName}','{email}','{password}')";
-                if(cmd.ExecuteNonQuery()>0)
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                if (cmd.ExecuteNonQuery() > 0)
                 {
                     ret = true;
                 }
-                
             }
-            
-            conn.Close();
-
 
             return ret;
         }

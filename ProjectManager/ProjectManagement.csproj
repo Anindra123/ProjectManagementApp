@@ -52,12 +52,6 @@
     <Compile Include="Add New Feature.designer.cs">
       <DependentUpon>Add New Feature.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminLogin.designer.cs">
-      <DependentUpon>AdminLogin.cs</DependentUpon>
-    </Compile>
     <Compile Include="ContinueAsProjectManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,43 +64,13 @@
     <Compile Include="ContinueAsProjectMemberForm.Designer.cs">
       <DependentUpon>ContinueAsProjectMemberForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateNewProjectFrom.cs">
+    <Compile Include="CreateNewGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateNewProjectFrom.designer.cs">
-      <DependentUpon>CreateNewProjectFrom.cs</DependentUpon>
+    <Compile Include="CreateNewGroup.Designer.cs">
+      <DependentUpon>CreateNewGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnectionFiles\DBConnection.cs" />
-    <Compile Include="AdminOptions.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminOptions.Designer.cs">
-      <DependentUpon>AdminOptions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AdminDashBoard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminDashBoard.Designer.cs">
-      <DependentUpon>AdminDashBoard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AddProjectMemberForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddProjectMemberForm.Designer.cs">
-      <DependentUpon>AddProjectMemberForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Admin DashBoardForManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin DashBoardForManager.Designer.cs">
-      <DependentUpon>Admin DashBoardForManager.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AdminRemoveProjectManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminRemoveProjectManager.Designer.cs">
-      <DependentUpon>AdminRemoveProjectManager.cs</DependentUpon>
-    </Compile>
     <Compile Include="ForgotPasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,23 +95,11 @@
     <Compile Include="ViewMemberProjectInfo.Designer.cs">
       <DependentUpon>ViewMemberProjectInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewProjectManagerInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewProjectManagerInfo.Designer.cs">
-      <DependentUpon>ViewProjectManagerInfo.cs</DependentUpon>
-    </Compile>
     <Compile Include="UpadateProjectManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UpadateProjectManager.Designer.cs">
       <DependentUpon>UpadateProjectManager.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RemoveProjectMemberForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RemoveProjectMemberForm.Designer.cs">
-      <DependentUpon>RemoveProjectMemberForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SubmitTaskForm.cs">
       <SubType>Form</SubType>
@@ -155,23 +107,11 @@
     <Compile Include="SubmitTaskForm.Designer.cs">
       <DependentUpon>SubmitTaskForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateProjectMemberInfoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UpdateProjectMemberInfoForm.Designer.cs">
-      <DependentUpon>UpdateProjectMemberInfoForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewGroupInfo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ViewGroupInfo.Designer.cs">
       <DependentUpon>ViewGroupInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewProjectMemberInfoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewProjectMemberInfoForm.Designer.cs">
-      <DependentUpon>ViewProjectMemberInfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AssignTask.cs">
       <SubType>Form</SubType>
@@ -250,32 +190,14 @@
     <EmbeddedResource Include="Add New Feature.resx">
       <DependentUpon>Add New Feature.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminLogin.resx">
-      <DependentUpon>AdminLogin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ContinueAsProjectManagerForm.resx">
       <DependentUpon>ContinueAsProjectManagerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ContinueAsProjectMemberForm.resx">
       <DependentUpon>ContinueAsProjectMemberForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateNewProjectFrom.resx">
-      <DependentUpon>CreateNewProjectFrom.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminOptions.resx">
-      <DependentUpon>AdminOptions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminDashBoard.resx">
-      <DependentUpon>AdminDashBoard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddProjectMemberForm.resx">
-      <DependentUpon>AddProjectMemberForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Admin DashBoardForManager.resx">
-      <DependentUpon>Admin DashBoardForManager.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminRemoveProjectManager.resx">
-      <DependentUpon>AdminRemoveProjectManager.cs</DependentUpon>
+    <EmbeddedResource Include="CreateNewGroup.resx">
+      <DependentUpon>CreateNewGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ForgotPasswordForm.resx">
       <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
@@ -289,26 +211,14 @@
     <EmbeddedResource Include="ViewMemberProjectInfo.resx">
       <DependentUpon>ViewMemberProjectInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewProjectManagerInfo.resx">
-      <DependentUpon>ViewProjectManagerInfo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UpadateProjectManager.resx">
       <DependentUpon>UpadateProjectManager.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RemoveProjectMemberForm.resx">
-      <DependentUpon>RemoveProjectMemberForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubmitTaskForm.resx">
       <DependentUpon>SubmitTaskForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateProjectMemberInfoForm.resx">
-      <DependentUpon>UpdateProjectMemberInfoForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ViewGroupInfo.resx">
       <DependentUpon>ViewGroupInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ViewProjectMemberInfoForm.resx">
-      <DependentUpon>ViewProjectMemberInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AssignTask.resx">
       <DependentUpon>AssignTask.cs</DependentUpon>

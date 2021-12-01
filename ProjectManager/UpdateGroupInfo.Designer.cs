@@ -29,6 +29,7 @@ namespace ProjectManagement
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateGroupInfo));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,6 +40,7 @@ namespace ProjectManagement
             this.RemoveMemberBtn = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.discardGroupBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -80,7 +82,7 @@ namespace ProjectManagement
             this.listBox1.ForeColor = System.Drawing.Color.Black;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(27, 164);
+            this.listBox1.Location = new System.Drawing.Point(37, 162);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(532, 244);
             this.listBox1.TabIndex = 3;
@@ -88,9 +90,9 @@ namespace ProjectManagement
             // UpdateBtn
             // 
             this.UpdateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.UpdateBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateBtn.ForeColor = System.Drawing.Color.White;
-            this.UpdateBtn.Location = new System.Drawing.Point(118, 434);
+            this.UpdateBtn.Location = new System.Drawing.Point(76, 453);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.Size = new System.Drawing.Size(123, 67);
             this.UpdateBtn.TabIndex = 4;
@@ -100,9 +102,9 @@ namespace ProjectManagement
             // GoBackBtn
             // 
             this.GoBackBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.GoBackBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GoBackBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GoBackBtn.ForeColor = System.Drawing.Color.White;
-            this.GoBackBtn.Location = new System.Drawing.Point(340, 434);
+            this.GoBackBtn.Location = new System.Drawing.Point(541, 453);
             this.GoBackBtn.Name = "GoBackBtn";
             this.GoBackBtn.Size = new System.Drawing.Size(123, 67);
             this.GoBackBtn.TabIndex = 5;
@@ -112,8 +114,8 @@ namespace ProjectManagement
             // 
             // AddMemberBtn
             // 
-            this.AddMemberBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.AddMemberBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddMemberBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.AddMemberBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddMemberBtn.ForeColor = System.Drawing.Color.White;
             this.AddMemberBtn.Location = new System.Drawing.Point(622, 187);
             this.AddMemberBtn.Name = "AddMemberBtn";
@@ -125,8 +127,8 @@ namespace ProjectManagement
             // 
             // RemoveMemberBtn
             // 
-            this.RemoveMemberBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.RemoveMemberBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RemoveMemberBtn.BackColor = System.Drawing.Color.Red;
+            this.RemoveMemberBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RemoveMemberBtn.ForeColor = System.Drawing.Color.White;
             this.RemoveMemberBtn.Location = new System.Drawing.Point(622, 306);
             this.RemoveMemberBtn.Name = "RemoveMemberBtn";
@@ -150,12 +152,26 @@ namespace ProjectManagement
             this.textBox2.Size = new System.Drawing.Size(346, 22);
             this.textBox2.TabIndex = 9;
             // 
+            // discardGroupBtn
+            // 
+            this.discardGroupBtn.BackColor = System.Drawing.Color.Red;
+            this.discardGroupBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.discardGroupBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discardGroupBtn.ForeColor = System.Drawing.Color.White;
+            this.discardGroupBtn.Location = new System.Drawing.Point(304, 453);
+            this.discardGroupBtn.Name = "discardGroupBtn";
+            this.discardGroupBtn.Size = new System.Drawing.Size(123, 67);
+            this.discardGroupBtn.TabIndex = 10;
+            this.discardGroupBtn.Text = "Discard Group";
+            this.discardGroupBtn.UseVisualStyleBackColor = false;
+            // 
             // UpdateGroupInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(800, 531);
+            this.ClientSize = new System.Drawing.Size(764, 557);
+            this.Controls.Add(this.discardGroupBtn);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.RemoveMemberBtn);
@@ -166,7 +182,11 @@ namespace ProjectManagement
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "UpdateGroupInfo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Group Info";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -185,5 +205,6 @@ namespace ProjectManagement
         private System.Windows.Forms.Button RemoveMemberBtn;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button discardGroupBtn;
     }
 }
