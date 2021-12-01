@@ -14,11 +14,7 @@ namespace ProjectManagement
 {
     public partial class ProjectManagerSignUpForm : Form
     {
-        private void fieldEnableDisable(bool param)
-        {
-            proMSearchMemTextBox.Enabled = param;
-            proMSearchMemBtn.Enabled = param;
-        }
+        
         public ProjectManagerSignUpForm()
         {
             InitializeComponent();
@@ -48,10 +44,7 @@ namespace ProjectManagement
         private void proMCreateNewProj_Click(object sender, EventArgs e)
         {
             //Give control to the nextform
-            CreateNewProjectFrom f2 = new CreateNewProjectFrom();
-            f2.Tag = this;
-            f2.Show(this);
-            this.Hide();
+            
 
         }
 
@@ -77,14 +70,14 @@ namespace ProjectManagement
             string lastName = proMLastNameTextBox.Text;
             string email = proMEmailTextBox.Text;
             string password = proMPasswordTextBox.Text;
-            string groupName = proMGroupNameTextBox.Text;
+            
             string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
 
             if (string.IsNullOrEmpty(firstName) ||
                 string.IsNullOrEmpty(lastName) ||
                 string.IsNullOrEmpty(email) ||
-                string.IsNullOrEmpty(password) ||
-                string.IsNullOrEmpty(groupName))
+                string.IsNullOrEmpty(password) 
+                )
             {
 
                 MessageBox.Show("Text Fields Cannot be empty", "Alert",
@@ -99,10 +92,10 @@ namespace ProjectManagement
             {
                 // Aninda will query
                 ProjectManager pM = new ProjectManager();
-                bool ret = pM.SignUp(firstName, lastName, email, password, groupName);
+                bool ret = pM.SignUp(firstName, lastName, email, password);
 
                 
-                
+       
                 if(ret == true)
                 {
                     MessageBox.Show("User Successfully Signed Up", "Success",
@@ -112,7 +105,7 @@ namespace ProjectManagement
                     proMLastNameTextBox.Text = "";
                     proMEmailTextBox.Text = "";
                     proMPasswordTextBox.Text = "";
-                    proMGroupNameTextBox.Text = "";
+                   
                 }
                 else
                 {
@@ -136,27 +129,13 @@ namespace ProjectManagement
 
         private void proMYesMembersRadio_CheckedChanged(object sender, EventArgs e)
         {
-            if (proMYesMembersRadio.Checked)
-            {
-               
-                fieldEnableDisable(true);
-
-            }
-            else
-            {
-                fieldEnableDisable(false);
-            }
-
+            
             
         }
 
         private void proMSearchMemBtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(proMSearchMemTextBox.Text))
-            {
-                MessageBox.Show("Add member", "Alert",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+           
         }
 
         private void ProjectManagerSignUpForm_Load(object sender, EventArgs e)

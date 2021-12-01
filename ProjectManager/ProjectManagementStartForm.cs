@@ -36,8 +36,7 @@ namespace ProjectManagement
         }
         private void continueAsAdminBtn_Click(object sender, EventArgs e)
         {
-            AdminLogin adminLogin = new AdminLogin();
-            ShowNewMenu(adminLogin);
+
         }
 
         private void continueAsProjectMemberBtn_Click(object sender, EventArgs e)
