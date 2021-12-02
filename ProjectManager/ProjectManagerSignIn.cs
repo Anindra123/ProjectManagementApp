@@ -51,11 +51,12 @@ namespace ProjectManagement
         {
             if (string.IsNullOrEmpty(projMEmailTextBox.Text) || string.IsNullOrEmpty(projMPasswordTextBox.Text))
             {
-                MessageBox.Show("Fill up all the fields");
+                MessageBox.Show("Fill up all the fields", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (!Regex.IsMatch(projMEmailTextBox.Text, pattern))
             {
-                MessageBox.Show("Invalid Email Format");
+                MessageBox.Show("Invalid Email Format", "Invalid", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
             else
             {
@@ -64,27 +65,24 @@ namespace ProjectManagement
 
                 if (ret == true)
                 {
-
-                    ProjectManagerView managerView = new ProjectManagerView();
-                    ShowNewMenu(managerView);
+                    DialogResult dr = MessageBox.Show("Logged in sucessfully", "Sucess", MessageBoxButtons.OK,
+                         MessageBoxIcon.Information);
+                    if (dr == DialogResult.OK)
+                    {
+                        pm.GetProjectGroups();
+                        pm.GetProjects();
+                        updatePManagerInfo managerView = new updatePManagerInfo(pm);
+                        ShowNewMenu(managerView);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("User not found");
+                    MessageBox.Show("Invalid Email/Password.Try Again",
+                        "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
                 }
 
 
             }
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ProjectManagerSignIn_Load(object sender, EventArgs e)
-        {
 
         }
     }

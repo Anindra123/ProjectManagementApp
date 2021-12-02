@@ -16,6 +16,7 @@ namespace ProjectManagement.ClassFiles
         public int PMemberID { get; set; }
         public int PGroupID { get; set; }
         public int Project_ID { get; set; }
+
         public List<ProjectTask> tasks { get; set; } = new List<ProjectTask>();
 
         private static DataTable dt = new DataTable();
@@ -48,6 +49,20 @@ namespace ProjectManagement.ClassFiles
                 SqlDataAdapter sda = new SqlDataAdapter(query, conn);
                 sda.Fill(dt);
             }
+        }
+        public bool RunQuery(string query)
+        {
+            bool ret = false;
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    ret = true;
+                }
+            }
+            return ret;
         }
 
         public bool GetMemberPass(string mail)
@@ -200,19 +215,24 @@ namespace ProjectManagement.ClassFiles
         }
         public bool UpdateTask(int task_id)
         {
-            int rowsaffected = 0;
+            bool performTask = false;
+            bool assignTask = false;
+            bool taskComplete = false;
             ProjectTask task = tasks.Find(x => x.Task_ID == task_id);
             string query = $"update PerformTask_TBL " +
                 $"set Task_Attached = convert(varbinary(max),'{task.Task_Attached}'),Task_Comment = '{task.Task_Comment}'," +
                 $"Task_Completed = {task.Task_Completed}" +
                 $" where task_id = '{task_id}';";
-            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
-            {
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Connection.Open();
-                rowsaffected = cmd.ExecuteNonQuery();
-            }
-            if (rowsaffected == 1)
+            performTask = RunQuery(query);
+            string query1 = $"update AssignTask_TBL " +
+                $"set Task_Completed = {task.Task_Completed}" +
+                $" where task_id = {task_id}";
+            assignTask = RunQuery(query1);
+            string query2 = $"update Task_TBL " +
+                $"set Task_Completed = {task.Task_Completed}" +
+                $" where task_id = {task_id}";
+            taskComplete = RunQuery(query2);
+            if (performTask && assignTask && taskComplete)
             {
                 return true;
             }
@@ -356,6 +376,13 @@ namespace ProjectManagement.ClassFiles
 
             return false;
 
+        }
+        public bool AssignTask(string tTitle, string tDesc, int t_id, int t_sid, int pM_id)
+        {
+            string query = $"insert into PerformTask_TBL " +
+                $"(Task_ID,Task_title,Task_Desc,Task_Completed,PMember_ID)" +
+                $" values('{t_id}','{tTitle}','{tDesc}','{t_sid}','{pM_id}')";
+            return RunQuery(query);
         }
 
     }

@@ -77,5 +77,18 @@ namespace ProjectManagement.ClassFiles
             return null;
         }
 
+        public string GetStatus()
+        {
+            string s;
+            string query = $"select StatusName from TaskStatus_TBL where StatusID = '{Task_Completed}'";
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmnd = new SqlCommand(query, conn);
+                cmnd.Connection.Open();
+                s = (string)cmnd.ExecuteScalar();
+            }
+            return s;
+        }
+
     }
 }

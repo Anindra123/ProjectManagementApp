@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace ProjectManagement
 {
-    public partial class ViewProjectInfo : Form
+    public partial class ViewCompletedTask : Form
     {
-        public ViewProjectInfo()
+        public ViewCompletedTask()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var form = (updatePManagerInfo)Tag;
-            form.Show();
-            this.Close();
         }
     }
 }
