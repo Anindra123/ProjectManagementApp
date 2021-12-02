@@ -32,6 +32,8 @@ namespace ProjectManagement
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(updatePManagerInfo));
             this.welcomeFullNameLabel = new System.Windows.Forms.Label();
             this.mainGroupbox = new System.Windows.Forms.GroupBox();
@@ -39,11 +41,9 @@ namespace ProjectManagement
             this.currentFeatureList2Groupbox = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.sendToBacklogBtn = new System.Windows.Forms.Button();
-            this.implementedFeaturesListBox = new System.Windows.Forms.ListBox();
             this.currentFeatureListGroupbox1 = new System.Windows.Forms.GroupBox();
             this.assignTaskBtn = new System.Windows.Forms.Button();
             this.addNewFeatureBtn = new System.Windows.Forms.Button();
-            this.currentFeatureListbox1 = new System.Windows.Forms.ListBox();
             this.currentProjectsLabel = new System.Windows.Forms.Label();
             this.projectManagerOfLabel = new System.Windows.Forms.Label();
             this.viewProjectBacklogBtn = new System.Windows.Forms.Button();
@@ -53,10 +53,14 @@ namespace ProjectManagement
             this.button1 = new System.Windows.Forms.Button();
             this.createNewGroupBtn = new System.Windows.Forms.Button();
             this.updatePManagerInfoBtn = new System.Windows.Forms.Button();
+            this.currentTaskGridView = new System.Windows.Forms.DataGridView();
+            this.completedTaskGridView = new System.Windows.Forms.DataGridView();
             this.mainGroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupAndProjectView)).BeginInit();
             this.currentFeatureList2Groupbox.SuspendLayout();
             this.currentFeatureListGroupbox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.currentTaskGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.completedTaskGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // welcomeFullNameLabel
@@ -89,6 +93,8 @@ namespace ProjectManagement
             // 
             this.groupAndProjectView.AllowUserToAddRows = false;
             this.groupAndProjectView.AllowUserToDeleteRows = false;
+            this.groupAndProjectView.AllowUserToResizeColumns = false;
+            this.groupAndProjectView.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -120,19 +126,19 @@ namespace ProjectManagement
             this.groupAndProjectView.RowHeadersWidth = 51;
             this.groupAndProjectView.RowTemplate.Height = 24;
             this.groupAndProjectView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.groupAndProjectView.Size = new System.Drawing.Size(897, 131);
+            this.groupAndProjectView.Size = new System.Drawing.Size(604, 131);
             this.groupAndProjectView.TabIndex = 7;
             // 
             // currentFeatureList2Groupbox
             // 
+            this.currentFeatureList2Groupbox.Controls.Add(this.completedTaskGridView);
             this.currentFeatureList2Groupbox.Controls.Add(this.button3);
             this.currentFeatureList2Groupbox.Controls.Add(this.sendToBacklogBtn);
-            this.currentFeatureList2Groupbox.Controls.Add(this.implementedFeaturesListBox);
             this.currentFeatureList2Groupbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentFeatureList2Groupbox.ForeColor = System.Drawing.Color.White;
-            this.currentFeatureList2Groupbox.Location = new System.Drawing.Point(446, 277);
+            this.currentFeatureList2Groupbox.Location = new System.Drawing.Point(443, 277);
             this.currentFeatureList2Groupbox.Name = "currentFeatureList2Groupbox";
-            this.currentFeatureList2Groupbox.Size = new System.Drawing.Size(472, 336);
+            this.currentFeatureList2Groupbox.Size = new System.Drawing.Size(425, 336);
             this.currentFeatureList2Groupbox.TabIndex = 6;
             this.currentFeatureList2Groupbox.TabStop = false;
             this.currentFeatureList2Groupbox.Text = "Implemented Features";
@@ -140,10 +146,11 @@ namespace ProjectManagement
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(94, 257);
+            this.button3.Location = new System.Drawing.Point(57, 255);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(125, 58);
             this.button3.TabIndex = 3;
@@ -153,8 +160,9 @@ namespace ProjectManagement
             // sendToBacklogBtn
             // 
             this.sendToBacklogBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.sendToBacklogBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sendToBacklogBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sendToBacklogBtn.Location = new System.Drawing.Point(302, 256);
+            this.sendToBacklogBtn.Location = new System.Drawing.Point(266, 255);
             this.sendToBacklogBtn.Name = "sendToBacklogBtn";
             this.sendToBacklogBtn.Size = new System.Drawing.Size(98, 58);
             this.sendToBacklogBtn.TabIndex = 1;
@@ -162,28 +170,16 @@ namespace ProjectManagement
             this.sendToBacklogBtn.UseVisualStyleBackColor = false;
             this.sendToBacklogBtn.Click += new System.EventHandler(this.button4_Click);
             // 
-            // implementedFeaturesListBox
-            // 
-            this.implementedFeaturesListBox.FormattingEnabled = true;
-            this.implementedFeaturesListBox.ItemHeight = 23;
-            this.implementedFeaturesListBox.Items.AddRange(new object[] {
-            "listbox3"});
-            this.implementedFeaturesListBox.Location = new System.Drawing.Point(19, 29);
-            this.implementedFeaturesListBox.Name = "implementedFeaturesListBox";
-            this.implementedFeaturesListBox.Size = new System.Drawing.Size(432, 211);
-            this.implementedFeaturesListBox.TabIndex = 0;
-            this.implementedFeaturesListBox.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
-            // 
             // currentFeatureListGroupbox1
             // 
+            this.currentFeatureListGroupbox1.Controls.Add(this.currentTaskGridView);
             this.currentFeatureListGroupbox1.Controls.Add(this.assignTaskBtn);
             this.currentFeatureListGroupbox1.Controls.Add(this.addNewFeatureBtn);
-            this.currentFeatureListGroupbox1.Controls.Add(this.currentFeatureListbox1);
             this.currentFeatureListGroupbox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentFeatureListGroupbox1.ForeColor = System.Drawing.Color.White;
-            this.currentFeatureListGroupbox1.Location = new System.Drawing.Point(7, 277);
+            this.currentFeatureListGroupbox1.Location = new System.Drawing.Point(21, 277);
             this.currentFeatureListGroupbox1.Name = "currentFeatureListGroupbox1";
-            this.currentFeatureListGroupbox1.Size = new System.Drawing.Size(422, 336);
+            this.currentFeatureListGroupbox1.Size = new System.Drawing.Size(392, 336);
             this.currentFeatureListGroupbox1.TabIndex = 5;
             this.currentFeatureListGroupbox1.TabStop = false;
             this.currentFeatureListGroupbox1.Text = "Current Feature List";
@@ -191,6 +187,7 @@ namespace ProjectManagement
             // assignTaskBtn
             // 
             this.assignTaskBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.assignTaskBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.assignTaskBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.assignTaskBtn.Location = new System.Drawing.Point(252, 259);
             this.assignTaskBtn.Name = "assignTaskBtn";
@@ -198,10 +195,12 @@ namespace ProjectManagement
             this.assignTaskBtn.TabIndex = 2;
             this.assignTaskBtn.Text = "Assign Task";
             this.assignTaskBtn.UseVisualStyleBackColor = false;
+            this.assignTaskBtn.Click += new System.EventHandler(this.assignTaskBtn_Click);
             // 
             // addNewFeatureBtn
             // 
             this.addNewFeatureBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.addNewFeatureBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addNewFeatureBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.addNewFeatureBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addNewFeatureBtn.ForeColor = System.Drawing.Color.White;
@@ -212,17 +211,6 @@ namespace ProjectManagement
             this.addNewFeatureBtn.Text = "Add New Task";
             this.addNewFeatureBtn.UseVisualStyleBackColor = false;
             this.addNewFeatureBtn.Click += new System.EventHandler(this.addNewFeatureBtn_Click);
-            // 
-            // currentFeatureListbox1
-            // 
-            this.currentFeatureListbox1.FormattingEnabled = true;
-            this.currentFeatureListbox1.ItemHeight = 23;
-            this.currentFeatureListbox1.Items.AddRange(new object[] {
-            "listbox2"});
-            this.currentFeatureListbox1.Location = new System.Drawing.Point(14, 29);
-            this.currentFeatureListbox1.Name = "currentFeatureListbox1";
-            this.currentFeatureListbox1.Size = new System.Drawing.Size(385, 211);
-            this.currentFeatureListbox1.TabIndex = 0;
             // 
             // currentProjectsLabel
             // 
@@ -250,6 +238,7 @@ namespace ProjectManagement
             // viewProjectBacklogBtn
             // 
             this.viewProjectBacklogBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.viewProjectBacklogBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.viewProjectBacklogBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewProjectBacklogBtn.ForeColor = System.Drawing.Color.White;
             this.viewProjectBacklogBtn.Location = new System.Drawing.Point(965, 258);
@@ -262,6 +251,7 @@ namespace ProjectManagement
             // logOutBtn
             // 
             this.logOutBtn.BackColor = System.Drawing.Color.Aqua;
+            this.logOutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logOutBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logOutBtn.ForeColor = System.Drawing.Color.White;
             this.logOutBtn.Location = new System.Drawing.Point(1004, 569);
@@ -275,6 +265,7 @@ namespace ProjectManagement
             // viewProjectInfoBtn
             // 
             this.viewProjectInfoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.viewProjectInfoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.viewProjectInfoBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewProjectInfoBtn.ForeColor = System.Drawing.Color.White;
             this.viewProjectInfoBtn.Location = new System.Drawing.Point(965, 183);
@@ -288,6 +279,7 @@ namespace ProjectManagement
             // updateGroupMembersBtn
             // 
             this.updateGroupMembersBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.updateGroupMembersBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.updateGroupMembersBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateGroupMembersBtn.ForeColor = System.Drawing.Color.White;
             this.updateGroupMembersBtn.Location = new System.Drawing.Point(965, 107);
@@ -301,6 +293,7 @@ namespace ProjectManagement
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(965, 333);
@@ -314,6 +307,7 @@ namespace ProjectManagement
             // createNewGroupBtn
             // 
             this.createNewGroupBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.createNewGroupBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.createNewGroupBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createNewGroupBtn.ForeColor = System.Drawing.Color.White;
             this.createNewGroupBtn.Location = new System.Drawing.Point(965, 31);
@@ -327,6 +321,7 @@ namespace ProjectManagement
             // updatePManagerInfoBtn
             // 
             this.updatePManagerInfoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.updatePManagerInfoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.updatePManagerInfoBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updatePManagerInfoBtn.ForeColor = System.Drawing.Color.White;
             this.updatePManagerInfoBtn.Location = new System.Drawing.Point(965, 408);
@@ -336,6 +331,57 @@ namespace ProjectManagement
             this.updatePManagerInfoBtn.Text = "Update Your Info";
             this.updatePManagerInfoBtn.UseVisualStyleBackColor = false;
             this.updatePManagerInfoBtn.Click += new System.EventHandler(this.updatePManagerInfoBtn_Click);
+            // 
+            // currentTaskGridView
+            // 
+            this.currentTaskGridView.AllowUserToAddRows = false;
+            this.currentTaskGridView.AllowUserToDeleteRows = false;
+            this.currentTaskGridView.AllowUserToResizeColumns = false;
+            this.currentTaskGridView.AllowUserToResizeRows = false;
+            this.currentTaskGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.currentTaskGridView.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.currentTaskGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            this.currentTaskGridView.Location = new System.Drawing.Point(20, 43);
+            this.currentTaskGridView.Name = "currentTaskGridView";
+            this.currentTaskGridView.ReadOnly = true;
+            this.currentTaskGridView.RowHeadersWidth = 51;
+            this.currentTaskGridView.RowTemplate.Height = 24;
+            this.currentTaskGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.currentTaskGridView.Size = new System.Drawing.Size(348, 187);
+            this.currentTaskGridView.TabIndex = 8;
+            this.currentTaskGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.currentTaskGridView_CellClick);
+            // 
+            // completedTaskGridView
+            // 
+            this.completedTaskGridView.AllowUserToAddRows = false;
+            this.completedTaskGridView.AllowUserToDeleteRows = false;
+            this.completedTaskGridView.AllowUserToResizeColumns = false;
+            this.completedTaskGridView.AllowUserToResizeRows = false;
+            this.completedTaskGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.completedTaskGridView.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.completedTaskGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            this.completedTaskGridView.Location = new System.Drawing.Point(38, 43);
+            this.completedTaskGridView.Name = "completedTaskGridView";
+            this.completedTaskGridView.ReadOnly = true;
+            this.completedTaskGridView.RowHeadersWidth = 51;
+            this.completedTaskGridView.RowTemplate.Height = 24;
+            this.completedTaskGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.completedTaskGridView.Size = new System.Drawing.Size(348, 187);
+            this.completedTaskGridView.TabIndex = 9;
             // 
             // updatePManagerInfo
             // 
@@ -365,6 +411,8 @@ namespace ProjectManagement
             ((System.ComponentModel.ISupportInitialize)(this.groupAndProjectView)).EndInit();
             this.currentFeatureList2Groupbox.ResumeLayout(false);
             this.currentFeatureListGroupbox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.currentTaskGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.completedTaskGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -376,12 +424,10 @@ namespace ProjectManagement
         private System.Windows.Forms.GroupBox currentFeatureListGroupbox1;
         private System.Windows.Forms.Button assignTaskBtn;
         private System.Windows.Forms.Button addNewFeatureBtn;
-        private System.Windows.Forms.ListBox currentFeatureListbox1;
         private System.Windows.Forms.Label currentProjectsLabel;
         private System.Windows.Forms.Label projectManagerOfLabel;
         private System.Windows.Forms.GroupBox currentFeatureList2Groupbox;
         private System.Windows.Forms.Button sendToBacklogBtn;
-        private System.Windows.Forms.ListBox implementedFeaturesListBox;
         private System.Windows.Forms.Button viewProjectBacklogBtn;
         private System.Windows.Forms.Button logOutBtn;
         private System.Windows.Forms.Button viewProjectInfoBtn;
@@ -391,5 +437,7 @@ namespace ProjectManagement
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button createNewGroupBtn;
         private System.Windows.Forms.Button updatePManagerInfoBtn;
+        private System.Windows.Forms.DataGridView currentTaskGridView;
+        private System.Windows.Forms.DataGridView completedTaskGridView;
     }
 }

@@ -15,14 +15,25 @@ namespace ProjectManagement.ClassFiles
         {
             MessageBox.Show($"{msg}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        public void ShowAlert(string msg)
+        public DialogResult ShowAlert(string msg)
         {
-            MessageBox.Show($"{msg}", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show($"{msg}", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return result;
         }
 
-        public void ShowInfo(string msg)
+        public DialogResult ShowInfo(string msg)
         {
-            MessageBox.Show($"{msg}", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show($"{msg}", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return result;
+        }
+        public bool VerifyDates(DateTime sDate, DateTime eDate)
+        {
+            if (sDate.Date == eDate.Date || sDate.Date > eDate.Date)
+            {
+                ShowAlert("Start Date is greater or equal to end date. Please choose a new date");
+                return true;
+            }
+            return false;
         }
 
         public bool SignUpAndUpdateValidation<T>(bool update, string fName, string lName, string email, string pass, T obj)

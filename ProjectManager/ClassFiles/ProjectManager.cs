@@ -17,11 +17,27 @@ namespace ProjectManagement.ClassFiles
         public void FillData(string query)
         {
             dt.Clear();
+            dt.Columns.Clear();
+            dt.Rows.Clear();
             using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
             {
                 SqlDataAdapter sda = new SqlDataAdapter(query, conn);
                 sda.Fill(dt);
             }
+        }
+        public bool RunQuery(string query)
+        {
+            bool ret = false;
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    ret = true;
+                }
+            }
+            return ret;
         }
         public bool CheckDuplicateUpdate(string email, string pass)
         {
@@ -48,21 +64,92 @@ namespace ProjectManagement.ClassFiles
         }
         public bool UpdateProjectManagerInfo(string fName, string lName, string pass, string email)
         {
-            bool ret = false;
+
             string query = $"update PManager_TBL " +
                 $"set PManager_FirstName = '{fName}',PManager_LastName = '{lName}'," +
                 $"PManager_Password = '{pass}',PManager_Email = '{email}' " +
                 $"where PManager_ID = {PManager_ID}";
-            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            if (RunQuery(query))
             {
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Connection.Open();
-                if (cmd.ExecuteNonQuery() > 0)
+                return true;
+            }
+            return false;
+
+        }
+        public bool AssignGroup(string gName, int pM_ID)
+        {
+            string query = $"select * from PGroup_TBL where PGroup_name = '{gName}'";
+            FillData(query);
+            if (dt.Rows.Count > 0)
+            {
+                query = $"insert into PManagerGroupInfo_TBL" +
+                     $" (PGroup_ID,PGroup_Name,PGroup_MembersCount,PManager_ID) " +
+                     $"values ('{dt.Rows[0]["PGroup_ID"]}'," +
+                     $"'{dt.Rows[0]["PGroup_Name"]}','{dt.Rows[0]["PGroup_MembersCount"]}','{pM_ID}')";
+                if (RunQuery(query))
                 {
-                    ret = true;
+                    return true;
                 }
             }
-            return ret;
+            return false;
+        }
+        public bool AssignProject(string pTitle, int pM_ID, string gName)
+        {
+            bool assignToPManager = false;
+            bool assignToGroup = false;
+            int Proj_ID = 0;
+            string query = $"select * from Project_TBL where Project_Title = '{pTitle}'";
+            FillData(query);
+            if (dt.Rows.Count > 0)
+            {
+                Proj_ID = Convert.ToInt32($"{dt.Rows[0]["Project_ID"]}");
+                query = $"insert into ManageProject_TBL" +
+                       $" (Project_ID,Project_Title,Project_Desc,Project_StartDate,Project_EndDate,PStatus_ID,PManager_ID) " +
+                       $"values ('{dt.Rows[0]["Project_ID"]}','{dt.Rows[0]["Project_Title"]}','{dt.Rows[0]["Project_Desc"]}'" +
+                       $",'{dt.Rows[0]["Project_StartDate"]}','{dt.Rows[0]["Project_EndDate"]}','{dt.Rows[0]["PStatus_ID"]}','{pM_ID}')";
+                if (RunQuery(query))
+                {
+                    assignToPManager = true;
+                }
+            }
+            query = $"select * from PGroup_TBL where PGroup_name = '{gName}'";
+            FillData(query);
+            if (dt.Rows.Count > 0)
+            {
+                query = $"insert into GroupContainsProject_TBL" +
+                       $" (PGroup_ID,PGroup_Name,PGroup_MembersCount,Project_ID) " +
+                       $"values ('{dt.Rows[0]["PGroup_ID"]}'," +
+                       $"'{dt.Rows[0]["PGroup_Name"]}','{dt.Rows[0]["PGroup_MembersCount"]}','{Proj_ID}')";
+                if (RunQuery(query))
+                {
+                    assignToGroup = true;
+                }
+            }
+            if (assignToGroup && assignToPManager)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool CreateGroup(string gName, int membersCount)
+        {
+            string query = $"insert into PGroup_TBL" +
+                $" (PGroup_name,PGroup_MembersCount) " +
+                $"values('{gName}','{membersCount}')";
+            if (RunQuery(query))
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool CreateProject(string pTitle, string pDesc, DateTime sDate, DateTime eDate)
+        {
+            string query = $"insert into Project_TBL" + $" (Project_Title,Project_Desc,Project_StartDate,Project_EndDate,PStatus_ID)" + $" values('{pTitle}','{pDesc}','{sDate}','{eDate}','2')";
+            if (RunQuery(query))
+            {
+                return true;
+            }
+            return false;
         }
         public void GetProjectManager()
         {
@@ -77,11 +164,31 @@ namespace ProjectManagement.ClassFiles
 
             }
         }
+        public void AddGroupMembers(List<ProjectMember> pMList, int g_id)
+        {
+            foreach (ProjectMember item in pMList)
+            {
+                string query = $"insert into PMemberGroupInfo_TBL " +
+                    $"(PMember_ID,PMember_FirstName,PMember_LastName,PMember_Password,PMember_Email,PGroup_ID)" +
+                    $" values ('{item.PMemberID}','{item.FirstName}','{item.LastName}','{item.password}','{item.Email}','{g_id}')";
+                RunQuery(query);
+            }
+        }
+        public void AddProjectMembers(List<ProjectMember> pMList, int p_id)
+        {
+            foreach (ProjectMember item in pMList)
+            {
+                string query = $"insert into PMemberProjectInfo_TBL " +
+                    $"(PMember_ID,PMember_FirstName,PMember_LastName,PMember_Password,PMember_Email,Project_ID)" +
+                    $" values ('{item.PMemberID}','{item.FirstName}','{item.LastName}','{item.password}','{item.Email}','{p_id}')";
+                RunQuery(query);
+            }
+        }
         public void GetProjectGroups()
         {
             ProjectGroups.Clear();
-            string query = $"select * from PManagerGroupInfo_TBL " +
-                $"where PManager_ID = '{PManager_ID}'";
+            string query = $"select pg.* from PGroup_TBL as pg, PManagerGroupInfo_TBL as pmg " +
+                $"where pg.PGroup_ID = pmg.PGroup_ID and pmg.PManager_ID = '{PManager_ID}'";
             FillData(query);
             if (dt.Rows.Count > 0)
             {
@@ -96,11 +203,52 @@ namespace ProjectManagement.ClassFiles
             }
 
         }
+        public ProjectMember SearchPMember(string mail)
+        {
+            ProjectMember output = new ProjectMember();
+            string query = $"Select * from PMember_TBL where " +
+                $"PMember_Email = '{mail}'";
+            FillData(query);
+            if (dt.Rows.Count == 1)
+            {
+                output.PMemberID = Convert.ToInt32($"{dt.Rows[0]["PMember_ID"]}");
+                output.FirstName = $"{dt.Rows[0]["PMember_FirstName"]}";
+                output.LastName = $"{dt.Rows[0]["PMember_LastName"]}";
+                output.Email = $"{dt.Rows[0]["PMember_Email"]}";
+                output.password = $"{dt.Rows[0]["PMember_Password"]}";
+            }
+            else
+            {
+                output = null;
+            }
+            return output;
+        }
+        public bool CheckIfAlreadyGroupMember(int pmember_id)
+        {
+            string query = $"select * from PMemberGroupInfo_TBL where " +
+                $"PMember_ID = '{pmember_id}'";
+            FillData(query);
+            if (dt.Rows.Count == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+        public void FillPmemberData(DataTable dt, int pmember_id)
+        {
+            string query = $"select Concat(PMember_FirstName,' ',PMember_LastName) as Name,PMember_Email as Email from" +
+                $" PMember_TBL where PMember_ID = {pmember_id}";
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlDataAdapter sda = new SqlDataAdapter(query, conn);
+                sda.Fill(dt);
+            }
+        }
         public void GetProjects()
         {
             Projects.Clear();
-            string query = $"select * from ManageProject_TBL " +
-              $"where PManager_ID = '{PManager_ID}'";
+            string query = $"select p.* from ManageProject_TBL mp, Project_TBL as p " +
+              $"where p.Project_ID = mp.Project_Id and mp.PManager_ID = '{PManager_ID}'";
             FillData(query);
             if (dt.Rows.Count > 0)
             {
@@ -117,12 +265,35 @@ namespace ProjectManagement.ClassFiles
             }
 
         }
+        public Project GetProject(int g_id)
+        {
+            Project output = new Project();
+            string query = $"select p_t.* from GroupContainsProject_TBL as gcp_t " +
+                $", Project_TBL as p_t where gcp_t.PGroup_ID = '{g_id}' and p_t.Project_ID = " +
+                $" gcp_t.Project_ID";
+            FillData(query);
+            if (dt.Rows.Count == 1)
+            {
+                output.Project_ID = Convert.ToInt32(dt.Rows[0]["Project_ID"].ToString());
+                output.Project_Title = dt.Rows[0]["Project_Title"].ToString();
+                output.Project_Desc = dt.Rows[0]["Project_Desc"].ToString();
+                output.Project_StartDate = Convert.ToDateTime(dt.Rows[0]["Project_StartDate"].ToString());
+                output.Project_EndDate = Convert.ToDateTime(dt.Rows[0]["Project_EndDate"].ToString());
+                output.Project_Completed = Convert.ToInt32(dt.Rows[0]["PStatus_ID"].ToString());
+
+            }
+            else
+            {
+                output = null;
+            }
+            return output;
+        }
         public DataTable ViewProjectGroupInfo()
         {
-            string query = $"select pmg.PGroup_name as Group Name,mp.Project_Title as Project Title,mp.Project_StartDate as Start Date,mp.Project_EndDate as End Date from " +
-                $"GroupContainsProject_TBL as gcp,ManagerProject_TBL as mp,PManagerGroupInfo_TBL as pmg " +
-                $"where mp.PManager_ID = '{PManager_ID}' and pmg.PManager_ID = '{PManager_ID}'" +
-                $"and gcp.PGroup_ID = pmg.PGroup_ID and gcp.Project_ID = mp.Project_ID; ";
+            string query = $"select pmg.PGroup_Name as [Group Name],mp.Project_Title as [Project Title],mp.Project_StartDate as [Start Date],mp.Project_EndDate as [End Date] " +
+                $"from PManagerGroupInfo_TBL as pmg,ManageProject_TBL as mp,GroupContainsProject_TBL as gcp where " +
+                $"pmg.PManager_ID = '{PManager_ID}' and gcp.PGroup_ID = pmg.PGroup_ID and " +
+                $"mp.Project_ID = gcp.Project_ID ";
             FillData(query);
             if (dt.Rows.Count > 0)
             {
@@ -160,6 +331,72 @@ namespace ProjectManagement.ClassFiles
             return ret;
 
 
+        }
+        public bool CheckTaskExist(string taskTitle)
+        {
+            string query = $"select * from Task_TBL where Lower(Task_title) = '{taskTitle}'";
+            FillData(query);
+            if (dt.Rows.Count == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+        public int GetTaskID(string taskTitle)
+        {
+            string query = $"select * from Task_TBL where Lower(Task_title) = '{taskTitle}'";
+            FillData(query);
+            if (dt.Rows.Count == 1)
+            {
+                return Convert.ToInt32($"{dt.Rows[0]["Task_ID"]}");
+            }
+            return -1;
+        }
+        public bool CreateTask(string taskTitle, string taskDesc, int p_id)
+        {
+            bool taskCreated;
+
+            string query = $"insert into Task_TBL " +
+                $"(Task_title,Task_Desc,Task_Completed,Project_ID) " +
+                $"values('{taskTitle}','{taskDesc}','1','{p_id}')";
+            taskCreated = RunQuery(query);
+            return taskCreated;
+        }
+        public bool AssignTask(string taskTitle, string taskDesc, int pM_id)
+        {
+            if (GetTaskID(taskTitle) > 0)
+            {
+                int t_id = GetTaskID(taskTitle);
+                string query = $"insert into AssignTask_TBL " +
+                $"(Task_ID,Task_title,Task_Desc,Task_Completed,PManager_ID) " +
+                $"values('{t_id}','{taskTitle}','{taskDesc}','1','{pM_id}')";
+                return RunQuery(query);
+            }
+            return false;
+        }
+        public DataTable ViewCurrentTask(int pM_id)
+        {
+            string query = $"select at.Task_ID as ID,at.Task_Desc as Description,at.Task_title as Title,ts.StatusName as Status from" +
+                $" AssignTask_TBL as at,TaskStatus_TBL as ts" +
+                $" where at.PManager_ID = '{pM_id}' and at.Task_Completed = '1' and ts.StatusID = at.Task_Completed ";
+            FillData(query);
+            if (dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            return null;
+        }
+        public DataTable ViewCompletedTask(int pM_id)
+        {
+            string query = $"select at.Task_ID as ID,at.Task_Desc as Description,at.Task_title as Title,ts.StatusName as Status from" +
+               $" AssignTask_TBL as at,TaskStatus_TBL as ts" +
+               $" where at.PManager_ID = '{pM_id}' and at.Task_Completed = '2' and ts.StatusID = at.Task_Completed ";
+            FillData(query);
+            if (dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            return null;
         }
 
         public bool SignUp(string firstName, string lastName, string email, string password)

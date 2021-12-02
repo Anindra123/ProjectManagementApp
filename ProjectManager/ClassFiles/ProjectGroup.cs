@@ -71,6 +71,32 @@ namespace ProjectManagement.ClassFiles
             return null;
 
         }
+        public DataTable FillMemberList(int g_id)
+        {
+            string query = $"select pm.PMember_ID,concat(pm.PMember_FirstName,' ',pm.PMember_LastName) as Name, pm.PMember_Email as Email from " +
+                $"PMember_TBL as pm,PMemberGroupInfo_TBL as pmg where pmg.PGroup_ID = '{g_id}' " +
+                $"and pmg.PMember_ID = pm.PMember_ID";
+            FillData(query);
+            if (dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            return null;
+
+        }
+        public void GetProjectGroup(int t_id)
+        {
+            ProjectGroup output = new ProjectGroup();
+            string query = $"select gcp.PGroup_ID,gcp.PGroup_Name from " +
+                $"GroupContainsProject_TBL as gcp,Task_TBL as tt where " +
+                $"tt.Task_ID = '{t_id}' and gcp.Project_ID = tt.Project_ID";
+            FillData(query);
+            if (dt.Rows.Count == 1)
+            {
+                PGroup_ID = Convert.ToInt32($"{dt.Rows[0]["PGroup_ID"]}");
+                PGroup_Name = $"{dt.Rows[0]["PGroup_Name"]}";
+            }
+        }
 
     }
 }

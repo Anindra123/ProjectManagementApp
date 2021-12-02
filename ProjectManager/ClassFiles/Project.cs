@@ -58,6 +58,18 @@ namespace ProjectManagement.ClassFiles
 
             }
         }
+        public void GetProjectInfoFromTask(int t_id)
+        {
+            string query = $"select p.Project_Title,p.Project_ID from " +
+                $"Project_TBL as p,Task_TBL as tt where tt.Task_ID = '{t_id}' " +
+                $"and p.Project_ID = tt.Project_ID";
+            FillData(query);
+            if (dt.Rows.Count == 1)
+            {
+                Project_ID = Convert.ToInt32($"{dt.Rows[0]["Project_ID"]}");
+                Project_Title = $"{dt.Rows[0]["Project_Title"]}";
+            }
+        }
 
     }
 }

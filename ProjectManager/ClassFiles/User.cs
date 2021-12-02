@@ -12,5 +12,6 @@ namespace ProjectManagement.ClassFiles
         public string LastName { get; set; }
         public string password { get; set; }
         public string Email { get; set; }
+        public string Full_Name { get { return $"{FirstName} {LastName}"; } }
     }
 }
