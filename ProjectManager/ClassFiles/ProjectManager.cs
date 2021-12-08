@@ -290,10 +290,12 @@ namespace ProjectManagement.ClassFiles
         }
         public DataTable ViewProjectGroupInfo()
         {
-            string query = $"select pmg.PGroup_Name as [Group Name],mp.Project_Title as [Project Title],mp.Project_StartDate as [Start Date],mp.Project_EndDate as [End Date] " +
-                $"from PManagerGroupInfo_TBL as pmg,ManageProject_TBL as mp,GroupContainsProject_TBL as gcp where " +
+            string query = $"select pmg.PGroup_Name as [Group Name],mp.Project_Title as [Project Title],mp.Project_StartDate as [Start Date],mp.Project_EndDate as [End Date]," +
+                $"ps.PStatus_Name as Status " +
+                $"from PManagerGroupInfo_TBL as pmg,ManageProject_TBL as mp,GroupContainsProject_TBL as gcp," +
+                $"ProjectStatus_TBL as ps where " +
                 $"pmg.PManager_ID = '{PManager_ID}' and gcp.PGroup_ID = pmg.PGroup_ID and " +
-                $"mp.Project_ID = gcp.Project_ID ";
+                $"mp.Project_ID = gcp.Project_ID and ps.PStatus_ID = mp.PStatus_ID";
             FillData(query);
             if (dt.Rows.Count > 0)
             {

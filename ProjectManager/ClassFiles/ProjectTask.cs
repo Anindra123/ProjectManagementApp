@@ -157,7 +157,7 @@ namespace ProjectManagement.ClassFiles
         {
             string query = $"select at.Task_ID as ID,at.Task_title as Title,at.Task_Desc as Description,ts.StatusName as Status from" +
                $" Task_TBL as at,TaskStatus_TBL as ts" +
-               $" where at.Project_ID = '{proj_id}' and at.Task_Completed = '1' and ts.StatusID = at.Task_Completed ";
+               $" where at.Project_ID = '{proj_id}' and ts.StatusID = at.Task_Completed ";
             FillData(query);
             if (dt.Rows.Count > 0)
             {
@@ -167,6 +167,36 @@ namespace ProjectManagement.ClassFiles
             return null;
 
         }
-
+        public bool CheckTaskExist(string taskTitle)
+        {
+            string query = $"select * from Task_TBL where Lower(Task_title) = '{taskTitle}'";
+            FillData(query);
+            if (dt.Rows.Count == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool UpdatePerformTaskTable(string tTitle, string tDesc)
+        {
+            string query = $"update PerformTask_TBL " +
+                $"set Task_title = '{tTitle}',Task_Desc = '{tDesc}' " +
+                $"where task_ID = '{Task_ID}'";
+            return RunQuery(query);
+        }
+        public bool UpdateAssignTaskTable(string tTitle, string tDesc)
+        {
+            string query = $"update AssignTask_TBL " +
+                $"set Task_title = '{tTitle}',Task_Desc = '{tDesc}' " +
+                $"where task_ID = '{Task_ID}'";
+            return RunQuery(query);
+        }
+        public bool UpdateTaskTable(string tTitle, string tDesc)
+        {
+            string query = $"update Task_TBL " +
+                $"set Task_title = '{tTitle}',Task_Desc = '{tDesc}' " +
+                $"where task_ID = '{Task_ID}'";
+            return RunQuery(query);
+        }
     }
 }

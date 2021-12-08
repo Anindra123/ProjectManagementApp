@@ -61,6 +61,10 @@ namespace ProjectManagement
             {
                 validations.ShowAlert("A task with the same title already exists.");
             }
+            else if (project.Project_Completed == 1)
+            {
+                validations.ShowAlert("Cannot add task to this project as it is completed");
+            }
             else
             {
                 string tTitle = titleTextBox.Text.Trim();
