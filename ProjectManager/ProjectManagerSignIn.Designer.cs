@@ -70,7 +70,7 @@ namespace ProjectManagement
             this.Cancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(119, 58);
-            this.Cancel.TabIndex = 6;
+            this.Cancel.TabIndex = 3;
             this.Cancel.Text = "Cancel";
             this.Cancel.UseVisualStyleBackColor = false;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
@@ -84,7 +84,7 @@ namespace ProjectManagement
             this.projMSignInBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.projMSignInBtn.Name = "projMSignInBtn";
             this.projMSignInBtn.Size = new System.Drawing.Size(199, 58);
-            this.projMSignInBtn.TabIndex = 5;
+            this.projMSignInBtn.TabIndex = 2;
             this.projMSignInBtn.Text = "Sign In as Project Manager";
             this.projMSignInBtn.UseVisualStyleBackColor = false;
             this.projMSignInBtn.Click += new System.EventHandler(this.projMSignInBtn_Click);
@@ -95,7 +95,7 @@ namespace ProjectManagement
             this.projMEmailTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.projMEmailTextBox.Name = "projMEmailTextBox";
             this.projMEmailTextBox.Size = new System.Drawing.Size(289, 30);
-            this.projMEmailTextBox.TabIndex = 4;
+            this.projMEmailTextBox.TabIndex = 0;
             // 
             // projMPasswordTextBox
             // 
@@ -104,7 +104,7 @@ namespace ProjectManagement
             this.projMPasswordTextBox.Name = "projMPasswordTextBox";
             this.projMPasswordTextBox.PasswordChar = '*';
             this.projMPasswordTextBox.Size = new System.Drawing.Size(289, 30);
-            this.projMPasswordTextBox.TabIndex = 3;
+            this.projMPasswordTextBox.TabIndex = 1;
             // 
             // label2
             // 

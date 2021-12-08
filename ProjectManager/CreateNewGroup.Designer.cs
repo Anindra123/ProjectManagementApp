@@ -38,6 +38,11 @@ namespace ProjectManagement
             this.proMGroupNameTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.addMemberBtn = new System.Windows.Forms.Button();
+            this.memberMailTxtBox = new System.Windows.Forms.Label();
+            this.memberNameTxtBox = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.membersAddedGridView = new System.Windows.Forms.DataGridView();
             this.membersCountTxtBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,11 +57,6 @@ namespace ProjectManagement
             this.label2 = new System.Windows.Forms.Label();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.createGroupBtn = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.memberNameTxtBox = new System.Windows.Forms.Label();
-            this.memberMailTxtBox = new System.Windows.Forms.Label();
-            this.addMemberBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.membersAddedGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -149,6 +149,59 @@ namespace ProjectManagement
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Group Info";
             // 
+            // addMemberBtn
+            // 
+            this.addMemberBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.addMemberBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addMemberBtn.Location = new System.Drawing.Point(399, 176);
+            this.addMemberBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.addMemberBtn.Name = "addMemberBtn";
+            this.addMemberBtn.Size = new System.Drawing.Size(98, 42);
+            this.addMemberBtn.TabIndex = 27;
+            this.addMemberBtn.Text = "Add";
+            this.addMemberBtn.UseVisualStyleBackColor = false;
+            this.addMemberBtn.Click += new System.EventHandler(this.addMemberBtn_Click);
+            // 
+            // memberMailTxtBox
+            // 
+            this.memberMailTxtBox.AutoSize = true;
+            this.memberMailTxtBox.Location = new System.Drawing.Point(177, 195);
+            this.memberMailTxtBox.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.memberMailTxtBox.Name = "memberMailTxtBox";
+            this.memberMailTxtBox.Size = new System.Drawing.Size(49, 23);
+            this.memberMailTxtBox.TabIndex = 26;
+            this.memberMailTxtBox.Text = "none";
+            // 
+            // memberNameTxtBox
+            // 
+            this.memberNameTxtBox.AutoSize = true;
+            this.memberNameTxtBox.Location = new System.Drawing.Point(177, 164);
+            this.memberNameTxtBox.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.memberNameTxtBox.Name = "memberNameTxtBox";
+            this.memberNameTxtBox.Size = new System.Drawing.Size(49, 23);
+            this.memberNameTxtBox.TabIndex = 25;
+            this.memberNameTxtBox.Text = "none";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(24, 195);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(120, 23);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Member Mail :";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(24, 164);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(134, 23);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Member Name :";
+            // 
             // membersAddedGridView
             // 
             this.membersAddedGridView.AllowUserToAddRows = false;
@@ -159,7 +212,7 @@ namespace ProjectManagement
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -312,59 +365,6 @@ namespace ProjectManagement
             this.createGroupBtn.Text = "Create Group";
             this.createGroupBtn.UseVisualStyleBackColor = false;
             this.createGroupBtn.Click += new System.EventHandler(this.createGroupBtn_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(24, 164);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(134, 23);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Member Name :";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(24, 195);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(120, 23);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "Member Mail :";
-            // 
-            // memberNameTxtBox
-            // 
-            this.memberNameTxtBox.AutoSize = true;
-            this.memberNameTxtBox.Location = new System.Drawing.Point(177, 164);
-            this.memberNameTxtBox.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.memberNameTxtBox.Name = "memberNameTxtBox";
-            this.memberNameTxtBox.Size = new System.Drawing.Size(49, 23);
-            this.memberNameTxtBox.TabIndex = 25;
-            this.memberNameTxtBox.Text = "none";
-            // 
-            // memberMailTxtBox
-            // 
-            this.memberMailTxtBox.AutoSize = true;
-            this.memberMailTxtBox.Location = new System.Drawing.Point(177, 195);
-            this.memberMailTxtBox.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.memberMailTxtBox.Name = "memberMailTxtBox";
-            this.memberMailTxtBox.Size = new System.Drawing.Size(49, 23);
-            this.memberMailTxtBox.TabIndex = 26;
-            this.memberMailTxtBox.Text = "none";
-            // 
-            // addMemberBtn
-            // 
-            this.addMemberBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.addMemberBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addMemberBtn.Location = new System.Drawing.Point(399, 176);
-            this.addMemberBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.addMemberBtn.Name = "addMemberBtn";
-            this.addMemberBtn.Size = new System.Drawing.Size(98, 42);
-            this.addMemberBtn.TabIndex = 27;
-            this.addMemberBtn.Text = "Add";
-            this.addMemberBtn.UseVisualStyleBackColor = false;
-            this.addMemberBtn.Click += new System.EventHandler(this.addMemberBtn_Click);
             // 
             // CreateNewGroup
             // 

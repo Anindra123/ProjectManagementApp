@@ -31,6 +31,10 @@ namespace ProjectManagement
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNewFeature));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.projectTitleLbl = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupsComboBox = new System.Windows.Forms.ComboBox();
             this.taskDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.createBtn = new System.Windows.Forms.Button();
@@ -42,10 +46,6 @@ namespace ProjectManagement
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.titleLabel = new System.Windows.Forms.Label();
-            this.groupsComboBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.projectTitleLbl = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +73,43 @@ namespace ProjectManagement
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // projectTitleLbl
+            // 
+            this.projectTitleLbl.AutoSize = true;
+            this.projectTitleLbl.Location = new System.Drawing.Point(167, 108);
+            this.projectTitleLbl.Name = "projectTitleLbl";
+            this.projectTitleLbl.Size = new System.Drawing.Size(49, 23);
+            this.projectTitleLbl.TabIndex = 19;
+            this.projectTitleLbl.Text = "none";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(38, 108);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 23);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Project Title :";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(38, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 23);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Select Group :";
+            // 
+            // groupsComboBox
+            // 
+            this.groupsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.groupsComboBox.FormattingEnabled = true;
+            this.groupsComboBox.Location = new System.Drawing.Point(42, 56);
+            this.groupsComboBox.Name = "groupsComboBox";
+            this.groupsComboBox.Size = new System.Drawing.Size(523, 31);
+            this.groupsComboBox.TabIndex = 16;
+            this.groupsComboBox.SelectedIndexChanged += new System.EventHandler(this.groupsComboBox_SelectedIndexChanged);
             // 
             // taskDescriptionTextBox
             // 
@@ -115,6 +152,7 @@ namespace ProjectManagement
             this.assignToComboBox.Name = "assignToComboBox";
             this.assignToComboBox.Size = new System.Drawing.Size(394, 31);
             this.assignToComboBox.TabIndex = 8;
+            this.assignToComboBox.SelectedIndexChanged += new System.EventHandler(this.assignToComboBox_SelectedIndexChanged);
             // 
             // assignToLabel
             // 
@@ -182,43 +220,6 @@ namespace ProjectManagement
             this.titleLabel.Size = new System.Drawing.Size(42, 23);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Title";
-            // 
-            // groupsComboBox
-            // 
-            this.groupsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.groupsComboBox.FormattingEnabled = true;
-            this.groupsComboBox.Location = new System.Drawing.Point(42, 56);
-            this.groupsComboBox.Name = "groupsComboBox";
-            this.groupsComboBox.Size = new System.Drawing.Size(523, 31);
-            this.groupsComboBox.TabIndex = 16;
-            this.groupsComboBox.SelectedIndexChanged += new System.EventHandler(this.groupsComboBox_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 23);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Select Group :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 108);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 23);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Project Title :";
-            // 
-            // projectTitleLbl
-            // 
-            this.projectTitleLbl.AutoSize = true;
-            this.projectTitleLbl.Location = new System.Drawing.Point(167, 108);
-            this.projectTitleLbl.Name = "projectTitleLbl";
-            this.projectTitleLbl.Size = new System.Drawing.Size(49, 23);
-            this.projectTitleLbl.TabIndex = 19;
-            this.projectTitleLbl.Text = "none";
             // 
             // AddNewFeature
             // 

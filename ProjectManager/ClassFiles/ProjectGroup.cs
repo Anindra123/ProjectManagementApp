@@ -84,10 +84,10 @@ namespace ProjectManagement.ClassFiles
             return null;
 
         }
-        public void GetProjectGroup(int t_id)
+        public void GetProjectGroupFromTask(int t_id)
         {
             ProjectGroup output = new ProjectGroup();
-            string query = $"select gcp.PGroup_ID,gcp.PGroup_Name from " +
+            string query = $"select * from " +
                 $"GroupContainsProject_TBL as gcp,Task_TBL as tt where " +
                 $"tt.Task_ID = '{t_id}' and gcp.Project_ID = tt.Project_ID";
             FillData(query);
@@ -95,6 +95,7 @@ namespace ProjectManagement.ClassFiles
             {
                 PGroup_ID = Convert.ToInt32($"{dt.Rows[0]["PGroup_ID"]}");
                 PGroup_Name = $"{dt.Rows[0]["PGroup_Name"]}";
+                MembersCount = Convert.ToInt32($"{dt.Rows[0]["PGroup_MembersCount"]}");
             }
         }
 

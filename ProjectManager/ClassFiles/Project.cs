@@ -22,6 +22,8 @@ namespace ProjectManagement.ClassFiles
         public void FillData(string query)
         {
             dt.Clear();
+            dt.Columns.Clear();
+            dt.Rows.Clear();
             using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
             {
                 SqlDataAdapter sda = new SqlDataAdapter(query, conn);
@@ -40,6 +42,19 @@ namespace ProjectManagement.ClassFiles
                 Project_Title = dt.Rows[0]["Project_Title"].ToString();
             }
 
+        }
+        public string GetProjectStatus()
+        {
+            string status;
+            string query = $"select ps.PStatus_Name from Project_TBL as p,ProjectStatus_TBL as ps" +
+                $" where ps.PStatus_ID = p.PStatus_ID";
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                status = (string)cmd.ExecuteScalar();
+            }
+            return status;
         }
         public void GetProjectInfo(int pmember_id)
         {
@@ -60,7 +75,7 @@ namespace ProjectManagement.ClassFiles
         }
         public void GetProjectInfoFromTask(int t_id)
         {
-            string query = $"select p.Project_Title,p.Project_ID from " +
+            string query = $"select * from " +
                 $"Project_TBL as p,Task_TBL as tt where tt.Task_ID = '{t_id}' " +
                 $"and p.Project_ID = tt.Project_ID";
             FillData(query);
@@ -68,6 +83,10 @@ namespace ProjectManagement.ClassFiles
             {
                 Project_ID = Convert.ToInt32($"{dt.Rows[0]["Project_ID"]}");
                 Project_Title = $"{dt.Rows[0]["Project_Title"]}";
+                Project_Desc = dt.Rows[0]["Project_Desc"].ToString();
+                Project_StartDate = Convert.ToDateTime(dt.Rows[0]["Project_StartDate"].ToString());
+                Project_EndDate = Convert.ToDateTime(dt.Rows[0]["Project_EndDate"].ToString());
+                Project_Completed = Convert.ToInt32(dt.Rows[0]["PStatus_ID"].ToString());
             }
         }
 

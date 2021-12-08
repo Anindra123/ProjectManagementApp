@@ -31,6 +31,13 @@ namespace ProjectManagement
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewCompletedTask));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.projectTitleLabel = new System.Windows.Forms.Label();
+            this.groupNameLabel = new System.Windows.Forms.Label();
+            this.taskStatusLabel = new System.Windows.Forms.Label();
+            this.commentLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.downloadFiles = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.taskDescLabel = new System.Windows.Forms.Label();
@@ -39,19 +46,12 @@ namespace ProjectManagement
             this.statusLabel = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
-            this.downloadFiles = new System.Windows.Forms.LinkLabel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.commentLabel = new System.Windows.Forms.Label();
-            this.taskStatusLabel = new System.Windows.Forms.Label();
-            this.groupNameLabel = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.projectTitleLabel);
             this.groupBox1.Controls.Add(this.groupNameLabel);
             this.groupBox1.Controls.Add(this.taskStatusLabel);
             this.groupBox1.Controls.Add(this.commentLabel);
@@ -73,6 +73,74 @@ namespace ProjectManagement
             this.groupBox1.Size = new System.Drawing.Size(706, 625);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            // 
+            // projectTitleLabel
+            // 
+            this.projectTitleLabel.AutoSize = true;
+            this.projectTitleLabel.Location = new System.Drawing.Point(192, 83);
+            this.projectTitleLabel.Name = "projectTitleLabel";
+            this.projectTitleLabel.Size = new System.Drawing.Size(49, 23);
+            this.projectTitleLabel.TabIndex = 28;
+            this.projectTitleLabel.Text = "none";
+            // 
+            // groupNameLabel
+            // 
+            this.groupNameLabel.AutoSize = true;
+            this.groupNameLabel.Location = new System.Drawing.Point(192, 37);
+            this.groupNameLabel.Name = "groupNameLabel";
+            this.groupNameLabel.Size = new System.Drawing.Size(49, 23);
+            this.groupNameLabel.TabIndex = 27;
+            this.groupNameLabel.Text = "none";
+            // 
+            // taskStatusLabel
+            // 
+            this.taskStatusLabel.AutoSize = true;
+            this.taskStatusLabel.Location = new System.Drawing.Point(155, 260);
+            this.taskStatusLabel.Name = "taskStatusLabel";
+            this.taskStatusLabel.Size = new System.Drawing.Size(49, 23);
+            this.taskStatusLabel.TabIndex = 26;
+            this.taskStatusLabel.Text = "none";
+            // 
+            // commentLabel
+            // 
+            this.commentLabel.AutoSize = true;
+            this.commentLabel.Location = new System.Drawing.Point(40, 415);
+            this.commentLabel.Name = "commentLabel";
+            this.commentLabel.Size = new System.Drawing.Size(49, 23);
+            this.commentLabel.TabIndex = 25;
+            this.commentLabel.Text = "none";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(40, 83);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(122, 23);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Project Title  :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(38, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(127, 23);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Group Name  :";
+            // 
+            // downloadFiles
+            // 
+            this.downloadFiles.AutoSize = true;
+            this.downloadFiles.LinkColor = System.Drawing.Color.White;
+            this.downloadFiles.Location = new System.Drawing.Point(177, 318);
+            this.downloadFiles.Name = "downloadFiles";
+            this.downloadFiles.Size = new System.Drawing.Size(198, 23);
+            this.downloadFiles.TabIndex = 22;
+            this.downloadFiles.TabStop = true;
+            this.downloadFiles.Text = "Download Attached Files";
+            this.downloadFiles.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.downloadFiles_LinkClicked);
             // 
             // label2
             // 
@@ -124,6 +192,7 @@ namespace ProjectManagement
             this.cancelBtn.TabIndex = 14;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = false;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // statusLabel
             // 
@@ -155,73 +224,6 @@ namespace ProjectManagement
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Task Title :";
             // 
-            // downloadFiles
-            // 
-            this.downloadFiles.AutoSize = true;
-            this.downloadFiles.LinkColor = System.Drawing.Color.White;
-            this.downloadFiles.Location = new System.Drawing.Point(177, 318);
-            this.downloadFiles.Name = "downloadFiles";
-            this.downloadFiles.Size = new System.Drawing.Size(198, 23);
-            this.downloadFiles.TabIndex = 22;
-            this.downloadFiles.TabStop = true;
-            this.downloadFiles.Text = "Download Attached Files";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(38, 37);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 23);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Group Name  :";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(40, 83);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 23);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "Project Title  :";
-            // 
-            // commentLabel
-            // 
-            this.commentLabel.AutoSize = true;
-            this.commentLabel.Location = new System.Drawing.Point(40, 415);
-            this.commentLabel.Name = "commentLabel";
-            this.commentLabel.Size = new System.Drawing.Size(49, 23);
-            this.commentLabel.TabIndex = 25;
-            this.commentLabel.Text = "none";
-            // 
-            // taskStatusLabel
-            // 
-            this.taskStatusLabel.AutoSize = true;
-            this.taskStatusLabel.Location = new System.Drawing.Point(155, 260);
-            this.taskStatusLabel.Name = "taskStatusLabel";
-            this.taskStatusLabel.Size = new System.Drawing.Size(49, 23);
-            this.taskStatusLabel.TabIndex = 26;
-            this.taskStatusLabel.Text = "none";
-            // 
-            // groupNameLabel
-            // 
-            this.groupNameLabel.AutoSize = true;
-            this.groupNameLabel.Location = new System.Drawing.Point(192, 37);
-            this.groupNameLabel.Name = "groupNameLabel";
-            this.groupNameLabel.Size = new System.Drawing.Size(49, 23);
-            this.groupNameLabel.TabIndex = 27;
-            this.groupNameLabel.Text = "none";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(192, 83);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 23);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "none";
-            // 
             // ViewCompletedTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -235,6 +237,7 @@ namespace ProjectManagement
             this.Name = "ViewCompletedTask";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View Completed Task";
+            this.Load += new System.EventHandler(this.ViewCompletedTask_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -252,7 +255,7 @@ namespace ProjectManagement
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.Label descriptionLabel;
         private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label projectTitleLabel;
         private System.Windows.Forms.Label groupNameLabel;
         private System.Windows.Forms.Label taskStatusLabel;
         private System.Windows.Forms.Label commentLabel;
