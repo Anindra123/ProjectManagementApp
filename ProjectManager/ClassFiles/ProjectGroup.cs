@@ -27,6 +27,20 @@ namespace ProjectManagement.ClassFiles
                 sda.Fill(dt);
             }
         }
+        public bool RunQuery(string query)
+        {
+            bool ret = false;
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    ret = true;
+                }
+            }
+            return ret;
+        }
         public bool SearchGroup(string name)
         {
             string query = $"select * from GroupContainsProject_TBL where " +
@@ -98,6 +112,26 @@ namespace ProjectManagement.ClassFiles
                 MembersCount = Convert.ToInt32($"{dt.Rows[0]["PGroup_MembersCount"]}");
             }
         }
-
+        public bool UpdateGroupContainsProjectTable(string groupName, int memCount)
+        {
+            string query = $"Update GroupContainsProject_TBL" +
+                $" set PGroup_name = '{groupName}',PGroup_MembersCount = '{memCount}' " +
+                $"where PGroup_ID = {PGroup_ID}";
+            return RunQuery(query);
+        }
+        public bool UpdatePManagerGroupInfoTable(string groupName, int memCount)
+        {
+            string query = $"Update PManagerGroupInfo_TBL" +
+                $" set PGroup_name = '{groupName}',PGroup_MembersCount = '{memCount}' " +
+                $"where PGroup_ID = {PGroup_ID}";
+            return RunQuery(query);
+        }
+        public bool UpdatePGroupTable(string groupName, int memCount)
+        {
+            string query = $"Update PGroup_TBL" +
+                $" set PGroup_name = '{groupName}',PGroup_MembersCount = '{memCount}' " +
+                $"where PGroup_ID = {PGroup_ID}";
+            return RunQuery(query);
+        }
     }
 }

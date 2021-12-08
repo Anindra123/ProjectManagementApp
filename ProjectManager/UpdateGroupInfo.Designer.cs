@@ -29,18 +29,22 @@ namespace ProjectManagement
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateGroupInfo));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.GoBackBtn = new System.Windows.Forms.Button();
             this.AddMemberBtn = new System.Windows.Forms.Button();
             this.RemoveMemberBtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.groupNameTxtBox = new System.Windows.Forms.TextBox();
+            this.memberCountTextBox = new System.Windows.Forms.TextBox();
             this.discardGroupBtn = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.currentPManagerGroupsComboBox = new System.Windows.Forms.ComboBox();
+            this.currentMembersGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.currentMembersGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -48,7 +52,7 @@ namespace ProjectManagement
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(33, 32);
+            this.label1.Location = new System.Drawing.Point(33, 99);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 20);
             this.label1.TabIndex = 0;
@@ -59,7 +63,7 @@ namespace ProjectManagement
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(33, 79);
+            this.label2.Location = new System.Drawing.Point(33, 146);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(166, 20);
             this.label2.TabIndex = 1;
@@ -70,41 +74,31 @@ namespace ProjectManagement
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(33, 127);
+            this.label3.Location = new System.Drawing.Point(33, 209);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(123, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Current Members";
-            // 
-            // listBox1
-            // 
-            this.listBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.ForeColor = System.Drawing.Color.Black;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(37, 162);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(532, 244);
-            this.listBox1.TabIndex = 3;
             // 
             // UpdateBtn
             // 
             this.UpdateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.UpdateBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateBtn.ForeColor = System.Drawing.Color.White;
-            this.UpdateBtn.Location = new System.Drawing.Point(76, 453);
+            this.UpdateBtn.Location = new System.Drawing.Point(48, 469);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.Size = new System.Drawing.Size(123, 67);
             this.UpdateBtn.TabIndex = 4;
             this.UpdateBtn.Text = "Update";
             this.UpdateBtn.UseVisualStyleBackColor = false;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // GoBackBtn
             // 
             this.GoBackBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.GoBackBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GoBackBtn.ForeColor = System.Drawing.Color.White;
-            this.GoBackBtn.Location = new System.Drawing.Point(541, 453);
+            this.GoBackBtn.Location = new System.Drawing.Point(524, 469);
             this.GoBackBtn.Name = "GoBackBtn";
             this.GoBackBtn.Size = new System.Drawing.Size(123, 67);
             this.GoBackBtn.TabIndex = 5;
@@ -117,7 +111,7 @@ namespace ProjectManagement
             this.AddMemberBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.AddMemberBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddMemberBtn.ForeColor = System.Drawing.Color.White;
-            this.AddMemberBtn.Location = new System.Drawing.Point(622, 187);
+            this.AddMemberBtn.Location = new System.Drawing.Point(554, 255);
             this.AddMemberBtn.Name = "AddMemberBtn";
             this.AddMemberBtn.Size = new System.Drawing.Size(123, 67);
             this.AddMemberBtn.TabIndex = 6;
@@ -130,7 +124,7 @@ namespace ProjectManagement
             this.RemoveMemberBtn.BackColor = System.Drawing.Color.Red;
             this.RemoveMemberBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RemoveMemberBtn.ForeColor = System.Drawing.Color.White;
-            this.RemoveMemberBtn.Location = new System.Drawing.Point(622, 306);
+            this.RemoveMemberBtn.Location = new System.Drawing.Point(554, 343);
             this.RemoveMemberBtn.Name = "RemoveMemberBtn";
             this.RemoveMemberBtn.Size = new System.Drawing.Size(123, 67);
             this.RemoveMemberBtn.TabIndex = 7;
@@ -138,19 +132,19 @@ namespace ProjectManagement
             this.RemoveMemberBtn.UseVisualStyleBackColor = false;
             this.RemoveMemberBtn.Click += new System.EventHandler(this.RemoveMemberBtn_Click);
             // 
-            // textBox1
+            // groupNameTxtBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(213, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(346, 22);
-            this.textBox1.TabIndex = 8;
+            this.groupNameTxtBox.Location = new System.Drawing.Point(213, 99);
+            this.groupNameTxtBox.Name = "groupNameTxtBox";
+            this.groupNameTxtBox.Size = new System.Drawing.Size(346, 22);
+            this.groupNameTxtBox.TabIndex = 8;
             // 
-            // textBox2
+            // memberCountTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(213, 79);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(346, 22);
-            this.textBox2.TabIndex = 9;
+            this.memberCountTextBox.Location = new System.Drawing.Point(213, 146);
+            this.memberCountTextBox.Name = "memberCountTextBox";
+            this.memberCountTextBox.Size = new System.Drawing.Size(346, 22);
+            this.memberCountTextBox.TabIndex = 9;
             // 
             // discardGroupBtn
             // 
@@ -158,27 +152,74 @@ namespace ProjectManagement
             this.discardGroupBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.discardGroupBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.discardGroupBtn.ForeColor = System.Drawing.Color.White;
-            this.discardGroupBtn.Location = new System.Drawing.Point(304, 453);
+            this.discardGroupBtn.Location = new System.Drawing.Point(290, 469);
             this.discardGroupBtn.Name = "discardGroupBtn";
             this.discardGroupBtn.Size = new System.Drawing.Size(123, 67);
             this.discardGroupBtn.TabIndex = 10;
             this.discardGroupBtn.Text = "Discard Group";
             this.discardGroupBtn.UseVisualStyleBackColor = false;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(33, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(99, 17);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Select Group :";
+            // 
+            // currentPManagerGroupsComboBox
+            // 
+            this.currentPManagerGroupsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.currentPManagerGroupsComboBox.FormattingEnabled = true;
+            this.currentPManagerGroupsComboBox.Location = new System.Drawing.Point(37, 46);
+            this.currentPManagerGroupsComboBox.Name = "currentPManagerGroupsComboBox";
+            this.currentPManagerGroupsComboBox.Size = new System.Drawing.Size(523, 24);
+            this.currentPManagerGroupsComboBox.TabIndex = 28;
+            this.currentPManagerGroupsComboBox.SelectedIndexChanged += new System.EventHandler(this.currentPManagerGroupsComboBox_SelectedIndexChanged);
+            // 
+            // currentMembersGridView
+            // 
+            this.currentMembersGridView.AllowUserToAddRows = false;
+            this.currentMembersGridView.AllowUserToDeleteRows = false;
+            this.currentMembersGridView.AllowUserToResizeColumns = false;
+            this.currentMembersGridView.AllowUserToResizeRows = false;
+            this.currentMembersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.currentMembersGridView.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.currentMembersGridView.DefaultCellStyle = dataGridViewCellStyle1;
+            this.currentMembersGridView.Location = new System.Drawing.Point(37, 244);
+            this.currentMembersGridView.Name = "currentMembersGridView";
+            this.currentMembersGridView.ReadOnly = true;
+            this.currentMembersGridView.RowHeadersWidth = 51;
+            this.currentMembersGridView.RowTemplate.Height = 24;
+            this.currentMembersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.currentMembersGridView.Size = new System.Drawing.Size(463, 187);
+            this.currentMembersGridView.TabIndex = 30;
+            // 
             // UpdateGroupInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(764, 557);
+            this.ClientSize = new System.Drawing.Size(703, 566);
+            this.Controls.Add(this.currentMembersGridView);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.currentPManagerGroupsComboBox);
             this.Controls.Add(this.discardGroupBtn);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.memberCountTextBox);
+            this.Controls.Add(this.groupNameTxtBox);
             this.Controls.Add(this.RemoveMemberBtn);
             this.Controls.Add(this.AddMemberBtn);
             this.Controls.Add(this.GoBackBtn);
             this.Controls.Add(this.UpdateBtn);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -188,6 +229,9 @@ namespace ProjectManagement
             this.Name = "UpdateGroupInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Group Info";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UpdateGroupInfo_FormClosed);
+            this.Load += new System.EventHandler(this.UpdateGroupInfo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.currentMembersGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,13 +242,15 @@ namespace ProjectManagement
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button GoBackBtn;
         private System.Windows.Forms.Button AddMemberBtn;
         private System.Windows.Forms.Button RemoveMemberBtn;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox groupNameTxtBox;
+        private System.Windows.Forms.TextBox memberCountTextBox;
         private System.Windows.Forms.Button discardGroupBtn;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox currentPManagerGroupsComboBox;
+        private System.Windows.Forms.DataGridView currentMembersGridView;
     }
 }

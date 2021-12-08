@@ -41,6 +41,22 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
+        public bool SearchMember(string mail)
+        {
+            string query = $"select * from PMember_TBL where " +
+                $"PMember_Email = '{mail}';";
+            FillTable(query);
+            if (dt.Rows.Count == 1)
+            {
+                this.PMemberID = Convert.ToInt32(dt.Rows[0]["PMember_ID"].ToString());
+                this.FirstName = dt.Rows[0]["PMember_FirstName"].ToString();
+                this.LastName = dt.Rows[0]["PMember_LastName"].ToString();
+                this.Email = dt.Rows[0]["PMember_Email"].ToString();
+                this.password = dt.Rows[0]["PMember_Password"].ToString();
+                return true;
+            }
+            return false;
+        }
         private void FillTable(string query)
         {
             dt.Clear();

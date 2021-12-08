@@ -106,8 +106,8 @@ namespace ProjectManagement
 
         private void updateGroupMembersBtn_Click(object sender, EventArgs e)
         {
-            UpdateGroupInfo uGI1 = new UpdateGroupInfo();
-            ShowNewMenu(uGI1);
+            UpdateGroupInfo updateGroupInfo = new UpdateGroupInfo(pM);
+            ShowNewMenu(updateGroupInfo);
         }
 
         private void viewProjectInfoBtn_Click(object sender, EventArgs e)

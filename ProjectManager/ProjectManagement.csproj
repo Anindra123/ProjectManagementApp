@@ -91,6 +91,12 @@
     <Compile Include="JoinNewGroup.Designer.cs">
       <DependentUpon>JoinNewGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchAndAddMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchAndAddMember.Designer.cs">
+      <DependentUpon>SearchAndAddMember.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateMemberInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="JoinNewGroup.resx">
       <DependentUpon>JoinNewGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchAndAddMember.resx">
+      <DependentUpon>SearchAndAddMember.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateMemberInfo.resx">
       <DependentUpon>UpdateMemberInfo.cs</DependentUpon>
