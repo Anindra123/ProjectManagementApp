@@ -142,6 +142,7 @@ namespace ProjectManagement
             // proMSignUp
             // 
             this.proMSignUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.proMSignUp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.proMSignUp.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.proMSignUp.Location = new System.Drawing.Point(31, 274);
             this.proMSignUp.Margin = new System.Windows.Forms.Padding(4);
@@ -155,6 +156,7 @@ namespace ProjectManagement
             // proMCancel
             // 
             this.proMCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.proMCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.proMCancel.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.proMCancel.Location = new System.Drawing.Point(499, 274);
             this.proMCancel.Margin = new System.Windows.Forms.Padding(4);
@@ -168,6 +170,7 @@ namespace ProjectManagement
             // goBackHomePageBtn
             // 
             this.goBackHomePageBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.goBackHomePageBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.goBackHomePageBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goBackHomePageBtn.ForeColor = System.Drawing.Color.White;
             this.goBackHomePageBtn.Location = new System.Drawing.Point(264, 274);

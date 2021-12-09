@@ -83,6 +83,7 @@ namespace ProjectManagement
             // UpdateBtn
             // 
             this.UpdateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.UpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UpdateBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateBtn.ForeColor = System.Drawing.Color.White;
             this.UpdateBtn.Location = new System.Drawing.Point(48, 469);
@@ -96,6 +97,7 @@ namespace ProjectManagement
             // GoBackBtn
             // 
             this.GoBackBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.GoBackBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GoBackBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GoBackBtn.ForeColor = System.Drawing.Color.White;
             this.GoBackBtn.Location = new System.Drawing.Point(524, 469);
@@ -109,6 +111,7 @@ namespace ProjectManagement
             // AddMemberBtn
             // 
             this.AddMemberBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.AddMemberBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AddMemberBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddMemberBtn.ForeColor = System.Drawing.Color.White;
             this.AddMemberBtn.Location = new System.Drawing.Point(554, 255);
@@ -122,6 +125,7 @@ namespace ProjectManagement
             // RemoveMemberBtn
             // 
             this.RemoveMemberBtn.BackColor = System.Drawing.Color.Red;
+            this.RemoveMemberBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RemoveMemberBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RemoveMemberBtn.ForeColor = System.Drawing.Color.White;
             this.RemoveMemberBtn.Location = new System.Drawing.Point(554, 343);
@@ -149,7 +153,7 @@ namespace ProjectManagement
             // discardGroupBtn
             // 
             this.discardGroupBtn.BackColor = System.Drawing.Color.Red;
-            this.discardGroupBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.discardGroupBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.discardGroupBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.discardGroupBtn.ForeColor = System.Drawing.Color.White;
             this.discardGroupBtn.Location = new System.Drawing.Point(290, 469);
@@ -172,6 +176,7 @@ namespace ProjectManagement
             // 
             // currentPManagerGroupsComboBox
             // 
+            this.currentPManagerGroupsComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.currentPManagerGroupsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.currentPManagerGroupsComboBox.FormattingEnabled = true;
             this.currentPManagerGroupsComboBox.Location = new System.Drawing.Point(37, 46);
@@ -186,7 +191,7 @@ namespace ProjectManagement
             this.currentMembersGridView.AllowUserToDeleteRows = false;
             this.currentMembersGridView.AllowUserToResizeColumns = false;
             this.currentMembersGridView.AllowUserToResizeRows = false;
-            this.currentMembersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.currentMembersGridView.ColumnHeadersHeight = 29;
             this.currentMembersGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;

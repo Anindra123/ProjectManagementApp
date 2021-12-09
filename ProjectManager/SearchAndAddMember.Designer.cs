@@ -39,6 +39,7 @@ namespace ProjectManagement
             // proMSearchAndAddBtn
             // 
             this.proMSearchAndAddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.proMSearchAndAddBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.proMSearchAndAddBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.proMSearchAndAddBtn.ForeColor = System.Drawing.Color.White;
             this.proMSearchAndAddBtn.Location = new System.Drawing.Point(71, 139);
@@ -74,6 +75,7 @@ namespace ProjectManagement
             // cancelBtn
             // 
             this.cancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.cancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancelBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtn.ForeColor = System.Drawing.Color.White;
             this.cancelBtn.Location = new System.Drawing.Point(451, 139);

@@ -33,27 +33,27 @@ namespace ProjectManagement
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewProjectManagerGroupInfo));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.noOfMemberLbl = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.currentPManagerGroupsComboBox = new System.Windows.Forms.ComboBox();
+            this.groupNameLabel = new System.Windows.Forms.Label();
             this.currentMembersGridView = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupNameLabel = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.currentPManagerGroupsComboBox = new System.Windows.Forms.ComboBox();
-            this.noOfMemberLbl = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.currentActiveTaskDataGridView = new System.Windows.Forms.DataGridView();
+            this.label12 = new System.Windows.Forms.Label();
+            this.endDateLabl = new System.Windows.Forms.Label();
+            this.startDateLabl = new System.Windows.Forms.Label();
+            this.projStatusLabl = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.projDescLabel = new System.Windows.Forms.Label();
+            this.projectTitleLbl = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.labe11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.projectTitleLbl = new System.Windows.Forms.Label();
-            this.projDescLabel = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.projStatusLabl = new System.Windows.Forms.Label();
-            this.startDateLabl = new System.Windows.Forms.Label();
-            this.endDateLabl = new System.Windows.Forms.Label();
-            this.currentActiveTaskDataGridView = new System.Windows.Forms.DataGridView();
-            this.label12 = new System.Windows.Forms.Label();
             this.goBackBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.currentMembersGridView)).BeginInit();
@@ -80,13 +80,52 @@ namespace ProjectManagement
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Group Info";
             // 
+            // noOfMemberLbl
+            // 
+            this.noOfMemberLbl.AutoSize = true;
+            this.noOfMemberLbl.Location = new System.Drawing.Point(215, 125);
+            this.noOfMemberLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.noOfMemberLbl.Name = "noOfMemberLbl";
+            this.noOfMemberLbl.Size = new System.Drawing.Size(49, 23);
+            this.noOfMemberLbl.TabIndex = 26;
+            this.noOfMemberLbl.Text = "none";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(27, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(117, 23);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Select Group :";
+            // 
+            // currentPManagerGroupsComboBox
+            // 
+            this.currentPManagerGroupsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.currentPManagerGroupsComboBox.FormattingEnabled = true;
+            this.currentPManagerGroupsComboBox.Location = new System.Drawing.Point(31, 52);
+            this.currentPManagerGroupsComboBox.Name = "currentPManagerGroupsComboBox";
+            this.currentPManagerGroupsComboBox.Size = new System.Drawing.Size(523, 31);
+            this.currentPManagerGroupsComboBox.TabIndex = 24;
+            this.currentPManagerGroupsComboBox.SelectedIndexChanged += new System.EventHandler(this.currentPManagerGroupsComboBox_SelectedIndexChanged);
+            // 
+            // groupNameLabel
+            // 
+            this.groupNameLabel.AutoSize = true;
+            this.groupNameLabel.Location = new System.Drawing.Point(149, 95);
+            this.groupNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.groupNameLabel.Name = "groupNameLabel";
+            this.groupNameLabel.Size = new System.Drawing.Size(49, 23);
+            this.groupNameLabel.TabIndex = 23;
+            this.groupNameLabel.Text = "none";
+            // 
             // currentMembersGridView
             // 
             this.currentMembersGridView.AllowUserToAddRows = false;
             this.currentMembersGridView.AllowUserToDeleteRows = false;
             this.currentMembersGridView.AllowUserToResizeColumns = false;
             this.currentMembersGridView.AllowUserToResizeRows = false;
-            this.currentMembersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.currentMembersGridView.ColumnHeadersHeight = 29;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -135,45 +174,6 @@ namespace ProjectManagement
             this.label4.TabIndex = 15;
             this.label4.Text = "Group Name :";
             // 
-            // groupNameLabel
-            // 
-            this.groupNameLabel.AutoSize = true;
-            this.groupNameLabel.Location = new System.Drawing.Point(149, 95);
-            this.groupNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.groupNameLabel.Name = "groupNameLabel";
-            this.groupNameLabel.Size = new System.Drawing.Size(49, 23);
-            this.groupNameLabel.TabIndex = 23;
-            this.groupNameLabel.Text = "none";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 23);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "Select Group :";
-            // 
-            // currentPManagerGroupsComboBox
-            // 
-            this.currentPManagerGroupsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.currentPManagerGroupsComboBox.FormattingEnabled = true;
-            this.currentPManagerGroupsComboBox.Location = new System.Drawing.Point(31, 52);
-            this.currentPManagerGroupsComboBox.Name = "currentPManagerGroupsComboBox";
-            this.currentPManagerGroupsComboBox.Size = new System.Drawing.Size(523, 31);
-            this.currentPManagerGroupsComboBox.TabIndex = 24;
-            this.currentPManagerGroupsComboBox.SelectedIndexChanged += new System.EventHandler(this.currentPManagerGroupsComboBox_SelectedIndexChanged);
-            // 
-            // noOfMemberLbl
-            // 
-            this.noOfMemberLbl.AutoSize = true;
-            this.noOfMemberLbl.Location = new System.Drawing.Point(215, 125);
-            this.noOfMemberLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.noOfMemberLbl.Name = "noOfMemberLbl";
-            this.noOfMemberLbl.Size = new System.Drawing.Size(49, 23);
-            this.noOfMemberLbl.TabIndex = 26;
-            this.noOfMemberLbl.Text = "none";
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.currentActiveTaskDataGridView);
@@ -196,6 +196,101 @@ namespace ProjectManagement
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Project Info";
+            // 
+            // currentActiveTaskDataGridView
+            // 
+            this.currentActiveTaskDataGridView.AllowUserToAddRows = false;
+            this.currentActiveTaskDataGridView.AllowUserToDeleteRows = false;
+            this.currentActiveTaskDataGridView.AllowUserToResizeColumns = false;
+            this.currentActiveTaskDataGridView.AllowUserToResizeRows = false;
+            this.currentActiveTaskDataGridView.ColumnHeadersHeight = 29;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.currentActiveTaskDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.currentActiveTaskDataGridView.Location = new System.Drawing.Point(29, 262);
+            this.currentActiveTaskDataGridView.Name = "currentActiveTaskDataGridView";
+            this.currentActiveTaskDataGridView.ReadOnly = true;
+            this.currentActiveTaskDataGridView.RowHeadersWidth = 51;
+            this.currentActiveTaskDataGridView.RowTemplate.Height = 24;
+            this.currentActiveTaskDataGridView.Size = new System.Drawing.Size(620, 119);
+            this.currentActiveTaskDataGridView.TabIndex = 38;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(29, 240);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(138, 19);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "Current Active Task";
+            // 
+            // endDateLabl
+            // 
+            this.endDateLabl.AutoSize = true;
+            this.endDateLabl.Location = new System.Drawing.Point(129, 208);
+            this.endDateLabl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.endDateLabl.Name = "endDateLabl";
+            this.endDateLabl.Size = new System.Drawing.Size(49, 23);
+            this.endDateLabl.TabIndex = 36;
+            this.endDateLabl.Text = "none";
+            // 
+            // startDateLabl
+            // 
+            this.startDateLabl.AutoSize = true;
+            this.startDateLabl.Location = new System.Drawing.Point(129, 174);
+            this.startDateLabl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.startDateLabl.Name = "startDateLabl";
+            this.startDateLabl.Size = new System.Drawing.Size(49, 23);
+            this.startDateLabl.TabIndex = 35;
+            this.startDateLabl.Text = "none";
+            // 
+            // projStatusLabl
+            // 
+            this.projStatusLabl.AutoSize = true;
+            this.projStatusLabl.Location = new System.Drawing.Point(157, 138);
+            this.projStatusLabl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.projStatusLabl.Name = "projStatusLabl";
+            this.projStatusLabl.Size = new System.Drawing.Size(49, 23);
+            this.projStatusLabl.TabIndex = 34;
+            this.projStatusLabl.Text = "none";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(26, 138);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(123, 23);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "Project Status :";
+            // 
+            // projDescLabel
+            // 
+            this.projDescLabel.AutoSize = true;
+            this.projDescLabel.Location = new System.Drawing.Point(31, 99);
+            this.projDescLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.projDescLabel.Name = "projDescLabel";
+            this.projDescLabel.Size = new System.Drawing.Size(49, 23);
+            this.projDescLabel.TabIndex = 32;
+            this.projDescLabel.Text = "none";
+            // 
+            // projectTitleLbl
+            // 
+            this.projectTitleLbl.AutoSize = true;
+            this.projectTitleLbl.Location = new System.Drawing.Point(156, 28);
+            this.projectTitleLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.projectTitleLbl.Name = "projectTitleLbl";
+            this.projectTitleLbl.Size = new System.Drawing.Size(49, 23);
+            this.projectTitleLbl.TabIndex = 31;
+            this.projectTitleLbl.Text = "none";
             // 
             // label13
             // 
@@ -237,104 +332,10 @@ namespace ProjectManagement
             this.label5.TabIndex = 23;
             this.label5.Text = "Project Title :";
             // 
-            // projectTitleLbl
-            // 
-            this.projectTitleLbl.AutoSize = true;
-            this.projectTitleLbl.Location = new System.Drawing.Point(156, 28);
-            this.projectTitleLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.projectTitleLbl.Name = "projectTitleLbl";
-            this.projectTitleLbl.Size = new System.Drawing.Size(49, 23);
-            this.projectTitleLbl.TabIndex = 31;
-            this.projectTitleLbl.Text = "none";
-            // 
-            // projDescLabel
-            // 
-            this.projDescLabel.AutoSize = true;
-            this.projDescLabel.Location = new System.Drawing.Point(31, 99);
-            this.projDescLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.projDescLabel.Name = "projDescLabel";
-            this.projDescLabel.Size = new System.Drawing.Size(49, 23);
-            this.projDescLabel.TabIndex = 32;
-            this.projDescLabel.Text = "none";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(26, 138);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(123, 23);
-            this.label8.TabIndex = 33;
-            this.label8.Text = "Project Status :";
-            // 
-            // projStatusLabl
-            // 
-            this.projStatusLabl.AutoSize = true;
-            this.projStatusLabl.Location = new System.Drawing.Point(157, 138);
-            this.projStatusLabl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.projStatusLabl.Name = "projStatusLabl";
-            this.projStatusLabl.Size = new System.Drawing.Size(49, 23);
-            this.projStatusLabl.TabIndex = 34;
-            this.projStatusLabl.Text = "none";
-            // 
-            // startDateLabl
-            // 
-            this.startDateLabl.AutoSize = true;
-            this.startDateLabl.Location = new System.Drawing.Point(129, 174);
-            this.startDateLabl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.startDateLabl.Name = "startDateLabl";
-            this.startDateLabl.Size = new System.Drawing.Size(49, 23);
-            this.startDateLabl.TabIndex = 35;
-            this.startDateLabl.Text = "none";
-            // 
-            // endDateLabl
-            // 
-            this.endDateLabl.AutoSize = true;
-            this.endDateLabl.Location = new System.Drawing.Point(129, 208);
-            this.endDateLabl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.endDateLabl.Name = "endDateLabl";
-            this.endDateLabl.Size = new System.Drawing.Size(49, 23);
-            this.endDateLabl.TabIndex = 36;
-            this.endDateLabl.Text = "none";
-            // 
-            // currentActiveTaskDataGridView
-            // 
-            this.currentActiveTaskDataGridView.AllowUserToAddRows = false;
-            this.currentActiveTaskDataGridView.AllowUserToDeleteRows = false;
-            this.currentActiveTaskDataGridView.AllowUserToResizeColumns = false;
-            this.currentActiveTaskDataGridView.AllowUserToResizeRows = false;
-            this.currentActiveTaskDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.currentActiveTaskDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.currentActiveTaskDataGridView.Location = new System.Drawing.Point(29, 262);
-            this.currentActiveTaskDataGridView.Name = "currentActiveTaskDataGridView";
-            this.currentActiveTaskDataGridView.ReadOnly = true;
-            this.currentActiveTaskDataGridView.RowHeadersWidth = 51;
-            this.currentActiveTaskDataGridView.RowTemplate.Height = 24;
-            this.currentActiveTaskDataGridView.Size = new System.Drawing.Size(620, 119);
-            this.currentActiveTaskDataGridView.TabIndex = 38;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(29, 240);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(138, 19);
-            this.label12.TabIndex = 37;
-            this.label12.Text = "Current Active Task";
-            // 
             // goBackBtn
             // 
             this.goBackBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.goBackBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.goBackBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goBackBtn.ForeColor = System.Drawing.Color.White;
             this.goBackBtn.Location = new System.Drawing.Point(545, 715);

@@ -56,6 +56,7 @@ namespace ProjectManagement
             // goBackbtn
             // 
             this.goBackbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.goBackbtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.goBackbtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goBackbtn.ForeColor = System.Drawing.Color.White;
             this.goBackbtn.Location = new System.Drawing.Point(179, 322);
@@ -69,6 +70,7 @@ namespace ProjectManagement
             // signInAsProjectManagerBtn
             // 
             this.signInAsProjectManagerBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.signInAsProjectManagerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.signInAsProjectManagerBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signInAsProjectManagerBtn.ForeColor = System.Drawing.Color.White;
             this.signInAsProjectManagerBtn.Location = new System.Drawing.Point(123, 223);
@@ -82,6 +84,7 @@ namespace ProjectManagement
             // signUpAsProjectManagerBtn
             // 
             this.signUpAsProjectManagerBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.signUpAsProjectManagerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.signUpAsProjectManagerBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signUpAsProjectManagerBtn.ForeColor = System.Drawing.Color.White;
             this.signUpAsProjectManagerBtn.Location = new System.Drawing.Point(123, 145);

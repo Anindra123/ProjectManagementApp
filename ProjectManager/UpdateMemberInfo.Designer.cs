@@ -151,6 +151,7 @@ namespace ProjectManagement
             // leaveGroupBtn
             // 
             this.leaveGroupBtn.BackColor = System.Drawing.Color.Red;
+            this.leaveGroupBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.leaveGroupBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leaveGroupBtn.Location = new System.Drawing.Point(421, 49);
             this.leaveGroupBtn.Name = "leaveGroupBtn";

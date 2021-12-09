@@ -84,6 +84,7 @@ namespace ProjectManagement
             // UpdateBtn
             // 
             this.UpdateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.UpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UpdateBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateBtn.Location = new System.Drawing.Point(66, 646);
             this.UpdateBtn.Name = "UpdateBtn";
@@ -96,6 +97,7 @@ namespace ProjectManagement
             // GoBackBtn
             // 
             this.GoBackBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.GoBackBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GoBackBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GoBackBtn.Location = new System.Drawing.Point(403, 646);
             this.GoBackBtn.Name = "GoBackBtn";
@@ -114,6 +116,7 @@ namespace ProjectManagement
             // 
             // startDatepicker
             // 
+            this.startDatepicker.Cursor = System.Windows.Forms.Cursors.Hand;
             this.startDatepicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.startDatepicker.Location = new System.Drawing.Point(148, 271);
             this.startDatepicker.Name = "startDatepicker";
@@ -122,6 +125,7 @@ namespace ProjectManagement
             // 
             // endDatePicker
             // 
+            this.endDatePicker.Cursor = System.Windows.Forms.Cursors.Hand;
             this.endDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.endDatePicker.Location = new System.Drawing.Point(148, 329);
             this.endDatePicker.Name = "endDatePicker";
@@ -157,6 +161,7 @@ namespace ProjectManagement
             // pCompletedRadioBtn
             // 
             this.pCompletedRadioBtn.AutoSize = true;
+            this.pCompletedRadioBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pCompletedRadioBtn.Location = new System.Drawing.Point(148, 400);
             this.pCompletedRadioBtn.Name = "pCompletedRadioBtn";
             this.pCompletedRadioBtn.Size = new System.Drawing.Size(51, 24);
@@ -168,6 +173,7 @@ namespace ProjectManagement
             // pNotCompletedRadioBtn
             // 
             this.pNotCompletedRadioBtn.AutoSize = true;
+            this.pNotCompletedRadioBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pNotCompletedRadioBtn.Location = new System.Drawing.Point(269, 400);
             this.pNotCompletedRadioBtn.Name = "pNotCompletedRadioBtn";
             this.pNotCompletedRadioBtn.Size = new System.Drawing.Size(50, 24);
@@ -182,11 +188,12 @@ namespace ProjectManagement
             this.currentProjectTaskGridView.AllowUserToDeleteRows = false;
             this.currentProjectTaskGridView.AllowUserToResizeColumns = false;
             this.currentProjectTaskGridView.AllowUserToResizeRows = false;
-            this.currentProjectTaskGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.currentProjectTaskGridView.ColumnHeadersHeight = 29;
+            this.currentProjectTaskGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -205,6 +212,7 @@ namespace ProjectManagement
             // updateTaskInfoBtn
             // 
             this.updateTaskInfoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.updateTaskInfoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.updateTaskInfoBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateTaskInfoBtn.Location = new System.Drawing.Point(432, 483);
             this.updateTaskInfoBtn.Name = "updateTaskInfoBtn";
@@ -217,6 +225,7 @@ namespace ProjectManagement
             // removeTaskBtn
             // 
             this.removeTaskBtn.BackColor = System.Drawing.Color.Red;
+            this.removeTaskBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.removeTaskBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeTaskBtn.Location = new System.Drawing.Point(432, 558);
             this.removeTaskBtn.Name = "removeTaskBtn";
@@ -246,6 +255,7 @@ namespace ProjectManagement
             // 
             // currentPManagerGroupsComboBox
             // 
+            this.currentPManagerGroupsComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.currentPManagerGroupsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.currentPManagerGroupsComboBox.FormattingEnabled = true;
             this.currentPManagerGroupsComboBox.Location = new System.Drawing.Point(40, 44);

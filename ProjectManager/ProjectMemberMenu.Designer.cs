@@ -168,6 +168,7 @@ namespace ProjectManagement
             // removeTaskCompletedBtn
             // 
             this.removeTaskCompletedBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.removeTaskCompletedBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.removeTaskCompletedBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeTaskCompletedBtn.ForeColor = System.Drawing.Color.White;
             this.removeTaskCompletedBtn.Location = new System.Drawing.Point(580, 289);
@@ -236,6 +237,7 @@ namespace ProjectManagement
             // viewGroupInfoBtn
             // 
             this.viewGroupInfoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.viewGroupInfoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.viewGroupInfoBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewGroupInfoBtn.ForeColor = System.Drawing.Color.White;
             this.viewGroupInfoBtn.Location = new System.Drawing.Point(995, 117);
@@ -249,6 +251,7 @@ namespace ProjectManagement
             // joinProjectGroupBtn
             // 
             this.joinProjectGroupBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.joinProjectGroupBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.joinProjectGroupBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.joinProjectGroupBtn.ForeColor = System.Drawing.Color.White;
             this.joinProjectGroupBtn.Location = new System.Drawing.Point(995, 198);
@@ -262,6 +265,7 @@ namespace ProjectManagement
             // logOutBtn
             // 
             this.logOutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.logOutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logOutBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logOutBtn.ForeColor = System.Drawing.Color.White;
             this.logOutBtn.Location = new System.Drawing.Point(1014, 631);
@@ -275,6 +279,7 @@ namespace ProjectManagement
             // viewProjectInfoBtn
             // 
             this.viewProjectInfoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.viewProjectInfoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.viewProjectInfoBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewProjectInfoBtn.ForeColor = System.Drawing.Color.White;
             this.viewProjectInfoBtn.Location = new System.Drawing.Point(995, 272);
@@ -288,6 +293,7 @@ namespace ProjectManagement
             // updateProjMemberInfo
             // 
             this.updateProjMemberInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.updateProjMemberInfo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.updateProjMemberInfo.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateProjMemberInfo.ForeColor = System.Drawing.Color.White;
             this.updateProjMemberInfo.Location = new System.Drawing.Point(995, 346);

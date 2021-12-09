@@ -205,8 +205,11 @@ namespace ProjectManagement
                     if (removeTask())
                     {
                         validations.ShowInfo("Task send to Backlogs");
-                        completedTaskGridView.DataSource = pM.ViewCompletedTask(pM.PManager_ID).Copy();
-                        completedTaskGridView.ClearSelection();
+                        if (pM.ViewCompletedTask(pM.PManager_ID) != null)
+                        {
+                            completedTaskGridView.DataSource = pM.ViewCompletedTask(pM.PManager_ID).Copy();
+                            completedTaskGridView.ClearSelection();
+                        }
                     }
                 }
 

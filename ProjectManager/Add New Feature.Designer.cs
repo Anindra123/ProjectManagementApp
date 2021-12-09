@@ -121,6 +121,7 @@ namespace ProjectManagement
             // cancelBtn
             // 
             this.cancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.cancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancelBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtn.Location = new System.Drawing.Point(420, 513);
             this.cancelBtn.Name = "cancelBtn";
@@ -133,6 +134,7 @@ namespace ProjectManagement
             // createBtn
             // 
             this.createBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.createBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.createBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createBtn.Location = new System.Drawing.Point(78, 513);
             this.createBtn.Name = "createBtn";
@@ -166,6 +168,7 @@ namespace ProjectManagement
             // 
             this.assignSelectionNoRadioBtn.AutoSize = true;
             this.assignSelectionNoRadioBtn.Checked = true;
+            this.assignSelectionNoRadioBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.assignSelectionNoRadioBtn.Location = new System.Drawing.Point(365, 365);
             this.assignSelectionNoRadioBtn.Name = "assignSelectionNoRadioBtn";
             this.assignSelectionNoRadioBtn.Size = new System.Drawing.Size(54, 27);
@@ -177,6 +180,7 @@ namespace ProjectManagement
             // assignSelectionYesRadioBtn
             // 
             this.assignSelectionYesRadioBtn.AutoSize = true;
+            this.assignSelectionYesRadioBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.assignSelectionYesRadioBtn.Location = new System.Drawing.Point(210, 365);
             this.assignSelectionYesRadioBtn.Name = "assignSelectionYesRadioBtn";
             this.assignSelectionYesRadioBtn.Size = new System.Drawing.Size(55, 27);
@@ -226,6 +230,7 @@ namespace ProjectManagement
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(658, 634);
             this.Controls.Add(this.groupBox1);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

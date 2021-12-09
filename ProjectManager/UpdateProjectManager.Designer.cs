@@ -85,6 +85,7 @@ namespace ProjectManagement
             // cancelBtn
             // 
             this.cancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.cancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancelBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtn.Location = new System.Drawing.Point(405, 327);
             this.cancelBtn.Name = "cancelBtn";
@@ -104,6 +105,7 @@ namespace ProjectManagement
             // updateBtn
             // 
             this.updateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.updateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.updateBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateBtn.Location = new System.Drawing.Point(75, 327);
             this.updateBtn.Name = "updateBtn";
