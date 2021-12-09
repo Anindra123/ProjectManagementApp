@@ -92,9 +92,15 @@ namespace ProjectManagement
                         pManag.GetProjectManagerInfo(proj.Project_ID);
                         nProjManagLabl.Text = $"{pManag.FirstName} {pManag.LastName}";
                         nProjNameLabl.Text = proj.Project_Title;
-                        newMembersList.DataSource = pG.FillMemberList().Copy();
-                        newMembersList.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-
+                        if (pG.FillMemberList() != null)
+                        {
+                            newMembersList.DataSource = pG.FillMemberList().Copy();
+                            newMembersList.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                        }
+                        else
+                        {
+                            newMembersList.DataSource = null;
+                        }
                     }
                 }
                 else
@@ -136,14 +142,21 @@ namespace ProjectManagement
                 memberOfGroup = true;
                 currentProjID = pG.Project_ID;
                 SetGroupInfolabels();
-                newMembersList.DataSource = pG.FillMemberList().Copy();
-                newMembersList.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                newMembersList.Update();
-                newMembersList.Refresh();
-                currentMembersList.DataSource = pG.FillMemberList().Copy();
-                currentMembersList.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                currentMembersList.Update();
-                currentMembersList.Refresh();
+                if (pG.FillMemberList() != null)
+                {
+                    newMembersList.DataSource = pG.FillMemberList().Copy();
+                    newMembersList.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                    newMembersList.Update();
+                    newMembersList.Refresh();
+                    currentMembersList.DataSource = pG.FillMemberList().Copy();
+                    currentMembersList.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                    currentMembersList.Update();
+                    currentMembersList.Refresh();
+                }
+                else
+                {
+                    SetGroupInfolabels();
+                }
             }
         }
         private void joinGroupBtn_Click(object sender, EventArgs e)

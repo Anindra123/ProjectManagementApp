@@ -167,6 +167,7 @@ namespace ProjectManagement
             this.completedTaskGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.completedTaskGridView.Size = new System.Drawing.Size(348, 187);
             this.completedTaskGridView.TabIndex = 9;
+            this.completedTaskGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.completedTaskGridView_CellClick);
             // 
             // viewCompletedTaskBtn
             // 

@@ -56,6 +56,7 @@ namespace ProjectManagement
             completedTasksListBox.SelectedIndex = -1;
             removeTaskCompletedBtn.Enabled = false;
             viewTaskdetailBtn.Enabled = false;
+            completedTaskDetailBtn.Enabled = false;
             displayMemberTitleLabel.Text = $"Hello, {projectMember.FirstName} {projectMember.LastName}";
             if (projectMember.CheckifGroupMember(projectMember.PMemberID))
             {
@@ -194,10 +195,12 @@ namespace ProjectManagement
             if (completedTasksListBox.SelectedIndex == -1)
             {
                 removeTaskCompletedBtn.Enabled = false;
+                completedTaskDetailBtn.Enabled = false;
             }
             else
             {
                 removeTaskCompletedBtn.Enabled = true;
+                completedTaskDetailBtn.Enabled = true;
             }
         }
 
@@ -241,6 +244,17 @@ namespace ProjectManagement
             var form1 = (ProjectMemberSignIn)Tag;
             var form2 = (ContinueAsProjectMemberForm)form1.Tag;
             form2.Show();
+        }
+
+        private void completedTaskDetailBtn_Click(object sender, EventArgs e)
+        {
+            if (completedTasksListBox.SelectedItem != null)
+            {
+                int val = (int)completedTasksListBox.SelectedValue;
+                ProjectTask pTask = projectMember.tasks.Find(r => r.Task_ID == val);
+                ViewCompletedTask viewCompleted = new ViewCompletedTask(pTask);
+                viewCompleted.ShowDialog();
+            }
         }
     }
 }
