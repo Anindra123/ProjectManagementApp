@@ -14,6 +14,8 @@ namespace ProjectManagement
     public partial class AddNewFeature : System.Windows.Forms.Form
     {
         ProjectManager pM;
+        int memberID;
+        ProjectMember pMem = new ProjectMember();
         Project project;
         ProjectGroup pG = new ProjectGroup();
         Validations validations = new Validations();
@@ -37,6 +39,7 @@ namespace ProjectManagement
             groupsComboBox.ValueMember = "PGroup_ID";
             groupsComboBox.DataSource = pM.ProjectGroups;
             groupsComboBox.SelectedIndex = -1;
+            assignToComboBox.DataSource = null;
         }
 
         private void createBtn_Click(object sender, EventArgs e)
@@ -53,26 +56,46 @@ namespace ProjectManagement
             else if (assignToComboBox.SelectedIndex < 0 && assignSelectionYesRadioBtn.Checked)
             {
                 validations.ShowAlert("Must select a member");
-            }else if (pM.CheckTaskExist(titleTextBox.Text.Trim()))
+            }
+            else if (pM.CheckTaskExist(titleTextBox.Text.Trim()))
             {
                 validations.ShowAlert("A task with the same title already exists.");
+            }
+            else if (project.Project_Completed == 1)
+            {
+                validations.ShowAlert("Cannot add task to this project as it is completed");
             }
             else
             {
                 string tTitle = titleTextBox.Text.Trim();
                 string tDesc = taskDescriptionTextBox.Text.Trim();
-               if(project != null)
+                if (project != null)
                 {
-                    if (!assignSelectionYesRadioBtn.Checked)
+
+                    if (pM.CreateTask(tTitle, tDesc, project.Project_ID)
+                           && pM.AssignTask(tTitle, tDesc, pM.PManager_ID))
                     {
-                        if(pM.CreateTask(tTitle,tDesc,project.Project_ID)
-                            && pM.AssignTask(tTitle, tDesc, pM.PManager_ID))
+                        if (assignSelectionYesRadioBtn.Checked == false)
                         {
+                            pM.AssignTaskToMember(tTitle, tDesc, -1);
                             DialogResult result = MessageBox.Show("Task Created Sucessfully", "Sucess",
-                  MessageBoxButtons.OK, MessageBoxIcon.Information);
+               MessageBoxButtons.OK, MessageBoxIcon.Information);
                             if (result == DialogResult.OK)
                             {
                                 this.Close();
+                            }
+                        }
+                        else
+                        {
+                            if (pMem.CheckifGroupMember(memberID, pG.PGroup_ID))
+                            {
+                                pM.AssignTaskToMember(tTitle, tDesc, pMem.PMemberID);
+                                DialogResult result = MessageBox.Show("Task Created Sucessfully", "Sucess",
+               MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                if (result == DialogResult.OK)
+                                {
+                                    this.Close();
+                                }
                             }
                         }
                     }
@@ -111,6 +134,7 @@ namespace ProjectManagement
             if (groupsComboBox.SelectedIndex >= 0 && groupsComboBox.SelectedItem != null)
             {
                 int g_id = (int)groupsComboBox.SelectedValue;
+                pG.PGroup_ID = g_id;
                 project = pM.GetProject(g_id);
                 projectTitleLbl.Text = project.Project_Title;
                 assignToComboBox.DisplayMember = "Name";
@@ -121,6 +145,14 @@ namespace ProjectManagement
             else
             {
                 projectTitleLbl.Text = null;
+            }
+        }
+
+        private void assignToComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (assignToComboBox.SelectedIndex >= 0)
+            {
+                memberID = (int)assignToComboBox.SelectedValue;
             }
         }
     }

@@ -17,6 +17,8 @@ namespace ProjectManagement
         ProjectTask pT;
         ProjectMember pm;
         ProjectMemberMenu pmMenu;
+        byte[] fileData = null;
+        Validations validations = new Validations();
         public SubmitTaskForm()
         {
             InitializeComponent();
@@ -65,13 +67,13 @@ namespace ProjectManagement
         private void AttachFile(string fileName)
         {
             FileStream fstream = File.OpenRead(fileName);
-            pT.Task_Attached = new byte[fstream.Length];
-            fstream.Read(pT.Task_Attached, 0, (int)fstream.Length);
+            fileData = new byte[fstream.Length];
+            fstream.Read(fileData, 0, (int)fstream.Length);
             fstream.Close();
         }
         private void browseFilesBtn_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog opd = new OpenFileDialog() { Filter = "Text Document (*.txt)|*.txt", ValidateNames = true })
+            using (OpenFileDialog opd = new OpenFileDialog() { Filter = "Text Document (.txt)|*.txt", ValidateNames = true })
             {
                 if (opd.ShowDialog() == DialogResult.OK)
                 {
@@ -120,7 +122,7 @@ namespace ProjectManagement
                 {
                     pT.Task_Comment = taskCmntTxtBox.Text.Trim();
                     pT.Task_Completed = 2;
-                    if (pm.UpdateTask(pT.Task_ID))
+                    if (pm.UpdateTask(pT.Task_ID, fileData))
                     {
                         DialogResult dr = MessageBox.Show("Updated Sucessfully", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         if (dr == DialogResult.OK)
@@ -128,6 +130,10 @@ namespace ProjectManagement
                             Close();
                         }
                     }
+                }
+                else
+                {
+                    validations.ShowAlert("Please attach a file and write some comment");
                 }
             }
         }

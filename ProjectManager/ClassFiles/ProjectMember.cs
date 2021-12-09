@@ -41,6 +41,22 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
+        public bool SearchMember(string mail)
+        {
+            string query = $"select * from PMember_TBL where " +
+                $"PMember_Email = '{mail}';";
+            FillTable(query);
+            if (dt.Rows.Count == 1)
+            {
+                this.PMemberID = Convert.ToInt32(dt.Rows[0]["PMember_ID"].ToString());
+                this.FirstName = dt.Rows[0]["PMember_FirstName"].ToString();
+                this.LastName = dt.Rows[0]["PMember_LastName"].ToString();
+                this.Email = dt.Rows[0]["PMember_Email"].ToString();
+                this.password = dt.Rows[0]["PMember_Password"].ToString();
+                return true;
+            }
+            return false;
+        }
         private void FillTable(string query)
         {
             dt.Clear();
@@ -97,6 +113,21 @@ namespace ProjectManagement.ClassFiles
                 val = Convert.ToInt32(dt.Rows[0]["PMember_ID"].ToString());
             }
             return val;
+        }
+        public void GetProjectMemberFromTask(int t_id)
+        {
+            string query = $"select pm.* from PMember_TBL as pm,PerformTask_TBL as pt " +
+                $"where pm.PMember_ID = pt.PMember_ID and pt.Task_ID = '{t_id}'";
+            FillTable(query);
+
+            if (dt.Rows.Count == 1)
+            {
+                this.PMemberID = Convert.ToInt32(dt.Rows[0]["PMember_ID"].ToString());
+                this.FirstName = dt.Rows[0]["PMember_FirstName"].ToString();
+                this.LastName = dt.Rows[0]["PMember_LastName"].ToString();
+                this.Email = dt.Rows[0]["PMember_Email"].ToString();
+                this.password = dt.Rows[0]["PMember_Password"].ToString();
+            }
         }
         public bool SignUPProjectMember(string firstName, string LastName,
         string email, string password)
@@ -184,6 +215,11 @@ namespace ProjectManagement.ClassFiles
             FillTable(query);
             if (dt.Rows.Count == 1)
             {
+                this.PMemberID = Convert.ToInt32(dt.Rows[0]["PMember_ID"].ToString());
+                this.FirstName = dt.Rows[0]["PMember_FirstName"].ToString();
+                this.LastName = dt.Rows[0]["PMember_LastName"].ToString();
+                this.Email = dt.Rows[0]["PMember_Email"].ToString();
+                this.password = dt.Rows[0]["PMember_Password"].ToString();
                 return true;
             }
             return false;
@@ -213,17 +249,26 @@ namespace ProjectManagement.ClassFiles
             return tasks;
 
         }
-        public bool UpdateTask(int task_id)
+        public bool UpdateTask(int task_id, byte[] attachedFile)
         {
             bool performTask = false;
             bool assignTask = false;
             bool taskComplete = false;
             ProjectTask task = tasks.Find(x => x.Task_ID == task_id);
             string query = $"update PerformTask_TBL " +
-                $"set Task_Attached = convert(varbinary(max),'{task.Task_Attached}'),Task_Comment = '{task.Task_Comment}'," +
+                $"set Task_Attached = @fileData,Task_Comment = '{task.Task_Comment}'," +
                 $"Task_Completed = {task.Task_Completed}" +
                 $" where task_id = '{task_id}';";
-            performTask = RunQuery(query);
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.Add("@fileData", SqlDbType.VarBinary).Value = attachedFile;
+                cmd.Connection.Open();
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    performTask = true;
+                }
+            }
             string query1 = $"update AssignTask_TBL " +
                 $"set Task_Completed = {task.Task_Completed}" +
                 $" where task_id = {task_id}";
@@ -255,7 +300,31 @@ namespace ProjectManagement.ClassFiles
             }
 
         }
+        public bool RemoveAllAssignedTask(int task_id)
+        {
+            bool performTask;
+            bool assignTask;
+            bool taskComplete;
 
+            string query = $"update PerformTask_TBL " +
+                $"set Task_Attached = null,Task_Comment = null," +
+                $"Task_Completed = 1,PMember_ID = null" +
+                $" where task_id = '{task_id}';";
+            performTask = RunQuery(query);
+            string query1 = $"update AssignTask_TBL " +
+                $"set Task_Completed = 1" +
+                $" where task_id = {task_id}";
+            assignTask = RunQuery(query1);
+            string query2 = $"update Task_TBL " +
+                $"set Task_Completed = 1" +
+                $" where task_id = {task_id}";
+            taskComplete = RunQuery(query2);
+            if (performTask && assignTask && taskComplete)
+            {
+                return true;
+            }
+            return false;
+        }
         public bool UpdateMemberInfo()
         {
             int rowEffected = 0;
@@ -377,11 +446,11 @@ namespace ProjectManagement.ClassFiles
             return false;
 
         }
-        public bool AssignTask(string tTitle, string tDesc, int t_id, int t_sid, int pM_id)
+        public bool AssignTask(int t_id, int pM_id)
         {
-            string query = $"insert into PerformTask_TBL " +
-                $"(Task_ID,Task_title,Task_Desc,Task_Completed,PMember_ID)" +
-                $" values('{t_id}','{tTitle}','{tDesc}','{t_sid}','{pM_id}')";
+            string query = $"update PerformTask_TBL " +
+                $" set PMember_ID = '{pM_id}' where " +
+                $"Task_ID = '{t_id}'";
             return RunQuery(query);
         }
 

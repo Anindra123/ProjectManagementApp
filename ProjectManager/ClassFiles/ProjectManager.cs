@@ -290,10 +290,12 @@ namespace ProjectManagement.ClassFiles
         }
         public DataTable ViewProjectGroupInfo()
         {
-            string query = $"select pmg.PGroup_Name as [Group Name],mp.Project_Title as [Project Title],mp.Project_StartDate as [Start Date],mp.Project_EndDate as [End Date] " +
-                $"from PManagerGroupInfo_TBL as pmg,ManageProject_TBL as mp,GroupContainsProject_TBL as gcp where " +
+            string query = $"select pmg.PGroup_Name as [Group Name],mp.Project_Title as [Project Title],mp.Project_StartDate as [Start Date],mp.Project_EndDate as [End Date]," +
+                $"ps.PStatus_Name as Status " +
+                $"from PManagerGroupInfo_TBL as pmg,ManageProject_TBL as mp,GroupContainsProject_TBL as gcp," +
+                $"ProjectStatus_TBL as ps where " +
                 $"pmg.PManager_ID = '{PManager_ID}' and gcp.PGroup_ID = pmg.PGroup_ID and " +
-                $"mp.Project_ID = gcp.Project_ID ";
+                $"mp.Project_ID = gcp.Project_ID and ps.PStatus_ID = mp.PStatus_ID";
             FillData(query);
             if (dt.Rows.Count > 0)
             {
@@ -354,13 +356,13 @@ namespace ProjectManagement.ClassFiles
         }
         public bool CreateTask(string taskTitle, string taskDesc, int p_id)
         {
-            bool taskCreated;
+
 
             string query = $"insert into Task_TBL " +
                 $"(Task_title,Task_Desc,Task_Completed,Project_ID) " +
                 $"values('{taskTitle}','{taskDesc}','1','{p_id}')";
-            taskCreated = RunQuery(query);
-            return taskCreated;
+            return RunQuery(query);
+
         }
         public bool AssignTask(string taskTitle, string taskDesc, int pM_id)
         {
@@ -374,9 +376,31 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
+        public bool AssignTaskToMember(string taskTitle, string taskDesc, int pMem_id)
+        {
+            if (GetTaskID(taskTitle) > 0)
+            {
+                string query;
+                int t_id = GetTaskID(taskTitle);
+                if (pMem_id > 0)
+                {
+                    query = $"insert into PerformTask_TBL " +
+                 $"(Task_ID,Task_title,Task_Desc,Task_Completed,PMember_ID) " +
+                 $"values('{t_id}','{taskTitle}','{taskDesc}','1','{pMem_id}')";
+                }
+                else
+                {
+                    query = $"insert into PerformTask_TBL " +
+                $"(Task_ID,Task_title,Task_Desc,Task_Completed,PMember_ID) " +
+                $"values('{t_id}','{taskTitle}','{taskDesc}','1',NULL)";
+                }
+                return RunQuery(query);
+            }
+            return false;
+        }
         public DataTable ViewCurrentTask(int pM_id)
         {
-            string query = $"select at.Task_ID as ID,at.Task_Desc as Description,at.Task_title as Title,ts.StatusName as Status from" +
+            string query = $"select at.Task_ID as ID,at.Task_title as Title,at.Task_Desc as Description,ts.StatusName as Status from" +
                 $" AssignTask_TBL as at,TaskStatus_TBL as ts" +
                 $" where at.PManager_ID = '{pM_id}' and at.Task_Completed = '1' and ts.StatusID = at.Task_Completed ";
             FillData(query);
@@ -388,7 +412,7 @@ namespace ProjectManagement.ClassFiles
         }
         public DataTable ViewCompletedTask(int pM_id)
         {
-            string query = $"select at.Task_ID as ID,at.Task_Desc as Description,at.Task_title as Title,ts.StatusName as Status from" +
+            string query = $"select at.Task_ID as ID,at.Task_title as Title,at.Task_Desc as Description,ts.StatusName as Status from" +
                $" AssignTask_TBL as at,TaskStatus_TBL as ts" +
                $" where at.PManager_ID = '{pM_id}' and at.Task_Completed = '2' and ts.StatusID = at.Task_Completed ";
             FillData(query);

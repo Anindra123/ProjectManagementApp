@@ -27,6 +27,20 @@ namespace ProjectManagement.ClassFiles
                 sda.Fill(dt);
             }
         }
+        public bool RunQuery(string query)
+        {
+            bool ret = false;
+            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    ret = true;
+                }
+            }
+            return ret;
+        }
         public bool SearchGroup(string name)
         {
             string query = $"select * from GroupContainsProject_TBL where " +
@@ -84,10 +98,10 @@ namespace ProjectManagement.ClassFiles
             return null;
 
         }
-        public void GetProjectGroup(int t_id)
+        public void GetProjectGroupFromTask(int t_id)
         {
             ProjectGroup output = new ProjectGroup();
-            string query = $"select gcp.PGroup_ID,gcp.PGroup_Name from " +
+            string query = $"select * from " +
                 $"GroupContainsProject_TBL as gcp,Task_TBL as tt where " +
                 $"tt.Task_ID = '{t_id}' and gcp.Project_ID = tt.Project_ID";
             FillData(query);
@@ -95,8 +109,48 @@ namespace ProjectManagement.ClassFiles
             {
                 PGroup_ID = Convert.ToInt32($"{dt.Rows[0]["PGroup_ID"]}");
                 PGroup_Name = $"{dt.Rows[0]["PGroup_Name"]}";
+                MembersCount = Convert.ToInt32($"{dt.Rows[0]["PGroup_MembersCount"]}");
             }
         }
-
+        public bool UpdateGroupContainsProjectTable(string groupName, int memCount)
+        {
+            string query = $"Update GroupContainsProject_TBL" +
+                $" set PGroup_name = '{groupName}',PGroup_MembersCount = '{memCount}' " +
+                $"where PGroup_ID = {PGroup_ID}";
+            return RunQuery(query);
+        }
+        public bool UpdatePManagerGroupInfoTable(string groupName, int memCount)
+        {
+            string query = $"Update PManagerGroupInfo_TBL" +
+                $" set PGroup_name = '{groupName}',PGroup_MembersCount = '{memCount}' " +
+                $"where PGroup_ID = {PGroup_ID}";
+            return RunQuery(query);
+        }
+        public bool UpdatePGroupTable(string groupName, int memCount)
+        {
+            string query = $"Update PGroup_TBL" +
+                $" set PGroup_name = '{groupName}',PGroup_MembersCount = '{memCount}' " +
+                $"where PGroup_ID = {PGroup_ID}";
+            return RunQuery(query);
+        }
+        public bool RemoveGroupContainsProject()
+        {
+            string query = $"delete from GroupContainsProject_TBL where" +
+                $" PGroup_ID = {PGroup_ID}";
+            return RunQuery(query);
+        }
+        public bool RemovePManagerGroupInfo()
+        {
+            string query = $"delete from PManagerGroupInfo_TBL where" +
+                $" PGroup_ID = {PGroup_ID}";
+            return RunQuery(query);
+        }
+        public bool RemovePGroup()
+        {
+            string query = $"delete from PGroup_TBL where" +
+                $" PGroup_ID = {PGroup_ID}";
+            return RunQuery(query);
+        }
     }
 }
+

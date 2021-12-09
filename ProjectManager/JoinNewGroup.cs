@@ -17,6 +17,7 @@ namespace ProjectManagement
         Project proj;
         ProjectGroup pG;
         ProjectManager pManag;
+        ProjectTask pT = new ProjectTask();
         bool memberOfGroup = false;
         int currentProjID = 0;
         public JoinNewGroup()
@@ -169,13 +170,22 @@ namespace ProjectManagement
                 {
                     if (!pM.CheckifGroupMember(pM.PMemberID, pG.PGroup_ID))
                     {
-                        DialogResult dr = MessageBox.Show("Confirm Group Change ?", "Confirm",
+                        DialogResult dr = MessageBox.Show("Confirm Group Change ? Your current project progess will be lost", "Confirm",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (dr == DialogResult.Yes)
                         {
-                            pM.DeleteMemberAssignedTask(currentProjID);
-                            pM.UpdateMemberGroupInfoTable(pM.PMemberID, pG.PGroup_ID);
-                            pM.UpdateProjectGroupInfoTable(pM.PMemberID, pG.Project_ID);
+                            int pm_id = pM.PMemberID;
+                            if (pT.CheckAssingedToMember(pm_id) != null)
+                            {
+                                DataTable dt = pT.CheckAssingedToMember(pm_id);
+                                foreach (DataRow row in dt.Rows)
+                                {
+                                    int t_id = (int)row["Task_ID"];
+                                    pM.RemoveAllAssignedTask(t_id);
+                                }
+                            }
+                            pM.UpdateMemberGroupInfoTable(pm_id, pG.PGroup_ID);
+                            pM.UpdateProjectGroupInfoTable(pm_id, pG.Project_ID);
                             JoinedGroup();
 
                         }

@@ -48,30 +48,27 @@ namespace ProjectManagement
 
         private void AssignTaskBtn_Click(object sender, EventArgs e)
         {
+            int pM_id = (int)selectMemberComboBox.SelectedValue;
+            int t_id = pT.Task_ID;
             if (selectMemberComboBox.SelectedIndex < 0)
             {
                 validations.ShowAlert("Please select a member to assign to");
             }
+            else if (pT.CheckAssingedToMember(pM_id, t_id))
+            {
+                validations.ShowAlert("Task Already Assigned To Member");
+            }
             else
             {
-                int pM_id = (int)selectMemberComboBox.SelectedValue;
-                try
+
+                if (pMember.AssignTask(pT.Task_ID, pM_id))
                 {
-                    if (pMember.AssignTask(pT.Task_Title, pT.Task_Desc, pT.Task_ID, pT.Task_Completed, pM_id))
-                    {
-                        if (validations.ShowInfo("Assigned to member sucessfully") == DialogResult.OK)
-                        {
-                            Close();
-                        }
-                    }
-                }
-                catch
-                {
-                    if (validations.ShowAlert("Task Already Assigned") == DialogResult.OK)
+                    if (validations.ShowInfo("Assigned to member sucessfully") == DialogResult.OK)
                     {
                         Close();
                     }
                 }
+
             }
         }
     }

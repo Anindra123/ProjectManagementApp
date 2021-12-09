@@ -18,6 +18,7 @@ namespace ProjectManagement
         ProjectGroup pG;
         ProjectManager pMang;
         Project project;
+        ProjectTask pT = new ProjectTask();
         bool leaveGroup = false;
 
         string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
@@ -60,26 +61,38 @@ namespace ProjectManagement
                     pM.LastName = projectMemberLastNameTxtBox.Text.Trim();
                     pM.Email = projMemberEmailTxtBox.Text.Trim();
                     pM.password = projMemberPasswordTextBox.Text.Trim();
-                    if (pM.UpdateMemberInfo())
+
+                    if (leaveGroup == true && pM.UpdateMemberInfo())
+                    {
+                        int pMemberID = pM.PMemberID;
+                        DataTable dt = pT.CheckAssingedToMember(pMemberID);
+                        if (dt != null)
+                        {
+                            foreach (DataRow row in dt.Rows)
+                            {
+                                int t_id = (int)row["Task_ID"];
+                                pM.RemoveAllAssignedTask(t_id);
+                            }
+                            if (pM.DeleteMemberGroupInfoTable(pMemberID)
+                            && pM.DeleteMemberProjInfoTable(pMemberID)
+                           )
+                            {
+                                MessageBox.Show("Updated Sucessfully", "Sucess",
+                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                pG = null;
+                                pMang = null;
+                                project = null;
+                                leaveGroup = false;
+                            }
+                        }
+
+
+                    }
+                    else if (pM.UpdateMemberInfo())
                     {
 
                         MessageBox.Show("Updated Sucessfully", "Sucess",
                  MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    }
-                    else if (leaveGroup == true && pM.UpdateMemberInfo())
-                    {
-
-                        if (pM.DeleteMemberGroupInfoTable(pM.PMemberID)
-                            && pM.DeleteMemberProjInfoTable(pM.PMemberID)
-                            && pM.DeleteMemberAssignedTask(project.Project_ID))
-                        {
-                            MessageBox.Show("Updated Sucessfully", "Sucess",
-             MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            pG = null;
-                            pMang = null;
-                            project = null;
-                        }
 
                     }
                     else
@@ -127,7 +140,7 @@ namespace ProjectManagement
 
         private void leaveGroupBtn_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Confirm Leave ?", "Leave Group",
+            DialogResult dr = MessageBox.Show("Confirm Leave you might loose project progress?", "Leave Group",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {

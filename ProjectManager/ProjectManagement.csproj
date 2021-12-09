@@ -52,6 +52,13 @@
     <Compile Include="Add New Feature.designer.cs">
       <DependentUpon>Add New Feature.cs</DependentUpon>
     </Compile>
+    <Compile Include="BackLogTaskView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackLogTaskView.Designer.cs">
+      <DependentUpon>BackLogTaskView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassFiles\BackLog.cs" />
     <Compile Include="ClassFiles\Validations.cs" />
     <Compile Include="ContinueAsProjectManagerForm.cs">
       <SubType>Form</SubType>
@@ -84,11 +91,23 @@
     <Compile Include="JoinNewGroup.Designer.cs">
       <DependentUpon>JoinNewGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchAndAddMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchAndAddMember.Designer.cs">
+      <DependentUpon>SearchAndAddMember.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateMemberInfo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UpdateMemberInfo.Designer.cs">
       <DependentUpon>UpdateMemberInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateTaskInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateTaskInfo.Designer.cs">
+      <DependentUpon>UpdateTaskInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewCompletedTask.cs">
       <SubType>Form</SubType>
@@ -194,8 +213,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ClassFiles\ProjectTask.cs" />
     <Compile Include="ClassFiles\User.cs" />
+    <Compile Include="ViewProjectManagerGroupInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewProjectManagerGroupInfo.Designer.cs">
+      <DependentUpon>ViewProjectManagerGroupInfo.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Add New Feature.resx">
       <DependentUpon>Add New Feature.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackLogTaskView.resx">
+      <DependentUpon>BackLogTaskView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ContinueAsProjectManagerForm.resx">
       <DependentUpon>ContinueAsProjectManagerForm.cs</DependentUpon>
@@ -212,8 +240,14 @@
     <EmbeddedResource Include="JoinNewGroup.resx">
       <DependentUpon>JoinNewGroup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SearchAndAddMember.resx">
+      <DependentUpon>SearchAndAddMember.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateMemberInfo.resx">
       <DependentUpon>UpdateMemberInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateTaskInfo.resx">
+      <DependentUpon>UpdateTaskInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewCompletedTask.resx">
       <DependentUpon>ViewCompletedTask.cs</DependentUpon>
@@ -272,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateProjectInfo.resx">
       <DependentUpon>UpdateProjectInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewProjectManagerGroupInfo.resx">
+      <DependentUpon>ViewProjectManagerGroupInfo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
