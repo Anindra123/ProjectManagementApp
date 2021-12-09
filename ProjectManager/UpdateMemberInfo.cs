@@ -113,6 +113,13 @@ namespace ProjectManagement
                 groupNameLabel.Text = pG.PGroup_Name;
                 projNameLabel.Text = project.Project_Title;
             }
+            else
+            {
+                projManagerLabel.Text = "none";
+                groupNameLabel.Text = "none";
+                projNameLabel.Text = "none";
+                leaveGroupBtn.Enabled = false;
+            }
 
         }
 

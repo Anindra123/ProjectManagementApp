@@ -51,7 +51,8 @@ namespace ProjectManagement
             endDatePicker.Value = DateTime.Today.Date;
             pNotCompletedRadioBtn.Checked = true;
             currentProjectTaskGridView.DataSource = null;
-
+            updateTaskInfoBtn.Enabled = false;
+            removeTaskBtn.Enabled = false;
 
         }
         private void UpdateProjectInfo_Load(object sender, EventArgs e)
@@ -86,10 +87,14 @@ namespace ProjectManagement
                 if (pT.GetTaskListFromProject(project.Project_ID) != null)
                 {
                     currentProjectTaskGridView.DataSource = pT.GetTaskListFromProject(project.Project_ID).Copy();
+                    removeTaskBtn.Enabled = true;
+                    updateTaskInfoBtn.Enabled = true;
                 }
                 else
                 {
                     currentProjectTaskGridView.DataSource = null;
+                    removeTaskBtn.Enabled = false;
+                    updateTaskInfoBtn.Enabled = false;
                 }
             }
             else
@@ -139,6 +144,7 @@ namespace ProjectManagement
                     backLog.BackLog_TaskCompleted = $"{pMember.FirstName} {pMember.LastName}";
                 }
                 backLog.BackLog_TaskTitle = pT.Task_Title;
+                backLog.PManager_ID = pM.PManager_ID;
                 backLog.InsertBackLogData();
                 RemoveTaskFromTables removeTask = pT.DeleteFromAssignTaskTable;
                 removeTask += pT.DeleteFromPerformTaskTable;

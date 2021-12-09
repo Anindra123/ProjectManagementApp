@@ -67,10 +67,10 @@ namespace ProjectManagement
             this.proMSearchMemBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.proMSearchMemBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.proMSearchMemBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.proMSearchMemBtn.Location = new System.Drawing.Point(501, 113);
+            this.proMSearchMemBtn.Location = new System.Drawing.Point(558, 113);
             this.proMSearchMemBtn.Margin = new System.Windows.Forms.Padding(4);
             this.proMSearchMemBtn.Name = "proMSearchMemBtn";
-            this.proMSearchMemBtn.Size = new System.Drawing.Size(128, 42);
+            this.proMSearchMemBtn.Size = new System.Drawing.Size(96, 42);
             this.proMSearchMemBtn.TabIndex = 21;
             this.proMSearchMemBtn.Text = "Search";
             this.proMSearchMemBtn.UseVisualStyleBackColor = false;
@@ -90,7 +90,7 @@ namespace ProjectManagement
             // 
             // proMSearchMemTextBox
             // 
-            this.proMSearchMemTextBox.Location = new System.Drawing.Point(166, 119);
+            this.proMSearchMemTextBox.Location = new System.Drawing.Point(229, 119);
             this.proMSearchMemTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.proMSearchMemTextBox.Name = "proMSearchMemTextBox";
             this.proMSearchMemTextBox.Size = new System.Drawing.Size(321, 30);
@@ -100,12 +100,12 @@ namespace ProjectManagement
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(18, 122);
+            this.label5.Location = new System.Drawing.Point(8, 122);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(137, 23);
+            this.label5.Size = new System.Drawing.Size(215, 23);
             this.label5.TabIndex = 17;
-            this.label5.Text = "Search Members";
+            this.label5.Text = "Search Members By Email :";
             // 
             // proMGroupNameTextBox
             // 
@@ -145,7 +145,7 @@ namespace ProjectManagement
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(10, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(646, 353);
+            this.groupBox1.Size = new System.Drawing.Size(661, 353);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Group Info";
@@ -259,7 +259,7 @@ namespace ProjectManagement
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(10, 371);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(646, 311);
+            this.groupBox2.Size = new System.Drawing.Size(661, 311);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Project Info";
@@ -375,7 +375,7 @@ namespace ProjectManagement
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(671, 778);
+            this.ClientSize = new System.Drawing.Size(686, 778);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.createGroupBtn);
             this.Controls.Add(this.groupBox2);

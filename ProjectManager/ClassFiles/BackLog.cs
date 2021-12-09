@@ -16,7 +16,7 @@ namespace ProjectManagement.ClassFiles
         public string BackLog_GroupName { get; set; }
         public string BackLog_TaskTitle { get; set; }
         public string BackLog_TaskCompleted { get; set; }
-
+        public int PManager_ID { get; set; }
         public void FillData(string query)
         {
             dt.Clear();
@@ -45,15 +45,15 @@ namespace ProjectManagement.ClassFiles
         public bool InsertBackLogData()
         {
             string query = $"insert into BackLog " +
-                $"(BackLog_ProjectTitle,BackLog_GroupName,BackLog_Tasktitle,BackLog_TaskCompletedby)" +
-                $" values('{BackLog_ProjectTitle}','{BackLog_GroupName}','{BackLog_TaskTitle}','{BackLog_TaskCompleted}')";
+                $"(BackLog_ProjectTitle,BackLog_GroupName,BackLog_Tasktitle,BackLog_TaskCompletedby,PManager_ID)" +
+                $" values('{BackLog_ProjectTitle}','{BackLog_GroupName}','{BackLog_TaskTitle}','{BackLog_TaskCompleted}','{PManager_ID}')";
             return RunQuery(query);
         }
         public DataTable GetBackLogData()
         {
             string query = "select BackLog_GroupName as [Group Name],BackLog_ProjectTitle as [Project Title]," +
                 "BackLog_TaskTitle as [Task Title],BackLog_TaskCompletedby as [Completed By] from " +
-                "BackLog";
+                $"BackLog where PManager_ID = {PManager_ID}";
             FillData(query);
             if (dt.Rows.Count > 0)
             {

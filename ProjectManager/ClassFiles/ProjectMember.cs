@@ -292,12 +292,16 @@ namespace ProjectManagement.ClassFiles
                 $"set Task_Attached = null,Task_Comment = null," +
                 $"Task_Completed = 1" +
                 $" where task_id = '{task_id}';";
-            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
-            {
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Connection.Open();
-                cmd.ExecuteNonQuery();
-            }
+            RunQuery(query);
+            string query1 = $"update AssignTask_TBL " +
+                $"set Task_Completed = 1" +
+                $" where task_id = {task_id}";
+            RunQuery(query1);
+            string query2 = $"update Task_TBL " +
+                $"set Task_Completed = 1" +
+                $" where task_id = {task_id}";
+            RunQuery(query2);
+
 
         }
         public bool RemoveAllAssignedTask(int task_id)

@@ -51,6 +51,10 @@ namespace ProjectManagement
             groupAndProjectView.DataSource = null;
             currentTaskGridView.DataSource = null;
             completedTaskGridView.DataSource = null;
+            viewCompletedTaskBtn.Enabled = false;
+            addNewFeatureBtn.Enabled = false;
+            assignTaskBtn.Enabled = false;
+            sendToBacklogBtn.Enabled = false;
             if (pM != null)
             {
                 pM.GetProjectGroups();
@@ -62,15 +66,27 @@ namespace ProjectManagement
                     groupAndProjectView.DataSource = pM.ViewProjectGroupInfo().Copy();
                     groupAndProjectView.ClearSelection();
                 }
+                else
+                {
+                    groupAndProjectView.DataSource = null;
+                }
                 if (pM.ViewCurrentTask(pM.PManager_ID) != null)
                 {
                     currentTaskGridView.DataSource = pM.ViewCurrentTask(pM.PManager_ID).Copy();
                     currentTaskGridView.ClearSelection();
                 }
+                else
+                {
+                    currentTaskGridView.DataSource = null;
+                }
                 if (pM.ViewCompletedTask(pM.PManager_ID) != null)
                 {
                     completedTaskGridView.DataSource = pM.ViewCompletedTask(pM.PManager_ID).Copy();
                     completedTaskGridView.ClearSelection();
+                }
+                else
+                {
+                    completedTaskGridView.DataSource = null;
                 }
             }
         }
@@ -143,6 +159,8 @@ namespace ProjectManagement
 
         private void currentTaskGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            addNewFeatureBtn.Enabled = true;
+            assignTaskBtn.Enabled = true;
             DataGridViewRow row = currentTaskGridView.SelectedRows[0];
             pT.Task_ID = (int)row.Cells["ID"].Value;
             pT.Task_Title = (string)row.Cells["Title"].Value;
@@ -198,6 +216,7 @@ namespace ProjectManagement
                     bL.BackLog_ProjectTitle = project.Project_Title;
                     bL.BackLog_TaskTitle = pT.Task_Title;
                     bL.BackLog_TaskCompleted = $"{pMember.FirstName} {pMember.LastName}";
+                    bL.PManager_ID = pM.PManager_ID;
                     bL.InsertBackLogData();
                     RemoveTaskFromTables removeTask = pT.DeleteFromPerformTaskTable;
                     removeTask += pT.DeleteFromAssignTaskTable;
@@ -209,6 +228,10 @@ namespace ProjectManagement
                         {
                             completedTaskGridView.DataSource = pM.ViewCompletedTask(pM.PManager_ID).Copy();
                             completedTaskGridView.ClearSelection();
+                        }
+                        else
+                        {
+                            completedTaskGridView.DataSource = null;
                         }
                     }
                 }
@@ -222,9 +245,16 @@ namespace ProjectManagement
 
         private void viewProjectBacklogBtn_Click(object sender, EventArgs e)
         {
+            bL.PManager_ID = pM.PManager_ID;
             BackLogTaskView backLog = new BackLogTaskView(bL);
             ShowNewMenu(backLog);
 
+        }
+
+        private void completedTaskGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            viewCompletedTaskBtn.Enabled = true;
+            sendToBacklogBtn.Enabled = true;
         }
     }
 }

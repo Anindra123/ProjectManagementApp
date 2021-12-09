@@ -125,7 +125,9 @@ namespace ProjectManagement
             currentPManagerGroupsComboBox.ValueMember = "PGroup_ID";
             currentPManagerGroupsComboBox.DataSource = pM.ProjectGroups;
             currentPManagerGroupsComboBox.SelectedIndex = -1;
-
+            discardGroupBtn.Enabled = false;
+            AddMemberBtn.Enabled = false;
+            RemoveMemberBtn.Enabled = false;
             groupNameTxtBox.Text = null;
             memberCountTextBox.Text = null;
             currentMembersGridView.DataSource = null;
@@ -148,14 +150,19 @@ namespace ProjectManagement
                 pG = (ProjectGroup)currentPManagerGroupsComboBox.SelectedItem;
                 groupNameTxtBox.Text = pG.PGroup_Name;
                 memberCountTextBox.Text = $"{pG.MembersCount}";
+                discardGroupBtn.Enabled = true;
                 if (pG.FillMemberList() != null)
                 {
                     currentMembersGridView.DataSource = pG.FillMemberList();
                     currentMembersGridView.ClearSelection();
+                    AddMemberBtn.Enabled = true;
+                    RemoveMemberBtn.Enabled = true;
                 }
                 else
                 {
                     currentMembersGridView.DataSource = null;
+                    AddMemberBtn.Enabled = false;
+                    RemoveMemberBtn.Enabled = false;
                 }
 
             }
@@ -165,6 +172,7 @@ namespace ProjectManagement
                 groupNameTxtBox.Text = null;
                 memberCountTextBox.Text = null;
                 currentMembersGridView.DataSource = null;
+                discardGroupBtn.Enabled = false;
             }
         }
 
@@ -226,6 +234,7 @@ namespace ProjectManagement
                     backLog.BackLog_TaskCompleted = $"{pMember.FirstName} {pMember.LastName}";
                 }
                 backLog.BackLog_TaskTitle = pT.Task_Title;
+                backLog.PManager_ID = pM.PManager_ID;
                 backLog.InsertBackLogData();
                 RemoveTaskFromTables removeTask = pT.DeleteFromAssignTaskTable;
                 removeTask += pT.DeleteFromPerformTaskTable;

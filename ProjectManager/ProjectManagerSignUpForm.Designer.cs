@@ -72,7 +72,7 @@ namespace ProjectManagement
             this.proMLastNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.proMLastNameTextBox.Name = "proMLastNameTextBox";
             this.proMLastNameTextBox.Size = new System.Drawing.Size(321, 30);
-            this.proMLastNameTextBox.TabIndex = 22;
+            this.proMLastNameTextBox.TabIndex = 2;
             // 
             // label9
             // 
@@ -91,7 +91,7 @@ namespace ProjectManagement
             this.proMPasswordTextBox.Name = "proMPasswordTextBox";
             this.proMPasswordTextBox.PasswordChar = '*';
             this.proMPasswordTextBox.Size = new System.Drawing.Size(321, 30);
-            this.proMPasswordTextBox.TabIndex = 18;
+            this.proMPasswordTextBox.TabIndex = 4;
             // 
             // label3
             // 
@@ -148,7 +148,7 @@ namespace ProjectManagement
             this.proMSignUp.Margin = new System.Windows.Forms.Padding(4);
             this.proMSignUp.Name = "proMSignUp";
             this.proMSignUp.Size = new System.Drawing.Size(133, 54);
-            this.proMSignUp.TabIndex = 1;
+            this.proMSignUp.TabIndex = 5;
             this.proMSignUp.Text = "Sign Up";
             this.proMSignUp.UseVisualStyleBackColor = false;
             this.proMSignUp.Click += new System.EventHandler(this.proMSignUp_Click);
@@ -162,7 +162,7 @@ namespace ProjectManagement
             this.proMCancel.Margin = new System.Windows.Forms.Padding(4);
             this.proMCancel.Name = "proMCancel";
             this.proMCancel.Size = new System.Drawing.Size(124, 54);
-            this.proMCancel.TabIndex = 2;
+            this.proMCancel.TabIndex = 7;
             this.proMCancel.Text = "Cancel";
             this.proMCancel.UseVisualStyleBackColor = false;
             this.proMCancel.Click += new System.EventHandler(this.proMCancel_Click);
@@ -177,7 +177,7 @@ namespace ProjectManagement
             this.goBackHomePageBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.goBackHomePageBtn.Name = "goBackHomePageBtn";
             this.goBackHomePageBtn.Size = new System.Drawing.Size(132, 54);
-            this.goBackHomePageBtn.TabIndex = 4;
+            this.goBackHomePageBtn.TabIndex = 6;
             this.goBackHomePageBtn.Text = "Back To Home";
             this.goBackHomePageBtn.UseVisualStyleBackColor = false;
             this.goBackHomePageBtn.Click += new System.EventHandler(this.goBackHomePageBtn_Click);
