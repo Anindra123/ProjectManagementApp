@@ -133,6 +133,7 @@ namespace ProjectManagement
             // downloadFiles
             // 
             this.downloadFiles.AutoSize = true;
+            this.downloadFiles.Cursor = System.Windows.Forms.Cursors.Hand;
             this.downloadFiles.LinkColor = System.Drawing.Color.White;
             this.downloadFiles.Location = new System.Drawing.Point(177, 318);
             this.downloadFiles.Name = "downloadFiles";

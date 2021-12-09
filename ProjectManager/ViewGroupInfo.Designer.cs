@@ -29,6 +29,7 @@ namespace ProjectManagement
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewGroupInfo));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupManagerLabel = new System.Windows.Forms.Label();
@@ -81,6 +82,7 @@ namespace ProjectManagement
             // goBackBtn
             // 
             this.goBackBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.goBackBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.goBackBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goBackBtn.ForeColor = System.Drawing.Color.White;
             this.goBackBtn.Location = new System.Drawing.Point(660, 396);
@@ -97,7 +99,15 @@ namespace ProjectManagement
             this.groupMemberGridView.AllowUserToDeleteRows = false;
             this.groupMemberGridView.AllowUserToResizeColumns = false;
             this.groupMemberGridView.AllowUserToResizeRows = false;
-            this.groupMemberGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.groupMemberGridView.ColumnHeadersHeight = 29;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.groupMemberGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.groupMemberGridView.Location = new System.Drawing.Point(35, 168);
             this.groupMemberGridView.MultiSelect = false;
             this.groupMemberGridView.Name = "groupMemberGridView";

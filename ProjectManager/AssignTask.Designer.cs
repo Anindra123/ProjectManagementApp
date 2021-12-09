@@ -77,6 +77,7 @@ namespace ProjectManagement
             // AssignTaskBtn
             // 
             this.AssignTaskBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.AssignTaskBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AssignTaskBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AssignTaskBtn.Location = new System.Drawing.Point(45, 312);
             this.AssignTaskBtn.Name = "AssignTaskBtn";
@@ -89,6 +90,7 @@ namespace ProjectManagement
             // SBtn
             // 
             this.SBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.SBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SBtn.Location = new System.Drawing.Point(360, 312);
             this.SBtn.Name = "SBtn";
@@ -100,6 +102,7 @@ namespace ProjectManagement
             // 
             // selectMemberComboBox
             // 
+            this.selectMemberComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.selectMemberComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.selectMemberComboBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectMemberComboBox.FormattingEnabled = true;

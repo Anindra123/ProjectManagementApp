@@ -62,6 +62,7 @@ namespace ProjectManagement
             // continueAsProjectMemberBtn
             // 
             this.continueAsProjectMemberBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.continueAsProjectMemberBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.continueAsProjectMemberBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.continueAsProjectMemberBtn.ForeColor = System.Drawing.Color.White;
             this.continueAsProjectMemberBtn.Location = new System.Drawing.Point(178, 157);
@@ -75,6 +76,7 @@ namespace ProjectManagement
             // continueAsProjectManagerBtn
             // 
             this.continueAsProjectManagerBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.continueAsProjectManagerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.continueAsProjectManagerBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.continueAsProjectManagerBtn.ForeColor = System.Drawing.Color.White;
             this.continueAsProjectManagerBtn.Location = new System.Drawing.Point(178, 217);
@@ -88,6 +90,7 @@ namespace ProjectManagement
             // aboutBtn
             // 
             this.aboutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.aboutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aboutBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aboutBtn.ForeColor = System.Drawing.Color.White;
             this.aboutBtn.Location = new System.Drawing.Point(178, 277);

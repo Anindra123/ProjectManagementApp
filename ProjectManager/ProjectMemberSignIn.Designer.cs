@@ -31,6 +31,7 @@ namespace ProjectManagement
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectMemberSignIn));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.forgotPasswordLinkLabl = new System.Windows.Forms.LinkLabel();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.signInAsProjectMemberBtn = new System.Windows.Forms.Button();
             this.projMemberNameOREmailTextBox = new System.Windows.Forms.TextBox();
@@ -38,7 +39,6 @@ namespace ProjectManagement
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.forgotPasswordLinkLabl = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -63,9 +63,23 @@ namespace ProjectManagement
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // forgotPasswordLinkLabl
+            // 
+            this.forgotPasswordLinkLabl.AutoSize = true;
+            this.forgotPasswordLinkLabl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.forgotPasswordLinkLabl.LinkColor = System.Drawing.Color.White;
+            this.forgotPasswordLinkLabl.Location = new System.Drawing.Point(19, 270);
+            this.forgotPasswordLinkLabl.Name = "forgotPasswordLinkLabl";
+            this.forgotPasswordLinkLabl.Size = new System.Drawing.Size(148, 23);
+            this.forgotPasswordLinkLabl.TabIndex = 7;
+            this.forgotPasswordLinkLabl.TabStop = true;
+            this.forgotPasswordLinkLabl.Text = "Forgot Password ?";
+            this.forgotPasswordLinkLabl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.forgotPasswordLinkLabl_LinkClicked);
+            // 
             // cancelBtn
             // 
             this.cancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.cancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancelBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtn.ForeColor = System.Drawing.Color.White;
             this.cancelBtn.Location = new System.Drawing.Point(355, 327);
@@ -80,6 +94,7 @@ namespace ProjectManagement
             // signInAsProjectMemberBtn
             // 
             this.signInAsProjectMemberBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.signInAsProjectMemberBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.signInAsProjectMemberBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signInAsProjectMemberBtn.ForeColor = System.Drawing.Color.White;
             this.signInAsProjectMemberBtn.Location = new System.Drawing.Point(44, 327);
@@ -136,18 +151,6 @@ namespace ProjectManagement
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // forgotPasswordLinkLabl
-            // 
-            this.forgotPasswordLinkLabl.AutoSize = true;
-            this.forgotPasswordLinkLabl.LinkColor = System.Drawing.Color.White;
-            this.forgotPasswordLinkLabl.Location = new System.Drawing.Point(19, 270);
-            this.forgotPasswordLinkLabl.Name = "forgotPasswordLinkLabl";
-            this.forgotPasswordLinkLabl.Size = new System.Drawing.Size(148, 23);
-            this.forgotPasswordLinkLabl.TabIndex = 7;
-            this.forgotPasswordLinkLabl.TabStop = true;
-            this.forgotPasswordLinkLabl.Text = "Forgot Password ?";
-            this.forgotPasswordLinkLabl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.forgotPasswordLinkLabl_LinkClicked);
             // 
             // ProjectMemberSignIn
             // 

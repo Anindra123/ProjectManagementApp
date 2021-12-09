@@ -65,6 +65,7 @@ namespace ProjectManagement
             // proMSearchMemBtn
             // 
             this.proMSearchMemBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.proMSearchMemBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.proMSearchMemBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.proMSearchMemBtn.Location = new System.Drawing.Point(501, 113);
             this.proMSearchMemBtn.Margin = new System.Windows.Forms.Padding(4);
@@ -152,6 +153,7 @@ namespace ProjectManagement
             // addMemberBtn
             // 
             this.addMemberBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.addMemberBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addMemberBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addMemberBtn.Location = new System.Drawing.Point(399, 176);
             this.addMemberBtn.Margin = new System.Windows.Forms.Padding(4);
@@ -208,11 +210,11 @@ namespace ProjectManagement
             this.membersAddedGridView.AllowUserToDeleteRows = false;
             this.membersAddedGridView.AllowUserToResizeColumns = false;
             this.membersAddedGridView.AllowUserToResizeRows = false;
-            this.membersAddedGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.membersAddedGridView.ColumnHeadersHeight = 29;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -341,6 +343,7 @@ namespace ProjectManagement
             // cancelBtn
             // 
             this.cancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.cancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancelBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtn.ForeColor = System.Drawing.Color.White;
             this.cancelBtn.Location = new System.Drawing.Point(409, 705);
@@ -355,6 +358,7 @@ namespace ProjectManagement
             // createGroupBtn
             // 
             this.createGroupBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.createGroupBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.createGroupBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createGroupBtn.ForeColor = System.Drawing.Color.White;
             this.createGroupBtn.Location = new System.Drawing.Point(73, 705);
@@ -376,6 +380,7 @@ namespace ProjectManagement
             this.Controls.Add(this.createGroupBtn);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
