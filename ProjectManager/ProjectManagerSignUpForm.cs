@@ -16,6 +16,7 @@ namespace ProjectManagement
     {
 
         ProjectManager pM = new ProjectManager();
+        Validations validations = new Validations();
         public ProjectManagerSignUpForm()
         {
             InitializeComponent();
@@ -102,6 +103,11 @@ namespace ProjectManagement
                 MessageBox.Show("An Entry with same name/email/password already exist. Try something different", "Alert",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ResetSignUpFeilds();
+            }
+            else if (password.Length > 8)
+            {
+
+                validations.ShowAlert("Password can be maximum 8 characters long");
             }
             else
             {

@@ -51,6 +51,11 @@ namespace ProjectManagement.ClassFiles
                 ShowAlert("Invalid Email");
                 return false;
             }
+            else if (pass.Length > 8)
+            {
+                ShowAlert("Password must be 8 characters long");
+                return false;
+            }
             else if (!update)
             {
                 if (obj is ProjectManager)
