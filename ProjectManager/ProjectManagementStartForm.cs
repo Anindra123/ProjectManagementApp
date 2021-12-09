@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace ProjectManagement
 {
-    
+
     public partial class ProjectManagementStartForm : Form
     {
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if(keyData == Keys.Escape)
+            if (keyData == Keys.Escape)
             {
                 this.Close();
             }
@@ -34,10 +34,6 @@ namespace ProjectManagement
             obj.Show(this);
             this.Hide();
         }
-        private void continueAsAdminBtn_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void continueAsProjectMemberBtn_Click(object sender, EventArgs e)
         {
@@ -53,9 +49,10 @@ namespace ProjectManagement
             ShowNewMenu(managerForm);
         }
 
-        private void ProjectManagementStartForm_Load(object sender, EventArgs e)
+        private void aboutBtn_Click(object sender, EventArgs e)
         {
-
+            About about = new About();
+            about.ShowDialog();
         }
     }
 }

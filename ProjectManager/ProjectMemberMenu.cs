@@ -92,10 +92,6 @@ namespace ProjectManagement
             form1.Close();
             form2.Show();
         }
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void logOutBtn_Click(object sender, EventArgs e)
         {
@@ -149,21 +145,6 @@ namespace ProjectManagement
 
         }
 
-        private void assignedTasksListBox_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void ProjectMemberMenu_MouseClick(object sender, MouseEventArgs e)
-        {
-        }
-
-        private void assignedTasksListBox_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
 
 
         private void viewTaskdetailBtn_Click(object sender, EventArgs e)
@@ -171,7 +152,7 @@ namespace ProjectManagement
 
             SubmitTaskForm submitTask = new SubmitTaskForm((ProjectTask)assignedTasksListBox.SelectedItem,
                 projectMember, this);
-            submitTask.Show();
+            submitTask.ShowDialog();
 
         }
 
@@ -253,6 +234,13 @@ namespace ProjectManagement
             ViewMemberProjectInfo viewProjectInfo = new ViewMemberProjectInfo(project, projectMember, projectManager);
             ShowNewMenu(viewProjectInfo);
             this.Hide();
+        }
+
+        private void ProjectMemberMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            var form1 = (ProjectMemberSignIn)Tag;
+            var form2 = (ContinueAsProjectMemberForm)form1.Tag;
+            form2.Show();
         }
     }
 }

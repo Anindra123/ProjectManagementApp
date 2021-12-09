@@ -27,10 +27,6 @@ namespace ProjectManagement
             this.pG = pG;
             this.project = project;
         }
-        private void proMSearchMemTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void proMSearchAndAddBtn_Click(object sender, EventArgs e)
         {

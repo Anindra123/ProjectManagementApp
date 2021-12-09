@@ -58,7 +58,6 @@ namespace ProjectManagement
             this.proMSearchMemTextBox.Name = "proMSearchMemTextBox";
             this.proMSearchMemTextBox.Size = new System.Drawing.Size(321, 30);
             this.proMSearchMemTextBox.TabIndex = 23;
-            this.proMSearchMemTextBox.TextChanged += new System.EventHandler(this.proMSearchMemTextBox_TextChanged);
             // 
             // label5
             // 

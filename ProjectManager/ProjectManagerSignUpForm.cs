@@ -50,13 +50,6 @@ namespace ProjectManagement
             this.Close();
         }
 
-        private void proMCreateNewProj_Click(object sender, EventArgs e)
-        {
-            //Give control to the nextform
-
-
-        }
-
         private void ProjectManagerSignUpForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             ShowPreviousForm();
@@ -80,90 +73,23 @@ namespace ProjectManagement
             string email = proMEmailTextBox.Text.Trim();
             string password = proMPasswordTextBox.Text.Trim();
 
-            string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
-
-            if (string.IsNullOrEmpty(firstName) ||
-                string.IsNullOrEmpty(lastName) ||
-                string.IsNullOrEmpty(email) ||
-                string.IsNullOrEmpty(password)
-                )
+            if (validations.SignUpAndUpdateValidation<ProjectManager>(false,
+                firstName, lastName, email, password, pM))
             {
-
-                MessageBox.Show("Text Fields Cannot be empty", "Alert",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            }
-            else if (!Regex.IsMatch(email, pattern))
-            {
-                MessageBox.Show("Invalid Email", "Alert",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (pM.CheckDuplicateMailAndPass(email, password))
-            {
-                MessageBox.Show("An Entry with same name/email/password already exist. Try something different", "Alert",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                ResetSignUpFeilds();
-            }
-            else if (password.Length > 8)
-            {
-
-                validations.ShowAlert("Password can be maximum 8 characters long");
-            }
-            else
-            {
-
                 bool ret = pM.SignUp(firstName, lastName, email, password);
-
-
 
                 if (ret == true)
                 {
                     MessageBox.Show("User Successfully Signed Up", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ResetSignUpFeilds();
-
-
                 }
                 else
                 {
                     MessageBox.Show("Error in Sign Up", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-
             }
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void proMFirstNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void proMYesMembersRadio_CheckedChanged(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void proMSearchMemBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ProjectManagerSignUpForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

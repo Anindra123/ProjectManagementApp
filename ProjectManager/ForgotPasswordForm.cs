@@ -13,52 +13,102 @@ namespace ProjectManagement
 {
     public partial class ForgotPasswordForm : Form
     {
-        ProjectMember pM = new ProjectMember();
+        ProjectMember pMember = new ProjectMember();
+        ProjectManager pManager = new ProjectManager();
+        Validations validations = new Validations();
+        string showPasswordFor;
         public ForgotPasswordForm()
         {
             InitializeComponent();
             showPasswordLabel.Text = "none";
         }
+        public ForgotPasswordForm(string showPasswordFor)
+        {
+            InitializeComponent();
+            showPasswordLabel.Text = "none";
+            this.showPasswordFor = showPasswordFor;
+        }
 
         private void submiEmailBtn_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(enterMailTextBox.Text.Trim())
-                && pM.VerifyMail(enterMailTextBox.Text.Trim())
-                )
+            if (showPasswordFor.ToLower() == "projectmember")
             {
-                if (pM.GetMemberPass(enterMailTextBox.Text.Trim()))
+                if (!string.IsNullOrWhiteSpace(enterMailTextBox.Text.Trim())
+                && pMember.VerifyMail(enterMailTextBox.Text.Trim())
+                )
                 {
-                    showPasswordLabel.Text = null;
-                    DialogResult dr = MessageBox.Show("Found User", "Sucess", MessageBoxButtons.OK
-                        , MessageBoxIcon.Information);
-                    if (dr == DialogResult.OK)
+                    if (pMember.GetMemberPass(enterMailTextBox.Text.Trim()))
                     {
-                        for (int i = 0; i < pM.password.Length; i++)
+                        showPasswordLabel.Text = null;
+                        DialogResult dr = MessageBox.Show("Found User", "Sucess", MessageBoxButtons.OK
+                            , MessageBoxIcon.Information);
+                        if (dr == DialogResult.OK)
                         {
-                            showPasswordLabel.Text += "*";
+                            for (int i = 0; i < pMember.password.Length; i++)
+                            {
+                                showPasswordLabel.Text += "*";
+                            }
                         }
+                    }
+                    else
+                    {
+                        showPasswordLabel.Text = "none";
+                        MessageBox.Show("No account exist for this User / Invalid Mail", "Alert", MessageBoxButtons.OK
+                             , MessageBoxIcon.Exclamation);
                     }
                 }
                 else
                 {
                     showPasswordLabel.Text = "none";
-                    MessageBox.Show("No account exist for this User / Invalid Mail", "Alert", MessageBoxButtons.OK
-                         , MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Entered Email is Invalid", "Alert", MessageBoxButtons.OK
+                           , MessageBoxIcon.Exclamation);
                 }
             }
-            else
+
+            if (showPasswordFor.ToLower() == "projectmanager")
             {
-                showPasswordLabel.Text = "none";
-                MessageBox.Show("Entered Email is Invalid", "Alert", MessageBoxButtons.OK
-                       , MessageBoxIcon.Exclamation);
+                if (!string.IsNullOrWhiteSpace(enterMailTextBox.Text.Trim())
+                && validations.ValidateMail(enterMailTextBox.Text.Trim())
+                )
+                {
+                    if (pManager.GetManagerPass(enterMailTextBox.Text.Trim()))
+                    {
+                        showPasswordLabel.Text = null;
+                        DialogResult dr = MessageBox.Show("Found User", "Sucess", MessageBoxButtons.OK
+                            , MessageBoxIcon.Information);
+                        if (dr == DialogResult.OK)
+                        {
+                            for (int i = 0; i < pManager.password.Length; i++)
+                            {
+                                showPasswordLabel.Text += "*";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        showPasswordLabel.Text = "none";
+                        MessageBox.Show("No account exist for this User / Invalid Mail", "Alert", MessageBoxButtons.OK
+                             , MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    showPasswordLabel.Text = "none";
+                    MessageBox.Show("Entered Email is Invalid", "Alert", MessageBoxButtons.OK
+                           , MessageBoxIcon.Exclamation);
+                }
             }
         }
 
         private void showPassLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (showPasswordLabel.Text != "none")
+            if (showPasswordLabel.Text != "none" && showPasswordFor.ToLower() == "projectmember")
             {
-                showPasswordLabel.Text = pM.password;
+                showPasswordLabel.Text = pMember.password;
+            }
+            else if (showPasswordLabel.Text != "none" && showPasswordFor.ToLower() == "projectmanager")
+            {
+                showPasswordLabel.Text = pManager.password;
             }
             else
             {
@@ -69,9 +119,16 @@ namespace ProjectManagement
 
         private void copyToClipboardLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (showPasswordLabel.Text != "none")
+            if (showPasswordLabel.Text != "none" && showPasswordFor.ToLower() == "projectmember")
             {
-                Clipboard.SetText(pM.password);
+                Clipboard.SetText(pMember.password);
+                MessageBox.Show("Password copied to clipboard", "Copied", MessageBoxButtons.OK
+                        , MessageBoxIcon.Information);
+            }
+            else if (showPasswordLabel.Text != "none" && showPasswordFor.ToLower() == "projectmanager")
+            {
+
+                Clipboard.SetText(pManager.password);
                 MessageBox.Show("Password copied to clipboard", "Copied", MessageBoxButtons.OK
                         , MessageBoxIcon.Information);
             }

@@ -271,6 +271,7 @@ namespace ProjectManagement
                         DialogResult res = validations.ShowInfo("Group Discarded Sucessfully");
                         if (res == DialogResult.OK)
                         {
+                            currentPManagerGroupsComboBox.SelectedIndex = 0;
                             ResetForm();
                         }
                     }

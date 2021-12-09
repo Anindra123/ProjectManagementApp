@@ -39,6 +39,19 @@ namespace ProjectManagement.ClassFiles
             }
             return ret;
         }
+        public bool GetManagerPass(string email)
+        {
+            string query = $"select PManager_Password from PManager_TBL where " +
+                $"PManager_Email = '{email}'";
+            FillData(query);
+            if (dt.Rows.Count == 1)
+            {
+                password = (string)dt.Rows[0]["PManager_Password"];
+                return true;
+            }
+            return false;
+
+        }
         public bool CheckDuplicateUpdate(string email, string pass)
         {
             string query = $"select * from PManager_TBL where " +

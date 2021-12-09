@@ -28,10 +28,6 @@ namespace ProjectManagement
             InitializeComponent();
             this.pM = pM;
         }
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void AddNewFeature_Load(object sender, EventArgs e)
         {
@@ -101,11 +97,6 @@ namespace ProjectManagement
                     }
                 }
             }
-        }
-
-        private void assignSelectionNoRadioBtn_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)

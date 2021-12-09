@@ -43,11 +43,6 @@ namespace ProjectManagement
             }
         }
 
-        private void backLogHistoryGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void goBackbtn_Click(object sender, EventArgs e)
         {
             ShowPreviousMenu();

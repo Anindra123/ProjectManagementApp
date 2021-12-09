@@ -19,6 +19,7 @@ namespace ProjectManagement
         ProjectManager pMang;
         Project project;
         ProjectTask pT = new ProjectTask();
+        Validations validations = new Validations();
         bool leaveGroup = false;
 
         string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
@@ -46,72 +47,58 @@ namespace ProjectManagement
         }
         private void updateCnfirmBtn_Click(object sender, EventArgs e)
         {
-
-            //main form validation
-            if (!string.IsNullOrWhiteSpace(projectMemberFirstNameTxtBox.Text.Trim())
-                && !string.IsNullOrWhiteSpace(projectMemberLastNameTxtBox.Text.Trim())
-                && !string.IsNullOrWhiteSpace(projMemberPasswordTextBox.Text)
-                && !string.IsNullOrWhiteSpace(projMemberEmailTxtBox.Text.Trim())
-                )
+            string fName = projectMemberFirstNameTxtBox.Text.Trim();
+            string lName = projectMemberLastNameTxtBox.Text.Trim();
+            string password = projMemberPasswordTextBox.Text.Trim();
+            string email = projMemberEmailTxtBox.Text.Trim();
+            pM.FirstName = fName;
+            pM.LastName = lName;
+            pM.Email = email;
+            pM.password = password;
+            if (validations.SignUpAndUpdateValidation<ProjectMember>(true,
+                fName, lName, email, password, pM))
             {
-                //Email validation
-                if (Regex.IsMatch(projMemberEmailTxtBox.Text.Trim(), pattern))
+                if (leaveGroup == true && pM.UpdateMemberInfo())
                 {
-                    pM.FirstName = projectMemberFirstNameTxtBox.Text.Trim();
-                    pM.LastName = projectMemberLastNameTxtBox.Text.Trim();
-                    pM.Email = projMemberEmailTxtBox.Text.Trim();
-                    pM.password = projMemberPasswordTextBox.Text.Trim();
-
-                    if (leaveGroup == true && pM.UpdateMemberInfo())
+                    int pMemberID = pM.PMemberID;
+                    DataTable dt = pT.CheckAssingedToMember(pMemberID);
+                    if (dt != null)
                     {
-                        int pMemberID = pM.PMemberID;
-                        DataTable dt = pT.CheckAssingedToMember(pMemberID);
-                        if (dt != null)
+                        foreach (DataRow row in dt.Rows)
                         {
-                            foreach (DataRow row in dt.Rows)
-                            {
-                                int t_id = (int)row["Task_ID"];
-                                pM.RemoveAllAssignedTask(t_id);
-                            }
-                            if (pM.DeleteMemberGroupInfoTable(pMemberID)
-                            && pM.DeleteMemberProjInfoTable(pMemberID)
-                           )
-                            {
-                                MessageBox.Show("Updated Sucessfully", "Sucess",
-                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                pG = null;
-                                pMang = null;
-                                project = null;
-                                leaveGroup = false;
-                            }
+                            int t_id = (int)row["Task_ID"];
+                            pM.RemoveAllAssignedTask(t_id);
                         }
-
-
+                        if (pM.DeleteMemberGroupInfoTable(pMemberID)
+                        && pM.DeleteMemberProjInfoTable(pMemberID)
+                       )
+                        {
+                            MessageBox.Show("Updated Sucessfully", "Sucess",
+             MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            pG = null;
+                            pMang = null;
+                            project = null;
+                            leaveGroup = false;
+                        }
                     }
-                    else if (pM.UpdateMemberInfo())
-                    {
 
-                        MessageBox.Show("Updated Sucessfully", "Sucess",
-                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error during update", "Error",
-                  MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                }
+                else if (pM.UpdateMemberInfo())
+                {
+
+                    MessageBox.Show("Updated Sucessfully", "Sucess",
+             MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
                 else
                 {
-                    MessageBox.Show("Email Is Invalid", "Alert",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Error during update", "Error",
+              MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
-            {
-                MessageBox.Show("Text fields Cannot Be Empty", "Alert",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+
+
         }
 
         private void UpdateMemberInfo_Load(object sender, EventArgs e)
@@ -120,9 +107,12 @@ namespace ProjectManagement
             projectMemberLastNameTxtBox.Text = pM.LastName;
             projMemberEmailTxtBox.Text = pM.Email;
             projMemberPasswordTextBox.Text = pM.password;
-            projManagerLabel.Text = $"{pMang.FirstName} {pMang.LastName}";
-            groupNameLabel.Text = pG.PGroup_Name;
-            projNameLabel.Text = project.Project_Title;
+            if (pMang != null)
+            {
+                projManagerLabel.Text = $"{pMang.FirstName} {pMang.LastName}";
+                groupNameLabel.Text = pG.PGroup_Name;
+                projNameLabel.Text = project.Project_Title;
+            }
 
         }
 
