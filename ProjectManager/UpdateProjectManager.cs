@@ -32,43 +32,7 @@ namespace ProjectManagement
             form.IntializeForm();
             form.Show();
         }
-        private void textBox1_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void UpdateProjectManager_Load(object sender, EventArgs e)
         {
             if (pM != null)

@@ -135,7 +135,6 @@ namespace ProjectManagement
             this.firstNameManagerTxt.Name = "firstNameManagerTxt";
             this.firstNameManagerTxt.Size = new System.Drawing.Size(456, 30);
             this.firstNameManagerTxt.TabIndex = 4;
-            this.firstNameManagerTxt.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label3
             // 
