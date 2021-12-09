@@ -158,6 +158,7 @@ namespace ProjectManagement
             this.discardGroupBtn.TabIndex = 10;
             this.discardGroupBtn.Text = "Discard Group";
             this.discardGroupBtn.UseVisualStyleBackColor = false;
+            this.discardGroupBtn.Click += new System.EventHandler(this.discardGroupBtn_Click);
             // 
             // label7
             // 

@@ -145,6 +145,17 @@ namespace ProjectManagement.ClassFiles
                 $" where Project_ID = '{this.Project_ID}'";
             return RunQuery(query);
         }
-
+        public bool RemoveManagerProject_TBL()
+        {
+            string query = $"delete from ManageProject_TBL where" +
+                $" Project_ID = {Project_ID}";
+            return RunQuery(query);
+        }
+        public bool RemoveProject_TBL()
+        {
+            string query = $"delete from Project_TBL where" +
+                $" Project_ID = {Project_ID}";
+            return RunQuery(query);
+        }
     }
 }

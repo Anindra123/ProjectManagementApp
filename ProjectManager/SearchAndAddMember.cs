@@ -54,7 +54,7 @@ namespace ProjectManagement
                 validations.ShowAlert("Project is completed so further member cannot be added");
                 proMSearchMemTextBox.Text = null;
             }
-            else if (pG.FillMemberList().Rows.Count >= pG.MembersCount)
+            else if (pG.FillMemberList() != null && pG.FillMemberList().Rows.Count >= pG.MembersCount)
             {
                 validations.ShowAlert("Maximum group member reached");
                 proMSearchMemTextBox.Text = null;

@@ -300,7 +300,31 @@ namespace ProjectManagement.ClassFiles
             }
 
         }
+        public bool RemoveAllAssignedTask(int task_id)
+        {
+            bool performTask;
+            bool assignTask;
+            bool taskComplete;
 
+            string query = $"update PerformTask_TBL " +
+                $"set Task_Attached = null,Task_Comment = null," +
+                $"Task_Completed = 1,PMember_ID = null" +
+                $" where task_id = '{task_id}';";
+            performTask = RunQuery(query);
+            string query1 = $"update AssignTask_TBL " +
+                $"set Task_Completed = 1" +
+                $" where task_id = {task_id}";
+            assignTask = RunQuery(query1);
+            string query2 = $"update Task_TBL " +
+                $"set Task_Completed = 1" +
+                $" where task_id = {task_id}";
+            taskComplete = RunQuery(query2);
+            if (performTask && assignTask && taskComplete)
+            {
+                return true;
+            }
+            return false;
+        }
         public bool UpdateMemberInfo()
         {
             int rowEffected = 0;

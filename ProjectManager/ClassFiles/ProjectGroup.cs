@@ -133,5 +133,24 @@ namespace ProjectManagement.ClassFiles
                 $"where PGroup_ID = {PGroup_ID}";
             return RunQuery(query);
         }
+        public bool RemoveGroupContainsProject()
+        {
+            string query = $"delete from GroupContainsProject_TBL where" +
+                $" PGroup_ID = {PGroup_ID}";
+            return RunQuery(query);
+        }
+        public bool RemovePManagerGroupInfo()
+        {
+            string query = $"delete from PManagerGroupInfo_TBL where" +
+                $" PGroup_ID = {PGroup_ID}";
+            return RunQuery(query);
+        }
+        public bool RemovePGroup()
+        {
+            string query = $"delete from PGroup_TBL where" +
+                $" PGroup_ID = {PGroup_ID}";
+            return RunQuery(query);
+        }
     }
 }
+
