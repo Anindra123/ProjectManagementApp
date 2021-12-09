@@ -137,7 +137,6 @@ namespace ProjectManagement
             this.label2.Size = new System.Drawing.Size(109, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Project Title :";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -232,7 +231,6 @@ namespace ProjectManagement
             this.assignedTasksListBox.Name = "assignedTasksListBox";
             this.assignedTasksListBox.Size = new System.Drawing.Size(410, 209);
             this.assignedTasksListBox.TabIndex = 0;
-            this.assignedTasksListBox.Click += new System.EventHandler(this.assignedTasksListBox_Click);
             this.assignedTasksListBox.SelectedIndexChanged += new System.EventHandler(this.assignedTasksListBox_SelectedIndexChanged);
             // 
             // viewGroupInfoBtn
@@ -320,8 +318,8 @@ namespace ProjectManagement
             this.Name = "ProjectMemberMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Project Member Dashboard";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProjectMemberMenu_FormClosed);
             this.Load += new System.EventHandler(this.ProjectMemberMenu_Load);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ProjectMemberMenu_MouseClick);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.TaskInfo.ResumeLayout(false);

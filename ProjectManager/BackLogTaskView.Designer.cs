@@ -32,9 +32,9 @@ namespace ProjectManagement
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BackLogTaskView));
             this.currentFeatureList2Groupbox = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.backLogHistoryGridView = new System.Windows.Forms.DataGridView();
             this.goBackbtn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.currentFeatureList2Groupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.backLogHistoryGridView)).BeginInit();
             this.SuspendLayout();
@@ -53,23 +53,31 @@ namespace ProjectManagement
             this.currentFeatureList2Groupbox.TabStop = false;
             this.currentFeatureList2Groupbox.Text = "Implemented Features";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(31, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(233, 23);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Your current backlog history :";
+            // 
             // backLogHistoryGridView
             // 
             this.backLogHistoryGridView.AllowUserToAddRows = false;
             this.backLogHistoryGridView.AllowUserToDeleteRows = false;
             this.backLogHistoryGridView.AllowUserToResizeColumns = false;
             this.backLogHistoryGridView.AllowUserToResizeRows = false;
-            this.backLogHistoryGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.backLogHistoryGridView.ColumnHeadersHeight = 29;
             this.backLogHistoryGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.backLogHistoryGridView.DefaultCellStyle = dataGridViewCellStyle1;
-            this.backLogHistoryGridView.Enabled = false;
             this.backLogHistoryGridView.Location = new System.Drawing.Point(31, 98);
             this.backLogHistoryGridView.Name = "backLogHistoryGridView";
             this.backLogHistoryGridView.ReadOnly = true;
@@ -78,7 +86,6 @@ namespace ProjectManagement
             this.backLogHistoryGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.backLogHistoryGridView.Size = new System.Drawing.Size(708, 187);
             this.backLogHistoryGridView.TabIndex = 9;
-            this.backLogHistoryGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.backLogHistoryGridView_CellContentClick);
             // 
             // goBackbtn
             // 
@@ -94,15 +101,6 @@ namespace ProjectManagement
             this.goBackbtn.Text = "Go Back";
             this.goBackbtn.UseVisualStyleBackColor = false;
             this.goBackbtn.Click += new System.EventHandler(this.goBackbtn_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(233, 23);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Your current backlog history :";
             // 
             // BackLogTaskView
             // 

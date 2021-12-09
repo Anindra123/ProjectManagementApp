@@ -32,19 +32,19 @@ namespace ProjectManagement
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewMemberProjectInfo));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.projectTaskGridView = new System.Windows.Forms.DataGridView();
-            this.projectTitleLbl = new System.Windows.Forms.Label();
-            this.projectDescLbl = new System.Windows.Forms.Label();
-            this.projManagerLbl = new System.Windows.Forms.Label();
-            this.projStartDate = new System.Windows.Forms.Label();
-            this.projEndDate = new System.Windows.Forms.Label();
             this.goBackBtn = new System.Windows.Forms.Button();
+            this.projEndDate = new System.Windows.Forms.Label();
+            this.projStartDate = new System.Windows.Forms.Label();
+            this.projManagerLbl = new System.Windows.Forms.Label();
+            this.projectDescLbl = new System.Windows.Forms.Label();
+            this.projectTitleLbl = new System.Windows.Forms.Label();
+            this.projectTaskGridView = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.projectTaskGridView)).BeginInit();
             this.SuspendLayout();
@@ -72,131 +72,6 @@ namespace ProjectManagement
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Project Info";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Project Title  :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 103);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(163, 23);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Project Description :";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 199);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 23);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Created By :";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(40, 246);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 23);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Start Date :";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(40, 297);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 23);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "End Date :";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(40, 411);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(138, 19);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Current Project Task :";
-            // 
-            // projectTaskGridView
-            // 
-            this.projectTaskGridView.AllowUserToAddRows = false;
-            this.projectTaskGridView.AllowUserToDeleteRows = false;
-            this.projectTaskGridView.AllowUserToResizeColumns = false;
-            this.projectTaskGridView.AllowUserToResizeRows = false;
-            this.projectTaskGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.projectTaskGridView.DefaultCellStyle = dataGridViewCellStyle1;
-            this.projectTaskGridView.Location = new System.Drawing.Point(44, 433);
-            this.projectTaskGridView.Name = "projectTaskGridView";
-            this.projectTaskGridView.ReadOnly = true;
-            this.projectTaskGridView.RowHeadersWidth = 51;
-            this.projectTaskGridView.RowTemplate.Height = 24;
-            this.projectTaskGridView.Size = new System.Drawing.Size(534, 154);
-            this.projectTaskGridView.TabIndex = 7;
-            // 
-            // projectTitleLbl
-            // 
-            this.projectTitleLbl.AutoSize = true;
-            this.projectTitleLbl.Location = new System.Drawing.Point(171, 50);
-            this.projectTitleLbl.Name = "projectTitleLbl";
-            this.projectTitleLbl.Size = new System.Drawing.Size(49, 23);
-            this.projectTitleLbl.TabIndex = 8;
-            this.projectTitleLbl.Text = "none";
-            // 
-            // projectDescLbl
-            // 
-            this.projectDescLbl.AutoSize = true;
-            this.projectDescLbl.Location = new System.Drawing.Point(40, 126);
-            this.projectDescLbl.Name = "projectDescLbl";
-            this.projectDescLbl.Size = new System.Drawing.Size(49, 23);
-            this.projectDescLbl.TabIndex = 9;
-            this.projectDescLbl.Text = "none";
-            // 
-            // projManagerLbl
-            // 
-            this.projManagerLbl.AutoSize = true;
-            this.projManagerLbl.Location = new System.Drawing.Point(171, 199);
-            this.projManagerLbl.Name = "projManagerLbl";
-            this.projManagerLbl.Size = new System.Drawing.Size(49, 23);
-            this.projManagerLbl.TabIndex = 10;
-            this.projManagerLbl.Text = "none";
-            // 
-            // projStartDate
-            // 
-            this.projStartDate.AutoSize = true;
-            this.projStartDate.Location = new System.Drawing.Point(171, 246);
-            this.projStartDate.Name = "projStartDate";
-            this.projStartDate.Size = new System.Drawing.Size(49, 23);
-            this.projStartDate.TabIndex = 11;
-            this.projStartDate.Text = "none";
-            // 
-            // projEndDate
-            // 
-            this.projEndDate.AutoSize = true;
-            this.projEndDate.Location = new System.Drawing.Point(171, 297);
-            this.projEndDate.Name = "projEndDate";
-            this.projEndDate.Size = new System.Drawing.Size(49, 23);
-            this.projEndDate.TabIndex = 12;
-            this.projEndDate.Text = "none";
             // 
             // goBackBtn
             // 
@@ -210,6 +85,130 @@ namespace ProjectManagement
             this.goBackBtn.Text = "Go Back";
             this.goBackBtn.UseVisualStyleBackColor = false;
             this.goBackBtn.Click += new System.EventHandler(this.goBackBtn_Click);
+            // 
+            // projEndDate
+            // 
+            this.projEndDate.AutoSize = true;
+            this.projEndDate.Location = new System.Drawing.Point(171, 297);
+            this.projEndDate.Name = "projEndDate";
+            this.projEndDate.Size = new System.Drawing.Size(49, 23);
+            this.projEndDate.TabIndex = 12;
+            this.projEndDate.Text = "none";
+            // 
+            // projStartDate
+            // 
+            this.projStartDate.AutoSize = true;
+            this.projStartDate.Location = new System.Drawing.Point(171, 246);
+            this.projStartDate.Name = "projStartDate";
+            this.projStartDate.Size = new System.Drawing.Size(49, 23);
+            this.projStartDate.TabIndex = 11;
+            this.projStartDate.Text = "none";
+            // 
+            // projManagerLbl
+            // 
+            this.projManagerLbl.AutoSize = true;
+            this.projManagerLbl.Location = new System.Drawing.Point(171, 199);
+            this.projManagerLbl.Name = "projManagerLbl";
+            this.projManagerLbl.Size = new System.Drawing.Size(49, 23);
+            this.projManagerLbl.TabIndex = 10;
+            this.projManagerLbl.Text = "none";
+            // 
+            // projectDescLbl
+            // 
+            this.projectDescLbl.AutoSize = true;
+            this.projectDescLbl.Location = new System.Drawing.Point(40, 126);
+            this.projectDescLbl.Name = "projectDescLbl";
+            this.projectDescLbl.Size = new System.Drawing.Size(49, 23);
+            this.projectDescLbl.TabIndex = 9;
+            this.projectDescLbl.Text = "none";
+            // 
+            // projectTitleLbl
+            // 
+            this.projectTitleLbl.AutoSize = true;
+            this.projectTitleLbl.Location = new System.Drawing.Point(171, 50);
+            this.projectTitleLbl.Name = "projectTitleLbl";
+            this.projectTitleLbl.Size = new System.Drawing.Size(49, 23);
+            this.projectTitleLbl.TabIndex = 8;
+            this.projectTitleLbl.Text = "none";
+            // 
+            // projectTaskGridView
+            // 
+            this.projectTaskGridView.AllowUserToAddRows = false;
+            this.projectTaskGridView.AllowUserToDeleteRows = false;
+            this.projectTaskGridView.AllowUserToResizeColumns = false;
+            this.projectTaskGridView.AllowUserToResizeRows = false;
+            this.projectTaskGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.projectTaskGridView.DefaultCellStyle = dataGridViewCellStyle1;
+            this.projectTaskGridView.Location = new System.Drawing.Point(44, 433);
+            this.projectTaskGridView.Name = "projectTaskGridView";
+            this.projectTaskGridView.ReadOnly = true;
+            this.projectTaskGridView.RowHeadersWidth = 51;
+            this.projectTaskGridView.RowTemplate.Height = 24;
+            this.projectTaskGridView.Size = new System.Drawing.Size(534, 154);
+            this.projectTaskGridView.TabIndex = 7;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(40, 411);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(138, 19);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Current Project Task :";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(40, 297);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 23);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "End Date :";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(40, 246);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(95, 23);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Start Date :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(40, 199);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(102, 23);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Created By :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(40, 103);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(163, 23);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Project Description :";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(40, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Project Title  :";
             // 
             // ViewMemberProjectInfo
             // 

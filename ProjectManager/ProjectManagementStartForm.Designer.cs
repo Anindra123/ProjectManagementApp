@@ -96,6 +96,7 @@ namespace ProjectManagement
             this.aboutBtn.TabIndex = 5;
             this.aboutBtn.Text = "About";
             this.aboutBtn.UseVisualStyleBackColor = false;
+            this.aboutBtn.Click += new System.EventHandler(this.aboutBtn_Click);
             // 
             // ProjectManagementStartForm
             // 
@@ -115,7 +116,6 @@ namespace ProjectManagement
             this.Name = "ProjectManagementStartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome";
-            this.Load += new System.EventHandler(this.ProjectManagementStartForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

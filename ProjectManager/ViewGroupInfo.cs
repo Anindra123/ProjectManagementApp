@@ -39,10 +39,6 @@ namespace ProjectManagement
             groupManagerLabel.Text = $"{firstName} {LastName}";
 
         }
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void ViewGroupInfo_Load(object sender, EventArgs e)
         {

@@ -72,7 +72,6 @@ namespace ProjectManagement
             this.groupBox1.Size = new System.Drawing.Size(634, 610);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // projectTitleLbl
             // 
@@ -174,7 +173,6 @@ namespace ProjectManagement
             this.assignSelectionNoRadioBtn.TabStop = true;
             this.assignSelectionNoRadioBtn.Text = "No";
             this.assignSelectionNoRadioBtn.UseVisualStyleBackColor = true;
-            this.assignSelectionNoRadioBtn.CheckedChanged += new System.EventHandler(this.assignSelectionNoRadioBtn_CheckedChanged);
             // 
             // assignSelectionYesRadioBtn
             // 

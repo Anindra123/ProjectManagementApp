@@ -75,11 +75,6 @@ namespace ProjectManagement
             }
         }
 
-        private void groupSerachtxtbox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void searchEnterBtn_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(groupSerachtxtbox.Text.Trim()))

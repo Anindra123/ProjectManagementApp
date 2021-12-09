@@ -58,19 +58,18 @@ namespace ProjectManagement
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(19, 14);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(625, 237);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Project Manager Info";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter_1);
             // 
             // proMLastNameTextBox
             // 
             this.proMLastNameTextBox.Location = new System.Drawing.Point(221, 79);
-            this.proMLastNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proMLastNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.proMLastNameTextBox.Name = "proMLastNameTextBox";
             this.proMLastNameTextBox.Size = new System.Drawing.Size(321, 30);
             this.proMLastNameTextBox.TabIndex = 22;
@@ -88,7 +87,7 @@ namespace ProjectManagement
             // proMPasswordTextBox
             // 
             this.proMPasswordTextBox.Location = new System.Drawing.Point(221, 155);
-            this.proMPasswordTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proMPasswordTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.proMPasswordTextBox.Name = "proMPasswordTextBox";
             this.proMPasswordTextBox.PasswordChar = '*';
             this.proMPasswordTextBox.Size = new System.Drawing.Size(321, 30);
@@ -107,7 +106,7 @@ namespace ProjectManagement
             // proMEmailTextBox
             // 
             this.proMEmailTextBox.Location = new System.Drawing.Point(221, 117);
-            this.proMEmailTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proMEmailTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.proMEmailTextBox.Name = "proMEmailTextBox";
             this.proMEmailTextBox.Size = new System.Drawing.Size(321, 30);
             this.proMEmailTextBox.TabIndex = 3;
@@ -125,7 +124,7 @@ namespace ProjectManagement
             // proMFirstNameTextBox
             // 
             this.proMFirstNameTextBox.Location = new System.Drawing.Point(221, 41);
-            this.proMFirstNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proMFirstNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.proMFirstNameTextBox.Name = "proMFirstNameTextBox";
             this.proMFirstNameTextBox.Size = new System.Drawing.Size(321, 30);
             this.proMFirstNameTextBox.TabIndex = 1;
@@ -145,7 +144,7 @@ namespace ProjectManagement
             this.proMSignUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.proMSignUp.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.proMSignUp.Location = new System.Drawing.Point(31, 274);
-            this.proMSignUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proMSignUp.Margin = new System.Windows.Forms.Padding(4);
             this.proMSignUp.Name = "proMSignUp";
             this.proMSignUp.Size = new System.Drawing.Size(133, 54);
             this.proMSignUp.TabIndex = 1;
@@ -158,7 +157,7 @@ namespace ProjectManagement
             this.proMCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.proMCancel.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.proMCancel.Location = new System.Drawing.Point(499, 274);
-            this.proMCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proMCancel.Margin = new System.Windows.Forms.Padding(4);
             this.proMCancel.Name = "proMCancel";
             this.proMCancel.Size = new System.Drawing.Size(124, 54);
             this.proMCancel.TabIndex = 2;
@@ -193,13 +192,12 @@ namespace ProjectManagement
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "ProjectManagerSignUpForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Project Manager Sign Up";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProjectManagerSignUpForm_FormClosed);
-            this.Load += new System.EventHandler(this.ProjectManagerSignUpForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

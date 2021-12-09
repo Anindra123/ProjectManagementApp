@@ -85,5 +85,11 @@ namespace ProjectManagement
             }
 
         }
+
+        private void forgotPasswordLinkLabl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ForgotPasswordForm forgotPassword = new ForgotPasswordForm("projectmanager");
+            forgotPassword.ShowDialog();
+        }
     }
 }

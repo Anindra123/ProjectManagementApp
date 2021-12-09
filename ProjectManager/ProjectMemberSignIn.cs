@@ -97,7 +97,7 @@ namespace ProjectManagement
 
         private void forgotPasswordLinkLabl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ForgotPasswordForm forgotPassword = new ForgotPasswordForm();
+            ForgotPasswordForm forgotPassword = new ForgotPasswordForm("projectmember");
             forgotPassword.ShowDialog();
         }
     }

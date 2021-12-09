@@ -106,7 +106,6 @@ namespace ProjectManagement
             this.projMemFirstNameTextBox.Name = "projMemFirstNameTextBox";
             this.projMemFirstNameTextBox.Size = new System.Drawing.Size(415, 30);
             this.projMemFirstNameTextBox.TabIndex = 0;
-            this.projMemFirstNameTextBox.TextChanged += new System.EventHandler(this.projMemFirstNameTextBox_TextChanged);
             // 
             // label3
             // 

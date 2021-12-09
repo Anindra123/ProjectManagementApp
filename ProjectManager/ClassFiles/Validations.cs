@@ -35,6 +35,15 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
+        public bool ValidateMail(string email)
+        {
+            if (!Regex.IsMatch(email, pattern))
+            {
+                ShowAlert("Invalid Email");
+                return false;
+            }
+            return true;
+        }
 
         public bool SignUpAndUpdateValidation<T>(bool update, string fName, string lName, string email, string pass, T obj)
         {

@@ -14,12 +14,12 @@ namespace ProjectManagement
 {
     public partial class MemberSignUpForm : Form
     {
-        //defined a regular expression for mail validation
-        string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+
         ProjectMember projectMember = new ProjectMember();
         ProjectGroup projectGroup = new ProjectGroup();
         ProjectManager projectManager = new ProjectManager();
         Project project = new Project();
+        Validations validations = new Validations();
         public MemberSignUpForm()
         {
             InitializeComponent();
@@ -82,79 +82,35 @@ namespace ProjectManagement
         }
         private void projMemberSignUpBtn_Click(object sender, EventArgs e)
         {
-            //Check the main fields
-            if (!string.IsNullOrWhiteSpace(projMemFirstNameTextBox.Text.Trim())
-                && !string.IsNullOrWhiteSpace(projMLastNameTextBox.Text.Trim())
-                && !string.IsNullOrWhiteSpace(projMemberPasswordTextBox.Text.Trim())
-                && !string.IsNullOrWhiteSpace(projectMemberEmailTextBox.Text.Trim())
-                )
+            string fName = projMemFirstNameTextBox.Text.Trim();
+            string lName = projMLastNameTextBox.Text.Trim();
+            string email = projectMemberEmailTextBox.Text.Trim();
+            string password = projMemberPasswordTextBox.Text.Trim();
+            if (validations.SignUpAndUpdateValidation<ProjectMember>(false,
+                fName, lName, email, password, projectMember))
             {
-                //Email validation
-                if (Regex.IsMatch(projectMemberEmailTextBox.Text.Trim(), pattern))
+
+                bool val = projectMember.SignUPProjectMember(
+                              fName, lName, email, password);
+
+
+
+                if (val == true)
                 {
-                    if (projMemberPasswordTextBox.Text.Trim().Length <= 8)
+
+                    DialogResult result = MessageBox.Show("Sign Up Sucessful", "Sucess",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (result == DialogResult.OK)
                     {
-                        //Validate the group info feild
-
-                        if (validateMatchingMailAndPass())
-                        {
-                            bool val = projectMember.SignUPProjectMember(
-                            projMemFirstNameTextBox.Text.Trim(),
-                            projMLastNameTextBox.Text.Trim(),
-                            projectMemberEmailTextBox.Text.Trim(),
-                            projMemberPasswordTextBox.Text.Trim()
-                            );
-
-
-
-                            if (val == true)
-                            {
-
-                                DialogResult result = MessageBox.Show("Sign Up Sucessful", "Sucess",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                if (result == DialogResult.OK)
-                                {
-                                    ResetSignUpFeilds();
-                                }
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("An Entry with same name/email or password already exist. Try something different", "Alert",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Password can be 8 characters long", "Error",
-                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ResetSignUpFeilds();
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Email Is Invalid", "Alert",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
             }
-            else
-            {
-                MessageBox.Show("Text fields Cannot Be Empty", "Alert",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-
-
-        private void groupConfirmBtn_Click(object sender, EventArgs e)
-        {
 
         }
 
-        private void projMemFirstNameTextBox_TextChanged(object sender, EventArgs e)
-        {
 
-        }
+
+        
     }
 }
