@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace ProjectManagement
 {
+    //delegate signatures 
     public delegate bool UpdateGroups(string gName, int memCount);
     public delegate bool RemoveGroup();
     public delegate bool RemoveProjects();
@@ -61,16 +62,18 @@ namespace ProjectManagement
         {
             if (currentMembersGridView.SelectedRows.Count > 0)
             {
+                //selecting row from a data grid view
                 DataGridViewRow row = currentMembersGridView.SelectedRows[0];
                 string mail = (string)row.Cells["Email"].Value;
                 pMember.SearchMember(mail);
-                if (pT.CheckAssingedToMember(pMember.PMemberID) != null)
+                if (pT.CheckTaskAssingedToMember(pMember.PMemberID) != null)
                 {
                     DialogResult r = MessageBox.Show("Member has some work progress.If you remove his/her progress will be lost.Continue ?",
                         "Continue", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (r == DialogResult.Yes)
                     {
-                        DataTable dt = pT.CheckAssingedToMember(pMember.PMemberID);
+                        //looping throug rows of datatable
+                        DataTable dt = pT.CheckTaskAssingedToMember(pMember.PMemberID);
                         foreach (DataRow taskRow in dt.Rows)
                         {
                             int id = (int)taskRow["Task_ID"];
@@ -119,6 +122,8 @@ namespace ProjectManagement
         }
         private void ResetForm()
         {
+            //resets form feilds with default value or
+            //updated value
             currentPManagerGroupsComboBox.DataSource = null;
             pM.GetProjectGroups();
             currentPManagerGroupsComboBox.DisplayMember = "PGroup_name";
@@ -145,6 +150,8 @@ namespace ProjectManagement
 
         private void currentPManagerGroupsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //will update members list based on the current group
+            //being selected from drop down list
             if (currentPManagerGroupsComboBox.SelectedIndex >= 0)
             {
                 pG = (ProjectGroup)currentPManagerGroupsComboBox.SelectedItem;
@@ -214,6 +221,8 @@ namespace ProjectManagement
         }
         private void RemoveTasksAndPlaceInBackLog()
         {
+            //will remove each task for current project 
+            // on the current group if the group is discarded
             int projId = project.Project_ID;
             foreach (DataRow row in pT.GetTaskListFromProject(projId).Rows)
             {
@@ -236,6 +245,8 @@ namespace ProjectManagement
                 backLog.BackLog_TaskTitle = pT.Task_Title;
                 backLog.PManager_ID = pM.PManager_ID;
                 backLog.InsertBackLogData();
+                //RemoveTaskFromTables multicasted deligate 
+                //intance created
                 RemoveTaskFromTables removeTask = pT.DeleteFromAssignTaskTable;
                 removeTask += pT.DeleteFromPerformTaskTable;
                 removeTask += pT.DeleteFromTaskTable;
@@ -244,6 +255,8 @@ namespace ProjectManagement
         }
         private void RemoveMembersFromGroup()
         {
+            //removes all members from current group if 
+            //group is discarded
             int g_id = pG.PGroup_ID;
             DataTable members = pG.FillMemberList(g_id);
             if (members != null)
@@ -265,14 +278,16 @@ namespace ProjectManagement
                 DialogResult r = MessageBox.Show("Confirm discard ? All the project progress will be lost", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (r == DialogResult.Yes)
                 {
-
-
+                    //if some tasks exist which means the project 
+                    //was not completed those task will be discarded
+                    //and then members are removed form group
                     RemoveTasksAndPlaceInBackLog();
-
                     RemoveMembersFromGroup();
+                    //RemoveGroup multicasted deligate instance created
                     RemoveGroup removeGroups = pG.RemoveGroupContainsProject;
                     removeGroups += pG.RemovePManagerGroupInfo;
                     removeGroups += pG.RemovePGroup;
+                    //RemoveProjects multicasted deligate instance created
                     RemoveProjects removeProjects = project.RemoveManagerProject_TBL;
                     removeProjects += project.RemoveProject_TBL;
                     if (removeGroups() && removeProjects())
@@ -288,6 +303,9 @@ namespace ProjectManagement
             }
             else
             {
+                //else if no task currently active and all are completed
+                //which meanse project is completed so the group will be 
+                //discarded
                 DialogResult r = MessageBox.Show("Confirm discard ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (r == DialogResult.Yes)
                 {

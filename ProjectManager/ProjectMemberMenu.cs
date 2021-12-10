@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace ProjectManagement
 {
+    //delegate signature to set project and group info for
+    //current project member
     public delegate void SetProjectAndGroup(int id);
     public partial class ProjectMemberMenu : Form
     {
@@ -37,6 +39,8 @@ namespace ProjectManagement
         public void SetDashboardlabels(string groupName, string firstName, string LastName,
             string title)
         {
+            //set the labels information at top left corner 
+            //of project member dashboard
             projectGroupNameLabel.Text = $"{groupName}";
             projectLeaderNameLabel.Text = $"{firstName} {LastName}";
             projectTitleLabel.Text = $"{title}";
@@ -49,6 +53,8 @@ namespace ProjectManagement
         }
         public void InitializeDashBoard()
         {
+            //sets required lists, objects, datasource
+            //and enables or disables required buttons
             projectMember.tasks.Clear();
             assignedTasksListBox.DataSource = projectMember.tasks;
             completedTasksListBox.DataSource = projectMember.tasks;
@@ -100,6 +106,9 @@ namespace ProjectManagement
         }
         private void AssignObjectsValues()
         {
+            //creates a multicasted deligate instance
+            //which will set the current project and group and 
+            //project manager object to their required values
             SetProjectAndGroup setProjectAndGroup = project.GetProjectInfo;
             setProjectAndGroup += projGroup.GetPGroupInfo;
             setProjectAndGroup(projectMember.PMemberID);
@@ -108,6 +117,9 @@ namespace ProjectManagement
         }
         public void FilterTaskList()
         {
+            //filters tasks based on project currently 
+            //completed and projects that are assigned 
+            //and updates the list box view
             compTask = new ProjectMember();
             compTask.tasks.AddRange(projectMember.tasks.FindAll(x => x.Task_Completed == 2));
             completedTasksListBox.DataSource = null;
@@ -165,6 +177,8 @@ namespace ProjectManagement
 
         private void assignedTasksListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //when an item in listbox is clicked it will enable
+            //or disable button according to that
             if (assignedTasksListBox.SelectedIndex == -1)
             {
                 viewTaskdetailBtn.Enabled = false;
@@ -178,9 +192,16 @@ namespace ProjectManagement
 
         private void removeTaskCompletedBtn_Click(object sender, EventArgs e)
         {
+            //if a member already completed a task
+            //and want to update it he/she can reassign the 
+            //task again , it will remove all the previous progress
+            //of the task 
             if (completedTasksListBox.SelectedItem != null)
             {
                 int val = (int)completedTasksListBox.SelectedValue;
+                // => lamda expression
+                //says that to retrive a ProjectTask object whose task id matches val
+                //same as delegate(r) {return r.Task_ID ==val;}
                 ProjectTask pTask = projectMember.tasks.Find(r => r.Task_ID == val);
                 pTask.Task_Completed = 1;
                 pTask.Task_Comment = null;
@@ -192,6 +213,8 @@ namespace ProjectManagement
 
         private void completedTasksListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //when an item in listbox is clicked it will enable
+            //or disable button according to that
             if (completedTasksListBox.SelectedIndex == -1)
             {
                 removeTaskCompletedBtn.Enabled = false;

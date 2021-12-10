@@ -40,6 +40,9 @@ namespace ProjectManagement
 
         private void createBtn_Click(object sender, EventArgs e)
         {
+            //when add new task button is clicked
+            //validates whether text feild is empty or if 
+            //a task is assinged
             if (string.IsNullOrWhiteSpace(titleTextBox.Text.Trim()))
             {
 
@@ -105,8 +108,12 @@ namespace ProjectManagement
             this.Close();
         }
 
+
+
         private void assignSelectionYesRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
+            //enables or disabled combobox based on which radio
+            // button is checked
             if (assignSelectionYesRadioBtn.Checked)
             {
                 assignToComboBox.Enabled = true;
@@ -122,6 +129,8 @@ namespace ProjectManagement
 
         private void groupsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //if a value is selected from the drop down list
+            //assign that value for respective objects
             if (groupsComboBox.SelectedIndex >= 0 && groupsComboBox.SelectedItem != null)
             {
                 int g_id = (int)groupsComboBox.SelectedValue;
@@ -141,6 +150,8 @@ namespace ProjectManagement
 
         private void assignToComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //member drop down list a member is selected
+            //get his / her id
             if (assignToComboBox.SelectedIndex >= 0)
             {
                 memberID = (int)assignToComboBox.SelectedValue;

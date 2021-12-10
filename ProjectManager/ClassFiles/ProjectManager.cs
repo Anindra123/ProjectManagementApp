@@ -14,6 +14,11 @@ namespace ProjectManagement.ClassFiles
         public int PManager_ID { get; set; }
         public List<ProjectGroup> ProjectGroups { get; set; } = new List<ProjectGroup>();
         public List<Project> Projects { get; set; } = new List<Project>();
+        /// <summary>
+        /// Common function 
+        /// used to reset the datatable data and fill the datatable
+        /// with new data
+        /// </summary>
         public void FillData(string query)
         {
             dt.Clear();
@@ -25,6 +30,11 @@ namespace ProjectManagement.ClassFiles
                 sda.Fill(dt);
             }
         }
+        /// <summary>
+        /// Common function 
+        /// used to open database connection and run executeNonQuery command
+        /// and the number of rows effected boolean value is returned
+        /// </summary>
         public bool RunQuery(string query)
         {
             bool ret = false;
@@ -39,6 +49,10 @@ namespace ProjectManagement.ClassFiles
             }
             return ret;
         }
+        /// <summary>
+        /// Will retrieve password of project manager and 
+        /// set properties when email is passed
+        /// </summary>
         public bool GetManagerPass(string email)
         {
             string query = $"select PManager_Password from PManager_TBL where " +
@@ -52,6 +66,11 @@ namespace ProjectManagement.ClassFiles
             return false;
 
         }
+        /// <summary>
+        /// Check during updating project manager 
+        /// information whether duplicate mail or 
+        /// password is given
+        /// </summary>
         public bool CheckDuplicateUpdate(string email, string pass)
         {
             string query = $"select * from PManager_TBL where " +
@@ -64,6 +83,11 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
+        /// <summary>
+        /// Check during sign up of project manager 
+        /// whether duplicate mail or 
+        /// password is given
+        /// </summary>
         public bool CheckDuplicateMailAndPass(string email, string pass)
         {
             string query = $"select * from PManager_TBL where " +
@@ -75,6 +99,11 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
+        /// <summary>
+        /// When project manager updates his/her
+        /// account information and clicks update
+        /// this method will be called
+        /// </summary>
         public bool UpdateProjectManagerInfo(string fName, string lName, string pass, string email)
         {
 
@@ -89,6 +118,10 @@ namespace ProjectManagement.ClassFiles
             return false;
 
         }
+        /// <summary>
+        /// When new group is created 
+        /// this is called to insert the new group data
+        /// </summary>
         public bool AssignGroup(string gName, int pM_ID)
         {
             string query = $"select * from PGroup_TBL where PGroup_name = '{gName}'";
@@ -106,6 +139,10 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
+        /// <summary>
+        /// When new project is created 
+        /// this is called to insert the new project data
+        /// </summary>
         public bool AssignProject(string pTitle, int pM_ID, string gName)
         {
             bool assignToPManager = false;
@@ -144,26 +181,30 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
+        /// <summary>
+        /// Insert the newly created group data
+        /// on PGroup_TBL
+        /// </summary>
         public bool CreateGroup(string gName, int membersCount)
         {
             string query = $"insert into PGroup_TBL" +
                 $" (PGroup_name,PGroup_MembersCount) " +
                 $"values('{gName}','{membersCount}')";
-            if (RunQuery(query))
-            {
-                return true;
-            }
-            return false;
+            return RunQuery(query);
         }
+        /// <summary>
+        /// Insert the newly created project data
+        /// on Project_TBL
+        /// </summary>
         public bool CreateProject(string pTitle, string pDesc, DateTime sDate, DateTime eDate)
         {
             string query = $"insert into Project_TBL" + $" (Project_Title,Project_Desc,Project_StartDate,Project_EndDate,PStatus_ID)" + $" values('{pTitle}','{pDesc}','{sDate}','{eDate}','2')";
-            if (RunQuery(query))
-            {
-                return true;
-            }
-            return false;
+            return RunQuery(query);
         }
+        /// <summary>
+        /// Retrives project manager data and 
+        /// sets the properties
+        /// </summary>
         public void GetProjectManager()
         {
             string query = $"select * from PManager_TBL where PManager_ID = {PManager_ID}";
@@ -177,6 +218,10 @@ namespace ProjectManagement.ClassFiles
 
             }
         }
+        /// <summary>
+        /// Retrives project manager data and 
+        /// sets the properties
+        /// </summary>
         public void AddGroupMembers(List<ProjectMember> pMList, int g_id)
         {
             foreach (ProjectMember item in pMList)
@@ -187,6 +232,11 @@ namespace ProjectManagement.ClassFiles
                 RunQuery(query);
             }
         }
+        /// <summary>
+        /// Takes a project member genericlist
+        /// loops through each of the items in the list
+        /// and add the project member information
+        /// </summary>
         public void AddProjectMembers(List<ProjectMember> pMList, int p_id)
         {
             foreach (ProjectMember item in pMList)
@@ -197,6 +247,12 @@ namespace ProjectManagement.ClassFiles
                 RunQuery(query);
             }
         }
+        /// <summary>
+        /// From the PGroup_TBL 
+        /// retrieves all group information
+        /// and creates a PGroup object and adds it to a 
+        /// generic list of type ProjectGroup
+        /// </summary>
         public void GetProjectGroups()
         {
             ProjectGroups.Clear();
@@ -216,6 +272,11 @@ namespace ProjectManagement.ClassFiles
             }
 
         }
+        /// <summary>
+        /// Searches for project member information from mail
+        /// and return the project member object by 
+        /// assigning the property values
+        /// </summary>
         public ProjectMember SearchPMember(string mail)
         {
             ProjectMember output = new ProjectMember();
@@ -236,6 +297,11 @@ namespace ProjectManagement.ClassFiles
             }
             return output;
         }
+        /// <summary>
+        /// Checks whether a project member is already member 
+        /// of a group called when removing a project member 
+        /// or adding member to group
+        /// </summary>
         public bool CheckIfAlreadyGroupMember(int pmember_id)
         {
             string query = $"select * from PMemberGroupInfo_TBL where " +
@@ -247,6 +313,10 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
+        /// <summary>
+        /// Takes a data table and fills it with 
+        /// data of project member with respective id
+        /// </summary>
         public void FillPmemberData(DataTable dt, int pmember_id)
         {
             string query = $"select Concat(PMember_FirstName,' ',PMember_LastName) as Name,PMember_Email as Email from" +
@@ -257,6 +327,11 @@ namespace ProjectManagement.ClassFiles
                 sda.Fill(dt);
             }
         }
+        /// <summary>
+        /// Fills up the Projects generic list 
+        /// by retriving current project information
+        /// creating project object and adding it to list
+        /// </summary>
         public void GetProjects()
         {
             Projects.Clear();
@@ -278,6 +353,10 @@ namespace ProjectManagement.ClassFiles
             }
 
         }
+        /// <summary>
+        /// Returns a project object with its property 
+        /// values assigned for a specific group
+        /// </summary>
         public Project GetProject(int g_id)
         {
             Project output = new Project();
@@ -301,6 +380,11 @@ namespace ProjectManagement.ClassFiles
             }
             return output;
         }
+        /// <summary>
+        /// Will show the group name,project title,
+        /// start date,end date and status of the current project 
+        /// in the group
+        /// </summary>
         public DataTable ViewProjectGroupInfo()
         {
             string query = $"select pmg.PGroup_Name as [Group Name],mp.Project_Title as [Project Title],mp.Project_StartDate as [Start Date],mp.Project_EndDate as [End Date]," +
@@ -316,6 +400,11 @@ namespace ProjectManagement.ClassFiles
             }
             return null;
         }
+        /// <summary>
+        /// Takes a project manager email and password and
+        /// allows project manager to sign in to the system
+        /// by verifying data
+        /// </summary>
         public bool SignIn(string email, string pass)
 
         {
@@ -347,6 +436,10 @@ namespace ProjectManagement.ClassFiles
 
 
         }
+        /// <summary>
+        /// Checkes whether a task withh similar title
+        /// exists
+        /// </summary>
         public bool CheckTaskExist(string taskTitle)
         {
             string query = $"select * from Task_TBL where Lower(Task_title) = '{taskTitle}'";
@@ -357,6 +450,9 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
+        /// <summary>
+        /// Retrives the id for a task
+        /// </summary>
         public int GetTaskID(string taskTitle)
         {
             string query = $"select * from Task_TBL where Lower(Task_title) = '{taskTitle}'";
@@ -367,9 +463,11 @@ namespace ProjectManagement.ClassFiles
             }
             return -1;
         }
+        /// <summary>
+        /// Inserts the newly created task data in Task_TBL
+        /// </summary>
         public bool CreateTask(string taskTitle, string taskDesc, int p_id)
         {
-
 
             string query = $"insert into Task_TBL " +
                 $"(Task_title,Task_Desc,Task_Completed,Project_ID) " +
@@ -377,6 +475,9 @@ namespace ProjectManagement.ClassFiles
             return RunQuery(query);
 
         }
+        /// <summary>
+        /// Inserts the newly created task data in AssignTask_TBL
+        /// </summary>
         public bool AssignTask(string taskTitle, string taskDesc, int pM_id)
         {
             if (GetTaskID(taskTitle) > 0)
@@ -389,6 +490,9 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
+        /// <summary>
+        /// Inserts the newly created task data in PerformTask_TBL
+        /// </summary>
         public bool AssignTaskToMember(string taskTitle, string taskDesc, int pMem_id)
         {
             if (GetTaskID(taskTitle) > 0)
@@ -411,6 +515,9 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
+        /// <summary>
+        /// Shows the current task created for a project
+        /// </summary>
         public DataTable ViewCurrentTask(int pM_id)
         {
             string query = $"select at.Task_ID as ID,at.Task_title as Title,at.Task_Desc as Description,ts.StatusName as Status from" +
@@ -423,6 +530,10 @@ namespace ProjectManagement.ClassFiles
             }
             return null;
         }
+        /// <summary>
+        /// Shows the current task created for a project
+        /// that are completed by member
+        /// </summary>
         public DataTable ViewCompletedTask(int pM_id)
         {
             string query = $"select at.Task_ID as ID,at.Task_title as Title,at.Task_Desc as Description,ts.StatusName as Status from" +
@@ -435,7 +546,10 @@ namespace ProjectManagement.ClassFiles
             }
             return null;
         }
-
+        /// <summary>
+        /// Inserts all project manager data in PManager_TBL when 
+        /// signing up
+        /// </summary>
         public bool SignUp(string firstName, string lastName, string email, string password)
         {
             bool ret = false;
@@ -453,19 +567,10 @@ namespace ProjectManagement.ClassFiles
 
             return ret;
         }
-        public void GetProjectManagerTitleForMember(int id)
-        {
-            string query = $"select pm.* from ManageProject_TBL as mp " +
-                $", PManager_TBL as pm where mp.Project_ID = '{id}' and pm.PManager_ID = " +
-                $" mp.PManager_ID";
-            FillData(query);
-            if (dt.Rows.Count == 1)
-            {
-                FirstName = dt.Rows[0]["PManager_FirstName"].ToString();
-                LastName = dt.Rows[0]["PManager_LastName"].ToString();
-
-            }
-        }
+        /// <summary>
+        /// Takes current project id to retrive project manager 
+        /// data and assigns the property values
+        /// </summary>
         public void GetProjectManagerInfo(int proj_id)
         {
             string query = $"select pm.* from ManageProject_TBL as mp," +

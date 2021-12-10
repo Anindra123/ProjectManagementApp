@@ -17,6 +17,12 @@ namespace ProjectManagement.ClassFiles
         public string BackLog_TaskTitle { get; set; }
         public string BackLog_TaskCompleted { get; set; }
         public int PManager_ID { get; set; }
+
+        /// <summary>
+        /// Common function 
+        /// used to reset the datatable data and fill the datatable
+        /// with new data
+        /// </summary>
         public void FillData(string query)
         {
             dt.Clear();
@@ -28,6 +34,11 @@ namespace ProjectManagement.ClassFiles
                 sda.Fill(dt);
             }
         }
+        /// <summary>
+        /// Common function 
+        /// used to open database connection and run executeNonQuery command
+        /// and the number of rows effected boolean value is returned
+        /// </summary>
         public bool RunQuery(string query)
         {
             bool ret = false;
@@ -42,6 +53,10 @@ namespace ProjectManagement.ClassFiles
             }
             return ret;
         }
+        /// <summary>
+        /// Inserts a project task that has been completed 
+        /// for a particular project and group its data to backlog
+        /// </summary>
         public bool InsertBackLogData()
         {
             string query = $"insert into BackLog " +
@@ -49,6 +64,9 @@ namespace ProjectManagement.ClassFiles
                 $" values('{BackLog_ProjectTitle}','{BackLog_GroupName}','{BackLog_TaskTitle}','{BackLog_TaskCompleted}','{PManager_ID}')";
             return RunQuery(query);
         }
+        /// <summary>
+        /// Retrives backlog data from database
+        /// </summary>
         public DataTable GetBackLogData()
         {
             string query = "select BackLog_GroupName as [Group Name],BackLog_ProjectTitle as [Project Title]," +

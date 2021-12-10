@@ -39,6 +39,7 @@ namespace ProjectManagement
         }
         void ResetSignUpFeilds()
         {
+            //empty text feild after user signed up
             proMFirstNameTextBox.Text = "";
             proMLastNameTextBox.Text = "";
             proMEmailTextBox.Text = "";
@@ -61,11 +62,7 @@ namespace ProjectManagement
             this.Close();
         }
 
-        //[TODO]
-        // implement the radio button functionalities
-        // validate text fields along with email
-        // validate the group form 
-        // save the sign up info in a database or textbox
+
         private void proMSignUp_Click(object sender, EventArgs e)
         {
             string firstName = proMFirstNameTextBox.Text.Trim();
@@ -73,6 +70,7 @@ namespace ProjectManagement
             string email = proMEmailTextBox.Text.Trim();
             string password = proMPasswordTextBox.Text.Trim();
 
+            //calling the generic method from validations
             if (validations.SignUpAndUpdateValidation<ProjectManager>(false,
                 firstName, lastName, email, password, pM))
             {

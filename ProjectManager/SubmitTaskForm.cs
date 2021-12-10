@@ -35,6 +35,9 @@ namespace ProjectManagement
         }
         private void SetTaskStatus()
         {
+            //sets radio button check based on the current
+            //task status
+
             if (pT.CheckTaskStatus(pT.Task_Completed))
             {
                 statusCompletedRadioBtn.Checked = true;
@@ -47,6 +50,8 @@ namespace ProjectManagement
         }
         private void DisableFields(bool en)
         {
+            //disable the file attach and comment section
+            //based on which radio button is clicked
             browseFilesBtn.Enabled = en;
             taskCmntTxtBox.Enabled = en;
             if (en == false)
@@ -66,6 +71,10 @@ namespace ProjectManagement
         }
         private void AttachFile(string fileName)
         {
+            //File stream takes a file and converts it content 
+            //to byte[] information 
+            //Read method copies the byte[] information to fileData
+            //which is also type byte[]
             FileStream fstream = File.OpenRead(fileName);
             fileData = new byte[fstream.Length];
             fstream.Read(fileData, 0, (int)fstream.Length);
@@ -73,6 +82,7 @@ namespace ProjectManagement
         }
         private void browseFilesBtn_Click(object sender, EventArgs e)
         {
+            //open window to select text file to upload
             using (OpenFileDialog opd = new OpenFileDialog() { Filter = "Text Document (.txt)|*.txt", ValidateNames = true })
             {
                 if (opd.ShowDialog() == DialogResult.OK)
@@ -140,6 +150,8 @@ namespace ProjectManagement
 
         private void SubmitTaskForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            //updates task list based on completed and pending
+            //when form is closed
             pmMenu.FilterTaskList();
         }
     }

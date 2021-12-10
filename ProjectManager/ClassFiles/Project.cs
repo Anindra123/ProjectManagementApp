@@ -17,7 +17,12 @@ namespace ProjectManagement.ClassFiles
         public DateTime Project_StartDate { get; set; }
         public DateTime Project_EndDate { get; set; }
         public int Project_Completed { get; set; }
-        public int PManager_ID { get; set; }
+
+        /// <summary>
+        /// Common function 
+        /// used to reset the datatable data and fill the datatable
+        /// with new data
+        /// </summary>
         public void FillData(string query)
         {
             dt.Clear();
@@ -29,6 +34,12 @@ namespace ProjectManagement.ClassFiles
                 sda.Fill(dt);
             }
         }
+
+        /// <summary>
+        /// Common function 
+        /// used to open database connection and run executeNonQuery command
+        /// and the number of rows effected boolean value is returned
+        /// </summary>
         public bool RunQuery(string query)
         {
             bool ret = false;
@@ -43,6 +54,9 @@ namespace ProjectManagement.ClassFiles
             }
             return ret;
         }
+        /// <summary>
+        /// Verify whether a project with same title already exist
+        /// </summary>
         public bool CheckIfProjectExist(string name)
         {
             string query = $"Select * from Project_TBL where Project_Title = '{name}'";
@@ -53,10 +67,13 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
-        public void GetProjectTitleForMember(int id)
+        /// <summary>
+        /// Verify whether a project with same title already exist
+        /// </summary>
+        public void GetProjectTitleForMember(int g_id)
         {
             string query = $"select p.* from GroupContainsProject_TBL as pg " +
-                $", Project_TBL as p where pg.PGroup_ID = '{id}' and p.Project_ID = " +
+                $", Project_TBL as p where pg.PGroup_ID = '{g_id}' and p.Project_ID = " +
                 $" pg.Project_ID";
             FillData(query);
             if (dt.Rows.Count == 1)
@@ -66,6 +83,9 @@ namespace ProjectManagement.ClassFiles
             }
 
         }
+        /// <summary>
+        /// Get the current project status string
+        /// </summary>
         public string GetProjectStatus()
         {
             string status;
@@ -79,6 +99,10 @@ namespace ProjectManagement.ClassFiles
             }
             return status;
         }
+        /// <summary>
+        /// Retrieves all project information that a member is 
+        /// assinged to and set values of properties
+        /// </summary>
         public void GetProjectInfo(int pmember_id)
         {
             string query = $"select p_t.* from PMemberProjectInfo_TBL as pmp_t " +
@@ -96,6 +120,10 @@ namespace ProjectManagement.ClassFiles
 
             }
         }
+        /// <summary>
+        /// Retrieves all project information that 
+        /// was assinged a particular task
+        /// </summary>
         public void GetProjectInfoFromTask(int t_id)
         {
             string query = $"select * from " +
@@ -112,6 +140,10 @@ namespace ProjectManagement.ClassFiles
                 Project_Completed = Convert.ToInt32(dt.Rows[0]["PStatus_ID"].ToString());
             }
         }
+        /// <summary>
+        /// Checks whether any task exist in the project 
+        /// that is yet to be completed
+        /// </summary>
         public bool GetCurrentTaskCountForProject()
         {
             string query = $"select * from" +
@@ -124,7 +156,9 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
-
+        /// <summary>
+        /// Updates information of Project_TBL
+        /// </summary>
         public bool UpdateProjectTable(string pTitle, string pDesc, DateTime
             sDate, DateTime eDate, int status)
         {
@@ -135,6 +169,9 @@ namespace ProjectManagement.ClassFiles
                 $" where Project_ID = '{this.Project_ID}'";
             return RunQuery(query);
         }
+        /// <summary>
+        /// Updates information of ManageProject_TBL
+        /// </summary>
         public bool UpdateManageProjectTable(string pTitle, string pDesc, DateTime
             sDate, DateTime eDate, int status)
         {
@@ -145,12 +182,18 @@ namespace ProjectManagement.ClassFiles
                 $" where Project_ID = '{this.Project_ID}'";
             return RunQuery(query);
         }
+        /// <summary>
+        /// Removes information from ManageProject_TBL
+        /// </summary>
         public bool RemoveManagerProject_TBL()
         {
             string query = $"delete from ManageProject_TBL where" +
                 $" Project_ID = {Project_ID}";
             return RunQuery(query);
         }
+        /// <summary>
+        /// Removes information from Project_TBL
+        /// </summary>
         public bool RemoveProject_TBL()
         {
             string query = $"delete from Project_TBL where" +

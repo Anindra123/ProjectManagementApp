@@ -8,10 +8,13 @@ namespace ProjectManagement.ClassFiles
 {
     public abstract class User
     {
+        /// <summary>
+        /// Inherited by ProjectManager and ProjectMember class
+        /// </summary>
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string password { get; set; }
         public string Email { get; set; }
-        public string Full_Name { get { return $"{FirstName} {LastName}"; } }
+
     }
 }

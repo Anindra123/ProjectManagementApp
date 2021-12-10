@@ -22,6 +22,7 @@ namespace ProjectManagement
             InitializeComponent();
             showPasswordLabel.Text = "none";
         }
+        //overloaded constructor
         public ForgotPasswordForm(string showPasswordFor)
         {
             InitializeComponent();
@@ -31,6 +32,8 @@ namespace ProjectManagement
 
         private void submiEmailBtn_Click(object sender, EventArgs e)
         {
+            //based on the type of user , takes and email and 
+            //updates the label data with the user password
             if (showPasswordFor.ToLower() == "projectmember")
             {
                 if (!string.IsNullOrWhiteSpace(enterMailTextBox.Text.Trim())
@@ -102,6 +105,8 @@ namespace ProjectManagement
 
         private void showPassLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            //based on the type of user , will show the
+            //mask password on the label
             if (showPasswordLabel.Text != "none" && showPasswordFor.ToLower() == "projectmember")
             {
                 showPasswordLabel.Text = pMember.password;
@@ -119,6 +124,8 @@ namespace ProjectManagement
 
         private void copyToClipboardLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            //based on the type of user ,copies the retrived 
+            //password to clipboard for user to paste it afterwards
             if (showPasswordLabel.Text != "none" && showPasswordFor.ToLower() == "projectmember")
             {
                 Clipboard.SetText(pMember.password);

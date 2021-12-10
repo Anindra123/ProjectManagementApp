@@ -35,6 +35,7 @@ namespace ProjectManagement
             this.continueAsProjectMemberBtn = new System.Windows.Forms.Button();
             this.continueAsProjectManagerBtn = new System.Windows.Forms.Button();
             this.aboutBtn = new System.Windows.Forms.Button();
+            this.quitApplicationBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,12 +102,27 @@ namespace ProjectManagement
             this.aboutBtn.UseVisualStyleBackColor = false;
             this.aboutBtn.Click += new System.EventHandler(this.aboutBtn_Click);
             // 
+            // quitApplicationBtn
+            // 
+            this.quitApplicationBtn.BackColor = System.Drawing.Color.Red;
+            this.quitApplicationBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.quitApplicationBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitApplicationBtn.ForeColor = System.Drawing.Color.White;
+            this.quitApplicationBtn.Location = new System.Drawing.Point(535, 362);
+            this.quitApplicationBtn.Name = "quitApplicationBtn";
+            this.quitApplicationBtn.Size = new System.Drawing.Size(99, 59);
+            this.quitApplicationBtn.TabIndex = 6;
+            this.quitApplicationBtn.Text = "Quit";
+            this.quitApplicationBtn.UseVisualStyleBackColor = false;
+            this.quitApplicationBtn.Click += new System.EventHandler(this.quitApplicationBtn_Click);
+            // 
             // ProjectManagementStartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(682, 453);
+            this.Controls.Add(this.quitApplicationBtn);
             this.Controls.Add(this.aboutBtn);
             this.Controls.Add(this.continueAsProjectManagerBtn);
             this.Controls.Add(this.continueAsProjectMemberBtn);
@@ -132,5 +148,6 @@ namespace ProjectManagement
         private System.Windows.Forms.Button continueAsProjectMemberBtn;
         private System.Windows.Forms.Button continueAsProjectManagerBtn;
         private System.Windows.Forms.Button aboutBtn;
+        private System.Windows.Forms.Button quitApplicationBtn;
     }
 }

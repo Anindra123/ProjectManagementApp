@@ -28,6 +28,7 @@ namespace ProjectManagement
         {
             InitializeComponent();
         }
+        //overloaded constructor
         public CreateNewGroup(ProjectManager pM)
         {
             InitializeComponent();
@@ -44,6 +45,11 @@ namespace ProjectManagement
         }
         private bool Validations()
         {
+            //validates the project and group
+            //information check box and also verifies 
+            //start date and end date and number of
+            //members being added
+
             gName = proMGroupNameTextBox.Text.Trim();
             gMCount = membersCountTxtBox.Text.Trim();
             pTitle = projectTitleTxtBox.Text.Trim();
@@ -70,8 +76,17 @@ namespace ProjectManagement
             }
             return true;
         }
+        private void ResetGroupMemberFeilds()
+        {
+            //resets the feilds where group members
+            //being searched and added
+            memberMailTxtBox.Text = "none";
+            memberNameTxtBox.Text = "none";
+            proMSearchMemTextBox.Text = null;
+        }
         private void ResetCreateGroupForm()
         {
+            //reset the information shown on the entire form
             proMGroupNameTextBox.Text = null;
             projectTitleTxtBox.Text = null;
             projDescTxtBox.Text = null;
@@ -117,15 +132,12 @@ namespace ProjectManagement
         {
             ShowPreviousMenu();
         }
-        private void ResetGroupMemberFeilds()
-        {
-            memberMailTxtBox.Text = "none";
-            memberNameTxtBox.Text = "none";
-            proMSearchMemTextBox.Text = null;
-        }
+
 
         private void proMSearchMemBtn_Click(object sender, EventArgs e)
         {
+            //searches for the project member for the given email
+            //on the search text box and assigns its data on the labels
             if (string.IsNullOrWhiteSpace(proMSearchMemTextBox.Text.Trim()))
             {
                 validations.ShowAlert("Invalid Entry on Search field");
@@ -151,6 +163,10 @@ namespace ProjectManagement
 
         private void addMemberBtn_Click(object sender, EventArgs e)
         {
+            //searched member is added , checks whether a member
+            // was found and whether the number of members in the group
+            // is max and if the member is already member of another
+            //group and if the current member count is valid
             if (memberNameTxtBox.Text == "none" && memberMailTxtBox.Text == "none")
             {
                 validations.ShowAlert("No member added");

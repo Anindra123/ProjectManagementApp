@@ -15,7 +15,11 @@ namespace ProjectManagement.ClassFiles
         public int MembersCount { get; set; }
         public string PGroup_Name { get; set; }
         public int Project_ID { get; set; }
-        public int PManager_ID { get; set; }
+        /// <summary>
+        /// Common function 
+        /// used to reset the datatable data and fill the datatable
+        /// with new data
+        /// </summary>
         public void FillData(string query)
         {
             dt.Clear();
@@ -27,6 +31,11 @@ namespace ProjectManagement.ClassFiles
                 sda.Fill(dt);
             }
         }
+        /// <summary>
+        /// Common function 
+        /// used to open database connection and run executeNonQuery command
+        /// and the number of rows effected boolean value is returned
+        /// </summary>
         public bool RunQuery(string query)
         {
             bool ret = false;
@@ -41,6 +50,11 @@ namespace ProjectManagement.ClassFiles
             }
             return ret;
         }
+        /// <summary>
+        /// Searches group with group name and 
+        /// retrives group information and assigns 
+        /// values to the properties
+        /// </summary>
         public bool SearchGroup(string name)
         {
             string query = $"select * from GroupContainsProject_TBL where " +
@@ -56,7 +70,10 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
-
+        /// <summary>
+        /// Retrives group information for 
+        /// a particular project member
+        /// </summary>
         public void GetPGroupInfo(int pmember_id)
         {
             string query = $"select pg.* from PMemberGroupInfo_TBL as pmg," +
@@ -72,6 +89,11 @@ namespace ProjectManagement.ClassFiles
             }
 
         }
+        /// <summary>
+        /// Returns a data table of all the 
+        /// member information that are currently in the 
+        /// group , uses current group id
+        /// </summary>
         public DataTable FillMemberList()
         {
             string query = $"select concat(pm.PMember_FirstName,' ',pm.PMember_LastName) as Name, pm.PMember_Email as Email from " +
@@ -85,6 +107,10 @@ namespace ProjectManagement.ClassFiles
             return null;
 
         }
+        /// <summary>
+        /// Returns a data table of all the 
+        /// member information for a particular group
+        /// </summary>
         public DataTable FillMemberList(int g_id)
         {
             string query = $"select pm.PMember_ID,concat(pm.PMember_FirstName,' ',pm.PMember_LastName) as Name, pm.PMember_Email as Email from " +
@@ -98,6 +124,10 @@ namespace ProjectManagement.ClassFiles
             return null;
 
         }
+        /// <summary>
+        /// Retrives and set the properties with 
+        /// group information for a particular task
+        /// </summary>
         public void GetProjectGroupFromTask(int t_id)
         {
             ProjectGroup output = new ProjectGroup();
@@ -112,6 +142,9 @@ namespace ProjectManagement.ClassFiles
                 MembersCount = Convert.ToInt32($"{dt.Rows[0]["PGroup_MembersCount"]}");
             }
         }
+        /// <summary>
+        /// Updates information for GroupContainsProject_TBL
+        /// </summary>
         public bool UpdateGroupContainsProjectTable(string groupName, int memCount)
         {
             string query = $"Update GroupContainsProject_TBL" +
@@ -119,6 +152,9 @@ namespace ProjectManagement.ClassFiles
                 $"where PGroup_ID = {PGroup_ID}";
             return RunQuery(query);
         }
+        /// <summary>
+        /// Updates information for PManagerGroupInfo_TBL
+        /// </summary>
         public bool UpdatePManagerGroupInfoTable(string groupName, int memCount)
         {
             string query = $"Update PManagerGroupInfo_TBL" +
@@ -126,6 +162,9 @@ namespace ProjectManagement.ClassFiles
                 $"where PGroup_ID = {PGroup_ID}";
             return RunQuery(query);
         }
+        /// <summary>
+        /// Updates information for PGroup_TBL
+        /// </summary>
         public bool UpdatePGroupTable(string groupName, int memCount)
         {
             string query = $"Update PGroup_TBL" +
@@ -133,18 +172,27 @@ namespace ProjectManagement.ClassFiles
                 $"where PGroup_ID = {PGroup_ID}";
             return RunQuery(query);
         }
+        /// <summary>
+        /// Removes information from GroupContainsProject_TBL
+        /// </summary>
         public bool RemoveGroupContainsProject()
         {
             string query = $"delete from GroupContainsProject_TBL where" +
                 $" PGroup_ID = {PGroup_ID}";
             return RunQuery(query);
         }
+        /// <summary>
+        /// Removes information from PManagerGroupInfo_TBL
+        /// </summary>
         public bool RemovePManagerGroupInfo()
         {
             string query = $"delete from PManagerGroupInfo_TBL where" +
                 $" PGroup_ID = {PGroup_ID}";
             return RunQuery(query);
         }
+        /// <summary>
+        /// Removes information from PGroup_TBL
+        /// </summary>
         public bool RemovePGroup()
         {
             string query = $"delete from PGroup_TBL where" +

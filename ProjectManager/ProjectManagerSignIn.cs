@@ -16,6 +16,7 @@ namespace ProjectManagement
     public partial class ProjectManagerSignIn : Form
     {
         ProjectManager pm = new ProjectManager();
+        Validations validations = new Validations();
         string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
         public ProjectManagerSignIn()
         {
@@ -45,18 +46,19 @@ namespace ProjectManagement
             ShowPreviousMenu();
         }
 
-        //[TO DO] - implement text feild validation
-        // validate manager password and name/mail
+
         private void projMSignInBtn_Click(object sender, EventArgs e)
         {
+            //verifies name and email text and box and checkes
+            //whether the email pattern is valid
             if (string.IsNullOrEmpty(projMEmailTextBox.Text) || string.IsNullOrEmpty(projMPasswordTextBox.Text))
             {
-                MessageBox.Show("Fill up all the fields", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                validations.ShowAlert("Fill up all the fields");
             }
-            else if (!Regex.IsMatch(projMEmailTextBox.Text, pattern))
+            else if (validations.ValidateMail(projMEmailTextBox.Text.Trim()))
             {
-                MessageBox.Show("Invalid Email Format", "Invalid", MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+
+                validations.ShowAlert("Invalid Email Format");
             }
             else
             {
@@ -77,8 +79,7 @@ namespace ProjectManagement
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Email/Password.Try Again",
-                        "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
+                    validations.ShowAlert("Invalid Email/Password.Try Again");
                 }
 
 

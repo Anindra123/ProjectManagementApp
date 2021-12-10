@@ -48,13 +48,17 @@ namespace ProjectManagement
 
         private void AssignTaskBtn_Click(object sender, EventArgs e)
         {
+            //checkes whether a member is selected from 
+            // the drop down list or if member is already assinged
+            // and assigns the value of
+            // objects respectively
             int pM_id = (int)selectMemberComboBox.SelectedValue;
             int t_id = pT.Task_ID;
             if (selectMemberComboBox.SelectedIndex < 0)
             {
                 validations.ShowAlert("Please select a member to assign to");
             }
-            else if (pT.CheckAssingedToMember(pM_id, t_id))
+            else if (pT.CheckTaskAssingedToMember(pM_id, t_id))
             {
                 validations.ShowAlert("Task Already Assigned To Member");
             }

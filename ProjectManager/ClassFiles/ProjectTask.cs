@@ -16,14 +16,17 @@ namespace ProjectManagement.ClassFiles
         public string Task_Title { get; set; }
         public string Task_Desc { get; set; }
         public int Task_Completed { get; set; }
-        public DateTime Task_CompleteDate { get; set; }
         public string Task_Comment { get; set; }
         public byte[] Task_Attached { get; set; }
-        public int PManager_ID { get; set; }
-        public int Project_ID { get; set; }
-        public int PMember_ID { get; set; }
+
 
         DataTable dt = new DataTable();
+
+        /// <summary>
+        /// Common function 
+        /// used to reset the datatable data and fill the datatable
+        /// with new data
+        /// </summary>
         public void FillData(string query)
         {
             dt.Clear();
@@ -35,6 +38,11 @@ namespace ProjectManagement.ClassFiles
                 sda.Fill(dt);
             }
         }
+        /// <summary>
+        /// Common function 
+        /// used to open database connection and run executeNonQuery command
+        /// and the number of rows effected boolean value is returned
+        /// </summary>
         public bool RunQuery(string query)
         {
             bool ret = false;
@@ -49,7 +57,11 @@ namespace ProjectManagement.ClassFiles
             }
             return ret;
         }
-        public DataTable CheckAssingedToMember(int pm_id)
+        /// <summary>
+        /// checks whether member is assigned a task
+        /// takes only the project member id
+        /// </summary>
+        public DataTable CheckTaskAssingedToMember(int pm_id)
         {
 
             string query = $"select * from PerformTask_TBL where " +
@@ -61,7 +73,11 @@ namespace ProjectManagement.ClassFiles
             }
             return null;
         }
-        public bool CheckAssingedToMember(int pm_id, int task_id)
+        /// <summary>
+        /// checks whether member is assigned a task
+        /// takes both the project member id and task id
+        /// </summary>
+        public bool CheckTaskAssingedToMember(int pm_id, int task_id)
         {
 
             string query = $"select * from PerformTask_TBL where " +
@@ -73,7 +89,9 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
-
+        /// <summary>
+        /// Deletes tasks from respected tables
+        /// </summary>
         public bool DeleteFromTaskTable()
         {
             string query = $"delete from Task_TBL where " +
@@ -92,6 +110,9 @@ namespace ProjectManagement.ClassFiles
                    $"Task_ID = '{Task_ID}'";
             return RunQuery(query);
         }
+        /// <summary>
+        /// Returns what the current status of task is in boolean
+        /// </summary>
         public bool CheckTaskStatus(int s_id)
         {
             string s;
@@ -109,6 +130,9 @@ namespace ProjectManagement.ClassFiles
             return true;
         }
 
+        /// <summary>
+        /// Returns all the task data that was assigned to project member
+        /// </summary>
         public DataTable FillAssignedTaskList(int pm_id)
         {
             string query = $"select pt.Task_Title as Title,pt.Task_Desc as Description,ts.StatusName as Status from " +
@@ -121,7 +145,9 @@ namespace ProjectManagement.ClassFiles
             }
             return null;
         }
-
+        /// <summary>
+        /// Returns the status of task in string
+        /// </summary>
         public string GetStatus()
         {
             string s;
@@ -134,7 +160,10 @@ namespace ProjectManagement.ClassFiles
             }
             return s;
         }
-
+        /// <summary>
+        /// If a task is completed its attached file and comment will be 
+        /// retrived
+        /// </summary>
         public bool GetCompletedTask()
         {
             string query = $"select Task_Attached,Task_Comment from PerformTask_TBL" +
@@ -153,6 +182,9 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
+        /// <summary>
+        /// Takes a project id and returns all the created task for the project
+        /// </summary>
         public DataTable GetTaskListFromProject(int proj_id)
         {
             string query = $"select at.Task_ID as ID,at.Task_title as Title,at.Task_Desc as Description,ts.StatusName as Status from" +
@@ -167,6 +199,10 @@ namespace ProjectManagement.ClassFiles
             return null;
 
         }
+        /// <summary>
+        /// Check for duplicate task 
+        /// or task having same title
+        /// </summary>
         public bool CheckTaskExist(string taskTitle)
         {
             string query = $"select * from Task_TBL where Lower(Task_title) = '{taskTitle}'";
@@ -177,6 +213,9 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
+        /// <summary>
+        /// Updates the data from each of the task table
+        /// </summary>
         public bool UpdatePerformTaskTable(string tTitle, string tDesc)
         {
             string query = $"update PerformTask_TBL " +

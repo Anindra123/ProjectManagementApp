@@ -43,6 +43,8 @@ namespace ProjectManagement
         }
         private void SetGroupInfolabels()
         {
+            //will set the current group and project
+            // that member is assigned to
             groupNameLabl.Text = pG.PGroup_Name;
             projMangerLabl.Text = $"{pManag.FirstName} {pManag.LastName}";
             projNameLabl.Text = proj.Project_Title;
@@ -77,6 +79,8 @@ namespace ProjectManagement
 
         private void searchEnterBtn_Click(object sender, EventArgs e)
         {
+            //searches a group based on the group name placed 
+            // on the search box
             if (!string.IsNullOrEmpty(groupSerachtxtbox.Text.Trim()))
             {
                 if (pG.SearchGroup(groupSerachtxtbox.Text.Trim()))
@@ -121,6 +125,8 @@ namespace ProjectManagement
         }
         private bool newGroupFieldValidation()
         {
+            //verifies the labels of the new group 
+            // a project member will join
             if ((string.IsNullOrWhiteSpace(nGrpNameLabl.Text.Trim())
                 || nGrpNameLabl.Text == "none")
                 && (string.IsNullOrWhiteSpace(nProjManagLabl.Text.Trim())
@@ -135,6 +141,8 @@ namespace ProjectManagement
         }
         private void JoinedGroup()
         {
+            //after a members joins a group
+            // updates all the grid view with new data
             DialogResult r = MessageBox.Show("Joined Group Sucessfully", "Sucess",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (r == DialogResult.OK)
@@ -176,6 +184,10 @@ namespace ProjectManagement
                 }
                 else
                 {
+                    //if a member was already in a group previously
+                    //will remove group information and
+                    //project information and assinged 
+                    //task information from the group member
                     if (!pM.CheckifGroupMember(pM.PMemberID, pG.PGroup_ID))
                     {
                         DialogResult dr = MessageBox.Show("Confirm Group Change ? Your current project progess will be lost", "Confirm",
@@ -183,9 +195,9 @@ namespace ProjectManagement
                         if (dr == DialogResult.Yes)
                         {
                             int pm_id = pM.PMemberID;
-                            if (pT.CheckAssingedToMember(pm_id) != null)
+                            if (pT.CheckTaskAssingedToMember(pm_id) != null)
                             {
-                                DataTable dt = pT.CheckAssingedToMember(pm_id);
+                                DataTable dt = pT.CheckTaskAssingedToMember(pm_id);
                                 foreach (DataRow row in dt.Rows)
                                 {
                                     int t_id = (int)row["Task_ID"];

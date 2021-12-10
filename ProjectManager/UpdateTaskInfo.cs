@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace ProjectManagement
 {
+    //deligate signature which will hold reference for updating
+    //task information from all the task related tables
     public delegate bool UpdateTasks(string tTitle, string tDesc);
     public partial class UpdateTaskInfo : Form
     {
@@ -44,6 +46,7 @@ namespace ProjectManagement
             }
             else
             {
+                //UpdateTasks multicasted deiligate instance created
                 UpdateTasks updateTasks = pT.UpdateAssignTaskTable;
                 updateTasks += pT.UpdatePerformTaskTable;
                 updateTasks += pT.UpdateTaskTable;

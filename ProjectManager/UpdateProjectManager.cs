@@ -32,7 +32,7 @@ namespace ProjectManagement
             form.IntializeForm();
             form.Show();
         }
-      
+
         private void UpdateProjectManager_Load(object sender, EventArgs e)
         {
             if (pM != null)
@@ -50,6 +50,9 @@ namespace ProjectManagement
             string lastName = lastNameManagerText.Text.Trim();
             string email = managerEmailTxt.Text.Trim();
             string password = managerPasswordTxt.Text.Trim();
+
+            //as update is being performed true is passed on the 
+            //parameter
             if (validations.SignUpAndUpdateValidation<ProjectManager>(true, firstName, lastName, email, password, pM))
             {
                 if (pM.UpdateProjectManagerInfo(firstName, lastName, password, email))

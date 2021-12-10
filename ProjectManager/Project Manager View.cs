@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace ProjectManagement
 {
+    //delegate signature which will store the reference
+    //of all the removing task info from task table methods
     public delegate bool RemoveTaskFromTables();
     public partial class updatePManagerInfo : System.Windows.Forms.Form
     {
@@ -25,6 +27,7 @@ namespace ProjectManagement
         {
             InitializeComponent();
         }
+        //overloaded constructor
         public updatePManagerInfo(ProjectManager pM)
         {
             InitializeComponent();
@@ -48,6 +51,8 @@ namespace ProjectManagement
 
         public void IntializeForm()
         {
+            //will reset all grid view data and
+            //disables some buttons
             groupAndProjectView.DataSource = null;
             currentTaskGridView.DataSource = null;
             completedTaskGridView.DataSource = null;
@@ -143,6 +148,8 @@ namespace ProjectManagement
 
         private void assignTaskBtn_Click(object sender, EventArgs e)
         {
+            //checkes whether a task is click to be assinged 
+            //show the assign task form
             if (pT.Task_ID > 0)
             {
                 pG.GetProjectGroupFromTask(pT.Task_ID);
@@ -159,6 +166,8 @@ namespace ProjectManagement
 
         private void currentTaskGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //updates the project task object information
+            //when a row is selected
             addNewFeatureBtn.Enabled = true;
             assignTaskBtn.Enabled = true;
             DataGridViewRow row = currentTaskGridView.SelectedRows[0];
@@ -174,7 +183,8 @@ namespace ProjectManagement
 
         private void viewCompletedTaskBtn_Click(object sender, EventArgs e)
         {
-
+            //shows the completed task by member
+            //information after a row is selected
             if (completedTaskGridView.SelectedRows.Count > 0)
             {
                 DataGridViewRow row = completedTaskGridView.SelectedRows[0];
@@ -212,15 +222,19 @@ namespace ProjectManagement
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (r == DialogResult.Yes)
                 {
+                    //setting the backlog object property values
+                    //for the data to be inserted 
                     bL.BackLog_GroupName = pG.PGroup_Name;
                     bL.BackLog_ProjectTitle = project.Project_Title;
                     bL.BackLog_TaskTitle = pT.Task_Title;
                     bL.BackLog_TaskCompleted = $"{pMember.FirstName} {pMember.LastName}";
                     bL.PManager_ID = pM.PManager_ID;
                     bL.InsertBackLogData();
+                    //Multicasted deligate instance created
                     RemoveTaskFromTables removeTask = pT.DeleteFromPerformTaskTable;
                     removeTask += pT.DeleteFromAssignTaskTable;
                     removeTask += pT.DeleteFromTaskTable;
+                    //deligate invoked
                     if (removeTask())
                     {
                         validations.ShowInfo("Task send to Backlogs");

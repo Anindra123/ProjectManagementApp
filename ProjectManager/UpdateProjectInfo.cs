@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace ProjectManagement
 {
+    //deligate signature to update infromation from all
+    //the project tables
     public delegate bool UpdateProjectTables(string pTitle, string pDesc, DateTime sDate, DateTime eDate,
         int status);
     public partial class UpdateProjectInfo : Form
@@ -104,7 +106,9 @@ namespace ProjectManagement
         }
         private bool Validations()
         {
-
+            //verify whether text feilds are empty,
+            //whether start date and end dates are correct
+            //whether the project title is duplicate
             if (string.IsNullOrWhiteSpace(projectTitleTxtBox.Text.Trim())
                 && string.IsNullOrWhiteSpace(projectDescTextBox.Text.Trim()))
             {
@@ -125,6 +129,9 @@ namespace ProjectManagement
         }
         private void SendTasksToBackLog()
         {
+            //if a project is set to completed
+            //will remove all the task information and 
+            //send it to backlog
             foreach (DataGridViewRow row in currentProjectTaskGridView.Rows)
             {
                 pT.Task_ID = (int)row.Cells["ID"].Value;
@@ -146,6 +153,8 @@ namespace ProjectManagement
                 backLog.BackLog_TaskTitle = pT.Task_Title;
                 backLog.PManager_ID = pM.PManager_ID;
                 backLog.InsertBackLogData();
+                //RemoveTaskFromTables deligate instance created
+                //and invoked here aswell
                 RemoveTaskFromTables removeTask = pT.DeleteFromAssignTaskTable;
                 removeTask += pT.DeleteFromPerformTaskTable;
                 removeTask += pT.DeleteFromTaskTable;
@@ -158,6 +167,7 @@ namespace ProjectManagement
             {
                 if (!pCompletedRadioBtn.Checked)
                 {
+                    //UpdateProjectTables deligate instance created
                     UpdateProjectTables updateProject = project.UpdateProjectTable;
                     updateProject += project.UpdateManageProjectTable;
                     if (updateProject(projectTitleTxtBox.Text.Trim(), projectDescTextBox.Text.Trim(),
@@ -173,6 +183,7 @@ namespace ProjectManagement
                 }
                 else
                 {
+                    //if tasks under this project is still pending
                     if (project.GetCurrentTaskCountForProject())
                     {
                         DialogResult r = MessageBox.Show("Some task under this project hasn't been completed. If you set this project as complete those task data will be lost.Continue ?"
@@ -196,7 +207,8 @@ namespace ProjectManagement
                     }
                     else
                     {
-                        DialogResult r = MessageBox.Show("Confirm Task Completed ?"
+                        //if all tasks under this project are completed
+                        DialogResult r = MessageBox.Show("Confirm Project Completed ?"
                             , "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (r == DialogResult.Yes)
                         {
@@ -255,6 +267,8 @@ namespace ProjectManagement
                 DialogResult r = MessageBox.Show("Confirm Remove ?.Changes at this task will not be recorded.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (r == DialogResult.Yes)
                 {
+                    //RemoveTaskFromTables deligate instance created
+                    //and invoked here aswell
                     RemoveTaskFromTables removeTask = pT.DeleteFromAssignTaskTable;
                     removeTask += pT.DeleteFromPerformTaskTable;
                     removeTask += pT.DeleteFromTaskTable;

@@ -44,6 +44,8 @@ namespace ProjectManagement
 
             using (FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite))
             {
+                //writes byte[] data retrived to a new file 
+                //created through the filestream
                 using (BinaryWriter bw = new BinaryWriter(fs))
                 {
                     dl = true;
@@ -89,6 +91,8 @@ namespace ProjectManagement
 
         private void downloadFiles_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            //open a new window to save a file by giving 
+            //file name
             using (SaveFileDialog sf = new SaveFileDialog() { Filter = "Text Document (.txt)|*.txt", ValidateNames = true })
             {
                 if (sf.ShowDialog() == DialogResult.OK)

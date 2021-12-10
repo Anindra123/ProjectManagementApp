@@ -40,6 +40,7 @@ namespace ProjectManagement
 
         void ResetSignUpFeilds()
         {
+            //after signin up will clear the text feilds
             projectMemberEmailTextBox.Text = null;
             projMemFirstNameTextBox.Text = null;
             projMLastNameTextBox.Text = null;
@@ -71,29 +72,21 @@ namespace ProjectManagement
             this.Close();
         }
 
-        bool validateMatchingMailAndPass()
-        {
-            if (!projectMember.CheckDuplicateMailAndPass(projectMemberEmailTextBox.Text.Trim(),
-                projMemberPasswordTextBox.Text.Trim()))
-            {
-                return true;
-            }
-            return false;
-        }
+
         private void projMemberSignUpBtn_Click(object sender, EventArgs e)
         {
             string fName = projMemFirstNameTextBox.Text.Trim();
             string lName = projMLastNameTextBox.Text.Trim();
             string email = projectMemberEmailTextBox.Text.Trim();
             string password = projMemberPasswordTextBox.Text.Trim();
+            //generic method for validating sign up information 
+            //from Validation class called
             if (validations.SignUpAndUpdateValidation<ProjectMember>(false,
                 fName, lName, email, password, projectMember))
             {
 
                 bool val = projectMember.SignUPProjectMember(
                               fName, lName, email, password);
-
-
 
                 if (val == true)
                 {
@@ -111,6 +104,6 @@ namespace ProjectManagement
 
 
 
-        
+
     }
 }

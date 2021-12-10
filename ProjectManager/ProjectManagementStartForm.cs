@@ -54,5 +54,10 @@ namespace ProjectManagement
             About about = new About();
             about.ShowDialog();
         }
+
+        private void quitApplicationBtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace ProjectManagement
         Validations validations = new Validations();
         bool leaveGroup = false;
 
-        string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+
         public UpdateMemberInfo()
         {
             InitializeComponent();
@@ -55,13 +55,18 @@ namespace ProjectManagement
             pM.LastName = lName;
             pM.Email = email;
             pM.password = password;
+            //since it is updating , true is passed on the method 
+            //paramenter
             if (validations.SignUpAndUpdateValidation<ProjectMember>(true,
                 fName, lName, email, password, pM))
             {
+                //if a member has left the group whilst updating
+                //his/her account info
+                //removes all assigned task when leaving a group
                 if (leaveGroup == true && pM.UpdateMemberInfo())
                 {
                     int pMemberID = pM.PMemberID;
-                    DataTable dt = pT.CheckAssingedToMember(pMemberID);
+                    DataTable dt = pT.CheckTaskAssingedToMember(pMemberID);
                     if (dt != null)
                     {
                         foreach (DataRow row in dt.Rows)
