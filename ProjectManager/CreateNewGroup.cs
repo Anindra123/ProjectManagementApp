@@ -53,6 +53,7 @@ namespace ProjectManagement
             gName = proMGroupNameTextBox.Text.Trim();
             gMCount = membersCountTxtBox.Text.Trim();
             pTitle = projectTitleTxtBox.Text.Trim();
+            int numOfmember = 0;
             pDesc = projDescTxtBox.Text.Trim();
             sDate = proMStartDatePicker.Value.Date;
             eDate = proMEndDatePicker.Value.Date;
@@ -64,9 +65,20 @@ namespace ProjectManagement
                 validations.ShowAlert("Text feilds cannot be empty");
                 return false;
             }
-            else if (Convert.ToInt32(gMCount) <= 0)
+            else if (!int.TryParse(gMCount, out numOfmember))
+            {
+                validations.ShowAlert("Member count is invalid");
+                return false;
+            }
+            else if (numOfmember <= 0)
             {
                 validations.ShowAlert("Invalid number of members");
+                return false;
+
+            }
+            else if (projectMembers.Count > numOfmember)
+            {
+                validations.ShowAlert("Members added exceeds the members count");
                 return false;
 
             }
@@ -186,16 +198,17 @@ namespace ProjectManagement
             else if (numOfMembers <= 0)
             {
                 validations.ShowAlert("Invalid Member Count");
-
+                ResetGroupMemberFeilds();
             }
             else if (pMember != null && pM.CheckIfAlreadyGroupMember(pMember.PMemberID))
             {
                 validations.ShowAlert("Selected user already a member of different group");
-
+                ResetGroupMemberFeilds();
             }
             else if (dt.Rows.Count >= Convert.ToInt32(membersCountTxtBox.Text.Trim()))
             {
                 validations.ShowAlert("Maximum group member reached");
+                ResetGroupMemberFeilds();
             }
             else
             {

@@ -167,7 +167,6 @@ namespace ProjectManagement
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Project Member Sign In";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProjectMemberSignIn_FormClosed);
-            this.Load += new System.EventHandler(this.ProjectMemberSignIn_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

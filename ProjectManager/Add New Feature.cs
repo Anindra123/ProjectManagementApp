@@ -31,11 +31,17 @@ namespace ProjectManagement
 
         private void AddNewFeature_Load(object sender, EventArgs e)
         {
+
             groupsComboBox.DisplayMember = "PGroup_Name";
             groupsComboBox.ValueMember = "PGroup_ID";
             groupsComboBox.DataSource = pM.ProjectGroups;
             groupsComboBox.SelectedIndex = -1;
             assignToComboBox.DataSource = null;
+            titleTextBox.Enabled = false;
+            taskDescriptionTextBox.Enabled = false;
+            assignSelectionYesRadioBtn.Enabled = false;
+            assignSelectionNoRadioBtn.Enabled = false;
+            createBtn.Enabled = false;
         }
 
         private void createBtn_Click(object sender, EventArgs e)
@@ -133,6 +139,11 @@ namespace ProjectManagement
             //assign that value for respective objects
             if (groupsComboBox.SelectedIndex >= 0 && groupsComboBox.SelectedItem != null)
             {
+                titleTextBox.Enabled = true;
+                taskDescriptionTextBox.Enabled = true;
+                assignSelectionYesRadioBtn.Enabled = true;
+                assignSelectionNoRadioBtn.Enabled = true;
+                createBtn.Enabled = true;
                 int g_id = (int)groupsComboBox.SelectedValue;
                 pG.PGroup_ID = g_id;
                 project = pM.GetProject(g_id);

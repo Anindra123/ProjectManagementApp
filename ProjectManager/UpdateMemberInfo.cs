@@ -86,6 +86,20 @@ namespace ProjectManagement
                             leaveGroup = false;
                         }
                     }
+                    else
+                    {
+                        if (pM.DeleteMemberGroupInfoTable(pMemberID)
+                      && pM.DeleteMemberProjInfoTable(pMemberID)
+                     )
+                        {
+                            MessageBox.Show("Updated Sucessfully", "Sucess",
+             MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            pG = null;
+                            pMang = null;
+                            project = null;
+                            leaveGroup = false;
+                        }
+                    }
 
 
                 }

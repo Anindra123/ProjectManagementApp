@@ -51,7 +51,7 @@ namespace ProjectManagement
             int numOfMembers = 0;
             Project proj = pM.GetProject(pG.PGroup_ID);
 
-            SearchAndAddMember addMember = new SearchAndAddMember(pG, proj);
+
             if (!int.TryParse(memberCountTextBox.Text.Trim(), out numOfMembers))
             {
                 validations.ShowAlert("Invalid Member Count");
@@ -63,7 +63,8 @@ namespace ProjectManagement
             }
             else
             {
-                pG.MembersCount = numOfMembers;
+
+                SearchAndAddMember addMember = new SearchAndAddMember(pG, proj, numOfMembers);
                 if (addMember.ShowDialog() == DialogResult.Cancel)
                 {
                     currentMembersGridView.DataSource = pG.FillMemberList();
@@ -88,7 +89,7 @@ namespace ProjectManagement
                         "Continue", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (r == DialogResult.Yes)
                     {
-                        //looping throug rows of datatable
+                        //looping through rows of datatable
                         DataTable dt = pT.CheckTaskAssingedToMember(pMember.PMemberID);
                         foreach (DataRow taskRow in dt.Rows)
                         {
@@ -148,6 +149,10 @@ namespace ProjectManagement
             currentPManagerGroupsComboBox.SelectedIndex = -1;
             discardGroupBtn.Enabled = false;
             RemoveMemberBtn.Enabled = false;
+            memberCountTextBox.Enabled = false;
+            groupNameTxtBox.Enabled = false;
+            UpdateBtn.Enabled = false;
+            AddMemberBtn.Enabled = false;
             groupNameTxtBox.Text = null;
             memberCountTextBox.Text = null;
             currentMembersGridView.DataSource = null;
@@ -169,6 +174,10 @@ namespace ProjectManagement
             //being selected from drop down list
             if (currentPManagerGroupsComboBox.SelectedIndex >= 0)
             {
+                AddMemberBtn.Enabled = true;
+                memberCountTextBox.Enabled = true;
+                groupNameTxtBox.Enabled = true;
+                UpdateBtn.Enabled = true;
                 pG = (ProjectGroup)currentPManagerGroupsComboBox.SelectedItem;
                 groupNameTxtBox.Text = pG.PGroup_Name;
                 memberCountTextBox.Text = $"{pG.MembersCount}";
@@ -218,6 +227,10 @@ namespace ProjectManagement
             {
                 validations.ShowAlert("A group with the same name already exists");
 
+            }
+            else if (pG.FillMemberList() != null && pG.FillMemberList().Rows.Count > numOfMembers)
+            {
+                validations.ShowAlert("Number of members added exceeds member count");
             }
             else
             {

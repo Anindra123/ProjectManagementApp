@@ -55,7 +55,13 @@ namespace ProjectManagement
             currentProjectTaskGridView.DataSource = null;
             updateTaskInfoBtn.Enabled = false;
             removeTaskBtn.Enabled = false;
-
+            projectTitleTxtBox.Enabled = false;
+            projectDescTextBox.Enabled = false;
+            startDatepicker.Enabled = false;
+            endDatePicker.Enabled = false;
+            pCompletedRadioBtn.Enabled = false;
+            pNotCompletedRadioBtn.Enabled = false;
+            UpdateBtn.Enabled = false;
         }
         private void UpdateProjectInfo_Load(object sender, EventArgs e)
         {
@@ -78,6 +84,13 @@ namespace ProjectManagement
             {
                 int g_id = (int)currentPManagerGroupsComboBox.SelectedValue;
                 project = pM.GetProject(g_id);
+                projectTitleTxtBox.Enabled = true;
+                projectDescTextBox.Enabled = true;
+                startDatepicker.Enabled = true;
+                endDatePicker.Enabled = true;
+                pCompletedRadioBtn.Enabled = true;
+                pNotCompletedRadioBtn.Enabled = true;
+                UpdateBtn.Enabled = true;
                 projectTitleTxtBox.Text = project.Project_Title;
                 projectDescTextBox.Text = project.Project_Desc;
                 startDatepicker.Value = project.Project_StartDate;
@@ -85,6 +98,10 @@ namespace ProjectManagement
                 if (project.GetProjectStatus() == "Not Completed")
                 {
                     pNotCompletedRadioBtn.Checked = true;
+                }
+                if (project.GetProjectStatus() == "Completed")
+                {
+                    pCompletedRadioBtn.Checked = true;
                 }
                 if (pT.GetTaskListFromProject(project.Project_ID) != null)
                 {

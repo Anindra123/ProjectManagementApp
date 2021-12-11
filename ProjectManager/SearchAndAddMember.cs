@@ -17,15 +17,17 @@ namespace ProjectManagement
         Project project;
         ProjectMember pMember = new ProjectMember();
         Validations validations = new Validations();
+        int memCount;
         public SearchAndAddMember()
         {
             InitializeComponent();
         }
-        public SearchAndAddMember(ProjectGroup pG, Project project)
+        public SearchAndAddMember(ProjectGroup pG, Project project, int memCount)
         {
             InitializeComponent();
             this.pG = pG;
             this.project = project;
+            this.memCount = memCount;
         }
 
         private void proMSearchAndAddBtn_Click(object sender, EventArgs e)
@@ -50,7 +52,7 @@ namespace ProjectManagement
                 validations.ShowAlert("Project is completed so further member cannot be added");
                 proMSearchMemTextBox.Text = null;
             }
-            else if (pG.FillMemberList() != null && pG.FillMemberList().Rows.Count >= pG.MembersCount)
+            else if (pG.FillMemberList() != null && pG.FillMemberList().Rows.Count >= memCount)
             {
                 validations.ShowAlert("Maximum group member reached");
                 proMSearchMemTextBox.Text = null;

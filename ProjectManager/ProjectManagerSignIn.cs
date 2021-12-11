@@ -17,7 +17,7 @@ namespace ProjectManagement
     {
         ProjectManager pm = new ProjectManager();
         Validations validations = new Validations();
-        string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+
         public ProjectManagerSignIn()
         {
             InitializeComponent();

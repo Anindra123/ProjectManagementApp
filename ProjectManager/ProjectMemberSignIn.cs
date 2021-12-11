@@ -90,11 +90,6 @@ namespace ProjectManagement
             }
         }
 
-        private void ProjectMemberSignIn_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void forgotPasswordLinkLabl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ForgotPasswordForm forgotPassword = new ForgotPasswordForm("projectmember");
