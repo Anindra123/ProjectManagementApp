@@ -245,9 +245,17 @@ namespace ProjectManagement
                 if (updateTaskInfo.ShowDialog() == DialogResult.Cancel)
                 {
 
-                    currentProjectTaskGridView.DataSource = pT.GetTaskListFromProject(project.Project_ID).Copy();
-                    currentProjectTaskGridView.Update();
-                    currentProjectTaskGridView.Refresh();
+                    if (pT.GetTaskListFromProject(project.Project_ID) != null)
+                    {
+                        currentProjectTaskGridView.DataSource = pT.GetTaskListFromProject(project.Project_ID).Copy();
+                        currentProjectTaskGridView.Update();
+                        currentProjectTaskGridView.Refresh();
+                    }
+                    else
+                    {
+                        currentProjectTaskGridView.DataSource = null;
+                    }
+
                 }
             }
             else
@@ -277,9 +285,17 @@ namespace ProjectManagement
                         DialogResult result = validations.ShowInfo("Task removed");
                         if (result == DialogResult.OK)
                         {
-                            currentProjectTaskGridView.DataSource = pT.GetTaskListFromProject(project.Project_ID).Copy();
-                            currentProjectTaskGridView.Update();
-                            currentProjectTaskGridView.Refresh();
+                            if (pT.GetTaskListFromProject(project.Project_ID) != null)
+                            {
+                                currentProjectTaskGridView.DataSource = pT.GetTaskListFromProject(project.Project_ID).Copy();
+                                currentProjectTaskGridView.Update();
+                                currentProjectTaskGridView.Refresh();
+                            }
+                            else
+                            {
+                                currentProjectTaskGridView.DataSource = null;
+                            }
+
 
                         }
                     }

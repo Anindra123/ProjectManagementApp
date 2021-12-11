@@ -68,7 +68,8 @@ namespace ProjectManagement.ClassFiles
             return false;
         }
         /// <summary>
-        /// Verify whether a project with same title already exist
+        /// Returns the project title and project id  for a particular
+        /// group
         /// </summary>
         public void GetProjectTitleForMember(int g_id)
         {

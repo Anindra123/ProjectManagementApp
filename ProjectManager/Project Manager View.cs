@@ -57,7 +57,7 @@ namespace ProjectManagement
             currentTaskGridView.DataSource = null;
             completedTaskGridView.DataSource = null;
             viewCompletedTaskBtn.Enabled = false;
-            addNewFeatureBtn.Enabled = false;
+
             assignTaskBtn.Enabled = false;
             sendToBacklogBtn.Enabled = false;
             if (pM != null)
@@ -168,7 +168,6 @@ namespace ProjectManagement
         {
             //updates the project task object information
             //when a row is selected
-            addNewFeatureBtn.Enabled = true;
             assignTaskBtn.Enabled = true;
             DataGridViewRow row = currentTaskGridView.SelectedRows[0];
             pT.Task_ID = (int)row.Cells["ID"].Value;

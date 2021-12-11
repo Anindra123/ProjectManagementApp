@@ -48,14 +48,30 @@ namespace ProjectManagement
 
         private void AddMemberBtn_Click(object sender, EventArgs e)
         {
+            int numOfMembers = 0;
             Project proj = pM.GetProject(pG.PGroup_ID);
+
             SearchAndAddMember addMember = new SearchAndAddMember(pG, proj);
-            if (addMember.ShowDialog() == DialogResult.Cancel)
+            if (!int.TryParse(memberCountTextBox.Text.Trim(), out numOfMembers))
             {
-                currentMembersGridView.DataSource = pG.FillMemberList();
-                currentMembersGridView.Update();
-                currentMembersGridView.Refresh();
+                validations.ShowAlert("Invalid Member Count");
             }
+            else if (numOfMembers <= 0)
+            {
+                validations.ShowAlert("Invalid Member Count");
+
+            }
+            else
+            {
+                pG.MembersCount = numOfMembers;
+                if (addMember.ShowDialog() == DialogResult.Cancel)
+                {
+                    currentMembersGridView.DataSource = pG.FillMemberList();
+                    currentMembersGridView.Update();
+                    currentMembersGridView.Refresh();
+                }
+            }
+
         }
 
         private void RemoveMemberBtn_Click(object sender, EventArgs e)
@@ -131,7 +147,6 @@ namespace ProjectManagement
             currentPManagerGroupsComboBox.DataSource = pM.ProjectGroups;
             currentPManagerGroupsComboBox.SelectedIndex = -1;
             discardGroupBtn.Enabled = false;
-            AddMemberBtn.Enabled = false;
             RemoveMemberBtn.Enabled = false;
             groupNameTxtBox.Text = null;
             memberCountTextBox.Text = null;
@@ -162,13 +177,11 @@ namespace ProjectManagement
                 {
                     currentMembersGridView.DataSource = pG.FillMemberList();
                     currentMembersGridView.ClearSelection();
-                    AddMemberBtn.Enabled = true;
                     RemoveMemberBtn.Enabled = true;
                 }
                 else
                 {
                     currentMembersGridView.DataSource = null;
-                    AddMemberBtn.Enabled = false;
                     RemoveMemberBtn.Enabled = false;
                 }
 
@@ -185,14 +198,18 @@ namespace ProjectManagement
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
+            int numOfMembers = 0;
             if (string.IsNullOrWhiteSpace(groupNameTxtBox.Text.Trim()) ||
                 string.IsNullOrWhiteSpace(memberCountTextBox.Text.Trim()))
             {
                 validations.ShowAlert("Text feilds cannot be empty");
             }
-            else if (Convert.ToInt32(memberCountTextBox.Text.Trim()) <= 0)
+            else if (!int.TryParse(memberCountTextBox.Text.Trim(), out numOfMembers))
             {
-
+                validations.ShowAlert("Invalid Member Count");
+            }
+            else if (numOfMembers <= 0)
+            {
                 validations.ShowAlert("Invalid Member Count");
 
             }
@@ -205,11 +222,11 @@ namespace ProjectManagement
             else
             {
                 string gName = groupNameTxtBox.Text.Trim();
-                int memCount = Convert.ToInt32(memberCountTextBox.Text.Trim());
+                //int memCount = Convert.ToInt32(memberCountTextBox.Text.Trim());
                 UpdateGroups updateGroups = pG.UpdateGroupContainsProjectTable;
                 updateGroups += pG.UpdatePManagerGroupInfoTable;
                 updateGroups += pG.UpdatePGroupTable;
-                if (updateGroups(gName, memCount))
+                if (updateGroups(gName, numOfMembers))
                 {
                     DialogResult r = validations.ShowInfo("Updated Sucessfully");
                     if (r == DialogResult.OK)

@@ -167,6 +167,7 @@ namespace ProjectManagement
             // was found and whether the number of members in the group
             // is max and if the member is already member of another
             //group and if the current member count is valid
+            int numOfMembers = 0;
             if (memberNameTxtBox.Text == "none" && memberMailTxtBox.Text == "none")
             {
                 validations.ShowAlert("No member added");
@@ -177,10 +178,14 @@ namespace ProjectManagement
                 ResetGroupMemberFeilds();
 
             }
-            else if (Convert.ToInt32(membersCountTxtBox.Text.Trim()) <= 0)
+            else if (!int.TryParse(membersCountTxtBox.Text.Trim(), out numOfMembers))
             {
                 validations.ShowAlert("Invalid Member Count");
                 ResetGroupMemberFeilds();
+            }
+            else if (numOfMembers <= 0)
+            {
+                validations.ShowAlert("Invalid Member Count");
 
             }
             else if (pMember != null && pM.CheckIfAlreadyGroupMember(pMember.PMemberID))
