@@ -39,7 +39,7 @@ namespace ProjectManagement
             {
                 validations.ShowAlert("Text feilds cannot be empty");
             }
-            else if (pT.CheckTaskExist(tasktitleTextBox.Text.Trim()))
+            else if (tasktitleTextBox.Text.Trim() != pT.Task_Title && pT.CheckTaskExist(tasktitleTextBox.Text.Trim()))
             {
                 validations.ShowAlert("Task with same name already exists");
 

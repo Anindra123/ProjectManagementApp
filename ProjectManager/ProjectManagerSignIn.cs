@@ -55,14 +55,8 @@ namespace ProjectManagement
             {
                 validations.ShowAlert("Fill up all the fields");
             }
-            else if (validations.ValidateMail(projMEmailTextBox.Text.Trim()))
-            {
-
-                validations.ShowAlert("Invalid Email Format");
-            }
             else
             {
-
                 bool ret = pm.SignIn(projMEmailTextBox.Text.Trim(), projMPasswordTextBox.Text.Trim());
 
                 if (ret == true)
