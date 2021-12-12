@@ -20,8 +20,8 @@ Thanks to all of my fellow teammates for their contribution
 
 <!-- Copy-paste in your Readme.md file -->
 
-<a href = "https://github.com/Anindra123/ProjectManagementApp/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo = GitHub_username/repository_name"/>
+<a href="https://github.com/Anindra123/ProjectManagementApp/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Anindra123/ProjectManagementApp" />
 </a>
 
-Made with [contributors-img](https://contrib.rocks).
+Made with [contrib.rocks](https://contrib.rocks).
