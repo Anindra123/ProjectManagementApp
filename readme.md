@@ -24,4 +24,3 @@ Thanks to all of my fellow teammates for their contribution
   <img src="https://contrib.rocks/image?repo=Anindra123/ProjectManagementApp" />
 </a>
 
-Made with [contrib.rocks](https://contrib.rocks).
