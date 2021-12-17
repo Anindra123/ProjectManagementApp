@@ -191,6 +191,8 @@ namespace ProjectManagement
             this.currentMembersGridView.AllowUserToDeleteRows = false;
             this.currentMembersGridView.AllowUserToResizeColumns = false;
             this.currentMembersGridView.AllowUserToResizeRows = false;
+            this.currentMembersGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.currentMembersGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.currentMembersGridView.ColumnHeadersHeight = 29;
             this.currentMembersGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;

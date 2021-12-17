@@ -64,7 +64,7 @@ namespace ProjectManagement
             viewTaskdetailBtn.Enabled = false;
             completedTaskDetailBtn.Enabled = false;
             displayMemberTitleLabel.Text = $"Hello, {projectMember.FirstName} {projectMember.LastName}";
-            if (projectMember.CheckifGroupMember(projectMember.PMemberID))
+            if (projectMember.CheckifGroupMember(projectMember.UserID))
             {
                 AssignObjectsValues();
                 SetDashboardlabels(projGroup.PGroup_Name, projectManager.FirstName, projectManager.LastName, project.Project_Title);
@@ -77,7 +77,7 @@ namespace ProjectManagement
                 projectManager = null;
                 project = null;
             }
-            List<ProjectTask> pMemberTask = projectMember.GetTaskList(projectMember.PMemberID);
+            List<ProjectTask> pMemberTask = projectMember.GetTaskList(projectMember.UserID);
             if (projectMember.tasks.Count >= 1)
             {
                 FilterTaskList();
@@ -91,18 +91,18 @@ namespace ProjectManagement
 
         }
 
-        void GotoContinuePage()
+        void GotoStartPage()
         {
             //Goes to project manager continue form
-            var form1 = (ProjectMemberSignIn)Tag;
-            var form2 = (ContinueAsProjectMemberForm)form1.Tag;
+            var form1 = (SignInForm)Tag;
+            var form2 = (ProjectManagementStartForm)form1.Tag;
             form1.Close();
             form2.Show();
         }
 
         private void logOutBtn_Click(object sender, EventArgs e)
         {
-            GotoContinuePage();
+            GotoStartPage();
         }
         private void AssignObjectsValues()
         {
@@ -111,7 +111,7 @@ namespace ProjectManagement
             //project manager object to their required values
             SetProjectAndGroup setProjectAndGroup = project.GetProjectInfo;
             setProjectAndGroup += projGroup.GetPGroupInfo;
-            setProjectAndGroup(projectMember.PMemberID);
+            setProjectAndGroup(projectMember.UserID);
             projectManager.GetProjectManagerInfo(project.Project_ID);
 
         }
@@ -264,8 +264,8 @@ namespace ProjectManagement
 
         private void ProjectMemberMenu_FormClosed(object sender, FormClosedEventArgs e)
         {
-            var form1 = (ProjectMemberSignIn)Tag;
-            var form2 = (ContinueAsProjectMemberForm)form1.Tag;
+            var form1 = (SignInForm)Tag;
+            var form2 = (ProjectManagementStartForm)form1.Tag;
             form2.Show();
         }
 

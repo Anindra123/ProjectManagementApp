@@ -188,13 +188,13 @@ namespace ProjectManagement
                     //will remove group information and
                     //project information and assinged 
                     //task information from the group member
-                    if (!pM.CheckifGroupMember(pM.PMemberID, pG.PGroup_ID))
+                    if (!pM.CheckifGroupMember(pM.UserID, pG.PGroup_ID))
                     {
                         DialogResult dr = MessageBox.Show("Confirm Group Change ? Your current project progess will be lost", "Confirm",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (dr == DialogResult.Yes)
                         {
-                            int pm_id = pM.PMemberID;
+                            int pm_id = pM.UserID;
                             if (pT.CheckTaskAssingedToMember(pm_id) != null)
                             {
                                 DataTable dt = pT.CheckTaskAssingedToMember(pm_id);

@@ -138,6 +138,8 @@ namespace ProjectManagement
             this.projectTaskGridView.AllowUserToDeleteRows = false;
             this.projectTaskGridView.AllowUserToResizeColumns = false;
             this.projectTaskGridView.AllowUserToResizeRows = false;
+            this.projectTaskGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.projectTaskGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.projectTaskGridView.ColumnHeadersHeight = 29;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
@@ -150,6 +152,7 @@ namespace ProjectManagement
             this.projectTaskGridView.Location = new System.Drawing.Point(44, 433);
             this.projectTaskGridView.Name = "projectTaskGridView";
             this.projectTaskGridView.ReadOnly = true;
+            this.projectTaskGridView.RowHeadersVisible = false;
             this.projectTaskGridView.RowHeadersWidth = 51;
             this.projectTaskGridView.RowTemplate.Height = 24;
             this.projectTaskGridView.Size = new System.Drawing.Size(534, 154);

@@ -58,26 +58,23 @@
     <Compile Include="Add New Feature.designer.cs">
       <DependentUpon>Add New Feature.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardForm.Designer.cs">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BackLogTaskView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BackLogTaskView.Designer.cs">
       <DependentUpon>BackLogTaskView.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClassFiles\Admin.cs" />
     <Compile Include="ClassFiles\BackLog.cs" />
+    <Compile Include="ClassFiles\PUserStatus.cs" />
+    <Compile Include="ClassFiles\PUserType.cs" />
     <Compile Include="ClassFiles\Validations.cs" />
-    <Compile Include="ContinueAsProjectManagerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ContinueAsProjectManagerForm.Designer.cs">
-      <DependentUpon>ContinueAsProjectManagerForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContinueAsProjectMemberForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ContinueAsProjectMemberForm.Designer.cs">
-      <DependentUpon>ContinueAsProjectMemberForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="CreateNewGroup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,11 +160,11 @@
     <Compile Include="UpdateGroupInfo.Designer.cs">
       <DependentUpon>UpdateGroupInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="MemberSignUpForm.cs">
+    <Compile Include="SignUpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MemberSignUpForm.Designer.cs">
-      <DependentUpon>MemberSignUpForm.cs</DependentUpon>
+    <Compile Include="SignUpForm.Designer.cs">
+      <DependentUpon>SignUpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Project Manager View.cs">
@@ -179,11 +176,11 @@
     <Compile Include="ClassFiles\Project.cs" />
     <Compile Include="ClassFiles\ProjectGroup.cs" />
     <Compile Include="ClassFiles\ProjectManager.cs" />
-    <Compile Include="ProjectManagerSignIn.cs">
+    <Compile Include="AdminLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProjectManagerSignIn.Designer.cs">
-      <DependentUpon>ProjectManagerSignIn.cs</DependentUpon>
+    <Compile Include="AdminLoginForm.Designer.cs">
+      <DependentUpon>AdminLoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProjectManagerSignUpForm.cs">
       <SubType>Form</SubType>
@@ -204,11 +201,11 @@
     <Compile Include="ProjectMemberMenu.Designer.cs">
       <DependentUpon>ProjectMemberMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProjectMemberSignIn.cs">
+    <Compile Include="SignInForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProjectMemberSignIn.Designer.cs">
-      <DependentUpon>ProjectMemberSignIn.cs</DependentUpon>
+    <Compile Include="SignInForm.Designer.cs">
+      <DependentUpon>SignInForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ClassFiles\ProjectTask.cs" />
@@ -225,14 +222,11 @@
     <EmbeddedResource Include="Add New Feature.resx">
       <DependentUpon>Add New Feature.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardForm.resx">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BackLogTaskView.resx">
       <DependentUpon>BackLogTaskView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ContinueAsProjectManagerForm.resx">
-      <DependentUpon>ContinueAsProjectManagerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ContinueAsProjectMemberForm.resx">
-      <DependentUpon>ContinueAsProjectMemberForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateNewGroup.resx">
       <DependentUpon>CreateNewGroup.cs</DependentUpon>
@@ -270,14 +264,14 @@
     <EmbeddedResource Include="AssignTask.resx">
       <DependentUpon>AssignTask.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MemberSignUpForm.resx">
-      <DependentUpon>MemberSignUpForm.cs</DependentUpon>
+    <EmbeddedResource Include="SignUpForm.resx">
+      <DependentUpon>SignUpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Project Manager View.resx">
       <DependentUpon>Project Manager View.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProjectManagerSignIn.resx">
-      <DependentUpon>ProjectManagerSignIn.cs</DependentUpon>
+    <EmbeddedResource Include="AdminLoginForm.resx">
+      <DependentUpon>AdminLoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectManagerSignUpForm.resx">
       <DependentUpon>ProjectManagerSignUpForm.cs</DependentUpon>
@@ -288,8 +282,8 @@
     <EmbeddedResource Include="ProjectMemberMenu.resx">
       <DependentUpon>ProjectMemberMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProjectMemberSignIn.resx">
-      <DependentUpon>ProjectMemberSignIn.cs</DependentUpon>
+    <EmbeddedResource Include="SignInForm.resx">
+      <DependentUpon>SignInForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

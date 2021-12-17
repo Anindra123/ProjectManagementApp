@@ -13,14 +13,13 @@ namespace ProjectManagement.ClassFiles
     public class ProjectMember : User
     {
         string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
-        public int PMemberID { get; set; }
+
         /// <summary>
         /// Generic list that will be used to store task and
         /// retrieve task
         /// </summary>
         public List<ProjectTask> tasks { get; set; } = new List<ProjectTask>();
 
-        private static DataTable dt = new DataTable();
 
         public bool VerifyMail(string mail)
         {
@@ -31,57 +30,10 @@ namespace ProjectManagement.ClassFiles
             return false;
 
         }
-        /// <summary>
-        /// Common function 
-        /// used to reset the datatable data and fill the datatable
-        /// with new data
-        /// </summary>
-        private void FillTable(string query)
-        {
-            dt.Clear();
-            dt.Columns.Clear();
-            dt.Rows.Clear();
-            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
-            {
-                SqlDataAdapter sda = new SqlDataAdapter(query, conn);
-                sda.Fill(dt);
-            }
-        }
-        /// <summary>
-        /// Common function 
-        /// used to open database connection and run executeNonQuery command
-        /// and the number of rows effected boolean value is returned
-        /// </summary>
-        public bool RunQuery(string query)
-        {
-            bool ret = false;
-            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
-            {
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Connection.Open();
-                if (cmd.ExecuteNonQuery() > 0)
-                {
-                    ret = true;
-                }
-            }
-            return ret;
-        }
 
-        /// <summary>
-        /// Checks whether user is using same mail and password when 
-        /// sign in up as project member
-        /// </summary>
-        public bool CheckDuplicateMailAndPass(string mail, string pass)
-        {
-            string query = $"select * from PMember_TBL where " +
-                $"PMember_Email = '{mail}' or PMember_Password = '{pass}';";
-            FillTable(query);
-            if (dt.Rows.Count == 1)
-            {
-                return true;
-            }
-            return false;
-        }
+
+
+
         /// <summary>
         /// Seaches for a project member using email
         /// in database and retrives information
@@ -91,10 +43,10 @@ namespace ProjectManagement.ClassFiles
         {
             string query = $"select * from PMember_TBL where " +
                 $"PMember_Email = '{mail}';";
-            FillTable(query);
+            FillData(query);
             if (dt.Rows.Count == 1)
             {
-                this.PMemberID = Convert.ToInt32(dt.Rows[0]["PMember_ID"].ToString());
+                this.UserID = Convert.ToInt32(dt.Rows[0]["PMember_ID"].ToString());
                 this.FirstName = dt.Rows[0]["PMember_FirstName"].ToString();
                 this.LastName = dt.Rows[0]["PMember_LastName"].ToString();
                 this.Email = dt.Rows[0]["PMember_Email"].ToString();
@@ -137,7 +89,7 @@ namespace ProjectManagement.ClassFiles
             string query = $"select * from PMember_TBL where " +
                 $"PMember_Email = '{this.Email}' AND " +
                 $"PMember_Password = '{this.password}';";
-            FillTable(query);
+            FillData(query);
             if (dt.Rows.Count == 1)
             {
                 val = Convert.ToInt32(dt.Rows[0]["PMember_ID"].ToString());
@@ -153,11 +105,11 @@ namespace ProjectManagement.ClassFiles
         {
             string query = $"select pm.* from PMember_TBL as pm,PerformTask_TBL as pt " +
                 $"where pm.PMember_ID = pt.PMember_ID and pt.Task_ID = '{t_id}'";
-            FillTable(query);
+            FillData(query);
 
             if (dt.Rows.Count == 1)
             {
-                this.PMemberID = Convert.ToInt32(dt.Rows[0]["PMember_ID"].ToString());
+                this.UserID = Convert.ToInt32(dt.Rows[0]["PMember_ID"].ToString());
                 this.FirstName = dt.Rows[0]["PMember_FirstName"].ToString();
                 this.LastName = dt.Rows[0]["PMember_LastName"].ToString();
                 this.Email = dt.Rows[0]["PMember_Email"].ToString();
@@ -192,11 +144,11 @@ namespace ProjectManagement.ClassFiles
             string query = $"select * from PMember_TBL where " +
                 $"PMember_Email = '{email}' AND " +
                 $"PMember_Password = '{password}';";
-            FillTable(query);
+            FillData(query);
 
             if (dt.Rows.Count == 1)
             {
-                this.PMemberID = Convert.ToInt32(dt.Rows[0]["PMember_ID"].ToString());
+                this.UserID = Convert.ToInt32(dt.Rows[0]["PMember_ID"].ToString());
                 this.FirstName = dt.Rows[0]["PMember_FirstName"].ToString();
                 this.LastName = dt.Rows[0]["PMember_LastName"].ToString();
                 this.Email = dt.Rows[0]["PMember_Email"].ToString();
@@ -215,7 +167,7 @@ namespace ProjectManagement.ClassFiles
 
             string query = $"insert into PMemberGroupInfo_TBL " +
                 $"(PMember_ID,PMember_FirstName, PMember_LastName, PMember_Email, PMember_Password,PGroup_ID) " +
-                $" values ('{this.PMemberID}','{this.FirstName}', '{this.LastName}', '{this.Email}', '{this.password}','{g_id}') ";
+                $" values ('{this.UserID}','{this.FirstName}', '{this.LastName}', '{this.Email}', '{this.password}','{g_id}') ";
             RunQuery(query);
         }
         /// <summary>
@@ -228,7 +180,7 @@ namespace ProjectManagement.ClassFiles
 
             string query = $"insert into PMemberProjectInfo_TBL " +
                 $"(PMember_ID,PMember_FirstName, PMember_LastName, PMember_Email, PMember_Password,Project_ID) " +
-                $" values ('{this.PMemberID}','{this.FirstName}', '{this.LastName}', '{this.Email}', '{this.password}','{proj_id}') ";
+                $" values ('{this.UserID}','{this.FirstName}', '{this.LastName}', '{this.Email}', '{this.password}','{proj_id}') ";
             RunQuery(query);
         }
         /// <summary>
@@ -239,7 +191,7 @@ namespace ProjectManagement.ClassFiles
         {
             string query = $"select * from PMemberGroupInfo_TBL where " +
                 $"PMember_ID = '{pm_id}';";
-            FillTable(query);
+            FillData(query);
             if (dt.Rows.Count == 1)
             {
                 return true;
@@ -256,10 +208,10 @@ namespace ProjectManagement.ClassFiles
         {
             string query = $"select * from PMemberGroupInfo_TBL where " +
                 $"PMember_ID = '{pm_id}' and PGroup_ID = '{group_id}';";
-            FillTable(query);
+            FillData(query);
             if (dt.Rows.Count == 1)
             {
-                this.PMemberID = Convert.ToInt32(dt.Rows[0]["PMember_ID"].ToString());
+                this.UserID = Convert.ToInt32(dt.Rows[0]["PMember_ID"].ToString());
                 this.FirstName = dt.Rows[0]["PMember_FirstName"].ToString();
                 this.LastName = dt.Rows[0]["PMember_LastName"].ToString();
                 this.Email = dt.Rows[0]["PMember_Email"].ToString();
@@ -400,7 +352,7 @@ namespace ProjectManagement.ClassFiles
             string query = $"update PMember_TBL " +
                 $" set PMember_FirstName = '{this.FirstName}',PMember_LastName = '{this.LastName}'" +
                 $",PMember_Email = '{this.Email}',PMember_Password = '{this.password}' " +
-                $"where PMember_ID = {this.PMemberID}";
+                $"where PMember_ID = {this.UserID}";
             return RunQuery(query);
         }
         /// <summary>

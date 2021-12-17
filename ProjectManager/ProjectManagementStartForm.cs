@@ -26,6 +26,7 @@ namespace ProjectManagement
         public ProjectManagementStartForm()
         {
             InitializeComponent();
+            toolTip1.SetToolTip(adminLoginBtn, "Administrator");
         }
         void ShowNewMenu(Form obj)
         {
@@ -35,19 +36,7 @@ namespace ProjectManagement
             this.Hide();
         }
 
-        private void continueAsProjectMemberBtn_Click(object sender, EventArgs e)
-        {
-            ContinueAsProjectMemberForm memberForm =
-                new ContinueAsProjectMemberForm();
-            ShowNewMenu(memberForm);
-        }
 
-        private void continueAsProjectManagerBtn_Click(object sender, EventArgs e)
-        {
-            ContinueAsProjectManagerForm managerForm =
-                new ContinueAsProjectManagerForm();
-            ShowNewMenu(managerForm);
-        }
 
         private void aboutBtn_Click(object sender, EventArgs e)
         {
@@ -58,6 +47,18 @@ namespace ProjectManagement
         private void quitApplicationBtn_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void signInBtn_Click(object sender, EventArgs e)
+        {
+            SignInForm signIn = new SignInForm();
+            ShowNewMenu(signIn);
+        }
+
+        private void adminLoginBtn_Click(object sender, EventArgs e)
+        {
+            AdminLoginForm adminLogin = new AdminLoginForm();
+            ShowNewMenu(adminLogin);
         }
     }
 }

@@ -33,11 +33,11 @@ namespace ProjectManagement
             InitializeComponent();
             this.pM = pM;
         }
-        void GotoContinuePage()
+        void GotoStartPage()
         {
-            //Goes to project manager continue form
-            var form1 = (ProjectManagerSignIn)Tag;
-            var form2 = (ContinueAsProjectManagerForm)form1.Tag;
+            //Goes to start form
+            var form1 = (SignInForm)Tag;
+            var form2 = (ProjectManagementStartForm)form1.Tag;
             form1.Close();
             form2.Show();
         }
@@ -64,7 +64,7 @@ namespace ProjectManagement
             {
                 pM.GetProjectGroups();
                 pM.GetProjects();
-                pM.GetProjectManager();
+                //pM.GetProjectManager();
                 welcomeFullNameLabel.Text = $"Welcome, {pM.FirstName} {pM.LastName}";
                 if (pM.ProjectGroups.Count > 0 && pM.Projects.Count > 0)
                 {
@@ -75,18 +75,18 @@ namespace ProjectManagement
                 {
                     groupAndProjectView.DataSource = null;
                 }
-                if (pM.ViewCurrentTask(pM.PManager_ID) != null)
+                if (pM.ViewCurrentTask(pM.UserID) != null)
                 {
-                    currentTaskGridView.DataSource = pM.ViewCurrentTask(pM.PManager_ID).Copy();
+                    currentTaskGridView.DataSource = pM.ViewCurrentTask(pM.UserID).Copy();
                     currentTaskGridView.ClearSelection();
                 }
                 else
                 {
                     currentTaskGridView.DataSource = null;
                 }
-                if (pM.ViewCompletedTask(pM.PManager_ID) != null)
+                if (pM.ViewCompletedTask(pM.UserID) != null)
                 {
-                    completedTaskGridView.DataSource = pM.ViewCompletedTask(pM.PManager_ID).Copy();
+                    completedTaskGridView.DataSource = pM.ViewCompletedTask(pM.UserID).Copy();
                     completedTaskGridView.ClearSelection();
                 }
                 else
@@ -98,7 +98,7 @@ namespace ProjectManagement
 
         private void logOutBtn_Click(object sender, EventArgs e)
         {
-            GotoContinuePage();
+            GotoStartPage();
             this.Close();
         }
 
@@ -201,8 +201,8 @@ namespace ProjectManagement
 
         private void updatePManagerInfo_FormClosed(object sender, FormClosedEventArgs e)
         {
-            var form1 = (ProjectManagerSignIn)Tag;
-            var form2 = (ContinueAsProjectManagerForm)form1.Tag;
+            var form1 = (SignInForm)Tag;
+            var form2 = (ProjectManagementStartForm)form1.Tag;
             form2.Show();
         }
 
@@ -227,7 +227,7 @@ namespace ProjectManagement
                     bL.BackLog_ProjectTitle = project.Project_Title;
                     bL.BackLog_TaskTitle = pT.Task_Title;
                     bL.BackLog_TaskCompleted = $"{pMember.FirstName} {pMember.LastName}";
-                    bL.PManager_ID = pM.PManager_ID;
+                    bL.PManager_ID = pM.UserID;
                     bL.InsertBackLogData();
                     //Multicasted deligate instance created
                     RemoveTaskFromTables removeTask = pT.DeleteFromPerformTaskTable;
@@ -237,9 +237,9 @@ namespace ProjectManagement
                     if (removeTask())
                     {
                         validations.ShowInfo("Task send to Backlogs");
-                        if (pM.ViewCompletedTask(pM.PManager_ID) != null)
+                        if (pM.ViewCompletedTask(pM.UserID) != null)
                         {
-                            completedTaskGridView.DataSource = pM.ViewCompletedTask(pM.PManager_ID).Copy();
+                            completedTaskGridView.DataSource = pM.ViewCompletedTask(pM.UserID).Copy();
                             completedTaskGridView.ClearSelection();
                         }
                         else
@@ -258,7 +258,7 @@ namespace ProjectManagement
 
         private void viewProjectBacklogBtn_Click(object sender, EventArgs e)
         {
-            bL.PManager_ID = pM.PManager_ID;
+            bL.PManager_ID = pM.UserID;
             BackLogTaskView backLog = new BackLogTaskView(bL);
             ShowNewMenu(backLog);
 

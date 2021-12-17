@@ -42,7 +42,7 @@ namespace ProjectManagement
                 validations.ShowAlert("User doesn't exist or invalid mail");
                 proMSearchMemTextBox.Text = null;
             }
-            else if (pMember.CheckifGroupMember(pMember.PMemberID))
+            else if (pMember.CheckifGroupMember(pMember.UserID))
             {
                 validations.ShowAlert("User is already a member of different group");
                 proMSearchMemTextBox.Text = null;

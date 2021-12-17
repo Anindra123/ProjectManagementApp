@@ -168,7 +168,7 @@ namespace ProjectManagement
                     backLog.BackLog_TaskCompleted = $"{pMember.FirstName} {pMember.LastName}";
                 }
                 backLog.BackLog_TaskTitle = pT.Task_Title;
-                backLog.PManager_ID = pM.PManager_ID;
+                backLog.PManager_ID = pM.UserID;
                 backLog.InsertBackLogData();
                 //RemoveTaskFromTables deligate instance created
                 //and invoked here aswell

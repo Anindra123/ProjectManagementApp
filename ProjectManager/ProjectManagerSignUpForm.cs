@@ -23,18 +23,18 @@ namespace ProjectManagement
         }
         void ShowPreviousForm()
         {
-            //Goes to the previous control
-            var form = (ContinueAsProjectManagerForm)Tag;
-            form.Show();
+            ////Goes to the previous control
+            //var form = (ContinueAsProjectManagerForm)Tag;
+            //form.Show();
         }
         void BackToHomeMenu()
         {
-            //Close the current form and the form before it
-            //And show homepage
-            var form1 = (ContinueAsProjectManagerForm)Tag;
-            var form2 = (ProjectManagementStartForm)form1.Tag;
-            form1.Close();
-            form2.Show();
+            ////Close the current form and the form before it
+            ////And show homepage
+            //var form1 = (ContinueAsProjectManagerForm)Tag;
+            //var form2 = (ProjectManagementStartForm)form1.Tag;
+            //form1.Close();
+            //form2.Show();
 
         }
         void ResetSignUpFeilds()
@@ -65,29 +65,29 @@ namespace ProjectManagement
 
         private void proMSignUp_Click(object sender, EventArgs e)
         {
-            string firstName = proMFirstNameTextBox.Text.Trim();
-            string lastName = proMLastNameTextBox.Text.Trim();
-            string email = proMEmailTextBox.Text.Trim();
-            string password = proMPasswordTextBox.Text.Trim();
+            //string firstName = proMFirstNameTextBox.Text.Trim();
+            //string lastName = proMLastNameTextBox.Text.Trim();
+            //string email = proMEmailTextBox.Text.Trim();
+            //string password = proMPasswordTextBox.Text.Trim();
 
-            //calling the generic method from validations
-            if (validations.SignUpAndUpdateValidation<ProjectManager>(false,
-                firstName, lastName, email, password, pM))
-            {
-                bool ret = pM.SignUp(firstName, lastName, email, password);
+            ////calling the generic method from validations
+            //if (validations.SignUpAndUpdateValidation<ProjectManager>(false,
+            //    firstName, lastName, email, password, pM))
+            //{
+            //    bool ret = pM.SignUp(firstName, lastName, email, password);
 
-                if (ret == true)
-                {
-                    MessageBox.Show("User Successfully Signed Up", "Success",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ResetSignUpFeilds();
-                }
-                else
-                {
-                    MessageBox.Show("Error in Sign Up", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            //    if (ret == true)
+            //    {
+            //        MessageBox.Show("User Successfully Signed Up", "Success",
+            //            MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        ResetSignUpFeilds();
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Error in Sign Up", "Error",
+            //            MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
         }
     }
 }

@@ -116,8 +116,8 @@ namespace ProjectManagement
             {
                 if (pM.CreateGroup(gName, Convert.ToInt32(gMCount)) &&
                     pM.CreateProject(pTitle, pDesc, sDate, eDate) &&
-                    pM.AssignGroup(gName, pM.PManager_ID) &&
-                    pM.AssignProject(pTitle, pM.PManager_ID, gName))
+                    pM.AssignGroup(gName, pM.UserID) &&
+                    pM.AssignProject(pTitle, pM.UserID, gName))
                 {
                     pM.GetProjectGroups();
                     pM.GetProjects();
@@ -200,7 +200,7 @@ namespace ProjectManagement
                 validations.ShowAlert("Invalid Member Count");
                 ResetGroupMemberFeilds();
             }
-            else if (pMember != null && pM.CheckIfAlreadyGroupMember(pMember.PMemberID))
+            else if (pMember != null && pM.CheckIfAlreadyGroupMember(pMember.UserID))
             {
                 validations.ShowAlert("Selected user already a member of different group");
                 ResetGroupMemberFeilds();
@@ -218,7 +218,7 @@ namespace ProjectManagement
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
-                        pM.FillPmemberData(dt, pMember.PMemberID);
+                        pM.FillPmemberData(dt, pMember.UserID);
                         projectMembers.Add(pMember);
                     }
                     else

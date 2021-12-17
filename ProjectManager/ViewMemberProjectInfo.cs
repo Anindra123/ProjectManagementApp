@@ -66,9 +66,9 @@ namespace ProjectManagement
                     pStart: start,
                     pEnd: end
                     );
-                if (pTask.FillAssignedTaskList(pM.PMemberID) != null)
+                if (pTask.FillAssignedTaskList(pM.UserID) != null)
                 {
-                    projectTaskGridView.DataSource = pTask.FillAssignedTaskList(pM.PMemberID).Copy();
+                    projectTaskGridView.DataSource = pTask.FillAssignedTaskList(pM.UserID).Copy();
                     projectTaskGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 }
             }

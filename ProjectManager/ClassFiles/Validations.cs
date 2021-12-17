@@ -71,58 +71,91 @@ namespace ProjectManagement.ClassFiles
         /// Generic method which will provide sign up and update validations    
         /// </summary>
 
-        public bool SignUpAndUpdateValidation<T>(bool update, string fName, string lName, string email, string pass, T obj)
+        public bool SignUpAndUpdateValidation(bool update, string fName, string lName,
+            string email, string pass, bool lastNameExist)
         {
-            if (string.IsNullOrWhiteSpace(fName) ||
+            bool ret = true;
+
+            if (lastNameExist == true)
+            {
+                if (string.IsNullOrWhiteSpace(fName) ||
                 string.IsNullOrWhiteSpace(lName) ||
                 string.IsNullOrWhiteSpace(email) ||
                 string.IsNullOrWhiteSpace(pass))
-            {
-                ShowAlert("Text Feilds Cannot Be Empty");
-                return false;
-            }
-            else if (!Regex.IsMatch(email, pattern))
-            {
-                ShowAlert("Invalid Email");
-                return false;
-            }
-            else if (pass.Length > 8)
-            {
-                ShowAlert("Password must be 8 characters long");
-                return false;
-            }
-            else if (!update)
-            {
-                if (obj is ProjectManager)
                 {
-                    var o = obj as ProjectManager;
-                    if (o.CheckDuplicateMailAndPass(email, pass))
-                    {
-                        ShowAlert("An entry with same name/email/password already exists.Try something different");
-                        return false;
-                    }
+                    ShowAlert("Text Feilds Cannot Be Empty");
+                    ret = false;
                 }
-                else if (obj is ProjectMember)
+                else if (!Regex.IsMatch(email, pattern))
                 {
-                    var o = obj as ProjectMember;
-                    if (o.CheckDuplicateMailAndPass(email, pass))
-                    {
-                        ShowAlert("An entry with same name/email/password already exists.Try something different");
-                        return false;
-                    }
+                    ShowAlert("Invalid Email");
+                    ret = false;
                 }
+                else if (pass.Length > 8)
+                {
+                    ShowAlert("Password must be 8 characters long");
+                    ret = false;
+                }
+                else if (User.CheckDuplicateMailPassName(email, pass, fName, lName))
+                {
+                    ShowAlert("Account with same name/email/pass already exists.Try something different.");
+                    ret = false;
+                }
+
             }
             else
             {
-                if (obj is ProjectManager)
+                if (string.IsNullOrWhiteSpace(fName) ||
+                string.IsNullOrWhiteSpace(email) ||
+                string.IsNullOrWhiteSpace(pass))
                 {
-                    var o = obj as ProjectManager;
-                    if (o.CheckDuplicateUpdate(email, pass))
-                    {
-                        ShowAlert("An entry with same name/email/password already exists.Try something different");
-                        return false;
-                    }
+                    ShowAlert("Text Feilds Cannot Be Empty");
+                    ret = false;
                 }
+                else if (!Regex.IsMatch(email, pattern))
+                {
+                    ShowAlert("Invalid Email");
+                    ret = false;
+                }
+                else if (pass.Length > 8)
+                {
+                    ShowAlert("Password must be 8 characters long");
+                    ret = false;
+                }
+                else if (User.CheckDuplicateMailPassName(email, pass, fName))
+                {
+                    ShowAlert("Account with same name/email/pass already exists.Try something different.");
+                    ret = false;
+                }
+
+            }
+
+            return ret;
+        }
+
+
+        public bool SignInValidation(User obj)
+        {
+            if (obj.UserStatus == "Unverified")
+            {
+                ShowAlert("Your account is currently not verified.Please wait for verification.");
+                return false;
+            }
+            if (obj.UserStatus == "Block")
+            {
+                ShowError("Your account was blocked by admin.Please create a different account or contact administration.");
+                return false;
+            }
+            return true;
+        }
+
+        public bool SignInValidation(string email, string pass)
+        {
+            if (string.IsNullOrWhiteSpace(email) ||
+                string.IsNullOrWhiteSpace(pass))
+            {
+                ShowAlert("Text feilds cannot be empty");
+                return false;
             }
             return true;
         }

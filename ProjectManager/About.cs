@@ -20,6 +20,7 @@ namespace ProjectManagement
             dataGridView1.Rows.Add("Shahed Chowdhury Omi", "18-38760-3", "All Form Validations");
             dataGridView1.Rows.Add("Muntezar Rabbani", "20-44064-2", "All Form Navigations");
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dataGridView1.ClearSelection();
         }
     }
 }
