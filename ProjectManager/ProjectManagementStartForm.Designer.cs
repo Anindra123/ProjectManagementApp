@@ -29,13 +29,15 @@ namespace ProjectManagement
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectManagementStartForm));
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.continueAsProjectMemberBtn = new System.Windows.Forms.Button();
-            this.continueAsProjectManagerBtn = new System.Windows.Forms.Button();
+            this.signInBtn = new System.Windows.Forms.Button();
             this.aboutBtn = new System.Windows.Forms.Button();
             this.quitApplicationBtn = new System.Windows.Forms.Button();
+            this.adminLoginBtn = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,33 +62,19 @@ namespace ProjectManagement
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // continueAsProjectMemberBtn
+            // signInBtn
             // 
-            this.continueAsProjectMemberBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.continueAsProjectMemberBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.continueAsProjectMemberBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.continueAsProjectMemberBtn.ForeColor = System.Drawing.Color.White;
-            this.continueAsProjectMemberBtn.Location = new System.Drawing.Point(178, 157);
-            this.continueAsProjectMemberBtn.Name = "continueAsProjectMemberBtn";
-            this.continueAsProjectMemberBtn.Size = new System.Drawing.Size(285, 54);
-            this.continueAsProjectMemberBtn.TabIndex = 3;
-            this.continueAsProjectMemberBtn.Text = "Continue As Project Member";
-            this.continueAsProjectMemberBtn.UseVisualStyleBackColor = false;
-            this.continueAsProjectMemberBtn.Click += new System.EventHandler(this.continueAsProjectMemberBtn_Click);
-            // 
-            // continueAsProjectManagerBtn
-            // 
-            this.continueAsProjectManagerBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.continueAsProjectManagerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.continueAsProjectManagerBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.continueAsProjectManagerBtn.ForeColor = System.Drawing.Color.White;
-            this.continueAsProjectManagerBtn.Location = new System.Drawing.Point(178, 217);
-            this.continueAsProjectManagerBtn.Name = "continueAsProjectManagerBtn";
-            this.continueAsProjectManagerBtn.Size = new System.Drawing.Size(285, 54);
-            this.continueAsProjectManagerBtn.TabIndex = 4;
-            this.continueAsProjectManagerBtn.Text = "Continue As Project Manager";
-            this.continueAsProjectManagerBtn.UseVisualStyleBackColor = false;
-            this.continueAsProjectManagerBtn.Click += new System.EventHandler(this.continueAsProjectManagerBtn_Click);
+            this.signInBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.signInBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.signInBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signInBtn.ForeColor = System.Drawing.Color.White;
+            this.signInBtn.Location = new System.Drawing.Point(178, 167);
+            this.signInBtn.Name = "signInBtn";
+            this.signInBtn.Size = new System.Drawing.Size(285, 54);
+            this.signInBtn.TabIndex = 3;
+            this.signInBtn.Text = "Sign In";
+            this.signInBtn.UseVisualStyleBackColor = false;
+            this.signInBtn.Click += new System.EventHandler(this.signInBtn_Click);
             // 
             // aboutBtn
             // 
@@ -94,7 +82,7 @@ namespace ProjectManagement
             this.aboutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aboutBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aboutBtn.ForeColor = System.Drawing.Color.White;
-            this.aboutBtn.Location = new System.Drawing.Point(178, 277);
+            this.aboutBtn.Location = new System.Drawing.Point(178, 239);
             this.aboutBtn.Name = "aboutBtn";
             this.aboutBtn.Size = new System.Drawing.Size(285, 54);
             this.aboutBtn.TabIndex = 5;
@@ -116,16 +104,29 @@ namespace ProjectManagement
             this.quitApplicationBtn.UseVisualStyleBackColor = false;
             this.quitApplicationBtn.Click += new System.EventHandler(this.quitApplicationBtn_Click);
             // 
+            // adminLoginBtn
+            // 
+            this.adminLoginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.adminLoginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.adminLoginBtn.ForeColor = System.Drawing.Color.Black;
+            this.adminLoginBtn.Image = ((System.Drawing.Image)(resources.GetObject("adminLoginBtn.Image")));
+            this.adminLoginBtn.Location = new System.Drawing.Point(606, 12);
+            this.adminLoginBtn.Name = "adminLoginBtn";
+            this.adminLoginBtn.Size = new System.Drawing.Size(64, 64);
+            this.adminLoginBtn.TabIndex = 7;
+            this.adminLoginBtn.UseVisualStyleBackColor = false;
+            this.adminLoginBtn.Click += new System.EventHandler(this.adminLoginBtn_Click);
+            // 
             // ProjectManagementStartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(682, 453);
+            this.Controls.Add(this.adminLoginBtn);
             this.Controls.Add(this.quitApplicationBtn);
             this.Controls.Add(this.aboutBtn);
-            this.Controls.Add(this.continueAsProjectManagerBtn);
-            this.Controls.Add(this.continueAsProjectMemberBtn);
+            this.Controls.Add(this.signInBtn);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -145,9 +146,10 @@ namespace ProjectManagement
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button continueAsProjectMemberBtn;
-        private System.Windows.Forms.Button continueAsProjectManagerBtn;
+        private System.Windows.Forms.Button signInBtn;
         private System.Windows.Forms.Button aboutBtn;
         private System.Windows.Forms.Button quitApplicationBtn;
+        private System.Windows.Forms.Button adminLoginBtn;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

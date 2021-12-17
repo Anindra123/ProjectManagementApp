@@ -99,12 +99,14 @@ namespace ProjectManagement
             this.groupMemberGridView.AllowUserToDeleteRows = false;
             this.groupMemberGridView.AllowUserToResizeColumns = false;
             this.groupMemberGridView.AllowUserToResizeRows = false;
+            this.groupMemberGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.groupMemberGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.groupMemberGridView.ColumnHeadersHeight = 29;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.groupMemberGridView.DefaultCellStyle = dataGridViewCellStyle1;
@@ -112,6 +114,7 @@ namespace ProjectManagement
             this.groupMemberGridView.MultiSelect = false;
             this.groupMemberGridView.Name = "groupMemberGridView";
             this.groupMemberGridView.ReadOnly = true;
+            this.groupMemberGridView.RowHeadersVisible = false;
             this.groupMemberGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.groupMemberGridView.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.groupMemberGridView.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;

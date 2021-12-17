@@ -46,20 +46,20 @@ namespace ProjectManagement
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
-            string firstName = firstNameManagerTxt.Text.Trim();
-            string lastName = lastNameManagerText.Text.Trim();
-            string email = managerEmailTxt.Text.Trim();
-            string password = managerPasswordTxt.Text.Trim();
+            //string firstName = firstNameManagerTxt.Text.Trim();
+            //string lastName = lastNameManagerText.Text.Trim();
+            //string email = managerEmailTxt.Text.Trim();
+            //string password = managerPasswordTxt.Text.Trim();
 
-            //as update is being performed true is passed on the 
-            //parameter
-            if (validations.SignUpAndUpdateValidation<ProjectManager>(true, firstName, lastName, email, password, pM))
-            {
-                if (pM.UpdateProjectManagerInfo(firstName, lastName, password, email))
-                {
-                    validations.ShowInfo("Updated Sucessfully");
-                }
-            }
+            ////as update is being performed true is passed on the 
+            ////parameter
+            //if (validations.SignUpAndUpdateValidation<ProjectManager>(true, firstName, lastName, email, password, pM))
+            //{
+            //    if (pM.UpdateProjectManagerInfo(firstName, lastName, password, email))
+            //    {
+            //        validations.ShowInfo("Updated Sucessfully");
+            //    }
+            //}
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)

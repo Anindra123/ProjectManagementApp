@@ -210,11 +210,13 @@ namespace ProjectManagement
             this.membersAddedGridView.AllowUserToDeleteRows = false;
             this.membersAddedGridView.AllowUserToResizeColumns = false;
             this.membersAddedGridView.AllowUserToResizeRows = false;
+            this.membersAddedGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.membersAddedGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.membersAddedGridView.ColumnHeadersHeight = 29;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -222,6 +224,7 @@ namespace ProjectManagement
             this.membersAddedGridView.Location = new System.Drawing.Point(22, 254);
             this.membersAddedGridView.Name = "membersAddedGridView";
             this.membersAddedGridView.ReadOnly = true;
+            this.membersAddedGridView.RowHeadersVisible = false;
             this.membersAddedGridView.RowHeadersWidth = 51;
             this.membersAddedGridView.RowTemplate.Height = 24;
             this.membersAddedGridView.Size = new System.Drawing.Size(518, 84);

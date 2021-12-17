@@ -78,7 +78,7 @@ namespace ProjectManagement
                 {
 
                     if (pM.CreateTask(tTitle, tDesc, project.Project_ID)
-                           && pM.AssignTask(tTitle, tDesc, pM.PManager_ID))
+                           && pM.AssignTask(tTitle, tDesc, pM.UserID))
                     {
                         if (assignSelectionYesRadioBtn.Checked == false)
                         {
@@ -94,7 +94,7 @@ namespace ProjectManagement
                         {
                             if (pMem.CheckifGroupMember(memberID, pG.PGroup_ID))
                             {
-                                pM.AssignTaskToMember(tTitle, tDesc, pMem.PMemberID);
+                                pM.AssignTaskToMember(tTitle, tDesc, pMem.UserID);
                                 DialogResult result = MessageBox.Show("Task Created Sucessfully", "Sucess",
                MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 if (result == DialogResult.OK)

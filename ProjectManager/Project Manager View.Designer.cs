@@ -95,6 +95,8 @@ namespace ProjectManagement
             this.groupAndProjectView.AllowUserToDeleteRows = false;
             this.groupAndProjectView.AllowUserToResizeColumns = false;
             this.groupAndProjectView.AllowUserToResizeRows = false;
+            this.groupAndProjectView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.groupAndProjectView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -123,6 +125,7 @@ namespace ProjectManagement
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.groupAndProjectView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.groupAndProjectView.RowHeadersVisible = false;
             this.groupAndProjectView.RowHeadersWidth = 51;
             this.groupAndProjectView.RowTemplate.Height = 24;
             this.groupAndProjectView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -149,6 +152,8 @@ namespace ProjectManagement
             this.completedTaskGridView.AllowUserToDeleteRows = false;
             this.completedTaskGridView.AllowUserToResizeColumns = false;
             this.completedTaskGridView.AllowUserToResizeRows = false;
+            this.completedTaskGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.completedTaskGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.completedTaskGridView.ColumnHeadersHeight = 29;
             this.completedTaskGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -162,6 +167,7 @@ namespace ProjectManagement
             this.completedTaskGridView.Location = new System.Drawing.Point(38, 43);
             this.completedTaskGridView.Name = "completedTaskGridView";
             this.completedTaskGridView.ReadOnly = true;
+            this.completedTaskGridView.RowHeadersVisible = false;
             this.completedTaskGridView.RowHeadersWidth = 51;
             this.completedTaskGridView.RowTemplate.Height = 24;
             this.completedTaskGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -217,6 +223,8 @@ namespace ProjectManagement
             this.currentTaskGridView.AllowUserToDeleteRows = false;
             this.currentTaskGridView.AllowUserToResizeColumns = false;
             this.currentTaskGridView.AllowUserToResizeRows = false;
+            this.currentTaskGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.currentTaskGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.currentTaskGridView.ColumnHeadersHeight = 29;
             this.currentTaskGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -230,6 +238,7 @@ namespace ProjectManagement
             this.currentTaskGridView.Location = new System.Drawing.Point(20, 43);
             this.currentTaskGridView.Name = "currentTaskGridView";
             this.currentTaskGridView.ReadOnly = true;
+            this.currentTaskGridView.RowHeadersVisible = false;
             this.currentTaskGridView.RowHeadersWidth = 51;
             this.currentTaskGridView.RowTemplate.Height = 24;
             this.currentTaskGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

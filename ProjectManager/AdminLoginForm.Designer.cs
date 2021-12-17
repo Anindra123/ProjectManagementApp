@@ -1,7 +1,7 @@
 ﻿
 namespace ProjectManagement
 {
-    partial class ProjectManagerSignIn
+    partial class AdminLoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,12 @@ namespace ProjectManagement
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectManagerSignIn));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminLoginForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.forgotPasswordLinkLabl = new System.Windows.Forms.LinkLabel();
             this.Cancel = new System.Windows.Forms.Button();
-            this.projMSignInBtn = new System.Windows.Forms.Button();
-            this.projMEmailTextBox = new System.Windows.Forms.TextBox();
-            this.projMPasswordTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.loginBtn = new System.Windows.Forms.Button();
+            this.adminUserName = new System.Windows.Forms.TextBox();
+            this.adminPassword = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -45,11 +44,10 @@ namespace ProjectManagement
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.forgotPasswordLinkLabl);
             this.groupBox1.Controls.Add(this.Cancel);
-            this.groupBox1.Controls.Add(this.projMSignInBtn);
-            this.groupBox1.Controls.Add(this.projMEmailTextBox);
-            this.groupBox1.Controls.Add(this.projMPasswordTextBox);
+            this.groupBox1.Controls.Add(this.loginBtn);
+            this.groupBox1.Controls.Add(this.adminUserName);
+            this.groupBox1.Controls.Add(this.adminPassword);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.pictureBox1);
@@ -59,22 +57,9 @@ namespace ProjectManagement
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(551, 404);
+            this.groupBox1.Size = new System.Drawing.Size(523, 376);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            // 
-            // forgotPasswordLinkLabl
-            // 
-            this.forgotPasswordLinkLabl.AutoSize = true;
-            this.forgotPasswordLinkLabl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.forgotPasswordLinkLabl.LinkColor = System.Drawing.Color.White;
-            this.forgotPasswordLinkLabl.Location = new System.Drawing.Point(19, 272);
-            this.forgotPasswordLinkLabl.Name = "forgotPasswordLinkLabl";
-            this.forgotPasswordLinkLabl.Size = new System.Drawing.Size(148, 23);
-            this.forgotPasswordLinkLabl.TabIndex = 8;
-            this.forgotPasswordLinkLabl.TabStop = true;
-            this.forgotPasswordLinkLabl.Text = "Forgot Password ?";
-            this.forgotPasswordLinkLabl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.forgotPasswordLinkLabl_LinkClicked);
             // 
             // Cancel
             // 
@@ -82,7 +67,7 @@ namespace ProjectManagement
             this.Cancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Cancel.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cancel.ForeColor = System.Drawing.Color.White;
-            this.Cancel.Location = new System.Drawing.Point(354, 329);
+            this.Cancel.Location = new System.Drawing.Point(343, 290);
             this.Cancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(119, 58);
@@ -91,37 +76,37 @@ namespace ProjectManagement
             this.Cancel.UseVisualStyleBackColor = false;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
-            // projMSignInBtn
+            // loginBtn
             // 
-            this.projMSignInBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.projMSignInBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.projMSignInBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.projMSignInBtn.ForeColor = System.Drawing.Color.White;
-            this.projMSignInBtn.Location = new System.Drawing.Point(50, 329);
-            this.projMSignInBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.projMSignInBtn.Name = "projMSignInBtn";
-            this.projMSignInBtn.Size = new System.Drawing.Size(199, 58);
-            this.projMSignInBtn.TabIndex = 2;
-            this.projMSignInBtn.Text = "Sign In as Project Manager";
-            this.projMSignInBtn.UseVisualStyleBackColor = false;
-            this.projMSignInBtn.Click += new System.EventHandler(this.projMSignInBtn_Click);
+            this.loginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.loginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.loginBtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginBtn.ForeColor = System.Drawing.Color.White;
+            this.loginBtn.Location = new System.Drawing.Point(61, 290);
+            this.loginBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.loginBtn.Name = "loginBtn";
+            this.loginBtn.Size = new System.Drawing.Size(117, 58);
+            this.loginBtn.TabIndex = 2;
+            this.loginBtn.Text = "Log In";
+            this.loginBtn.UseVisualStyleBackColor = false;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
-            // projMEmailTextBox
+            // adminUserName
             // 
-            this.projMEmailTextBox.Location = new System.Drawing.Point(203, 165);
-            this.projMEmailTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.projMEmailTextBox.Name = "projMEmailTextBox";
-            this.projMEmailTextBox.Size = new System.Drawing.Size(289, 30);
-            this.projMEmailTextBox.TabIndex = 0;
+            this.adminUserName.Location = new System.Drawing.Point(203, 165);
+            this.adminUserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.adminUserName.Name = "adminUserName";
+            this.adminUserName.Size = new System.Drawing.Size(289, 30);
+            this.adminUserName.TabIndex = 0;
             // 
-            // projMPasswordTextBox
+            // adminPassword
             // 
-            this.projMPasswordTextBox.Location = new System.Drawing.Point(203, 215);
-            this.projMPasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.projMPasswordTextBox.Name = "projMPasswordTextBox";
-            this.projMPasswordTextBox.PasswordChar = '*';
-            this.projMPasswordTextBox.Size = new System.Drawing.Size(289, 30);
-            this.projMPasswordTextBox.TabIndex = 1;
+            this.adminPassword.Location = new System.Drawing.Point(203, 215);
+            this.adminPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.adminPassword.Name = "adminPassword";
+            this.adminPassword.PasswordChar = '*';
+            this.adminPassword.Size = new System.Drawing.Size(289, 30);
+            this.adminPassword.TabIndex = 1;
             // 
             // label2
             // 
@@ -137,9 +122,9 @@ namespace ProjectManagement
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(19, 172);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 23);
+            this.label1.Size = new System.Drawing.Size(97, 23);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Email ";
+            this.label1.Text = "User name ";
             // 
             // pictureBox1
             // 
@@ -152,21 +137,21 @@ namespace ProjectManagement
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // ProjectManagerSignIn
+            // AdminLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(576, 428);
+            this.ClientSize = new System.Drawing.Size(548, 400);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.Name = "ProjectManagerSignIn";
+            this.Name = "AdminLoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Project Manager Sign In";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProjectManagerSignIn_FormClosed);
+            this.Text = "Admin Log In";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminLoginForm_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -178,12 +163,11 @@ namespace ProjectManagement
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button Cancel;
-        private System.Windows.Forms.Button projMSignInBtn;
-        private System.Windows.Forms.TextBox projMEmailTextBox;
-        private System.Windows.Forms.MaskedTextBox projMPasswordTextBox;
+        private System.Windows.Forms.Button loginBtn;
+        private System.Windows.Forms.TextBox adminUserName;
+        private System.Windows.Forms.MaskedTextBox adminPassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.LinkLabel forgotPasswordLinkLabl;
     }
 }

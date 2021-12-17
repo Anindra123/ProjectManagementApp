@@ -68,6 +68,8 @@ namespace ProjectManagement
             this.backLogHistoryGridView.AllowUserToDeleteRows = false;
             this.backLogHistoryGridView.AllowUserToResizeColumns = false;
             this.backLogHistoryGridView.AllowUserToResizeRows = false;
+            this.backLogHistoryGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.backLogHistoryGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.backLogHistoryGridView.ColumnHeadersHeight = 29;
             this.backLogHistoryGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -81,6 +83,7 @@ namespace ProjectManagement
             this.backLogHistoryGridView.Location = new System.Drawing.Point(31, 98);
             this.backLogHistoryGridView.Name = "backLogHistoryGridView";
             this.backLogHistoryGridView.ReadOnly = true;
+            this.backLogHistoryGridView.RowHeadersVisible = false;
             this.backLogHistoryGridView.RowHeadersWidth = 51;
             this.backLogHistoryGridView.RowTemplate.Height = 24;
             this.backLogHistoryGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

@@ -83,21 +83,21 @@ namespace ProjectManagement
                 DataGridViewRow row = currentMembersGridView.SelectedRows[0];
                 string mail = (string)row.Cells["Email"].Value;
                 pMember.SearchMember(mail);
-                if (pT.CheckTaskAssingedToMember(pMember.PMemberID) != null)
+                if (pT.CheckTaskAssingedToMember(pMember.UserID) != null)
                 {
                     DialogResult r = MessageBox.Show("Member has some work progress.If you remove his/her progress will be lost.Continue ?",
                         "Continue", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (r == DialogResult.Yes)
                     {
                         //looping through rows of datatable
-                        DataTable dt = pT.CheckTaskAssingedToMember(pMember.PMemberID);
+                        DataTable dt = pT.CheckTaskAssingedToMember(pMember.UserID);
                         foreach (DataRow taskRow in dt.Rows)
                         {
                             int id = (int)taskRow["Task_ID"];
                             pMember.RemoveAllAssignedTask(id);
 
                         }
-                        int pMember_ID = pMember.PMemberID;
+                        int pMember_ID = pMember.UserID;
                         if (pMember.DeleteMemberGroupInfoTable(pMember_ID) &&
                         pMember.DeleteMemberProjInfoTable(pMember_ID))
                         {
@@ -117,7 +117,7 @@ namespace ProjectManagement
                        "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (r == DialogResult.Yes)
                     {
-                        int pMember_ID = pMember.PMemberID;
+                        int pMember_ID = pMember.UserID;
                         if (pMember.DeleteMemberGroupInfoTable(pMember_ID) &&
                        pMember.DeleteMemberProjInfoTable(pMember_ID))
                         {
@@ -273,7 +273,7 @@ namespace ProjectManagement
                     backLog.BackLog_TaskCompleted = $"{pMember.FirstName} {pMember.LastName}";
                 }
                 backLog.BackLog_TaskTitle = pT.Task_Title;
-                backLog.PManager_ID = pM.PManager_ID;
+                backLog.PManager_ID = pM.UserID;
                 backLog.InsertBackLogData();
                 //RemoveTaskFromTables multicasted deligate 
                 //intance created

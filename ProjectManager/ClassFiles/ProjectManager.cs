@@ -10,45 +10,12 @@ namespace ProjectManagement.ClassFiles
 {
     public class ProjectManager : User
     {
-        DataTable dt = new DataTable();
-        public int PManager_ID { get; set; }
+
+
         public List<ProjectGroup> ProjectGroups { get; set; } = new List<ProjectGroup>();
         public List<Project> Projects { get; set; } = new List<Project>();
-        /// <summary>
-        /// Common function 
-        /// used to reset the datatable data and fill the datatable
-        /// with new data
-        /// </summary>
-        public void FillData(string query)
-        {
-            dt.Clear();
-            dt.Columns.Clear();
-            dt.Rows.Clear();
-            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
-            {
-                SqlDataAdapter sda = new SqlDataAdapter(query, conn);
-                sda.Fill(dt);
-            }
-        }
-        /// <summary>
-        /// Common function 
-        /// used to open database connection and run executeNonQuery command
-        /// and the number of rows effected boolean value is returned
-        /// </summary>
-        public bool RunQuery(string query)
-        {
-            bool ret = false;
-            using (SqlConnection conn = new SqlConnection(DBConnection.GetConnString()))
-            {
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Connection.Open();
-                if (cmd.ExecuteNonQuery() > 0)
-                {
-                    ret = true;
-                }
-            }
-            return ret;
-        }
+
+
         /// <summary>
         /// Will retrieve password of project manager and 
         /// set properties when email is passed
@@ -75,7 +42,7 @@ namespace ProjectManagement.ClassFiles
         {
             string query = $"select * from PManager_TBL where " +
                 $"(PManager_Email ='{email}' or PManager_Password = '{pass}')" +
-                $" and PManager_ID != {PManager_ID};";
+                $" and PManager_ID != {UserID};";
             FillData(query);
             if (dt.Rows.Count >= 1)
             {
@@ -83,22 +50,8 @@ namespace ProjectManagement.ClassFiles
             }
             return false;
         }
-        /// <summary>
-        /// Check during sign up of project manager 
-        /// whether duplicate mail or 
-        /// password is given
-        /// </summary>
-        public bool CheckDuplicateMailAndPass(string email, string pass)
-        {
-            string query = $"select * from PManager_TBL where " +
-                $"PManager_Email ='{email}' or PManager_Password = '{pass}';";
-            FillData(query);
-            if (dt.Rows.Count >= 1)
-            {
-                return true;
-            }
-            return false;
-        }
+
+
         /// <summary>
         /// When project manager updates his/her
         /// account information and clicks update
@@ -110,7 +63,7 @@ namespace ProjectManagement.ClassFiles
             string query = $"update PManager_TBL " +
                 $"set PManager_FirstName = '{fName}',PManager_LastName = '{lName}'," +
                 $"PManager_Password = '{pass}',PManager_Email = '{email}' " +
-                $"where PManager_ID = {PManager_ID}";
+                $"where PManager_ID = {UserID}";
             if (RunQuery(query))
             {
                 return true;
@@ -201,23 +154,23 @@ namespace ProjectManagement.ClassFiles
             string query = $"insert into Project_TBL" + $" (Project_Title,Project_Desc,Project_StartDate,Project_EndDate,PStatus_ID)" + $" values('{pTitle}','{pDesc}','{sDate}','{eDate}','2')";
             return RunQuery(query);
         }
-        /// <summary>
-        /// Retrives project manager data and 
-        /// sets the properties
-        /// </summary>
-        public void GetProjectManager()
-        {
-            string query = $"select * from PManager_TBL where PManager_ID = {PManager_ID}";
-            FillData(query);
-            if (dt.Rows.Count > 0)
-            {
-                FirstName = $"{dt.Rows[0]["PManager_FirstName"]}";
-                LastName = $"{dt.Rows[0]["PManager_LastName"]}";
-                Email = $"{dt.Rows[0]["PManager_Email"]}";
-                password = $"{dt.Rows[0]["PManager_Password"]}";
+        ///// <summary>
+        ///// Retrives project manager data and 
+        ///// sets the properties
+        ///// </summary>
+        //public void GetProjectManager()
+        //{
+        //    string query = $"select * from PManager_TBL where PManager_ID = {UserID}";
+        //    FillData(query);
+        //    if (dt.Rows.Count > 0)
+        //    {
+        //        FirstName = $"{dt.Rows[0]["PManager_FirstName"]}";
+        //        LastName = $"{dt.Rows[0]["PManager_LastName"]}";
+        //        Email = $"{dt.Rows[0]["PManager_Email"]}";
+        //        password = $"{dt.Rows[0]["PManager_Password"]}";
 
-            }
-        }
+        //    }
+        //}
         /// <summary>
         /// Retrives project manager data and 
         /// sets the properties
@@ -228,7 +181,7 @@ namespace ProjectManagement.ClassFiles
             {
                 string query = $"insert into PMemberGroupInfo_TBL " +
                     $"(PMember_ID,PMember_FirstName,PMember_LastName,PMember_Password,PMember_Email,PGroup_ID)" +
-                    $" values ('{item.PMemberID}','{item.FirstName}','{item.LastName}','{item.password}','{item.Email}','{g_id}')";
+                    $" values ('{item.UserID}','{item.FirstName}','{item.LastName}','{item.password}','{item.Email}','{g_id}')";
                 RunQuery(query);
             }
         }
@@ -243,7 +196,7 @@ namespace ProjectManagement.ClassFiles
             {
                 string query = $"insert into PMemberProjectInfo_TBL " +
                     $"(PMember_ID,PMember_FirstName,PMember_LastName,PMember_Password,PMember_Email,Project_ID)" +
-                    $" values ('{item.PMemberID}','{item.FirstName}','{item.LastName}','{item.password}','{item.Email}','{p_id}')";
+                    $" values ('{item.UserID}','{item.FirstName}','{item.LastName}','{item.password}','{item.Email}','{p_id}')";
                 RunQuery(query);
             }
         }
@@ -257,7 +210,7 @@ namespace ProjectManagement.ClassFiles
         {
             ProjectGroups.Clear();
             string query = $"select pg.* from PGroup_TBL as pg, PManagerGroupInfo_TBL as pmg " +
-                $"where pg.PGroup_ID = pmg.PGroup_ID and pmg.PManager_ID = '{PManager_ID}'";
+                $"where pg.PGroup_ID = pmg.PGroup_ID and pmg.PManager_ID = '{UserID}'";
             FillData(query);
             if (dt.Rows.Count > 0)
             {
@@ -285,7 +238,7 @@ namespace ProjectManagement.ClassFiles
             FillData(query);
             if (dt.Rows.Count == 1)
             {
-                output.PMemberID = Convert.ToInt32($"{dt.Rows[0]["PMember_ID"]}");
+                output.UserID = Convert.ToInt32($"{dt.Rows[0]["PMember_ID"]}");
                 output.FirstName = $"{dt.Rows[0]["PMember_FirstName"]}";
                 output.LastName = $"{dt.Rows[0]["PMember_LastName"]}";
                 output.Email = $"{dt.Rows[0]["PMember_Email"]}";
@@ -336,7 +289,7 @@ namespace ProjectManagement.ClassFiles
         {
             Projects.Clear();
             string query = $"select p.* from ManageProject_TBL mp, Project_TBL as p " +
-              $"where p.Project_ID = mp.Project_Id and mp.PManager_ID = '{PManager_ID}'";
+              $"where p.Project_ID = mp.Project_Id and mp.PManager_ID = '{UserID}'";
             FillData(query);
             if (dt.Rows.Count > 0)
             {
@@ -391,7 +344,7 @@ namespace ProjectManagement.ClassFiles
                 $"ps.PStatus_Name as Status " +
                 $"from PManagerGroupInfo_TBL as pmg,ManageProject_TBL as mp,GroupContainsProject_TBL as gcp," +
                 $"ProjectStatus_TBL as ps where " +
-                $"pmg.PManager_ID = '{PManager_ID}' and gcp.PGroup_ID = pmg.PGroup_ID and " +
+                $"pmg.PManager_ID = '{UserID}' and gcp.PGroup_ID = pmg.PGroup_ID and " +
                 $"mp.Project_ID = gcp.Project_ID and ps.PStatus_ID = mp.PStatus_ID";
             FillData(query);
             if (dt.Rows.Count > 0)
@@ -405,37 +358,37 @@ namespace ProjectManagement.ClassFiles
         /// allows project manager to sign in to the system
         /// by verifying data
         /// </summary>
-        public bool SignIn(string email, string pass)
+        //public bool SignIn(string email, string pass)
 
-        {
-            bool ret = false;
-            SqlConnection sqlConn = new SqlConnection(DBConnection.GetConnString());
+        //{
+        //    bool ret = false;
+        //    SqlConnection sqlConn = new SqlConnection(DBConnection.GetConnString());
 
-            sqlConn.Open();
-            string query = $"SELECT * FROM  PManager_TBL WHERE PManager_Email ='{email}' AND PManager_Password = '{pass}'";
-            SqlDataAdapter sda = new SqlDataAdapter(query, sqlConn);
-            DataTable dtbl = new DataTable();
+        //    sqlConn.Open();
+        //    string query = $"SELECT * FROM  PManager_TBL WHERE PManager_Email ='{email}' AND PManager_Password = '{pass}'";
+        //    SqlDataAdapter sda = new SqlDataAdapter(query, sqlConn);
+        //    DataTable dtbl = new DataTable();
 
-            sda.Fill(dtbl);
-            if (dtbl.Rows.Count == 1)
-            {
+        //    sda.Fill(dtbl);
+        //    if (dtbl.Rows.Count == 1)
+        //    {
 
-                PManager_ID = Convert.ToInt32(dtbl.Rows[0]["PManager_ID"].ToString());
-                FirstName = (string)dtbl.Rows[0]["PManager_FirstName"];
-                LastName = (string)dtbl.Rows[0]["PManager_LastName"];
-                Email = (string)dtbl.Rows[0]["PManager_Email"];
-                password = (string)dtbl.Rows[0]["PManager_Password"];
-
-
-
-                ret = true;
-            }
-
-            sqlConn.Close();
-            return ret;
+        //        UserID = Convert.ToInt32(dtbl.Rows[0]["PManager_ID"].ToString());
+        //        FirstName = (string)dtbl.Rows[0]["PManager_FirstName"];
+        //        LastName = (string)dtbl.Rows[0]["PManager_LastName"];
+        //        Email = (string)dtbl.Rows[0]["PManager_Email"];
+        //        password = (string)dtbl.Rows[0]["PManager_Password"];
 
 
-        }
+
+        //        ret = true;
+        //    }
+
+        //    sqlConn.Close();
+        //    return ret;
+
+
+        //}
         /// <summary>
         /// Checkes whether a task withh similar title
         /// exists
@@ -579,7 +532,7 @@ namespace ProjectManagement.ClassFiles
             FillData(query);
             if (dt.Rows.Count == 1)
             {
-                PManager_ID = Convert.ToInt32(dt.Rows[0]["PManager_ID"].ToString());
+                UserID = Convert.ToInt32(dt.Rows[0]["PManager_ID"].ToString());
                 FirstName = dt.Rows[0]["PManager_FirstName"].ToString();
                 LastName = dt.Rows[0]["PManager_LastName"].ToString();
                 Email = dt.Rows[0]["PManager_Email"].ToString();

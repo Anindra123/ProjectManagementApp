@@ -125,6 +125,8 @@ namespace ProjectManagement
             this.currentMembersGridView.AllowUserToDeleteRows = false;
             this.currentMembersGridView.AllowUserToResizeColumns = false;
             this.currentMembersGridView.AllowUserToResizeRows = false;
+            this.currentMembersGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.currentMembersGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.currentMembersGridView.ColumnHeadersHeight = 29;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
@@ -137,6 +139,7 @@ namespace ProjectManagement
             this.currentMembersGridView.Location = new System.Drawing.Point(36, 181);
             this.currentMembersGridView.Name = "currentMembersGridView";
             this.currentMembersGridView.ReadOnly = true;
+            this.currentMembersGridView.RowHeadersVisible = false;
             this.currentMembersGridView.RowHeadersWidth = 51;
             this.currentMembersGridView.RowTemplate.Height = 24;
             this.currentMembersGridView.Size = new System.Drawing.Size(518, 84);
@@ -203,6 +206,8 @@ namespace ProjectManagement
             this.currentActiveTaskDataGridView.AllowUserToDeleteRows = false;
             this.currentActiveTaskDataGridView.AllowUserToResizeColumns = false;
             this.currentActiveTaskDataGridView.AllowUserToResizeRows = false;
+            this.currentActiveTaskDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.currentActiveTaskDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.currentActiveTaskDataGridView.ColumnHeadersHeight = 29;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;

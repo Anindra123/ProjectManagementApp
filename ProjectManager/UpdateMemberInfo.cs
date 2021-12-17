@@ -47,75 +47,75 @@ namespace ProjectManagement
         }
         private void updateCnfirmBtn_Click(object sender, EventArgs e)
         {
-            string fName = projectMemberFirstNameTxtBox.Text.Trim();
-            string lName = projectMemberLastNameTxtBox.Text.Trim();
-            string password = projMemberPasswordTextBox.Text.Trim();
-            string email = projMemberEmailTxtBox.Text.Trim();
-            pM.FirstName = fName;
-            pM.LastName = lName;
-            pM.Email = email;
-            pM.password = password;
-            //since it is updating , true is passed on the method 
-            //paramenter
-            if (validations.SignUpAndUpdateValidation<ProjectMember>(true,
-                fName, lName, email, password, pM))
-            {
-                //if a member has left the group whilst updating
-                //his/her account info
-                //removes all assigned task when leaving a group
-                if (leaveGroup == true && pM.UpdateMemberInfo())
-                {
-                    int pMemberID = pM.PMemberID;
-                    DataTable dt = pT.CheckTaskAssingedToMember(pMemberID);
-                    if (dt != null)
-                    {
-                        foreach (DataRow row in dt.Rows)
-                        {
-                            int t_id = (int)row["Task_ID"];
-                            pM.RemoveAllAssignedTask(t_id);
-                        }
-                        if (pM.DeleteMemberGroupInfoTable(pMemberID)
-                        && pM.DeleteMemberProjInfoTable(pMemberID)
-                       )
-                        {
-                            MessageBox.Show("Updated Sucessfully", "Sucess",
-             MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            pG = null;
-                            pMang = null;
-                            project = null;
-                            leaveGroup = false;
-                        }
-                    }
-                    else
-                    {
-                        if (pM.DeleteMemberGroupInfoTable(pMemberID)
-                      && pM.DeleteMemberProjInfoTable(pMemberID)
-                     )
-                        {
-                            MessageBox.Show("Updated Sucessfully", "Sucess",
-             MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            pG = null;
-                            pMang = null;
-                            project = null;
-                            leaveGroup = false;
-                        }
-                    }
+            //string fName = projectMemberFirstNameTxtBox.Text.Trim();
+            //string lName = projectMemberLastNameTxtBox.Text.Trim();
+            //string password = projMemberPasswordTextBox.Text.Trim();
+            //string email = projMemberEmailTxtBox.Text.Trim();
+            //pM.FirstName = fName;
+            //pM.LastName = lName;
+            //pM.Email = email;
+            //pM.password = password;
+            ////since it is updating , true is passed on the method 
+            ////paramenter
+            //if (validations.SignUpAndUpdateValidation(true,
+            //    fName, lName, email, password, pM))
+            //{
+            //    //if a member has left the group whilst updating
+            //    //his/her account info
+            //    //removes all assigned task when leaving a group
+            //    if (leaveGroup == true && pM.UpdateMemberInfo())
+            //    {
+            //        int pMemberID = pM.PMemberID;
+            //        DataTable dt = pT.CheckTaskAssingedToMember(pMemberID);
+            //        if (dt != null)
+            //        {
+            //            foreach (DataRow row in dt.Rows)
+            //            {
+            //                int t_id = (int)row["Task_ID"];
+            //                pM.RemoveAllAssignedTask(t_id);
+            //            }
+            //            if (pM.DeleteMemberGroupInfoTable(pMemberID)
+            //            && pM.DeleteMemberProjInfoTable(pMemberID)
+            //           )
+            //            {
+            //                MessageBox.Show("Updated Sucessfully", "Sucess",
+            // MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //                pG = null;
+            //                pMang = null;
+            //                project = null;
+            //                leaveGroup = false;
+            //            }
+            //        }
+            //        else
+            //        {
+            //            if (pM.DeleteMemberGroupInfoTable(pMemberID)
+            //          && pM.DeleteMemberProjInfoTable(pMemberID)
+            //         )
+            //            {
+            //                MessageBox.Show("Updated Sucessfully", "Sucess",
+            // MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //                pG = null;
+            //                pMang = null;
+            //                project = null;
+            //                leaveGroup = false;
+            //            }
+            //        }
 
 
-                }
-                else if (pM.UpdateMemberInfo())
-                {
+            //    }
+            //    else if (pM.UpdateMemberInfo())
+            //    {
 
-                    MessageBox.Show("Updated Sucessfully", "Sucess",
-             MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        MessageBox.Show("Updated Sucessfully", "Sucess",
+            // MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                }
-                else
-                {
-                    MessageBox.Show("Error during update", "Error",
-              MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Error during update", "Error",
+            //  MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
 
 
         }
