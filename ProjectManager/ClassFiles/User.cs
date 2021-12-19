@@ -154,9 +154,24 @@ namespace ProjectManagement.ClassFiles
         }
         public DataTable GetUserList()
         {
-            string query = "select u.User_ID as [User ID],Concat(u.user_firstname,'',u.user_lastname) as [Full Name]," +
+            string query = "select u.User_ID as [User ID],Concat(u.user_firstname,' ',u.user_lastname) as [Full Name]," +
                 "u.user_email as Email,pt.PUser_Type as Role,ps.PUserStatus_Type as Status from User_TBL as u,PUserType as pt," +
                 "PUserStatus as ps where pt.PUser_ID = u.PUser_ID and ps.PUserStatus_ID = u.PUserStatus_ID ";
+
+            FillData(query);
+            if (dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            return null;
+        }
+
+        public DataTable GetUserByName(string name)
+        {
+            string query = "select u.User_ID as [User ID],Concat(u.user_firstname,' ',u.user_lastname) as [Full Name]," +
+                "u.user_email as Email,pt.PUser_Type as Role,ps.PUserStatus_Type as Status from User_TBL as u,PUserType as pt," +
+                "PUserStatus as ps where pt.PUser_ID = u.PUser_ID and ps.PUserStatus_ID = u.PUserStatus_ID and " +
+                $"Concat(u.user_firstname,' ',u.user_lastname) like '{name}%'";
 
             FillData(query);
             if (dt.Rows.Count > 0)

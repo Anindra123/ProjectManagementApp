@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 namespace ProjectManagement
 {
@@ -15,7 +16,10 @@ namespace ProjectManagement
     {
         Admin admin;
         int updatedStatus = 1;
+        static bool newNotfication = false;
         Validations validations = new Validations();
+        static PopupNotifier popupNotifier = new PopupNotifier();
+        static List<string> messages = new List<string>();
         public AdminDashboardForm()
         {
             InitializeComponent();
@@ -41,8 +45,41 @@ namespace ProjectManagement
             unVerifiedRadioBtn.Enabled = state;
             blockRadioBtn.Enabled = state;
         }
+        public void ShowAllNotification()
+        {
+            if (messages.Count > 0)
+            {
+                foreach (string item in messages)
+                {
+                    popupNotifier.ContentText = item;
+                    popupNotifier.Popup();
+                }
+            }
+        }
+        public static void SetNotification(bool notify, string msg)
+        {
+            newNotfication = notify;
+            messages.Add(msg);
+
+        }
+        public void SetNewNotification()
+        {
+            if (newNotfication)
+            {
+                notificationsBtn.Image = Properties.Resources.Bell_Active;
+                ShowAllNotification();
+            }
+            else
+            {
+                notificationsBtn.Image = Properties.Resources.Bell_Inactive;
+            }
+        }
         private void IntializeAdminDashBoard()
         {
+            popupNotifier.ContentColor = Color.White;
+            popupNotifier.BodyColor = Color.Black;
+            popupNotifier.TitleText = "New notification";
+            popupNotifier.TitleColor = Color.White;
             updatedStatus = 1;
             currentUsersGridView.DataSource = null;
             if (admin.GetUserList() != null)
@@ -50,14 +87,15 @@ namespace ProjectManagement
                 currentUsersGridView.DataSource = admin.GetUserList().Copy();
                 currentUsersGridView.ClearSelection();
             }
-
             fullNameTextBox.Text = null;
             emailTexbox.Text = null;
             ChangeBtnState(false);
+            SetNewNotification();
         }
         private void AdminDashboardForm_Load(object sender, EventArgs e)
         {
             IntializeAdminDashBoard();
+
         }
 
         private void currentUsersGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -136,6 +174,53 @@ namespace ProjectManagement
             var form1 = (AdminLoginForm)Tag;
             var form2 = (ProjectManagementStartForm)form1.Tag;
             form2.Show();
+        }
+
+        private void searchUserNameTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(searchUserNameTxtBox.Text.Trim()))
+            {
+                if (admin.GetUserByName(searchUserNameTxtBox.Text.Trim()) != null)
+                {
+                    currentUsersGridView.DataSource = admin.GetUserByName(searchUserNameTxtBox.Text.Trim()).Copy();
+                    currentUsersGridView.ClearSelection();
+                }
+                else
+                {
+                    IntializeAdminDashBoard();
+                }
+            }
+            else
+            {
+                IntializeAdminDashBoard();
+            }
+        }
+
+        private void deleteAccountBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult r = validations.ConfirmationMessage("Are you sure you want to remove this account ?");
+            if (r == DialogResult.Yes)
+            {
+                if (admin.DeleteUserAccount())
+                {
+                    validations.ShowInfo("Account removed sucessfully");
+                    searchUserNameTxtBox.Text = null;
+                    IntializeAdminDashBoard();
+                }
+                else
+                {
+                    validations.ShowError("Error while removing account");
+                }
+            }
+        }
+
+        private void notificationsBtn_Click(object sender, EventArgs e)
+        {
+            newNotfication = false;
+            messages.Clear();
+            SetNewNotification();
+            NotificationsForm notificationsForm = new NotificationsForm();
+            notificationsForm.ShowDialog();
         }
     }
 }
