@@ -29,5 +29,13 @@ namespace ProjectManagement.ClassFiles
                 $" user_id = {UserID}";
             return RunQuery(query);
         }
+
+        public bool DeleteUserAccount()
+        {
+            string query = $"delete from user_tbl" +
+                $" where user_id = {UserID} " +
+                $"DBCC CHECKIDENT ('user_tbl')";
+            return RunQuery(query);
+        }
     }
 }

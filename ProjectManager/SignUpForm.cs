@@ -104,6 +104,9 @@ namespace ProjectManagement
                         DialogResult result = validations.ShowInfo("Sign Up Sucessful.Account verification request has been sent.");
                         if (result == DialogResult.OK)
                         {
+                            string msg = $"New user {fName} {lName} signed up and needs verification";
+                            NotificationsForm.SetNotification(msg, 0);
+                            AdminDashboardForm.SetNotification(true, msg);
                             ResetSignUpFeilds();
                         }
                     }

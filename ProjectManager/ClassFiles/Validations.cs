@@ -159,6 +159,13 @@ namespace ProjectManagement.ClassFiles
             }
             return true;
         }
+
+        public DialogResult ConfirmationMessage(string msg)
+        {
+            DialogResult r = MessageBox.Show(msg, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return r;
+
+        }
     }
 
 }
