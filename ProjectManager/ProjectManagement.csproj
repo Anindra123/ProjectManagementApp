@@ -33,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentEmail.Core, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentEmail.Core.3.0.0\lib\netstandard2.0\FluentEmail.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentEmail.Smtp, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentEmail.Smtp.3.0.0\lib\netstandard2.0\FluentEmail.Smtp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.11.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.11\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -75,6 +84,7 @@
     </Compile>
     <Compile Include="ClassFiles\Admin.cs" />
     <Compile Include="ClassFiles\BackLog.cs" />
+    <Compile Include="ClassFiles\Mail.cs" />
     <Compile Include="ClassFiles\Notifications.cs" />
     <Compile Include="ClassFiles\PUserStatus.cs" />
     <Compile Include="ClassFiles\PUserType.cs" />
@@ -114,6 +124,12 @@
     </Compile>
     <Compile Include="SearchAndAddMember.Designer.cs">
       <DependentUpon>SearchAndAddMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SendPasswordWaitScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendPasswordWaitScreen.Designer.cs">
+      <DependentUpon>SendPasswordWaitScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateMemberInfo.cs">
       <SubType>Form</SubType>
@@ -257,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SearchAndAddMember.resx">
       <DependentUpon>SearchAndAddMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SendPasswordWaitScreen.resx">
+      <DependentUpon>SendPasswordWaitScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateMemberInfo.resx">
       <DependentUpon>UpdateMemberInfo.cs</DependentUpon>

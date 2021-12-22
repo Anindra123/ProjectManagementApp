@@ -111,6 +111,7 @@ namespace ProjectManagement.ClassFiles
                 LastName = null;
             }
             Email = $"{dt.Rows[0]["User_Email"]}";
+            password = $"{dt.Rows[0]["User_Password"]}";
             int puser_id = (int)dt.Rows[0]["PUser_ID"];
             int puserStatus_id = (int)dt.Rows[0]["PUserStatus_ID"];
             UserType = PUserType.GetUserType(puser_id);
@@ -131,6 +132,7 @@ namespace ProjectManagement.ClassFiles
                 LastName = null;
             }
             Email = $"{dt.Rows[0]["User_Email"]}";
+            password = $"{dt.Rows[0]["User_Password"]}";
             int puser_id = (int)dt.Rows[0]["PUser_ID"];
             int puserStatus_id = (int)dt.Rows[0]["PUserStatus_ID"];
             UserType = PUserType.GetUserType(puser_id);
@@ -179,6 +181,18 @@ namespace ProjectManagement.ClassFiles
                 return dt;
             }
             return null;
+        }
+
+        public bool GetUserByMail(string mail)
+        {
+            string query = $"select * from user_tbl where user_email = '{mail}'";
+            FillData(query);
+            if (dt.Rows.Count == 1)
+            {
+                FillUserInfo();
+                return true;
+            }
+            return false;
         }
     }
 }
